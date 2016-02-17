@@ -1,0 +1,58 @@
+
+\section{用数列方法解决错位排列问题}
+\label{sec:derangement-problem}
+
+此文要解决的问题是：有编号为$1,2,\ldots,n$的$n$个人和同样编号的$n$个座位，如果每个人都不允许坐与自身编号相同的座位，有多少种坐法？此即所谓的错位排列问题。
+
+这个用容斥原理是可以瞬间解决的，高中时期年少轻狂，愣是用定义数列求通项的方法给求出来了，此文即是重新写的，原稿已经遗失。
+
+考虑编号为1的人，假如他坐在编号为$r_1$的座位上，又看编号为$r_1$的人，他可以坐在1号座位上，也可以坐在$r_2$号座位上，如果是坐在1号座位上，那么1号和$r_1$号这两个人由于交叉坐，与其他人无涉，如果是坐在$r_2$号座位上，则再继续看$r_2$号人，依此顺着链条$1\rightarrow r_1 \rightarrow r_2 \rightarrow \cdots$，这样下去的结果是，从1号人开始，能够找到一个环，使得该环内的人和座位与环外的人和座位无涉，可以独立开来，如果找不到这样的环，那无非是所有人一起构成了一个整体环，即是无法分割。这样的环可能不止一个，但我们仅考虑包含1号人的那个环。
+
+假定$n$个人的错位排列数为$a_n$，设包含1号人的环共含有$m(2\leqslant m \leqslant n-2)$个人，那么只要从除1号之外的人中选出$m-1$个人排在这个座位链上，因此座法是$(m-1)!C_{n-1}^{m-1}=\frac{(n-1)!}{(n-m)!}$，而剩下的$n-m$个人又组成了一个较小的错位排列，因此其坐法数是$a_{n-m}$，此外，当$m=n$时，所有人构成一个环，只要把他们按照座位链排成一排即可，所以此时的坐法是$(n-1)!$，于是总共的坐法是：
+\begin{equation}
+  \label{eq:requsive-equation-derangement}
+  a_n=\sum_{m=2}^{n-2}\frac{(n-1)!}{(n-m)!}a_{n-m}+(n-1)!=(n-1)!(\sum_{m=2}^{n-2}\frac{a_{n-m}}{(n-m)!}+1)
+\end{equation}
+此即其作为数列的递推公式，自然的，$a_1=0,a_2=1$。
+
+下面来求它的通项公式，上式可以变形为(注意求和顺序倒过来了)：
+\begin{equation}
+  \label{recursive-equation-derangement-2}
+  \frac{a_n}{n!}=\frac{1}{n}(1+\sum_{m=2}^{n-2}\frac{a_m}{m!})
+\end{equation}
+只要记$b_n=\frac{a_n}{n!}$，则有$b_1=0$和
+\begin{equation}
+  \label{eq:recursive-equation-derangement-simple}
+  b_n=\frac{1}{n}(1+\sum_{m=2}^{n-2}b_m)
+\end{equation}
+于是有
+\begin{equation}
+  \label{eq:recursive-equation-derangement-simple-diff}
+  nb_n-(n-1)b_{n-1}=b_{n-2}
+\end{equation}
+也就是
+\begin{equation}
+  \label{eq:recursive-equation-derangement-simple-diff2}
+  b_n-b_{n-1}=-\frac{1}{n}(b_{n-1}-b_{n-2})
+\end{equation}
+而$b_2-b_1=\frac{1}{2}$，所以
+\begin{equation}
+  \label{eq:recursive-equation-derangement-bn}
+  b_n-b_{n-1}=(-1)^{n-2}\frac{1}{n!}=(-1)^n\frac{1}{n!}
+\end{equation}
+于是
+\begin{equation}
+  \label{eq:derangement-bn}
+  b_n=b_1+\sum_{m=2}^{n}(b_m-b_{m-1})=\sum_{m=2}^n(-1)^m\frac{1}{m!}
+\end{equation}
+所以最终
+\begin{equation}
+  \label{eq:derangement-an}
+  a_n=n!b_n=n!\sum_{m=2}^n(-1)^m\frac{1}{m!}
+\end{equation}
+在$0!=1$的规定下，也可以把求和指标从零开始
+\begin{equation}
+  \label{eq:derangement-an2}
+  a_n=n!\sum_{m=0}^n(-1)^m\frac{1}{m!}
+\end{equation}
+这就是最终的结果。

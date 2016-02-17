@@ -1,0 +1,85 @@
+
+\section{用向量定比分点公式解决与交点相关的平面几何问题}
+\label{sec:vector-geometry}
+
+本文是人教数学官方论坛QQ群里某网友发上来的题目，我一瞅，这不又是这类问题么，之前 我用向量定比分点公式证明过梅涅劳斯定理和塞瓦定理，少不得再卖弄一番。当然了，其实葫芦里 也没什么东西，不过是用了向量的共线、定比分点和内积方面的几个小知识点而已，借此也保证不 超出高中教学大纲的范围。
+
+向量的定比分点公式，其实更加有用的是另一种形式$\vec{x} = t \vec{a} + (1 - t) \vec{b}$，因为只要取$t = 1 / 2$便 定位出中点，而分别取0和1，则分别得出两个基向量，这是用分比的形式所得不出的。
+
+这个方法就是，对于两条线段的交点，先在其中一条线段上使用定比分点公式，而公式中的这 个实数就是一个待定的参数，怎么定出这个参数呢，再通过该点在另一线段上，就有相关向量的共 线关系，于是得出关于这个参数的方程，以后的事情就没什么技术含量了。
+
+题目： 三角形$\triangle A B C$中，$A D$是$\angle B A C$的平分线，点$D$在$B C$边上，$D E$、$D F$分别与边$A B$、$A C$垂直， $E$和$F$是垂足，$B F$、$C E$相交于点$P$，求证：$A P \bot B C$。
+
+证明：设$\overrightarrow{A B} = \vec{a}$, $\overrightarrow{A C} = \vec{b}$，并记$| \vec{a} | = a$，$| \vec{b} | = b$，则由于$\frac{B D}{D C} = \frac{A B}{A C}$，根据向量定比分点公式得 
+\begin{equation}
+\overrightarrow{A D} = \frac{b}{a + b} \vec{a} + \frac{a}{a + b} \vec{b}
+\end{equation}
+ 再设$\overrightarrow{A E} = \lambda_1 \vec{a}$，则由$\overrightarrow{D E} \cdot \vec{a} = 0$得
+ \begin{equation}
+   \label{eq:vector-geometry-lambda-1}
+(b - \lambda_1 (a + b)) a + (\vec{a} \cdot \vec{b}) = 0 
+ \end{equation}
+或者
+\begin{equation}
+  \label{eq:vector-geometry-lambda-1-1}
+(1 - \lambda_1) a b - \lambda_1 a^2 + m = 0
+\end{equation}
+
+同理，设$\overrightarrow{A F} = \lambda_2 \vec{b}$，则有
+\begin{equation}
+  \label{eq:vector-geometry-lambda-2}
+(a - \lambda_2 (a + b)) b + (\vec{a} \cdot \vec{b}) = 0
+\end{equation}
+或者
+\begin{equation}
+  \label{eq:vector-geometry-lambda-2-1}
+(1 - \lambda_2) a b - \lambda_2 b^2 + m = 0
+\end{equation}
+(题外话：据此便有$a \lambda_1 = b \lambda_2$，这与$A E = A F$相吻合)
+
+为确定点$P$的位置，设$\overrightarrow{B P} = t \overrightarrow{P F}$，则
+\begin{align}
+\overrightarrow{A P} & = & \frac{1}{1 + t} \overrightarrow{A B} + \frac{t}{1 + t} \overrightarrow{A F} \\
+& = & \frac{1}{1 + t} \vec{a} + \frac{t}{1 + t} \lambda_2 \vec{b}
+\end{align}
+
+为便于计算，记$r = \frac{t}{1 + t}$，则$\overrightarrow{A P} = (1 - r) \vec{a} + r \lambda_2 \vec{b}$ 
+
+接着便要确定$r$的值，由于点$P$也在$C E$上，所以$\overrightarrow{C P}$与$\overrightarrow{C E}$共线，而 $\overrightarrow{C E} = \overrightarrow{A E} - \overrightarrow{A C} = \lambda_1 \vec{a} - \vec{b}$，$\overrightarrow{C P} = \overrightarrow{A P} - \overrightarrow{A C} = (1 - r) \vec{a} + (r \lambda_2 - 1) \vec{b}$
+
+设$\overrightarrow{C P} = s \overrightarrow{C E}$，消去$s$得到 $1 - r = \lambda_1 (1 - r \lambda_2)$，记为(3)式，解之得$r = \frac{1 - \lambda_1}{1 - \lambda_1 \lambda_2}$ ，记为(3a)式
+
+同样为了方便，记$m = (\vec{a} \cdot \vec{b})$，则
+\begin{eqnarray*}
+  \overrightarrow{C B} \cdot \overrightarrow{A P} & = & (\vec{a} - \vec{b})
+  \cdot ((1 - r) \vec{a} + r \lambda_2 \vec{b})\\
+  & = & (1 - r) a^2 - r \lambda_2 b^2 + (r \lambda_2 - (1 - r)) m
+\end{eqnarray*}
+由(2a)有 $\lambda_2 b^2 = (1 - \lambda_2) a b + m$，代入上式得
+$\begin{array}{lll}
+  \overrightarrow{C B} \cdot \overrightarrow{A P} & = & (1 - r) a^2 - r (1 -
+  \lambda_2) a b - r m + (r \lambda_2 -  1 + r)) m\\
+  & = & (1 - r) a^2 - r (1 - \lambda_2) a b + (r \lambda_2 -  1) m
+  
+\end{array}$
+又由(3)式得$r \lambda_2 - 1 = - \frac{1 -
+r}{\lambda_1}$，并将(3a)代入上式得
+$\begin{array}{lll}
+  \overrightarrow{C B} \cdot \overrightarrow{A P} & = & (1 - r) \left( a^2 -
+  \frac{m}{\lambda_1} \right) - \frac{(1 - \lambda_1) (1 - \lambda_2)}{1 -
+  \lambda_1 \lambda_2} a b\\
+  & = & \frac{\lambda_1 (1 - \lambda_2)}{1 - \lambda_1 \lambda_2} \left( a^2
+  - \frac{m}{\lambda_1} \right) - \frac{(1 - \lambda_1) (1 - \lambda_2)}{1 -
+  \lambda_1 \lambda_2} a b\\
+  & = & \frac{1 - \lambda_2}{1 - \lambda_1 \lambda_2} (\lambda_1 a^2 - m - (1
+  - \lambda_1) a b)\\
+  & = & \frac{1 - \lambda_2}{1 - \lambda_1 \lambda_2} a (\lambda_1 a (a + b)
+  - m - a b)
+\end{array}$
+再由(1)式得$\lambda_1 a (a + b) = a b + m$，代入上式立刻得到
+$\overrightarrow{C B} \cdot \overrightarrow{A P} = 0$，证毕。
+
+
+
+
+
