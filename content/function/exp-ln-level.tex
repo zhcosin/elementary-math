@@ -1,0 +1,61 @@
+
+\section{关于指对函数与多项式函数的增长阶的比较}
+\label{sec:exp-log-level}
+
+最近人教数学官方QQ群接连抛出如下两道与指对函数与多项式函数的增长阶有关的题目，
+\begin{exercise}
+  (辽G教师LiBy) 设$a>0$为实常数，讨论函数$f(x)=ax^2-e^x$的极值点个数.
+\end{exercise}
+
+\begin{exercise}
+  (辽B爱好者1bk3) 已知$a>0$为实常数，函数$f(x)=\ln{x}$，$g(x)=ax-1$ \\
+  (1). 讨论函数$h(x)=f(x)-g(x)$的单调性. \\
+  (2). 若函数$f(x)$与$g(x)$有两个不同的交点$A(x_1,y_1)$和$B(x_2,y_2)$，其中$x_1<x_2$，求实数$a$的取值范围.
+\end{exercise}
+两个问题到最后引申出了如下两个子问题.
+\begin{topic}
+  \label{topic-exp}
+  已知实数$a>0$，证明存在实数$s>\ln{2a}$，使得$e^s>2as$成立.
+\end{topic}
+
+\begin{topic}
+  \label{topic-log}
+  已知实数$a>0$, 证明存在实数$s>\frac{1}{a}$，使得$\ln{s}<as-1$成立.
+\end{topic}
+
+这两个问题的背景都是高等数学中指对函数与多项式函数的增长阶，标准答案都是通过导数解决的，现在，我们利用初等方法证明下面这两个更强的结论，它们是本文的主要结论.
+\begin{statement}
+  \label{statement-exp}
+  设实数$a>1$，则存在实数$T$，使得对于任意满足$x>T$的实数$x$均成立$a^x>x^m$，这里$m$是任何正整数.
+\end{statement}
+这结论的意义就是：指数函数能够在充分远的区间$(T,+\infty)$上，大于任何多项式函数，只要$T$选择的足够大。
+
+\begin{statement}
+  \label{statement-log}
+  设实数$a>0$，则存在实数$T$，使得对于任何满足$x>T$的实数$x$，均成立$\ln{x}<ax$，这里$m$是任何正整数.
+\end{statement}
+这结论就是说：对数函数能够在充分远的区间$(T,+\infty)$上比多项式中增长最慢的一次函数都还要小。
+
+先证明命题\ref{statement-exp}，其实只要证明$m=1$的情况就行了，因为
+\[ \frac{a^x}{x^m} = \left( \frac{(a^{\frac{1}{m}})^x}{x} \right)^m \]
+只要$a>1$，就能保证$a^{\frac{1}{m}}>1$，所以由$m=1$的情况便可证明$m>1$的情况。在$m=1$时，不等式简化成$a^x>x$。
+
+因为$a>1$，命$a=1+\lambda(\lambda>0)$，对于自变量$x$为正整数的时候，利用二项式定理，我们有
+\[ a^n = (1+\lambda)^n=\sum_{k=0}^nC_n^k\lambda^k > C_n^2\lambda^2 =\frac{1}{2}n(n-1)\lambda^2 \]
+所以只要$n>1+\frac{2}{\lambda^2}$，便能保证$a^n>n$成立.
+
+根据前面所说，显然我们也已经证明了$m>1$时的限于正整数情形的结论: 存在实数$T$，使得对于任何满足$n>T$的正整数$n$，均有$a^n>n^m$成立，$m$是任何正整数.
+
+现在来考虑自变量$x$的一般情形，设其整数部分为$n$，$x=n+\alpha(0\leqslant \alpha < 1)$，在刚才正整数的结论中取$m=2$，就有，存在实数$T$，使得对于任何满足$n>T$的正整数$n$都成立
+\[ a^x = a^{n+\alpha} = a^{\alpha}a^n \geqslant a^n > n^2 > n+1 > n+\alpha = x \]
+于是命题得证.
+
+接下来再看对数函数的结论:
+因为$\ln{ax}<ax$等价于$ax<e^{ax}$，利用指数函数的结论，存在实数$T$使得任何满足$x>T$的实数$x$都成立$e^{ax}>(ax)^2$，为了使其大于$ax$，只要再限制$x>\frac{1}{a}$就行，于是我们取一个新的$T'$，使其同时大于$T$和$\frac{1}{a}$就行了，于是命题得证.
+
+现在来证明问题\ref{topic-log}，只要在命题\ref{statement-log}中将$a$换成$\frac{a}{2}$便知存在实数$T$，使得不等式$\ln{x}<\frac{1}{2}ax$能在区间$(T,+\infty)$上恒成立，显然当$x>\frac{2}{a}$时有$\frac{1}{2}ax<ax-1$成立，所以只要取$T'$使得同时大于$T$和$\frac{2}{a}$就行了，证毕.
+
+今天就写到这里，以后从这里引申开，给出极限的$\epsilon - N$定义后，利用本文的结论就可以证明如下两个极限:
+\[ \lim_{x \to +\infty}\frac{x^m}{e^x} = 0 \] 
+和
+ \[ \lim_{x \to +\infty}\frac{\ln{x}}{x} = 0 \]

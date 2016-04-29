@@ -1,0 +1,35 @@
+
+\section{椭圆两个定义的等价性}
+\label{sec:oval-two-definition}
+
+本文从纯几何出发证明椭圆两个定义的等价性。
+
+只要证明下面这个命题就可以了：
+\begin{statement}
+设$a$和$c$是两个正实数，且$a>c$，$F_1$和$F_2$是平面上相距为$2c(c>0)$的两个定点，$O$为它们的中点，$L$为射线$OF_1$上满足$OL=\frac{a^2}{c}$的点(由于$\frac{a^2}{c}>c$，因此$L$比$F_1$距离$O$更远一些)，直线$l$过点$L$且与直线$F_1F_2$垂直，则平面上的动点$P$到$F_1$、$F_2$的距离之和为$2a$的充分必要条件是$\frac{PF_1}{d}=\frac{c}{a}$，其中$d$是动点$P$到直线$l$的距离。
+\end{statement}
+
+\begin{proof}[证明]
+ 先证必要性。设直线$PF_1$的倾斜角为$\theta$，记$PF_1=r$，则$PF_2=2a-r$，在三角形$PF_1F_2$中由余弦定理得
+\[ (2a-r)^2=r^2+(2c)^2-2r \cdot 2c \cdot \cos{\theta} \]
+记$b^2=a^2-c^2$，则由上式解得
+\footnote{这就是椭圆的焦半径公式。}
+\begin{equation}
+\label{eq:focal-radius}
+r=\frac{b^2}{a-c\cos{\theta}}
+\end{equation}
+
+另外，根据几何关系显然有
+\begin{equation}
+  \label{eq:oval-two-definition-d}
+ d=LF_1+PF_1\cos{\theta}=\frac{a^2}{c}-c+r\cos{\theta}=\frac{b^2}{c}+r\cos{\theta} 
+\end{equation}
+因此
+\[ \frac{d}{r}=\frac{1}{r}\frac{b^2}{c}+\cos{\theta} \] 
+将式\ref{eq:focal-radius}代入上式右端，立即得到$\frac{d}{r}=\frac{a}{c}$，必要性得证。
+
+下证充分性，倾斜角及$r$的定义同前，此时式\ref{eq:oval-two-definition-d}仍然成立，因此
+\[ \frac{a}{c}=\frac{d}{r}=\frac{b^2}{c} \cdot \frac{1}{r}+\cos{\theta} \]
+解出$r$即得到\ref{eq:focal-radius}，
+\end{proof}
+
