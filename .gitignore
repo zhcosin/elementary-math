@@ -1,0 +1,11 @@
+*.pdf
+*.log
+*.aux
+*.maf
+*.mtc
+*.mtc*
+*.toc
+*.out
+*.dvi
+*~
+*#*#
