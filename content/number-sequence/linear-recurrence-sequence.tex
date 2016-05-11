@@ -1,0 +1,59 @@
+
+\section{线性递推数列的通项}
+\label{sec:linear-recurrence-sequence}
+
+本节讨论常系数线性递推数列的通项求法问题，这个都是有固定结论的内容，本文只是粗略转叙一番而已。
+
+所谓常系数线性递推数列，是指它的递推公式形如$\sum_{k=1}^n \lambda _k a_k = c$的数列，例如斐波那契数列$a_{n+2}=a_{n+1}+a_n$。
+
+先看最简单的一种，递推式为$a_{n+1}=pa_n+q$的数列，当$p=1$时它成为等差数列，当$q=0$则成为等比数列，所以此处限定$p \neq 1, q \neq 0$。
+
+要求它的通项，只要在它两端同时除以$p^{n+1}$，就有
+\[ \frac{a_{n+1}}{p^{n+1}} = \frac{a_n}{p^n} + \frac{q}{p^{n+1}} \]
+因此有
+\begin{eqnarray*}
+\frac{a_n}{p^n} & = & \frac{a_1}{p} + \sum_{k=2}^{n}\left( \frac{a_k}{p^k} - \frac{a_{k-1}}{p^{k-1}} \right) \\
+& = & \frac{a_1}{p} + \sum_{k=2}^{n}\frac{q}{p^k}
+\end{eqnarray*}
+剩下的就是对一个等比数列进行求和了。
+
+另外一种方法比较巧妙，假定存在一个实数$\lambda$，使得$a_{n+1}+\lambda=p(a_n+\lambda)$，展开与原递推式比较即得$\lambda=\frac{q}{p-1}$，于是数列$a_n-\lambda$就成为一个等比数列了。
+
+现在看高一阶的例子，每一项需要它前面两项才能确定：$a_{n+2}=pa_{n+1}+qa_n$，假想有两个实数$r$和$s$能够使得
+\begin{equation}
+  \label{eq:two-level-linear-recurrence-sequence-1}
+a_{n+2}-ra_{n+1}=s(a_{n+1}-ra_n)
+\end{equation}
+展开后与原递推式比较可得
+\begin{align*}
+  r+s  =  p \\
+  rs  =  -q
+\end{align*}
+因此$r$和$s$是方程$x^2=px+q$的两个根，所以在此方程确实有两个根(可以相等)的情况下，数列$a_{n+1}-ra_{n}$成为等比数列，求出它的通项$a_{n+1}-ra_n=f(n)$后，只要两端同时除以$r^{n+1}$即可求出$a_n$的通项。
+
+如果这两个根不相等，则还有另一种求法，因为$r$和$s$都是方程$x^2=px+q$的根，因此既然有\ref{eq:two-level-linear-recurrence-sequence-1}成立，也就必然有
+\begin{equation}
+  \label{eq:two-level-linear-recurrence-sequence-2}
+a_{n+2}-sa_{n+1}=r(a_{n+1}-sa_n)
+\end{equation}
+成立，令$b_n=a_{n+1}-ra_n,c_n=a_{n+1}-sa_n$，则$b_{n+1}=sb_n,c_{n+1}=rc_n$，所以$b_n=s^{n-1}b_1,c_n=r^{n-1}c_1$，于是
+\begin{align*}
+  a_{n}-ra_{n-1}  =  s^{n-2}b_1 \\
+  a_{n}-sa_{n-1}  =  r^{n-2}c_1 
+\end{align*}
+从中解出$a_n$来:
+\[ a_n=\frac{r^nc_1-s^nb_1}{r-s} \]
+若取$\alpha _1 = \frac{c_1}{r-s}, \alpha _2 = -\frac{b_1}{r-s}$，则得到
+\[ a_n = \alpha _1 r^n + \alpha _2 s^n \]
+这两个系数 $\alpha _1$和$\alpha _2$也不太容易记住，但现在我们知道了通项的最终形式是这两个根的幂的线性组合，所以可以把这两个系数作为待定系数，利用$a_1=\alpha _1 r + \alpha _2 s$和$a_2=\alpha_1 r^2 + \alpha _2 s^2$把它们解出来。
+
+更一般的情形是：对于线性递推数列$\sum_{k=1}^n\lambda _k a_k=c$，称方程$\sum_{k=1}^n\lambda _k x^k = c$为它的特征方程，在复数范围内这个特征方程必有$n$个根（重根按重数计算），假定这些根是 $x_i(i=1,2,\cdots,m, m \leq n)$，相应根的重数是$r_i(i=1,2,\cdots,m, \sum_{i=1}^mr_i=n)$，则它的通项是：
+\[ a_n=\sum_{i=1}^mP_{r_i-1}(n)x_i^n \]
+上式中$P_{r_i-1}(n)$表示一个关于$n$的次数是$r_i-1$的多项式，如果哪个根是单重根，则它的系数是常数。式中的系数都可以利用待定系数法来求。
+
+作为一个例子，现在来求斐波那契数列的通项，递推公式为$a_{n+2}=a_{n+1}+a_n$，特征方程是$x^2=x+1$，其两个根是$x_{1,2}=\frac{1}{2}(1 \pm \sqrt{5})$，于是通项应为：
+\[ a_n=\alpha _1 x_1^n+ \alpha _2 x_2^n \]
+将$a_1=1$和$a_2=1$带入求出两个系数，最后得：
+\[ a_n= \frac{1}{\sqrt{5}}\left[ \left( \frac{1+\sqrt{5}}{2} \right)^n - \left( \frac{1-\sqrt{5}}{2} \right)^n \right] \]
+令人惊讶的是一个所有项都是正整数的数列，其通项居然出现了无理数，事实上，利用二项定理可以证明，这个表达式将永远是正整数。
+
