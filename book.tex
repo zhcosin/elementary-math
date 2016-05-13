@@ -1,20 +1,11 @@
-\documentclass[a4paper]{ctexbook}
-%\usepackage{minitoc}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{makecell}
-\usepackage{graphicx}
-\usepackage{esvect}
-\usepackage{booktabs}
-\usepackage[colorlinks,linkcolor=black,CJKbookmarks=true,bookmarksnumbered]{hyperref}
 
-\newtheorem{exercise}{题目}[section]
-\newtheorem{topic}{问题}[section]
-\newtheorem{statement}{命题}[section]
+\documentclass[a4paper]{ctexbook}
+
+\input{use-packages}
 
 \title{初等数学个人笔记}
 \author{zhcosin<zhcosin@163.com>}
+\date{created: 2016-04-06 \\ last updated: \today}
 
 \begin{document}
 
@@ -22,6 +13,8 @@
 %\include{cover}
 
 %\dominitoc% Initialization
+
+\include{preface}
 
 \include{tableofcontents}
 
@@ -40,4 +33,3 @@
 \include{content/combination/combination}
 
 \end{document}
-
