@@ -54,7 +54,7 @@
 
 采用反证法，假设$g(\frac{i}{n})$中第一个负值是$g(\frac{k}{n})$，首先可以确定的是一定不会是$k=n-1$，这是因为$g(1)=0$，并且因为$k$是第一个使得$g(\frac{i}{n})$取负值的，所以$g(\frac{n-2}{n}) \geqslant 0$，因此作为中点，$L(\frac{n-1}{n})=L(\frac{\frac{n-2}{n}+1}{2})>\frac{1}{2}\left(L(\frac{n-2}{n}) + L(1)\right) \geqslant 0$，所以$k<n-1$。
 
-现在证明：下标$i$将从$k$开始，$g(\frac{i}{n})$逐项递减， 因为对于$k$及之后的序号$m$，$\frac{m}{n}$是$\frac{m-1}{n}$和$\frac{m+1}{n}$的中点，所以$L\left( \frac{m}{n} \right) > \frac{1}{2} \left( L(\frac{m-1}{n}) + L(\frac{m+1}{n}) \right)$，从而$L(\frac{m+1}{n})-L(\frac{m}{n})<L(\frac{m}{n})-L(\frac{m-1}{n})$，同时$R(\alpha)$是一个线性函数，有$R(\frac{m}{n})=\frac{1}{2}\left( R(\frac{m-1}{n})+R(\frac{m+1}{n}) \right)$，所以$g(\frac{m+1}{n})-g(\frac{m}{n})<g(\frac{m}{n})-g(\frac{m-1}{n})$，这个式子即表明下标$i$从$k$开始，$g(\frac{i}{n})$即成为单调的,同时由于$g(\frac{k-1}{n}) \geqslant 0,g(\frac{k}{n})<0$，即是前两项为变小，以后各项则逐项递减。
+现在证明：下标$i$将从$k$开始，$g(\frac{i}{n})$逐项递减， 因为对于$k$及之后的序号$m$，$\frac{m}{n}$是$\frac{m-1}{n}$和$\frac{m+1}{n}$的中点，所以$L\left( \frac{m}{n} \right) > \frac{1}{2} \left( L(\frac{m-1}{n}) + L(\frac{m+1}{n}) \right)$，从而$L(\frac{m+1}{n})-L(\frac{m}{n})<L(\frac{m}{n})-L(\frac{m-1}{n})$，同时$R(\alpha)$是一个线性函数，有$R(\frac{m}{n})=\frac{1}{2}\left( R(\frac{m-1}{n})+R(\frac{m+1}{n}) \right)$，所以$g(\frac{m+1}{n})-g(\frac{m}{n})<g(\frac{m}{n})-g(\frac{m-1}{n})$，同时由于$g(\frac{k-1}{n}) \geqslant 0,g(\frac{k}{n})<0$，即是前两项为变小，因此以后各项则逐项递减。
 
 但是，在这个逐项递减的前提下，我们有$g(1)=0$，于是矛盾就出来了，因为在$\alpha$分别等于$\frac{n-2}{n}$、$\frac{n-1}{n}$和1的情况下，明显违背了上凸函数的定义。所以$g(\frac{i}{n})$中是不能出现负值的，也即是$g(\alpha)>0$在$\alpha$为有理数时成立。
 \end{proof}
