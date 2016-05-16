@@ -24,7 +24,7 @@
 因为对于整数$k(0\leqslant k \leqslant n)$有$(a^n+b^n)-(a^{n-k}b^k+a^kb^{n-k})=(a^{n-k}-b^{n-k})(a^k-b^k)>0$，因此
 \begin{equation}
   \begin{split}
-\left( \frac{a+b}{2} \right)^n + \left( \frac{b+a}{2} \right)^n & = \frac{1}{2^n} \sum_{k=0}^nC_n^ka^{n-k}b^k + \sum_{k=0}^nC_n^kb^{n-k}a^k \\
+\left( \frac{a+b}{2} \right)^n + \left( \frac{b+a}{2} \right)^n & = \frac{1}{2^n} \sum_{k=0}^nC_n^ka^{n-k}b^k + \frac{1}{2^n}\sum_{k=0}^nC_n^kb^{n-k}a^k \\
 & = \frac{1}{2^n} \sum_{k=0}^n C_n^k \left( a^{n-k}b^k+a^kb^{n-k} \right) \\
 & < \frac{1}{2^n} \sum_{k=0}^n C_n^k \left( a^n+b^n \right) \\
 & = a^n+b^n
