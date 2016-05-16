@@ -1,0 +1,93 @@
+
+\section{函数的凸性}
+
+本文讨论上凸函数与下凸函数以及与之有关的不等式。
+
+绝大多数函数的图像都不是一条笔直的直线，它们在某个区间上总是向上凸起或者向下凹陷。现在，我们要用数学语言来给函数的凸性下个定义：
+\begin{definition}
+ 如果定义在区间$D$上的函数$f(x)$满足：对区间$D$上任意两个不相等的实数$a$、$b$都成立$f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}$，则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
+\end{definition}
+这反映在图像就是：函数在某区间上上凸，则在它的图像上任意选择两个点，这两点之间的图像都将位于此两点连线的上方，下凸函数则相反。
+
+下面是一些例子。
+
+\begin{example}
+  讨论下面这些函数的凸性。
+  \begin{enumerate}
+  \item $f(x)=x^n$($n$为正整数, $x>0$)
+  \item $f(x)=\ln{x}$
+  \item $f(x)=\sin{x}, 0 \leqslant x \leqslant \pi$
+  \end{enumerate}
+\end{example}
+
+\begin{proof}[解]
+因为对于整数$k(0\leqslant k \leqslant n)$有$(a^n+b^n)-(a^{n-k}b^k+a^kb^{n-k})=(a^{n-k}-b^{n-k})(a^k-b^k)>0$，因此
+\begin{equation}
+  \begin{split}
+\left( \frac{a+b}{2} \right)^n + \left( \frac{b+a}{2} \right)^n & = \frac{1}{2^n} \sum_{k=0}^nC_n^ka^{n-k}b^k + \sum_{k=0}^nC_n^kb^{n-k}a^k \\
+& = \frac{1}{2^n} \sum_{k=0}^n C_n^k \left( a^{n-k}b^k+a^kb^{n-k} \right) \\
+& < \frac{1}{2^n} \sum_{k=0}^n C_n^k \left( a^n+b^n \right) \\
+& = a^n+b^n
+\end{split}
+\end{equation}
+所以$\frac{a^n+b^n}{2}>\left( \frac{a+b}{2} \right)^n$，函数$f(x)=x^n$在正实数区间上是下凸函数。
+
+因为$\frac{a+b}{2}-\sqrt{ab}=\frac{1}{2}(\sqrt{a}-\sqrt{b})^2>0$，所以 $\ln{\frac{a+b}{2}}-\frac{\ln{a}+\ln{b}}{2}=\ln{\frac{a+b}{2}}-\ln{\sqrt{ab}}>0$，所以对数函数在正实数区间上是上凸函数。
+
+因为$\frac{1}{2}(\sin{a}+\sin{b})=\sin{\frac{a+b}{2}}\cos{\frac{a-b}{2}} < \sin{\frac{a+b}{2}}$，所以正弦函数在区间$(0,\pi)$上是上凸函数。
+\end{proof}
+
+定义中是用任意两个数的中点来定义的，实际上这个权值可以推广到0到1之间的任意实数：
+\begin{theorem}
+  \label{theorem:convexity-function-with-weight}
+  如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha >0, \beta>0)$的实数$\alpha$、$\beta$，都成立不等式
+  \begin{equation}
+    \label{eq:convexity-function-with-weight}
+    f(\alpha a + \beta b) \geqslant \alpha f(a) + \beta f(b) 
+  \end{equation}
+\end{theorem}
+
+\begin{proof}[证明]
+  由于完整的证明需要用到高等数学中连续性的定义，所以这里仅就$\alpha$是有理数的情形进行证明(当然$\beta$也就同时为有理数)。
+
+假设$\alpha$的最简有理数表示为$\alpha=\frac{m}{n}$($m<n$且$m,n$互素)，令$L(\alpha)=f(\alpha a + \beta b), R(\alpha)=\alpha f(a)+\beta f(b)$，再记 $g(\alpha) = L(\alpha) - R(\alpha)$，则只需证明$g(\alpha)>0$，考察 $ g(\frac{i}{n})(i=0,1,\ldots,n)$的值，显然$g(0)=0, g(1)=0$。
+
+采用反证法，假设$g(\frac{i}{n})$中第一个负值是$g(\frac{k}{n})$，首先可以确定的是一定不会是$k=n-1$，这是因为$g(1)=0$，并且因为$k$是第一个使得$g(\frac{i}{n})$取负值的，所以$g(\frac{n-2}{n}) \geqslant 0$，因此作为中点，$L(\frac{n-1}{n})=L(\frac{\frac{n-2}{n}+1}{2})>\frac{1}{2}\left(L(\frac{n-2}{n}) + L(1)\right) \geqslant 0$，所以$k<n-1$。
+
+现在证明：下标$i$将从$k$开始，$g(\frac{i}{n})$逐项递减， 因为对于$k$及之后的序号$m$，$\frac{m}{n}$是$\frac{m-1}{n}$和$\frac{m+1}{n}$的中点，所以$L\left( \frac{m}{n} \right) > \frac{1}{2} \left( L(\frac{m-1}{n}) + L(\frac{m+1}{n}) \right)$，从而$L(\frac{m+1}{n})-L(\frac{m}{n})<L(\frac{m}{n})-L(\frac{m-1}{n})$，同时$R(\alpha)$是一个线性函数，有$R(\frac{m}{n})=\frac{1}{2}\left( R(\frac{m-1}{n})+R(\frac{m+1}{n}) \right)$，所以$g(\frac{m+1}{n})-g(\frac{m}{n})<g(\frac{m}{n})-g(\frac{m-1}{n})$，这个式子即表明下标$i$从$k$开始，$g(\frac{i}{n})$即成为单调的,同时由于$g(\frac{k-1}{n}) \geqslant 0,g(\frac{k}{n})<0$，即是前两项为变小，以后各项则逐项递减。
+
+但是，在这个逐项递减的前提下，我们有$g(1)=0$，于是矛盾就出来了，因为在$\alpha$分别等于$\frac{n-2}{n}$、$\frac{n-1}{n}$和1的情况下，明显违背了上凸函数的定义。所以$g(\frac{i}{n})$中是不能出现负值的，也即是$g(\alpha)>0$在$\alpha$为有理数时成立。
+\end{proof}
+
+现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式$\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}$，而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况罢了。
+
+借用数学归纳法，我们可以把定义中的两个数推广到多个数的情形：
+\begin{theorem}
+  \label{theorem:convexity-function-multile}
+如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
+\begin{equation}
+  \label{eq:convexity-function-multile}
+  f(\frac{1}{n}\sum_{i=1}^nx_i) \geqslant \frac{1}{n}\sum_{i=1}^nf(x_i)
+\end{equation}
+\end{theorem}
+
+\begin{proof}[证明]
+  现在我们避开数学归纳法，借用刚才定理\ref{theorem:convexity-function-with-weight}来证明，但仅限于权重为有理数的情形（因为事实上我们只证明了这个情形）。
+
+因为
+\begin{equation*}
+  \begin{split}
+    & f \left ( \frac{1}{n}\sum_{i=1}^nx_i \right) \\
+ = & f \left( (1-\frac{1}{n}) \frac{1}{n-1}\sum_{i=1}^{n-1}x_i + \frac{1}{n}x_n \right) \\
+ > & (1-\frac{1}{n}) f \left( \frac{1}{n-1}\sum_{i=1}^{n-1}x_i \right) + \frac{1}{n} f(x_n)
+  \end{split}
+\end{equation*}
+重复这个过程，就可以得到定理中的不等式。
+\end{proof}
+
+仍然以对数函数作为例子，套用上述结论，我们可以得出均值不等式的推广：$\frac{1}{n}\sum_{i=1}^nx_i \geqslant \sqrt[n]{\prod_{i=1}^nx_i}$.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
