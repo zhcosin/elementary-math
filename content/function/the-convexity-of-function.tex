@@ -97,7 +97,7 @@
   \begin{split}
     & f \left ( \frac{1}{n}\sum_{i=1}^nx_i \right) \\
  = & f \left( (1-\frac{1}{n}) \frac{1}{n-1}\sum_{i=1}^{n-1}x_i + \frac{1}{n}x_n \right) \\
- > & (1-\frac{1}{n}) f \left( \frac{1}{n-1}\sum_{i=1}^{n-1}x_i \right) + \frac{1}{n} f(x_n)
+ \geqslant & (1-\frac{1}{n}) f \left( \frac{1}{n-1}\sum_{i=1}^{n-1}x_i \right) + \frac{1}{n} f(x_n)
   \end{split}
 \end{equation*}
 重复这个过程，就可以得到定理中的不等式。
@@ -110,7 +110,7 @@
 
 另一个例子，因为正弦函数在区间$(0,\pi)$上是上凸函数，所以对于一个三角形的三个内角，套用上述定理就有：
 \begin{equation*}
-\frac{1}{3}(\sin{A}+\sin{B}+\sin{C}) \leqslant \sin{\frac{A+B+C}{3}} = \frac{\sqrt{3}}{2}
+\sin{A}+\sin{B}+\sin{C} \leqslant 3\sin{\frac{A+B+C}{3}} = \frac{3\sqrt{3}}{2}
 \end{equation*}
 
 %%% Local Variables:
