@@ -82,7 +82,7 @@
 借用数学归纳法，我们可以把定义中的两个数推广到多个数的情形：
 \begin{theorem}
   \label{theorem:convexity-function-multile}
-如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
+\emph{(琴生不等式)} 如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
 \begin{equation}
   \label{eq:convexity-function-multile}
   f(\frac{1}{n}\sum_{i=1}^nx_i) \geqslant \frac{1}{n}\sum_{i=1}^nf(x_i)
@@ -113,6 +113,15 @@
 \sin{A}+\sin{B}+\sin{C} \leqslant 3\sin{\frac{A+B+C}{3}} = \frac{3\sqrt{3}}{2}
 \end{equation*}
 
+同样的，我们还可以把定理\ref{theorem:convexity-function-with-weight}从两个数的情况推广到多个数的情形:
+\begin{theorem}
+ 设函数$f(x)$在区间$D$上是上凸函数，那么对于该区间上任意$n$个实数$x_i(i=1,2,\ldots,n)$以及相应的权重$\alpha_i(\sum_{i=1}^n\alpha_i=1,\alpha_i \geqslant 0)$，有下面的不等式成立:
+ \begin{equation}
+   \label{eq:convexity-function-with-weight-multiple}
+   f \left( \sum_{i=1}^n\alpha_i x_i \right) \geqslant \sum_{i=1}^n\alpha_i f(x_i)
+ \end{equation}
+\end{theorem}
+其证明与定理\ref{theorem:convexity-function-multile}类似，此处从略。
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
