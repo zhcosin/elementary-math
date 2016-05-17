@@ -8,12 +8,13 @@
 \begin{equation*}
 (k+1)^{m}-k^{m} = \sum_{i=0}^{m-1}C_{m}^{i}k^i
 \end{equation*}
-令$k=1,2,\cdots,n$进行累加即得
+于是
 \begin{equation}
 \begin{split}
   \label{eq:pow-sum-positive-integer-recursive}
-(n+1)^{m}-1 & = \sum_{i=0}^{m-1}C_{m}^{i}\sum_{k=1}^{n}k^i \\
-             & = \sum_{i=0}^{m-1}C_{m}^{i}S_i(n)
+(n+1)^{m}-1 & = \sum_{k=1}^{n}\left( (k+1)^{m}-k^{m} \right) \\
+& = \sum_{i=0}^{m-1}C_{m}^{i}\sum_{k=1}^{n}k^i \\
+& = \sum_{i=0}^{m-1}C_{m}^{i}S_i(n)
 \end{split}
 \end{equation}
 因此，在上式中取$m=2$得
@@ -40,3 +41,8 @@ S_3(n)=\frac{1}{4}n^2(n+1)^2
 
 从\ref{eq:pow-sum-positive-integer-recursive}还可以得出：$S_m(n)$是关于$n$的$m+1$次多项式。
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:

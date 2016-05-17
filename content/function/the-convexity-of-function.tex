@@ -21,7 +21,7 @@
 \end{example}
 
 \begin{proof}[解]
-因为对于整数$k(0\leqslant k \leqslant n)$有$(a^n+b^n)-(a^{n-k}b^k+a^kb^{n-k})=(a^{n-k}-b^{n-k})(a^k-b^k)>0$，因此
+因为对于整数$k(0 < k < n)$有$(a^n+b^n)-(a^{n-k}b^k+a^kb^{n-k})=(a^{n-k}-b^{n-k})(a^k-b^k)>0$，因此
 \begin{equation}
   \begin{split}
 \left( \frac{a+b}{2} \right)^n + \left( \frac{b+a}{2} \right)^n & = \frac{1}{2^n} \sum_{k=0}^nC_n^ka^{n-k}b^k + \frac{1}{2^n}\sum_{k=0}^nC_n^kb^{n-k}a^k \\
@@ -40,7 +40,7 @@
 定义中是用任意两个数的中点来定义的，实际上这个权值可以推广到0到1之间的任意实数：
 \begin{theorem}
   \label{theorem:convexity-function-with-weight}
-  如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha >0, \beta>0)$的实数$\alpha$、$\beta$，都成立不等式
+  如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha \geqslant 0, \beta \geqslant 0)$的实数$\alpha$、$\beta$，都成立不等式
   \begin{equation}
     \label{eq:convexity-function-with-weight}
     f(\alpha a + \beta b) \geqslant \alpha f(a) + \beta f(b) 
@@ -48,18 +48,36 @@
 \end{theorem}
 
 \begin{proof}[证明]
+将不等式左边减去右边的差记为$g(\alpha)$，则只要证明$g(\alpha) \geqslant 0$对于一切$0 \leqslant \alpha \leqslant 1$恒成立即可。
+
   由于完整的证明需要用到高等数学中连续性的定义，所以这里仅就$\alpha$是有理数的情形进行证明(当然$\beta$也就同时为有理数)。
 
-假设$\alpha$的最简有理数表示为$\alpha=\frac{m}{n}$($m<n$且$m,n$互素)，令$L(\alpha)=f(\alpha a + \beta b), R(\alpha)=\alpha f(a)+\beta f(b)$，再记 $g(\alpha) = L(\alpha) - R(\alpha)$，则只需证明$g(\alpha)>0$，考察 $ g(\frac{i}{n})(i=0,1,\ldots,n)$的值，显然$g(0)=0, g(1)=0$。
+现在我们证明：对于任意正整数$n$，不等式$g(\frac{i}{n}) \geqslant 0 (i=0,1,\ldots,n)$都成立。
 
-采用反证法，假设$g(\frac{i}{n})$中第一个负值是$g(\frac{k}{n})$，首先可以确定的是一定不会是$k=n-1$，这是因为$g(1)=0$，并且因为$k$是第一个使得$g(\frac{i}{n})$取负值的，所以$g(\frac{n-2}{n}) \geqslant 0$，因此作为中点，$L(\frac{n-1}{n})=L(\frac{\frac{n-2}{n}+1}{2})>\frac{1}{2}\left(L(\frac{n-2}{n}) + L(1)\right) \geqslant 0$，所以$k<n-1$。
-
-现在证明：下标$i$将从$k$开始，$g(\frac{i}{n})$逐项递减， 因为对于$k$及之后的序号$m$，$\frac{m}{n}$是$\frac{m-1}{n}$和$\frac{m+1}{n}$的中点，所以$L\left( \frac{m}{n} \right) > \frac{1}{2} \left( L(\frac{m-1}{n}) + L(\frac{m+1}{n}) \right)$，从而$L(\frac{m+1}{n})-L(\frac{m}{n})<L(\frac{m}{n})-L(\frac{m-1}{n})$，同时$R(\alpha)$是一个线性函数，有$R(\frac{m}{n})=\frac{1}{2}\left( R(\frac{m-1}{n})+R(\frac{m+1}{n}) \right)$，所以$g(\frac{m+1}{n})-g(\frac{m}{n})<g(\frac{m}{n})-g(\frac{m-1}{n})$，同时由于$g(\frac{k-1}{n}) \geqslant 0,g(\frac{k}{n})<0$，即是前两项为变小，因此以后各项则逐项递减。
-
-但是，在这个逐项递减的前提下，我们有$g(1)=0$，于是矛盾就出来了，因为在$\alpha$分别等于$\frac{n-2}{n}$、$\frac{n-1}{n}$和1的情况下，明显违背了上凸函数的定义。所以$g(\frac{i}{n})$中是不能出现负值的，也即是$g(\alpha)>0$在$\alpha$为有理数时成立。
+首先$g(0)=g(1)=0$，并且利用定义可以验证$g(\alpha)$仍是一个关于$\alpha$的上凸函数，因此
+\begin{equation*}
+  g(\frac{i}{n}) \geqslant \frac{1}{2} \left( g(\frac{i-1}{n}) + g(\frac{i+1}{n}) \right)
+\end{equation*}
+也即是
+\begin{equation*}
+  g(\frac{i+1}{n}) - g(\frac{i}{n}) \leqslant g(\frac{i}{n}) - g(\frac{i-1}{n})
+\end{equation*}
+令$\lambda_i = g(\frac{i+1}{n}) - g(\frac{i}{n})$，则有$\lambda_i \leqslant \lambda_{i-1}(i=1,2,\ldots,n-1)$，而
+\begin{equation*}
+ 0 = g(1) - g(0) = \sum_{i=0}^{n-1} \left( g(\frac{i+1}{n}) - g(\frac{i}{n}) \right) 
+\end{equation*}
+即是$\sum_{i=0}^{n-1}\lambda_i=0$，因此存在正整数$k(0<k<n)$，使得
+\begin{equation*}
+\lambda_0 \geqslant \dots \geqslant \lambda_{k-1} \geqslant 0 \geqslant \lambda_k \geqslant \ldots \geqslant \lambda_{n-1}
+\end{equation*}
+也即是
+\begin{equation*}
+  0 = g(0) \leqslant g(\frac{1}{n}) \ldots \leqslant g(\frac{k}{n}) \geqslant \ldots \geqslant g(\frac{n-1}{n}) \geqslant g(1) = 0
+\end{equation*}
+因此，$g(\frac{i}{n})(i=0,1,\ldots,n)$均大于零，有理数的情形得证。
 \end{proof}
 
-现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式$\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}$，而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况罢了。
+现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式$\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}$，而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
 
 借用数学归纳法，我们可以把定义中的两个数推广到多个数的情形：
 \begin{theorem}
@@ -85,7 +103,15 @@
 重复这个过程，就可以得到定理中的不等式。
 \end{proof}
 
-仍然以对数函数作为例子，套用上述结论，我们可以得出均值不等式的推广：$\frac{1}{n}\sum_{i=1}^nx_i \geqslant \sqrt[n]{\prod_{i=1}^nx_i}$.
+仍然以对数函数作为例子，套用上述结论，我们可以得出均值不等式的推广：
+\begin{equation*}
+\frac{1}{n}\sum_{i=1}^nx_i \geqslant \sqrt[n]{\prod_{i=1}^nx_i}
+\end{equation*}
+
+另一个例子，因为正弦函数在区间$(0,\pi)$上是上凸函数，所以对于一个三角形的三个内角，套用上述定理就有：
+\begin{equation*}
+\frac{1}{3}(\sin{A}+\sin{B}+\sin{C}) \leqslant \sin{\frac{A+B+C}{3}} = \frac{\sqrt{3}}{2}
+\end{equation*}
 
 %%% Local Variables:
 %%% mode: latex
