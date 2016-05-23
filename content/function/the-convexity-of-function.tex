@@ -3,11 +3,11 @@
 
 本文讨论上凸函数与下凸函数以及与之有关的不等式。
 
-绝大多数函数的图像都不是一条笔直的直线，它们在某个区间上总是向上凸起或者向下凹陷。现在，我们要用数学语言来给函数的凸性下个定义：
+绝大多数函数的图像都不是一条笔直的直线，它们在某个区间上经常向上凸起或者向下凹陷。现在，我们要用数学语言来给函数的凸性下个定义：
 \begin{definition}
  如果定义在区间$D$上的函数$f(x)$满足：对区间$D$上任意两个不相等的实数$a$、$b$都成立$f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}$，则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
 \end{definition}
-这反映在图像就是：函数在某区间上上凸，则在它的图像上任意选择两个点，这两点之间的图像都将位于此两点连线的上方，下凸函数则相反。
+这定义的几何意义是容易理解的。
 
 下面是一些例子。
 
@@ -37,7 +37,7 @@
 因为$\frac{1}{2}(\sin{a}+\sin{b})=\sin{\frac{a+b}{2}}\cos{\frac{a-b}{2}} < \sin{\frac{a+b}{2}}$，所以正弦函数在区间$(0,\pi)$上是上凸函数。
 \end{proof}
 
-定义中是用任意两个数的中点来定义的，实际上这个权值可以推广到0到1之间的任意实数：
+凸函数的定义中是利用任意两个点及其中点的关系来刻画的，实际上从函数图象上可以看到，对于上凸函数而言，在以$a$、$b$为端点的区间上，不光中点处的函数值位于两个端点连线的上方，实际上是这个区间上的整个图象都位于区间两个端点连线的上方，因此有下面的定理：
 \begin{theorem}
   \label{theorem:convexity-function-with-weight}
   如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha \geqslant 0, \beta \geqslant 0)$的实数$\alpha$、$\beta$，都成立不等式
@@ -54,7 +54,24 @@
 
 现在我们证明：对于任意正整数$n$，不等式$g(\frac{i}{n}) \geqslant 0 (i=0,1,\ldots,n)$都成立。
 
-首先$g(0)=g(1)=0$，并且利用定义可以验证$g(\alpha)$仍是一个关于$\alpha$的上凸函数，因此
+首先$g(0)=g(1)=0$，并且利用定义可以验证$g(\alpha)$仍是一个关于$\alpha$的上凸函数
+\footnote{
+事实上，记不等式的左边为$L(\alpha)$，右边为$R(\alpha)$，则右边显然是一关于$\alpha$的一次函数，因此
+\begin{equation*}
+  R \left( \frac{\alpha_1+\alpha_2}{2} \right) = \frac{1}{2} (R(\alpha_1) + R(\alpha_2))
+\end{equation*}
+而对于左边的$L(\alpha)$，记$h(\alpha)=\alpha a + \beta b$，则$h(\alpha)$同样是$\alpha$的一次函数，所以
+\begin{equation*}
+  h \left( \frac{\alpha_1+\alpha_2}{2} \right) = \frac{1}{2} (h(\alpha_1) + h(\alpha_2))
+\end{equation*}
+由于$f(x)$为上凸函数，所以
+\begin{align*}
+  f \left( h \left( \frac{\alpha_1+\alpha_2}{2} \right) \right) & = f \left( \frac{h(\alpha_1) + h(\alpha_2)}{2} \right) \\
+                                                                & \geqslant \frac{1}{2} \left( f(h(\alpha_1)) + f(h(\alpha_2)) \right)
+\end{align*}
+这就是说$g(\alpha) = f(h(\alpha))$是关于$\alpha$的区间$[0,1]$上的上凸函数。
+}
+，因此
 \begin{equation*}
   g(\frac{i}{n}) \geqslant \frac{1}{2} \left( g(\frac{i-1}{n}) + g(\frac{i+1}{n}) \right)
 \end{equation*}
@@ -122,7 +139,14 @@
  \end{equation}
 \end{theorem}
 其证明与定理\ref{theorem:convexity-function-multile}类似，此处从略。
-%%% Local Variables:
+
+%%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "../../book"
 %%% End:
+
+%%% Local Variables: 
+%%% time-stamp-pattern: "4/\\footnote{created 2016-05-16, updated %:y-%02m-%02d}" 
+%%% time-stamp-format: "%:y-%02m-%02d" 
+%%% End:
+
