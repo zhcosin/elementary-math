@@ -57,9 +57,10 @@
 首先$g(0)=g(1)=0$，并且利用定义可以验证$g(\alpha)$仍是一个关于$\alpha$的上凸函数
 \footnote{
 事实上，记不等式的左边为$L(\alpha)$，右边为$R(\alpha)$，则右边显然是一关于$\alpha$的一次函数，因此
-\begin{equation*}
+\begin{equation}
+  \label{eq:right-of-convexity-function-nequation}
   R \left( \frac{\alpha_1+\alpha_2}{2} \right) = \frac{1}{2} (R(\alpha_1) + R(\alpha_2))
-\end{equation*}
+\end{equation}
 而对于左边的$L(\alpha)$，记$h(\alpha)=\alpha a + \beta b$，则$h(\alpha)$同样是$\alpha$的一次函数，所以
 \begin{equation*}
   h \left( \frac{\alpha_1+\alpha_2}{2} \right) = \frac{1}{2} (h(\alpha_1) + h(\alpha_2))
@@ -69,7 +70,10 @@
   f \left( h \left( \frac{\alpha_1+\alpha_2}{2} \right) \right) & = f \left( \frac{h(\alpha_1) + h(\alpha_2)}{2} \right) \\
                                                                 & \geqslant \frac{1}{2} \left( f(h(\alpha_1)) + f(h(\alpha_2)) \right)
 \end{align*}
-这就是说$g(\alpha) = f(h(\alpha))$是关于$\alpha$的区间$[0,1]$上的上凸函数。
+在上式左边减去\ref{eq:right-of-convexity-function-nequation}的左边，右边减去式\ref{eq:right-of-convexity-function-nequation}的右边，就得到
+\begin{equation*}
+  g \left( \frac{\alpha_1+\alpha_2}{2} \right) \geqslant \frac{1}{2} \left( g(\alpha_1)+g(\alpha_2) \right)
+\end{equation*}
 }
 ，因此
 \begin{equation*}
