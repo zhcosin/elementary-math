@@ -5,12 +5,16 @@
 
 绝大多数函数的图像都不是一条笔直的直线，它们在某个区间上经常向上凸起或者向下凹陷。现在，我们要用数学语言来给函数的凸性下个定义：
 \begin{definition}
- 如果定义在区间$D$上的函数$f(x)$满足：对区间$D$上任意两个不相等的实数$a$、$b$都成立$f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}$，则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
+ 如果定义在区间$D$上的函数$f(x)$满足：对区间$D$上任意两个不相等的实数$a$、$b$都成立
+ \begin{equation}
+   \label{eq:the-definition-of-convexity-function}
+f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
+ \end{equation}
+则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
 \end{definition}
 这定义的几何意义是容易理解的。
 
 下面是一些例子。
-
 \begin{example}
   讨论下面这些函数的凸性。
   \begin{enumerate}
@@ -111,7 +115,7 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  现在我们避开数学归纳法，借用刚才定理\ref{theorem:convexity-function-with-weight}来证明，但仅限于权重为有理数的情形（因为事实上我们只证明了这个情形）。
+  现在我们在形式上避开数学归纳法，借用刚才定理\ref{theorem:convexity-function-with-weight}来证明，但仅限于权重为有理数的情形（事实上我们只证明了这个情形）。
 
 因为
 \begin{equation*}
