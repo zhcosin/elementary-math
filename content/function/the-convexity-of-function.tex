@@ -12,7 +12,7 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
  \end{equation}
 则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
 \end{definition}
-这定义的几何意义是容易理解的。
+这定义的几何意义是容易理解的，本文主要讨论上凸函数，因为下凸函数只要乘以$-1$，即可变为上凸函数，但本文关于上凸函数的结论都可以类似的得到下凸函数的结论。
 
 下面是一些例子。
 \begin{example}
@@ -44,42 +44,51 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 凸函数的定义中是利用任意两个点及其中点的关系来刻画的，实际上从函数图象上可以看到，对于上凸函数而言，在以$a$、$b$为端点的区间上，不光中点处的函数值位于两个端点连线的上方，实际上是这个区间上的整个图象都位于区间两个端点连线的上方，因此有下面的定理：
 \begin{theorem}
   \label{theorem:convexity-function-with-weight}
-  如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha \geqslant 0, \beta \geqslant 0)$的实数$\alpha$、$\beta$，都成立不等式
+  如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha \geqslant 0, \beta \geqslant 0)$的实数$\alpha$、$\beta$，都成立不等式\footnote{也有的书上是用这个定理来作为凸函数定义的。}
   \begin{equation}
     \label{eq:convexity-function-with-weight}
     f(\alpha a + \beta b) \geqslant \alpha f(a) + \beta f(b) 
   \end{equation}
 \end{theorem}
 
+为了证明这个定理，先提出如下两个引理:
+\begin{lemma}
+  \label{lemma:add-linear-fun-to-convexity-funtion}
+  区间上的凸函数，加上或者减去同一区间上的一次函数，不改变凸性。
+\end{lemma}
+这个结论是明显的，因为对于一次函数，式\ref{eq:the-definition-of-convexity-function}中的等号总是成立的，因此在一个凸函数的式\ref{eq:the-definition-of-convexity-function}两端同时减去一次函数的该式两端，不等式仍然成立。
+
+\begin{lemma}
+  \label{lemma:recombination-convexity-func-with-linear-fun}
+如果函数$f(x)$是区间$I$上的上凸函数，$a$和$b$是区间$I$上两个不相等的固定实数，则函数$h(t)=f((1-t)a+tb)$是关于$t$的定义在区间$[0,1]$上的上凸函数。
+\end{lemma}
+\begin{proof}[证明]
+ 记$g(t)=(1-t)a+tb$，则$h(t)=f(g(t))$,而$g(t)$作为一次函数，显然对于任意$t_1$和$t_2$成立着不等式:
+\[ g \left( \frac{t_1+t_2}{2} \right)=\frac{g(t_1)+g(t_2)}{2} \] 
+因此有
+\begin{align*}
+  h \left( \frac{t_1+t_2}{2} \right) &= f \left( g\left( \frac{t_1+t_2}{2} \right) \right) \\
+& = f \left( \frac{g(t_1)+g(t_2)}{2} \right) \\
+& \geqslant \frac{f(g(t_1))+f(g(t_2))}{2} \\
+& = \frac{h(t_1)+h(t_2)}{2}
+\end{align*}
+即得证。
+\end{proof}
+从这证明过程可以看出，实际上我们可以得到更为通用的关于复合函数凸性的结论：
+\begin{theorem}
+  若函数$g(x)$是区间$I$上的上凸函数，并且在该区间上的值域为$D$，而函数$f(t)$是区间$D$上的单调增加的上凸函数，则复合函数$h(x)=f(g(x))$是区间$I$上的上凸函数，其它条件组合也有类似的结论。
+\end{theorem}
+它的证明仿照引理\ref{lemma:recombination-convexity-func-with-linear-fun}即可，这里从略。
+
+现在来证明定理\ref{theorem:convexity-function-with-weight}
 \begin{proof}[证明]
 将不等式左边减去右边的差记为$g(\alpha)$，则只要证明$g(\alpha) \geqslant 0$对于一切$0 \leqslant \alpha \leqslant 1$恒成立即可。
 
-  由于完整的证明需要用到高等数学中连续性的定义，所以这里仅就$\alpha$是有理数的情形进行证明(当然$\beta$也就同时为有理数)。
+  由于完整的证明需要用到高等数学中连续性的定义，所以这里仅就$\alpha$是有理数的情形进行证明(当然$\beta$也就同时为有理数，而且函数连续的条件也就用不上)。
 
 现在我们证明：对于任意正整数$n$，不等式$g(\frac{i}{n}) \geqslant 0 (i=0,1,\ldots,n)$都成立。
 
-首先$g(0)=g(1)=0$，并且利用定义可以验证$g(\alpha)$仍是一个关于$\alpha$的上凸函数
-\footnote{
-事实上，记不等式的左边为$L(\alpha)$，右边为$R(\alpha)$，则右边显然是一关于$\alpha$的一次函数，因此
-\begin{equation}
-  \label{eq:right-of-convexity-function-nequation}
-  R \left( \frac{\alpha_1+\alpha_2}{2} \right) = \frac{1}{2} (R(\alpha_1) + R(\alpha_2))
-\end{equation}
-而对于左边的$L(\alpha)$，记$h(\alpha)=\alpha a + \beta b$，则$h(\alpha)$同样是$\alpha$的一次函数，所以
-\begin{equation*}
-  h \left( \frac{\alpha_1+\alpha_2}{2} \right) = \frac{1}{2} (h(\alpha_1) + h(\alpha_2))
-\end{equation*}
-由于$f(x)$为上凸函数，所以
-\begin{align*}
-  f \left( h \left( \frac{\alpha_1+\alpha_2}{2} \right) \right) & = f \left( \frac{h(\alpha_1) + h(\alpha_2)}{2} \right) \\
-                                                                & \geqslant \frac{1}{2} \left( f(h(\alpha_1)) + f(h(\alpha_2)) \right)
-\end{align*}
-在上式左边减去\ref{eq:right-of-convexity-function-nequation}的左边，右边减去式\ref{eq:right-of-convexity-function-nequation}的右边，就得到
-\begin{equation*}
-  g \left( \frac{\alpha_1+\alpha_2}{2} \right) \geqslant \frac{1}{2} \left( g(\alpha_1)+g(\alpha_2) \right)
-\end{equation*}
-}
-，因此
+首先$g(0)=g(1)=0$，并且利用上面两个引理可以得知$g(\alpha)$仍是一个关于$\alpha$的上凸函数 ，因此
 \begin{equation*}
   g(\frac{i}{n}) \geqslant \frac{1}{2} \left( g(\frac{i-1}{n}) + g(\frac{i+1}{n}) \right)
 \end{equation*}
@@ -102,7 +111,12 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 因此，$g(\frac{i}{n})\geqslant 0(i=0,1,\ldots,n)$成立，有理数的情形得证。
 \end{proof}
 
-现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式$\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}$，而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
+现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式
+\begin{equation}
+  \label{eq:binary-neq-for-mean-with-weight}
+\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}
+\end{equation}
+这称为加权均值不等式（二元），而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
 
 借用数学归纳法，我们可以把定义中的两个数推广到多个数的情形：
 \begin{theorem}
@@ -138,6 +152,14 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 \sin{A}+\sin{B}+\sin{C} \leqslant 3\sin{\frac{A+B+C}{3}} = \frac{3\sqrt{3}}{2}
 \end{equation*}
 
+现在我们来证明：圆的内接凸多边形中，以正多边形的面积为最大。只要记每一条边所对应的圆心角为$\theta_i(i=1,2,\ldots,n)$，凸多边形的面积
+\begin{align*}
+  S &= \frac{1}{2}R^2 \sum_{i=1}^n \sin{\theta_i} \\
+& \leqslant \frac{n}{2}R^2 \sin{\left(\frac{1}{n}\sum_{i=1}^n\theta_i\right)} \\
+    & =  \frac{n}{2}R^2 \sin{\frac{2\pi}{n}}
+\end{align*}
+而等号在$\theta_i=\frac{2\pi}{n}(i=1,2,\ldots,n)$时成立，即为正多边形。
+
 同样的，我们还可以把定理\ref{theorem:convexity-function-with-weight}从两个数的情况推广到多个数的情形:
 \begin{theorem}
  设函数$f(x)$在区间$D$上是上凸函数，那么对于该区间上任意$n$个实数$x_i(i=1,2,\ldots,n)$以及相应的权重$\alpha_i(\sum_{i=1}^n\alpha_i=1,\alpha_i \geqslant 0)$，有下面的不等式成立:
@@ -147,6 +169,13 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
  \end{equation}
 \end{theorem}
 其证明与定理\ref{theorem:convexity-function-multile}类似，此处从略。
+
+我们还是把这定理套用到对数函数身上，得到如下的加权均值不等式：对于一组实数$x_i(i=1,2,\ldots,n)$及一组权值$\alpha_i>0(i=1,2,\ldots,n),\sum_{i=1}^n\alpha_i=1$，成立着不等式:
+\begin{equation}
+  \label{eq:poly-neq-for-mean-with-weight}
+ \sum_{i=1}^n\alpha_i x_i \geqslant \prod_{i=1}^nx_i^{\alpha_i} 
+\end{equation}
+等号成立的条件是$x_i$全部都相等。它也可被视为均值不等式的推广。
 
 %%% Local Variables: 
 %%% mode: latex
