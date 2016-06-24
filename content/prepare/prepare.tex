@@ -1,0 +1,80 @@
+
+\chapter{绪论}
+\label{chap:general-topic}
+
+本章讲述一些与其它各章节没有太大直接关联的主题。
+
+\section{一般主题}
+
+\subsection{数学归纳法的变种}
+\label{sec:mathematical-induction}
+除了常用的第一数学归纳法以外，我们还有以下的:
+\begin{principle}[第二数学归纳法]
+如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item $P(1)$成立;
+  \item 由$P(1),P(2),\dots,P(k)$成立能够推证出$P(k+1)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立.
+\end{principle}
+\begin{principle}[第三数学归纳法]
+如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item 有无穷多个正整数$n$使命题成立;
+  \item 由$P(k)$成立能够推证$P(k-1)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立。
+\end{principle}
+\begin{principle}[跳跃数学归纳法]
+  如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item $P(1)$,$P(2)$,$\ldots$,$P(m)$成立;
+  \item 由$P(k)$成立能够推证$P(k+m)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立。
+\end{principle}
+
+
+\subsection{容斥原理}
+\label{sec:inclusion-exclusion-principle}
+
+\begin{principle}[容斥原理]
+  用$|A|$表示集合$A$的元素个数，则多个集合的并集的元素个数是:
+  \begin{equation}
+    \label{eq:inclusion-exclusion-principle}
+    \begin{split}
+    |\cup_{i=1}^nA_i|= & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
+ & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i|
+    \end{split}
+  \end{equation}
+\end{principle}
+其证明用数学归纳法即可，这里从略。
+
+\subsection{转轴公式}
+\label{sec:codinatie-axias-rotation}
+假如在平面直角坐标系中，有一个点的坐标是$P(x_0,y_0)$，现在我们把坐标轴绕着原点逆时针方向转动一个角度$\theta$，我们来寻求这个点在新的坐标系下的坐标(这个点不跟着坐标轴旋转)。
+
+设向量$\overrightarrow{OP}$在与原坐标系$x$正向成角$\alpha$，则该向量与新坐标系$x$正向成角$\alpha-\theta$，记向量$\overrightarrow{OP}$长度为$r$，则
+\begin{equation*}
+  x_0=r\cos{\alpha},y_0=r\sin{\alpha}
+\end{equation*}
+假设点$P$在新坐标系下的坐标为$P(x_1,y_1)$，则
+\begin{equation*}
+  x_1=r\cos{\alpha-\theta},y_1=r\sin{\alpha-\theta}
+\end{equation*}
+于是就有
+\begin{equation}
+  \label{eq:formulas-rotation-axias}
+  \begin{split}
+  x_1 & = x_0\cos{\theta} + y_0\sin{\theta} \\
+  y_1 & = -x_0\sin{\theta} + y_0\cos{\theta}
+  \end{split}
+\end{equation}
+这个旋转方式也可以看作坐标系不动，点$P$绕原点顺时针旋转。
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:

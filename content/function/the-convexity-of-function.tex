@@ -119,9 +119,9 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 这称为加权均值不等式（二元），而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
 
 借用数学归纳法，我们可以把定义中的两个数推广到多个数的情形：
-\begin{theorem}
+\begin{theorem}[琴生(Jensen)不等式]
   \label{theorem:convexity-function-multile}
-\emph{(琴生不等式)} 如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
+如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
 \begin{equation}
   \label{eq:convexity-function-multile}
   f(\frac{1}{n}\sum_{i=1}^nx_i) \geqslant \frac{1}{n}\sum_{i=1}^nf(x_i)
