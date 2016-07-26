@@ -1,4 +1,6 @@
+.*
 *.pdf
+*.swp
 *.log
 *.aux
 *.maf
