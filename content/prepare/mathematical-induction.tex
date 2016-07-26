@@ -1,0 +1,69 @@
+
+\section{数学归纳法的变种}
+\label{sec:mathematical-induction}
+除了常用的第一数学归纳法以外，我们还有以下的:
+\begin{principle}[第二数学归纳法]
+如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item $P(1)$成立;
+  \item 由$P(1),P(2),\dots,P(k)$成立能够推证出$P(k+1)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立.
+\end{principle}
+有些命题在递推过程中，依赖的是前面的所有结论而非仅仅依赖前一个结论，此时第二数学归纳法就非常适用。
+\begin{principle}[倒推归纳法]
+如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item 有无穷多个正整数$n$使命题成立;
+  \item 由$P(k)$成立能够推证$P(k-1)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立。
+\end{principle}
+倒推归纳法的原理也是显而易见的，对于任何一个给定的正整数$n$，由于不超过$n$的正整数只有有限个，所以必然存在一个大于$n$的正整数$N$，使得命题$P(N)$成立，再倒推回来，知$P(n)$成立。
+
+作为一个例子，我们用倒推归纳法来证明多元均值不等式，这比用通常的第一数学归纳法来得更加容易:
+
+\begin{statement}[均值不等式]
+  对任意$n(n\geqslant2)$个正实数$a_i$，有下面不等式成立:
+\[ \frac{1}{n}\sum_{i=1}^na_i \geqslant \left( \prod_{i=1}^na_i \right)^{\frac{1}{n}} \]
+\end{statement}
+
+\begin{proof}[证明]
+  对$n=2$的情形，有$\frac{1}{2}(a_1+a_2)-\sqrt{a_1a_2}=\frac{1}{2}(\sqrt{a_1}-\sqrt{a_2})^2\geqslant 0$知不等式成立。
+
+ 反复使用$n=2$的结论，我们就可以得到当$n$是2的幂的时候不等式是成立的，然而2的幂是无穷多的，所以只要证明，不等式如果对$n+1$个正实数成立就必然对$n$个正实数也成立就可以了。
+
+对于任意$n$个正实数，我们再添加一个正实数$a_{n+1}=\frac{1}{n}\sum_{i=1}^na_i$构成$n+1$个正实数，由假设，不等式对$n+1$个正实数是成立的，所以有
+\[
+\frac{1}{n+1}\sum_{i=1}^{n+1}a_i \geqslant \left( \prod_{i=1}^{n+1}a_i \right)^{\frac{1}{n+1}}
+\]
+而由于$a_{n+1}$正好等于其它$n$个实数的平均数，所以
+\[ \frac{1}{n+1}\sum_{i=1}^{n+1}a_i = \frac{1}{n}\sum_{i=1}^{n}a_i \]
+因此前一式即为:
+\[
+\frac{1}{n}\sum_{i=1}^{n}a_i \geqslant \left( \prod_{i=1}^{n}a_i \right)^{\frac{1}{n+1}} \cdot \left( \frac{1}{n}\sum_{i=1}^na_i \right)^{\frac{1}{n+1}}
+\]
+化简即得
+\[
+\frac{1}{n}\sum_{i=1}^na_i \geqslant \left( \prod_{i=1}^na_i \right)^{\frac{1}{n}} 
+\]
+即得证。
+\end{proof}
+
+\begin{principle}[跳跃数学归纳法]
+  如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item $P(1)$,$P(2)$,$\ldots$,$P(m)$成立;
+  \item 由$P(k)$成立能够推证$P(k+m)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立。
+\end{principle}
+
+数学归纳法还有其他形式，比如解决对偶性问题（如正余弦）的螺旋归纳法，解决同时与两个正整数相关的命题的二重归纳法等，但它们的道理都是类似的。
+
+数学归纳法的奠基也并非一定要从1开始。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:

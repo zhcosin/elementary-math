@@ -1,0 +1,37 @@
+
+\section{容斥原理}
+\label{sec:inclusion-exclusion-principle}
+
+\begin{principle}[容斥原理]
+  用$|A|$表示集合$A$的元素个数，则多个集合的并集的元素个数是:
+  \begin{equation}
+    \label{eq:inclusion-exclusion-principle}
+    \begin{split}
+    |\cup_{i=1}^nA_i|= & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
+ & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i|
+    \end{split}
+  \end{equation}
+\end{principle}
+容斥原理的含义借助图形是显而易见的，其证明用数学归纳法即可，这里从略。
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/prepare/pic/inclusion-exclusion-principle.pdf}
+\caption{容斥原理示意图}
+\label{fig:inclusion-exclusion-principle}
+\end{figure}
+
+
+利用容斥原理可以轻松搞定伯努利信封问题：有相同数目的信封和信件若干，将这些信件装进这些信封，使得没有任何一封信件与信封搭配正确。
+
+在历法中有一个闰年的概念，它跟容斥原理还有些关系，这里科普一下。以下内容摘自百度百科。
+
+闰年(Leap Year)是为了弥补因人为历法规定造成的年度天数与地球实际公转周期的时间差而设立的。补上时间差的年份为闰年。
+
+地球绕太阳运行周期为365天5小时48分46秒（合365.24219天）即一回归年（tropical year）。公历的平年只有365日，比回归年短约0.2422 日，所余下的时间约为每四年累计一天，故第四年于2月末加1天，使当年的历年长度为366日，这一年就为闰年。现行公历中每400年有97个闰年。按照每四年一个闰年计算，平均每年就要多算出0.0078天，这样经过四百年就会多算出大约3天来。因此每四百年中要减少三个闰年。所以公历规定：年份是整百数时，必须是400的倍数才是闰年；不是400的倍数的年份，即使是4的倍数也不是闰年。
+这就是通常所说的：四年一闰，百年不闰，四百年再闰。 例如，2000年是闰年，2100年则是平年。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:

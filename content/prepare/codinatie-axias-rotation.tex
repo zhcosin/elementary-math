@@ -1,0 +1,36 @@
+
+\section{坐标变换}
+\label{sec:codinatie-axias-rotation}
+
+在高级中学数学教材中，三角函数的伸缩变换已经为人所熟知，而本文要讨论的是坐标变换的一般性理论。
+
+\subsection{平移}
+
+\subsection{旋转}
+假如在平面直角坐标系中，有一个点的坐标是$P(x_0,y_0)$，现在我们把坐标轴绕着原点逆时针方向转动一个角度$\theta$，我们来寻求这个点在新的坐标系下的坐标(这个点不跟着坐标轴旋转)。
+
+设向量$\overrightarrow{OP}$在与原坐标系$x$正向成角$\alpha$，则该向量与新坐标系$x$正向成角$\alpha-\theta$，记向量$\overrightarrow{OP}$长度为$r$，则
+\begin{equation*}
+  x_0=r\cos{\alpha},y_0=r\sin{\alpha}
+\end{equation*}
+假设点$P$在新坐标系下的坐标为$P(x_1,y_1)$，则
+\begin{equation*}
+  x_1=r\cos{(\alpha-\theta)},y_1=r\sin{(\alpha-\theta)}
+\end{equation*}
+于是就有
+\begin{equation}
+  \label{eq:formulas-rotation-axias}
+  \begin{split}
+  x_1 & = x_0\cos{\theta} + y_0\sin{\theta} \\
+  y_1 & = -x_0\sin{\theta} + y_0\cos{\theta}
+  \end{split}
+\end{equation}
+这个旋转方式也可以看作坐标系不动，点$P$绕原点顺时针旋转。
+
+\subsection{伸缩}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
