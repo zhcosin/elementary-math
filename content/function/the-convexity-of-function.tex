@@ -41,7 +41,52 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 因为$\frac{1}{2}(\sin{a}+\sin{b})=\sin{\frac{a+b}{2}}\cos{\frac{a-b}{2}} < \sin{\frac{a+b}{2}}$，所以正弦函数在区间$(0,\pi)$上是上凸函数。
 \end{proof}
 
-凸函数的定义中是利用任意两个点及其中点的关系来刻画的，实际上从函数图象上可以看到，对于上凸函数而言，在以$a$、$b$为端点的区间上，不光中点处的函数值位于两个端点连线的上方，实际上是这个区间上的整个图象都位于区间两个端点连线的上方，因此有下面的定理：
+利用数学归纳法，可以很容易的将定义中的两个数推广到任意个数的情形，这就是著名的\emph{琴生(Jensen)不等式}:
+\begin{theorem}[琴生(Jensen)不等式]
+  \label{theorem:convexity-function-multile}
+如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
+\begin{equation}
+  \label{eq:convexity-function-multile}
+  f(\frac{1}{n}\sum_{i=1}^nx_i) \geqslant \frac{1}{n}\sum_{i=1}^nf(x_i)
+\end{equation}
+\end{theorem}
+
+\begin{proof}[证明]
+  事实上，与第一数学归纳法相比，倒推归纳法更容易证明本定理，读者不妨一试，本文仍使用第一数学归纳法。
+
+  由定义知$n=2$的情形成立。现在假定对$n$的情形成立，则对于$n+1$个数的情形，记$X_{n+1}=\frac{1}{n+1}\sum_{i=1}^{n+1}x_i$，则
+\begin{equation}
+  \begin{split}
+f(X_{n+1}) & = f \left( \frac{x_1+x_2+\cdots+x_{n+1}}{n+1} \right) \\
+& = f \left( \frac{(x_1+\cdots+x_n)+(x_{n+1}+(n-1)X_{n+1})}{2n} \right) \\
+& = f \left( \frac{\frac{x_1+\cdots+x_n}{n} + \frac{x_{n+1}+(n-1)X_{n+1}}{n}}{2} \right) \\
+& \geqslant \frac{f \left( \frac{x_1+\cdots+x_n}{n} \right) + f \left( \frac{x_{n+1}+(n-1)X_{n+1}}{n} \right)}{2} \\
+& \geqslant \frac{\frac{f(x_1)+\cdots+f(x_n)}{n} + \frac{f(x_{n+1})+(n-1)f(X_{n+1})}{n}}{2} \\
+  \end{split}
+\end{equation}
+化简即得定理结论。
+\end{proof}
+
+琴生不等式是一个非常重要的不等式，它是一系列不等式的重要来源，例如把它应用到对数函数身上，就得出多元均值不等式：
+\begin{equation*}
+\frac{1}{n}\sum_{i=1}^nx_i \geqslant \sqrt[n]{\prod_{i=1}^nx_i}
+\end{equation*}
+
+另一个例子，因为正弦函数在区间$(0,\pi)$上是上凸函数，所以对于一个三角形的三个内角，由琴生不等式就有：
+\begin{equation*}
+\sin{A}+\sin{B}+\sin{C} \leqslant 3\sin{\frac{A+B+C}{3}} = \frac{3\sqrt{3}}{2}
+\end{equation*}
+
+最后我们来证明：圆的内接凸多边形中，以正多边形的面积为最大。只要记每一条边所对应的圆心角为$\theta_i(i=1,2,\ldots,n)$，凸多边形的面积
+\begin{align*}
+  S &= \frac{1}{2}R^2 \sum_{i=1}^n \sin{\theta_i} \\
+& \leqslant \frac{n}{2}R^2 \sin{\left(\frac{1}{n}\sum_{i=1}^n\theta_i\right)} \\
+    & =  \frac{n}{2}R^2 \sin{\frac{2\pi}{n}}
+\end{align*}
+而等号在$\theta_i=\frac{2\pi}{n}(i=1,2,\ldots,n)$时成立，即为正多边形。
+
+从函数图象的几何意义上看，前面的定义仅仅刻画了区间中点处的函数值与区间两个端点函数值的关系，但从直觉上看，作为上凸函数，它在区间上任意一点的函数值，都大于连接函数曲线段(由区间所截得)两端点连线所代表的一次函数的函数值，换句话说，定义中的$\frac{1}{2}$应该可以推广到0与1之间的任意实数。但是下面的定理表明，仅仅由前面的定义，只能将这个$\frac{1}{2}$推广到0与1之间的有理数，而无理数的情形要依赖于函数的连续性才能得出。也正是由于这个原因，通常把下面定理中这个更强的不等式来作为上凸函数的定义。
+
 \begin{theorem}
   \label{theorem:convexity-function-with-weight}
   如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha \geqslant 0, \beta \geqslant 0)$的实数$\alpha$、$\beta$，都成立不等式\footnote{也有的书上是用这个定理来作为凸函数定义的。}
@@ -51,7 +96,38 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
   \end{equation}
 \end{theorem}
 
-为了证明这个定理，先提出如下两个引理:
+\begin{proof}[证明]
+  先证明$\alpha$是有理数的情形($\beta$也就同时为有理数)，对于满足$\alpha+\beta=1$的非负有理数$\alpha$和$\beta$，必定存在不同时为零的非负整数$m$和$n$，使得
+  \begin{equation*}
+    \alpha = \frac{m}{m+n}, \beta = \frac{n}{m+n}
+  \end{equation*}
+因此，在下面中将 $ma+nb$视为$m$个$a$与$n$个$b$分别相加之后求和，再利用琴生不等式，得到
+\begin{equation*}
+  \begin{split}
+    f(\alpha a + \beta b) & = f \left( \frac{ma+nb}{m+n} \right) \\
+& \geqslant \frac{mf(a)+nf(b)}{m+n} \\
+& \geqslant \alpha f(a) + \beta f(b)
+  \end{split}
+\end{equation*}
+因此有理数的情形得证。
+
+对于$\alpha$为无理数的情形，存在有理数的序列$\alpha_n$和$\beta_n$，使得$\lim_{n\to\infty}\alpha_n=\alpha$和$\lim_{n\to\infty}\beta_n=\beta$，由
+\begin{equation*}
+    f(\alpha_n a + \beta_n b) \geqslant \alpha_n f(a) + \beta_n f(b) 
+\end{equation*}
+不等式两端令$n\to\infty$，即得无理数时不等式仍成立。
+\end{proof}
+
+现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式
+\begin{equation}
+  \label{eq:binary-neq-for-mean-with-weight}
+\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}
+\end{equation}
+这称为加权均值不等式（二元），而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
+
+这里再为这个重要定理提供另外一个证明，它不使用琴生不等式，而是直接从定义出发，不过，篇幅稍长些。
+
+先提出如下两个引理:
 \begin{lemma}
   \label{lemma:add-linear-fun-to-convexity-funtion}
   区间上的凸函数，加上或者减去同一区间上的一次函数，不改变凸性。
@@ -74,6 +150,7 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 \end{align*}
 即得证。
 \end{proof}
+
 从这证明过程可以看出，实际上我们可以得到更为通用的关于复合函数凸性的结论：
 \begin{theorem}
   若函数$g(x)$是区间$I$上的上凸函数，并且在该区间上的值域为$D$，而函数$f(t)$是区间$D$上的单调增加的上凸函数，则复合函数$h(x)=f(g(x))$是区间$I$上的上凸函数，其它条件组合也有类似的结论。
@@ -108,57 +185,8 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
 \begin{equation*}
   0 = g(0) \leqslant g(\frac{1}{n}) \ldots \leqslant g(\frac{k}{n}) \geqslant \ldots \geqslant g(\frac{n-1}{n}) \geqslant g(1) = 0
 \end{equation*}
-因此，$g(\frac{i}{n})\geqslant 0(i=0,1,\ldots,n)$成立，有理数的情形得证。
+因此，$g(\frac{i}{n})\geqslant 0(i=0,1,\ldots,n)$成立，有理数的情形得证。而无理数的情形仍同前面的证明。
 \end{proof}
-
-现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式
-\begin{equation}
-  \label{eq:binary-neq-for-mean-with-weight}
-\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}
-\end{equation}
-这称为加权均值不等式（二元），而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
-
-借用数学归纳法，我们可以把定义中的两个数推广到多个数的情形：
-\begin{theorem}[琴生(Jensen)不等式]
-  \label{theorem:convexity-function-multile}
-如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
-\begin{equation}
-  \label{eq:convexity-function-multile}
-  f(\frac{1}{n}\sum_{i=1}^nx_i) \geqslant \frac{1}{n}\sum_{i=1}^nf(x_i)
-\end{equation}
-\end{theorem}
-
-\begin{proof}[证明]
-  现在我们在形式上避开数学归纳法，借用刚才定理\ref{theorem:convexity-function-with-weight}来证明，但仅限于权重为有理数的情形（事实上我们只证明了这个情形）。
-
-因为
-\begin{equation*}
-  \begin{split}
-    & f \left ( \frac{1}{n}\sum_{i=1}^nx_i \right) \\
- = & f \left( (1-\frac{1}{n}) \frac{1}{n-1}\sum_{i=1}^{n-1}x_i + \frac{1}{n}x_n \right) \\
- \geqslant & (1-\frac{1}{n}) f \left( \frac{1}{n-1}\sum_{i=1}^{n-1}x_i \right) + \frac{1}{n} f(x_n)
-  \end{split}
-\end{equation*}
-重复这个过程，就可以得到定理中的不等式。
-\end{proof}
-
-仍然以对数函数作为例子，套用上述结论，我们可以得出均值不等式的推广：
-\begin{equation*}
-\frac{1}{n}\sum_{i=1}^nx_i \geqslant \sqrt[n]{\prod_{i=1}^nx_i}
-\end{equation*}
-
-另一个例子，因为正弦函数在区间$(0,\pi)$上是上凸函数，所以对于一个三角形的三个内角，套用上述定理就有：
-\begin{equation*}
-\sin{A}+\sin{B}+\sin{C} \leqslant 3\sin{\frac{A+B+C}{3}} = \frac{3\sqrt{3}}{2}
-\end{equation*}
-
-现在我们来证明：圆的内接凸多边形中，以正多边形的面积为最大。只要记每一条边所对应的圆心角为$\theta_i(i=1,2,\ldots,n)$，凸多边形的面积
-\begin{align*}
-  S &= \frac{1}{2}R^2 \sum_{i=1}^n \sin{\theta_i} \\
-& \leqslant \frac{n}{2}R^2 \sin{\left(\frac{1}{n}\sum_{i=1}^n\theta_i\right)} \\
-    & =  \frac{n}{2}R^2 \sin{\frac{2\pi}{n}}
-\end{align*}
-而等号在$\theta_i=\frac{2\pi}{n}(i=1,2,\ldots,n)$时成立，即为正多边形。
 
 同样的，我们还可以把定理\ref{theorem:convexity-function-with-weight}从两个数的情况推广到多个数的情形:
 \begin{theorem}
