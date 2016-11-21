@@ -1,0 +1,27 @@
+
+\section{题选}
+\label{sec:combination-exercises}
+
+\begin{exercise}
+  四个人玩传球游戏，每个人接到球后将球传给别人，首先由甲发球，在经过 $n$ 次传球后球又回到甲手中，求这样的传球方法数。
+\end{exercise}
+
+由于结果与自然数 $n$ 有关，将这结果作为一个数列是合理的。
+
+记结果数为 $a_n$，那么在 $n$ 次传球过程中，传球方法总数是 $3^n$。考虑数列的递推情况，对于 $n+1$次传球而言，只要前$n$次传球后球不在甲手中，则最后一次传球只有一种固定的方式，所以有 $a_{n+1}=3^n-a_n$，而$a_1=0$。
+
+有了递推公式，现在来求通项，在递推式两边同时乘以 $(-1)^n$得
+\begin{displaymath}
+  (-1)^na_n-(-1)^{n+1}a_{n+1}=(-3)^n
+\end{displaymath}
+于是令$b_n=(-1)^na_n$则有$b_n-b_{n+1}=(-3)^n$，所以
+\begin{displaymath}
+  b_n=b_1-\sum_{k=1}^{n-1}(b_k-b_{k+1}=-\sum_{k=1}^{n-1}(-3)^k=\frac{3}{4}(1-(-3)^{n-1})
+\end{displaymath}
+所以$a_n=\frac{(3^n+3(-1)^n)}{4}$.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
