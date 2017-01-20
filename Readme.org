@@ -1,0 +1,24 @@
+#+TITLE: 初等数学个人笔记
+#+AUTHOR: zhcosin
+#+MAIL: zhcosin@163.com
+#+LANG: zh_CN
+
+* 简介
+
+这份工程是《初等数学个人笔记》一书的LaTeX源代码。此书是我作为一名数学业余爱好者的初等数学笔记。本书的 pdf 电子书暂未确定在哪个网站上持续更新，如果需要可以向我邮件索取，也可以自己下载这份工程自己编译。
+
+* 编译
+
+1. LaTeX环境，推荐 texlive，安装时刻勾选中文支持。
+2. 下载源代码到本地:
+#+BEGIN_SRC shell
+   git clone https://github.com/zhcosin/elementary-math.git
+#+END_SRC
+如果你没有安装 git，也可以选择下载 zip 压缩包。
+3. 编译
+#+BEGIN_SRC shell
+    cd elementary-math-book
+    xelatex book.tex
+    xelatex book.tex
+#+END_SRC
+你没看错，需要编译两次，这能使LaTeX生成正确的引用与目录。编译之后目录下会生成book.pdf电子书，此即《初等数学个人笔记》一书。
