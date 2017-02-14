@@ -1,0 +1,68 @@
+
+\section{关于正整数倒数和的一些讨论}
+\label{sec:sum-reciprocal-of-positive-integer}
+
+本节讨论与正整数倒数和相关的一些问题。
+
+首先是 $S_n=\sum_{k=1}^n\frac{1}{k}$，这是一个递增的数列，但是增量逐次减小趋于零，所以一个很自然的问题就是：这数列是有一个上限呢，还是可以无限增加到正无穷。
+
+结论是它在增加过程中可以超过任何一个正实数，无论多大的正实数，也就是说，它是一个正无穷大。
+
+先叙述一个在许多书上都可以找到的证明，这个证明是这样的，把正整数序列进行分段，1 为第零段，2为第一段，3和4为第二段，5到8为第三段，一般的第$n$段是从$2^{n-1}+1$到$2^n$，即每一段的最后一个数都刚好是2的幂，于是对于每一段上的正整数们的倒数，显然最后一个正整数的倒数是最小的，所以该段上的正整数的倒数和大于$2^{n-1}\cdot \frac{1}{2^n}=\frac{1}{2}$，而按照这个方法，这个段是可以有无穷多的，只是越往后，段的长度就越长，所以这就说明它了$S_n$是无限增加的。
+
+再提一个思路完全一样只是分段方式不同的证明：由于函数$y=\frac{1}{x}$在正实数区间上是下凸函数，对于任何两个正整数$m$和$n(>m)$，根据琴生不等式有:
+\begin{equation*}
+  \frac{1}{n-m} + \frac{1}{n+m} > \frac{2}{n}
+\end{equation*}
+于是按照首尾配对相加的方式可得如下不等式（其实可以使用琴生不等式直接得出）
+\begin{equation*}
+  \frac{1}{k+1} + \cdots + \frac{1}{k+m+1} + \cdots + \frac{1}{k+2m+1} > \frac{2m+1}{k+m+1}
+\end{equation*}
+取$m=k$，就有
+\begin{equation*}
+  \frac{1}{k+1} + \cdots + \frac{1}{3k+1} > 1
+\end{equation*}
+如此1为第零段，2到4为第一段，5到13为第三段，如此下去，也能达到同样的目标。
+
+接下来考虑$I_n=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+\frac{1}{2n-1}-\frac{1}{2n}$，我们来尝试使用简单表达式逼近它。
+
+记$J_n=\sum_{k=1}^n(\frac{1}{2k}-\frac{1}{2k+1})$，由于$z_n=\frac{1}{n-1}-\frac{1}{n}=\frac{1}{n(n+1)}$是递减的，并且相邻两项也相差越来越小，所以有不等式$z_{2k}<\frac{1}{2}(z_{2k-1}+z_{2k})$,也就是如下的:
+\begin{equation*}
+  \frac{1}{2k-1} - \frac{1}{2k} < \frac{1}{2} \left[ \left( \frac{1}{2k-2} - \frac{1}{2k-1} \right) + \left( \frac{1}{2k} - \frac{1}{2k+1} \right) \right]
+\end{equation*}
+对上式左边进行累加，但从$k=3$到$k=n$使用右边放缩，得
+\begin{equation*}
+  I_n<\frac{1}{2}+\frac{1}{12}+\frac{1}{2} \left[ \left( J_n-\frac{1}{6}-\frac{1}{2n(2n+1} \right) + \left( J_n-\frac{1}{6}-\frac{1}{20} \right) \right]
+\end{equation*}
+化简
+\begin{equation*}
+ I_n<J_n+\frac{47}{120} - \frac{1}{4n(2n+1)}
+\end{equation*}
+利用$I_n+J_n=1-\frac{1}{2n+1}$从上式中换掉$J_n$得
+\begin{equation}
+  \label{eq:sign-sum-reciprocal-positive-integer-max}
+  I_n<\frac{167}{240}-\frac{1}{2(2n+1}-\frac{1}{8n(2n+1}
+\end{equation}
+这就是一个上限估计，再来考虑下限，同样因为$z_n$是递减的，有不等式$z_{2k}>\frac{1}{2}(z_{2k}+z_{2k+1})$，也就是
+\begin{equation*}
+  \frac{1}{2k-1} - \frac{1}{2k} > \frac{1}{2} \left[ \left( \frac{1}{2k-1} - \frac{1}{2k} \right) + \left( \frac{1}{2k} - \frac{1}{2k+1} \right) \right]
+\end{equation*}
+对左边进行累加，在$k \geqslant 3$ 时使用右边放缩，得到
+\begin{equation*}
+  I_n > \frac{1}{2} + \frac{1}{12} + \frac{1}{2} \left( \frac{1}{5} - \frac{1}{2n+1} \right)
+\end{equation*}
+也就是
+\begin{equation}
+  \label{eq:sign-sum-reciprocal-positive-integer-min}
+ I_n > \frac{41}{60} -\frac{1}{2(2n+1)} 
+\end{equation}
+式 \ref{eq:sign-sum-reciprocal-positive-integer-max} 和 \ref{eq:sign-sum-reciprocal-positive-integer-min}即构成$I_n$的一个估计，这个逼近程度怎么样呢，取$n>=100$，得
+\begin{equation*}
+  0.680845771... < I_n < 0.695833333...
+\end{equation*}
+说明这个逼近程度还是比较理想的。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
