@@ -49,6 +49,24 @@ $$
 显然与假设矛盾，故得证。
 \end{proof}
 
+\begin{exercise}
+  数列$a_n$满足：$a_1=\frac{1}{2}$，$a_{n+1}=\frac{na_n+a_n^2}{n+1}$，
+  \begin{enumerate}
+  \item 求证该数列是递减的。
+  \item 求证 $a_n < \frac{7}{4n}$
+  \end{enumerate}
+\end{exercise}
+\begin{proof}[解答]
+  根据数列归纳法易知 $0<a_n<1$，所以
+  \begin{equation*}
+    a_{n+1}=\frac{na_n+a_n^2}{n+1} < \frac{na_n+a_n}{n+1} = a_n
+  \end{equation*}
+  所以数列递减，第二问，只要证明$n>3$时有如下更强的不等式即可（使用数学归纳法，过程略去）
+  \begin{equation*}
+    a_n \leqslant \frac{7}{4n}-\frac{4}{n^2}
+  \end{equation*}
+\end{proof}
+
 
 %%% Local Variables:
 %%% mode: latex
