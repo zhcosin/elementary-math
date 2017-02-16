@@ -130,7 +130,9 @@
 对于任意两组按照相同的大小顺序排列好的实数$x_i(i=1,2,\ldots,n)$和$y_i(i=1,2,\ldots,n)$，成立着下面不等式
 \begin{equation}
   \label{eq:chebyshev-inequation}
-  \frac{1}{n}\sum_{i=1}^nx_iy_i \leqslant \left( \frac{1}{n}\sum_{i=1}^nx_i \right) \left( \frac{1}{n}\sum_{i=1}^ny_i \right)
+  \frac{1}{n}\sum_{i=1}^nx_iy_{n+1-i}
+  \leqslant \left( \frac{1}{n}\sum_{i=1}^nx_i \right) \left( \frac{1}{n}\sum_{i=1}^ny_i \right)
+  \leqslant \frac{1}{n}\sum_{i=1}^nx_iy_i
 \end{equation}
 其中的等号成立的唯一场景是：两组数中至少有一组数的值都相同。
 \end{theorem}
