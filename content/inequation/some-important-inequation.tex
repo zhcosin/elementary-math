@@ -42,7 +42,7 @@
 
   在$A_n \geqslant G_n$中，把每个数$x_i$都换成$\frac{1}{x_i}$，立即便得到$\frac{1}{H_n} \geqslant \frac{1}{G_n}$，所以$H_n \leqslant G_n$，至于$A_n \leqslant Q_n$，利用数学归纳法和基本不等式$2ab \leqslant a^2+b^2$就可以轻松获证，这里就不啰嗦了。
 
-  下面再提出$A_n \geqslant G_n$的另一证法.
+  下面再提供$A_n \geqslant G_n$的另一证法.
 
   这个不等式可以改写为如下形式
   \begin{equation*}
@@ -62,6 +62,17 @@
   \end{equation}
   等号也只有在$x_i$全部都相等时才成立.
 \end{theorem}
+\begin{proof}[证明]
+  先证$\alpha_i(i=1,2,\ldots,n)$都是有理数的情况，此时存在非负整数$p_i(i=1,2,\ldots,n)$使得$\alpha_i=\frac{p_i}{\sum_{k=1}^np_k}$，只要把$p_ix_i$看成$p_i$个$x_i$相加，就有
+  \begin{eqnarray*}
+    \sum_{i=1}^n\alpha_ix_i &=& \sum_{i=1}^n \frac{p_i}{\sum_{k=1}^np_k}x_i \\
+                            &=& \frac{1}{\sum_{i=1}^np_i} \cdot \sum_{i=1}^np_ix_i \\
+    & \geqslant & \prod_{i=1}^nx_i^{p_i}
+  \end{eqnarray*}
+  所以不等式得证。
+
+  对于某个$\alpha_i$为无理数的情况，使用有理数序列去逼近它，再两边取极限即得证。
+\end{proof}
 
 \subsection{柯西(Cauchy)不等式}
 
