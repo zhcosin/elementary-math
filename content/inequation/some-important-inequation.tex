@@ -22,6 +22,36 @@
   \end{equation}
   其中的等号只有在$x_{i}$全部都相等时才成立。
 \end{theorem}
+\begin{proof}[证明]
+  先来证明$A_n\geqslant G_n$.
+
+  我们在小节\ref{sec:mathematical-induction}中已经使用倒推形式的数学归纳法证明过这个不等式，所以在这一节我们使用第一数学归纳法。
+
+  因为$\frac{x_1+x_2}{2}-\sqrt{x_1x_2}=\frac{1}{2}(\sqrt{x_1}-\sqrt{x_2})^2 \geqslant 0$，所以不等式$A_2 \geqslant G_2$成立。
+
+  假定$A_n \geqslant G_n$，来尝试证明$A_{n+1} \geqslant G_{n+1}$，因为$A_{n+1}$是一个算术平均数，对一组数而言，如果新添加的数等于原来这些数的算术平均数，则算术平均数保持不变，于是有如下的策略
+  \begin{eqnarray*}
+    A_{n+1} &=& \frac{1}{n+1}\sum_{i=1}^{n+1}x_{i} \\
+            &=& \frac{\sum_{i=1}^nx_i+[x_{n+1}+(n-1)A_{n+1}]}{2n} \\
+            &=& \frac{1}{2} \left( \frac{x_1+\cdots+x_{n}}{n} + \frac{x_{n+1}+(n-1)A_{n+1}}{n} \right) \\
+    & \geqslant & \frac{1}{2} \left( \sqrt[n]{x_1\cdots x_n} + \sqrt[n]{x_{n+1}A_{n+1}^{n-1}} \right) \\
+            & \geqslant & \sqrt{\sqrt[n]{x_1\cdots x_n} \cdot \sqrt[n]{x_{n+1}A_{n+1}^{n-1}}} \\
+    &=& \sqrt[2n]{x_1\cdots x_{n+1}A_{n+1}^{n-1}}
+  \end{eqnarray*}
+  也就是$A_{n+1}^{2n} \geqslant G_{n+1}^{n+1}A_{n+1}^{n-1}$，整理即得$A_{n+1} \geqslant G_{n+1}$，得证，等号成立的条件也是显而易见的。
+
+  在$A_n \geqslant G_n$中，把每个数$x_i$都换成$\frac{1}{x_i}$，立即便得到$\frac{1}{H_n} \geqslant \frac{1}{G_n}$，所以$H_n \leqslant G_n$，至于$A_n \leqslant Q_n$，利用数学归纳法和基本不等式$2ab \leqslant a^2+b^2$就可以轻松获证，这里就不啰嗦了。
+
+  下面再提出$A_n \geqslant G_n$的另一证法.
+
+  这个不等式可以改写为如下形式
+  \begin{equation*}
+    \frac{x_1}{G_n} + \frac{x_2}{G_n} + \cdots + \frac{x_n}{G_n} \geqslant n
+  \end{equation*}
+  因为左边各项之积为1，所以我们只要能够证明：如果$n$个正实数$x_i(i=1,2,\ldots,n)$满足$x_1x_2\cdots x_n=1$，则$x_1+x_2+\cdots +x_n \geqslant n$ 就可以了。
+
+  对于$n=2$的情况是很容易验证的，假定对于$n$个数也成立，现在来看$n+1$个数的情况，先把$x_nx_{n+1}$绑在一起视为一个数，这样$n+1$个数就成了$n$个数，根据归纳假设可得$x_1+\cdots + x_{n-1} + x_nx_{n+1} \geqslant n$，于是我们只要证明$x_n+x_{n+1} \geqslant x_nx_{n+1}+1$就可以了，也就是要证明$(x_n-1)(x_{n+1}-1)\leqslant 0$，这个似乎不一定成立，但是乘积为1的$n+1$个正实数，必定至少有一个大于等于1，同时至少有一个小于等于1，我们可以重新排序这些正实数，使得这两个数放在最后（或者干脆一开始绑定两个数的时候就绑这两个数），于是不等式$(x_n-1)(x_{n+1}-1)\leqslant 0$就成立了，所以得证。
+\end{proof}
 
 对于均值不等式中最基本的$G_n\leqslant A_n$，将每个数的权重一般化，得如下的加权形式
 \begin{theorem}[加权平均值不等式]
