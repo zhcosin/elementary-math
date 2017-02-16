@@ -2,15 +2,91 @@
 \section{一些重要的不等式}
 \label{sec:some-important-inequation}
 
+本节叙述一些在初等数学领域非常重要的不等式，这些不等式应用广泛，刻画的不等式关系
+简单而深刻。
+
 \subsection{均值不等式}
 
-\subsection{柯西-施瓦茨(Cauchy-Schwarz)不等式}
+\begin{theorem}[均值不等式]
+  对于任意$n$个正实数$x_{i}(i=1,2,\ldots,n)$，记
+  \begin{eqnarray}
+    \label{eq:definition-of-average}
+    H_n=\frac{n}{\sum_{i=1}^n \frac{1}{x_i}} \\
+    A_n=\frac{1}{n}\sum_{i=1}^{n}x_i \\
+    G_n=(\prod_{i=1}^nx_{i})^{\frac{1}{n}} \\
+    Q_n=\sqrt{\frac{1}{n}\sum_{i=1}^nx_i^2}
+  \end{eqnarray}
+  称$H_{n}$为这$n$个正实数的 \emph{调和平均数}，而$A_{n}$为 \emph{算术平均数}，$G_n$为 \emph{几何平均数}，$Q_{n}$为 \emph{平方平均数}，则有下面不等式成立
+  \begin{equation}
+    \label{eq:mean-inequation-general}
+    H_{n} \leqslant G_{n} \leqslant A_{n} \leqslant Q_{n}
+  \end{equation}
+  其中的等号只有在$x_{i}$全部都相等时才成立。
+\end{theorem}
+
+\subsection{柯西(Cauchy)不等式}
+
+\begin{theorem}[柯西不等式]
+  对于任何两组实数$x_i(i=1,2,\ldots,n)$ 和$y_i(i=1,2,\ldots,n)$，有下面不等式成立
+  \begin{equation}
+    \label{eq:cauchy-inequation}
+    \left( \sum_{i=1}^nx_iy_i \right)^{2} \leqslant \left( \sum_{i=1}^{n}x_i^2 \right) \left( \sum_{i=1}^ny_i^{2} \right)
+  \end{equation}
+  其中等号成立的唯一场景是：存在一个共同的实数$\lambda$使得$x_i=\lambda y_{i}(i=1,2,\ldots,n)$都成立。
+\end{theorem}
+等号成立的条件，通俗的说就是两组实数成比例，如果我们约定分数中的分母可以为零，并且此时分子也必须为零，则可以把取等条件改写为
+\begin{equation*}
+  \frac{x_1}{y_1} = \frac{x_2}{y_2} = \cdots = \frac{x_n}{y_n}
+\end{equation*}
+如果记向量$\vv{a}=(x_1,x_2,\ldots,x_n), \vv{b}=(y_1,y_2,\ldots,y_n)$，则柯西不等式即表明$|\vv{a} \cdot \vv{b}| \leqslant |\vv{a}| \cdot |\vv{b}|$.
 
 \subsection{排序不等式}
 
+\begin{theorem}[排序不等式]
+  对于任何两组按照相同的大小顺序排列好（均从小到大或者均从大到小）的两组实数$x_i(i=1,2,\ldots,n)$和$y_i(i=1,2,\ldots,n)$，有下面的不等式成立
+  \begin{eqnarray}
+    \label{eq:rearrangement inequality}
+    & x_1y_n+x_2y_{n-1}+\cdots+x_ny_1 \nonumber \\
+    \leqslant & x_1y_{r_1}+x_2y_{r_2}+\cdots+x_ny_{r_n} \nonumber \\
+    \leqslant & x_1y_1+x_2y_2+\cdots+x_ny_n
+  \end{eqnarray}
+  其中$r_i(i=1,2,\ldots,n)$是$1,2,\ldots,n$的任意一个排列。
+\end{theorem}
+不等式的通俗说法就是，反序和最小，同序和最大，乱序和居中。
+
 \subsection{切比雪夫(Chebyshev)不等式}
 
+\begin{theorem}[切比雪夫不等式]
+对于任意两组按照相同的大小顺序排列好的实数$x_i(i=1,2,\ldots,n)$和$y_i(i=1,2,\ldots,n)$，成立着下面不等式
+\begin{equation}
+  \label{eq:chebyshev-inequation}
+  \frac{1}{n}\sum_{i=1}^nx_iy_i \leqslant \left( \frac{1}{n}\sum_{i=1}^nx_i \right) \left( \frac{1}{n}\sum_{i=1}^ny_i \right)
+\end{equation}
+其中的等号成立的唯一场景是：两组数中至少有一组数的值都相同。
+\end{theorem}
+
 \subsection{幂平均值不等式}
+
+\begin{theorem}[幂平均值不等式]
+  对于任意$n$个正实数$x_i(i=1,2,\ldots,n)$和两个正实数$0<p<q$，成立着不等式
+  \begin{equation}
+    \label{eq:pow-mean-inequation}
+    \left( \frac{1}{n}\sum_{i=1}^nx_i^{p} \right)^{\frac{1}{p}}
+    \leqslant \left( \frac{1}{n}\sum_{i=1}^nx_i^{q} \right)^{\frac{1}{q}}
+  \end{equation}
+  等号当且仅当$x_i(i=1,2,\ldots,n)$全部相等时成立。
+\end{theorem}
+取$p=1,q=2$，便可得算术平均数小于等于平方平均数。
+
+将每个数的权重$\frac{1}{n}$一般化，得如下的加权形式
+\begin{theorem}[加权幂平均值不等式]
+  对任意$n$个正实数$x_i(i=1,2,\ldots,n)$和任意两个正实数$0<p<q$，以及一组权值$\alpha_i \geqslant 0(i=1,2,\ldots,n), \sum_{i=1}^n\alpha_i=1$，成立着下面不等式
+  \begin{equation}
+    \label{eq:pow-mean-inequation-with-weight}
+    \left( \sum_{i=1}^n\alpha_ix_i^p \right)^{\frac{1}{p}}
+    \leqslant \left( \sum_{i=1}^n\alpha_ix_i^q \right)^{\frac{1}{q}}
+  \end{equation}
+\end{theorem}
 
 \subsection{赫尔德(Holder)不等式}
 
