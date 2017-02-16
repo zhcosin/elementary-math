@@ -106,7 +106,7 @@ f(X_{n+1}) & = f \left( \frac{x_1+x_2+\cdots+x_{n+1}}{n+1} \right) \\
   \begin{split}
     f(\alpha a + \beta b) & = f \left( \frac{ma+nb}{m+n} \right) \\
 & \geqslant \frac{mf(a)+nf(b)}{m+n} \\
-& \geqslant \alpha f(a) + \beta f(b)
+& = \alpha f(a) + \beta f(b)
   \end{split}
 \end{equation*}
 因此有理数的情形得证。
@@ -115,7 +115,7 @@ f(X_{n+1}) & = f \left( \frac{x_1+x_2+\cdots+x_{n+1}}{n+1} \right) \\
 \begin{equation*}
     f(\alpha_n a + \beta_n b) \geqslant \alpha_n f(a) + \beta_n f(b) 
 \end{equation*}
-不等式两端令$n\to\infty$，即得无理数时不等式仍成立。
+不等式两端令$n\to\infty$，并利用函数$f$ 的连续性即得无理数时不等式仍成立。
 \end{proof}
 
 现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式
