@@ -90,6 +90,16 @@
 \end{equation*}
 如果记向量$\vv{a}=(x_1,x_2,\ldots,x_n), \vv{b}=(y_1,y_2,\ldots,y_n)$，则柯西不等式即表明$|\vv{a} \cdot \vv{b}| \leqslant |\vv{a}| \cdot |\vv{b}|$.
 
+把不等式的左边展开，再利用不等式$2xy \leqslant x^2+y^2$即可轻松证明柯西不等式，但更为流行的是下面的证明:
+
+\begin{proof}[证明]
+  构造二次函数
+  \begin{equation*}
+  f(t)=t^2\sum_{i=1}^nx_i^2+2t\sum_{i=1}^nx_iy_i+\sum_{i=1}^ny_i=\sum_{i=1}^n(x_it+y_i)^2 \geqslant 0
+  \end{equation*}
+ 既然是恒为非负的二次函数，其判别式必小于等于零，于是即得柯西不等式，等号成立的条件就是二次函数有零点$t_0$，使得$x_it_0+y_i=0(i=1,2,\ldots,n)$，也就是两组数成比例。
+\end{proof}
+
 \subsection{排序不等式}
 
 \begin{theorem}[排序不等式]
