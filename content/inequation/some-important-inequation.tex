@@ -2,8 +2,7 @@
 \section{一些重要的不等式}
 \label{sec:some-important-inequation}
 
-本节叙述一些在初等数学领域非常重要的不等式，这些不等式应用广泛，刻画的不等式关系
-简单而深刻。
+本节叙述一些在初等数学领域非常重要的不等式，这些不等式应用广泛，刻画的不等式关系非常深刻。
 
 \subsection{均值不等式}
 
@@ -90,9 +89,39 @@
 
 \subsection{赫尔德(Holder)不等式}
 
-\subsection{琴生(Jensen)不等式}
+\begin{theorem}[赫尔德不等式]
+  设$x_i> 0, y_i> 0 (i=1,2,\ldots,n)$且$\frac{1}{p}+\frac{1}{q}=1$，那么在$p>1$时成立下面的不等式
+  \begin{equation}
+    \label{eq:holder-inequation}
+    \sum_{i=1}^nx_iy_i \leqslant \left( \sum_{i=1}^nx_i^p \right)^{\frac{1}{p}} \cdot \left( \sum_{i=1}^nx_i^q \right)^{\frac{1}{q}}
+  \end{equation}
+  在$p<1,p\neq 0$不等式反向，等号当且仅当向量$(x_1^p,\ldots,x_n^p)$和$(y_1^q,\ldots,y_n^q)$共线时成立。
+\end{theorem}
+在赫尔德不等式中，取$p=q=2$，即得柯西不等式。
+
+\subsection{闵可夫斯基(Minkowski)不等式}
+
+
+\begin{theorem}[闵可夫斯基不等式]
+  设$x_i>0, y_i>0 (i=1,2,\ldots,n)$，那么在$p>1$时成立下面的不等式
+  \begin{equation}
+    \label{eq:holder-inequation}
+    \left( \sum_{i=1}^n(x_i+y_i)^p \right)^{\frac{1}{p}} \leqslant \left( \sum_{i=1}^nx_i^p \right)^{\frac{1}{p}} + \left( \sum_{i=1}^ny_i^p \right)^{\frac{1}{p}}
+  \end{equation}
+  在$p<1$时不等式反向，等号当且仅当存在一个共同的实数$\lambda$使得$x_i=\lambda y_i(i=1,2,\ldots,n)$时成立。
+\end{theorem}
+在闵可夫斯基不等式中取$n=2,p=2$，便是三角形两边之和大于第三边的坐标表达。
 
 \subsection{嵌入不等式}
+
+\begin{theorem}[嵌入不等式]
+  对$\triangle ABC$和任意的实数$x,y,z$均有下面不等式成立
+  \begin{equation}
+    \label{eq:embedding-inequation}
+    x^2+y^2+z^2 \geqslant 2yz\cos{A}+2zx\cos{B}+2xy\cos{C}
+  \end{equation}
+  其中，当且仅当$x:y:z = \sin{A} : \sin{B} : \sin{C}$时等号成立。
+\end{theorem}
 
 %%% Local Variables:
 %%% mode: latex
