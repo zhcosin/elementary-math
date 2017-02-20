@@ -137,6 +137,45 @@
 其中的等号成立的唯一场景是：两组数中至少有一组数的值都相同。
 \end{theorem}
 
+切比雪夫不等式是排序不等式的直接推论，这从如下的证明过程即可看出。
+
+\begin{proof}[证明]
+  先证明右边不等式，由排序不等式，可得如下的$n$个等式或不等式:
+  \begin{eqnarray*}
+    x_1y_1+x_2y_2+\cdots+x_ny_n &=& x_1y_1+x_2y_2+\cdots+x_ny_n \\
+    x_1y_2+x_2y_3+\cdots+x_ny_1 & \leqslant & x_1y_1+x_2y_2+\cdots+x_ny_n \\
+    x_1y_3+x_2y_4+\cdots+x_ny_2 & \leqslant & x_1y_1+x_2y_2+\cdots+x_ny_n \\
+    \cdots & & \\
+    x_1y_n+x_2y_1+\cdots+x_ny_{n-1} & \leqslant & x_1y_1+x_2y_2+\cdots+x_ny_n 
+  \end{eqnarray*}
+  将这些等式或不等式全部相加，即得切比雪夫不等式的右边。
+
+  至于不等式的左边，只要在把序列$y_1,y_2,\ldots,y_n$替换为序列$-y_n,-y_{n-1},\ldots,-y_1$后应用不等式的右边即可得出(当然也可以使用排序不等式的左边也像刚才那样累加得出)。
+\end{proof}
+
+\subsection{琴生不等式}
+\label{sec:jenson-inequality}
+
+琴生不等式是一个与函数凸性有关的不等式。
+\begin{theorem}[琴生不等式]
+  设函数$f(x)$在区间$D$上是上凸函数，则对于该区间上任意$n$个实数$x_i(i=1,2,\ldots,n)$，有如下不等式成立:
+  \begin{equation}
+    \label{eq:jenson-inequality-some-import-inequality}
+    f \left( \frac{1}{n} \sum_{i=1}^nx_i \right) \geqslant
+    \frac{1}{n} \sum_{i=1}^n f(x_i)
+  \end{equation}
+\end{theorem}
+
+同样有加权形式的琴生不等式
+\begin{theorem}[加权形式的琴生不等式]
+  设函数$f(x)$在区间$D$上是上凸函数，则对于该区间上任意$n$个实数$x_i(i=1,2,\ldots,n)$和一组权值$\alpha_i\geqslant 0(i=1,2,\ldots,n), \sum_{i=1}^n\alpha_i=1$，有如下不等式成立:
+  \begin{equation}
+    \label{eq:jenson-inequality-some-import-inequality}
+    f \left( \sum_{i=1}^n\alpha_ix_i \right) \geqslant
+    \sum_{i=1}^n \alpha_if(x_i)
+  \end{equation}
+\end{theorem}
+
 \subsection{幂平均值不等式}
 
 \begin{theorem}[幂平均值不等式]
