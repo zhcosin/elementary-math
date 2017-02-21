@@ -1,0 +1,32 @@
+
+\section{多项式定理}
+\label{sec:polynomial-theorem}
+
+从中学数学教材中熟知有如下的二项式定理
+\begin{theorem}[二项式定理]
+  对于任意两个实数$x$和$y$，以及任意的正整数$n$，有如下等式:
+  \begin{equation}
+    \label{eq:binomial-theorem}
+    (x+y)^n = \sum_{i=0}^n C_n^i x^iy^{n-i}
+  \end{equation}
+  其中每一项的系数$C_n^i=\frac{n!}{i!(n-i)!}$称为 \emph{二项式系数}。
+\end{theorem}
+
+利用数学归纳法，证明是很容易的，此处略去。
+
+把这定理推广到多个数相加的情况，就有如下的多项式定理
+\begin{theorem}[多项式定理]
+  对于任意$m$个实数$x_i(i=1,2,\ldots,m)$，以及任意的正整数$n$，有如下等式:
+  \begin{equation}
+    \label{eq:polynomial-theorem}
+    \left( \sum_{i=1}^m x_i \right)^n = \sum_{r_{i} \geqslant 0,\sum_{i=1}^{m}r_{i}=n} \frac{n!}{r_1!r_2!\cdots r_m!}x_1^{r_1}x_2^{r_2}\cdots x_m^{r_m}
+  \end{equation}
+  其中的指数组合$(r_1,r_2,\ldots,r_{m})$要遍及方程$\sum_{i=1}^{m}r_{i}=n$的所有非负整数解，每一项的系数$\frac{n!}{r_1!r_{2}!\cdots r_{m}!}$称为 \emph{多项式系数}。
+\end{theorem}
+
+对参与相加的加数的个数$m$使用数学归纳法，并利用二项式定理，便可以证明此定理，此处同样略去。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
