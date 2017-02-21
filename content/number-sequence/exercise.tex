@@ -106,6 +106,26 @@ $$
   I_{n} \geqslant I_{100} > \frac{41}{60} - \frac{1}{402} = 0.680845771... > 0.68
 \end{equation*}
 所以不等式左边得证.
+
+其实证明左边所用的放缩是比较松的，实际上因为$\lim_{n\to\infty}I_n=\ln{2}=0.693147...$，所以左边不等式的放缩余地较大，所以这样的放缩也能达到要求，现在来尝试使用更强的放缩，看看能得到一个什么样的结果。
+
+对于$z_{n}$，不等式$z_n>2z_{n+1}-z_{n+2}$将是一个更强的放缩，所以我们有$z_{2k}>2z_{2k+1}-z_{2k+2}$，也就是下面的不等式
+\begin{equation*}
+  \frac{1}{2k-1}-\frac{1}{2k} > 2 \left( \frac{1}{2k}-\frac{1}{2k+1} \right) - \left( \frac{1}{2k+1}-\frac{1}{2k+2} \right)
+\end{equation*}
+对上式左边进行累加，但只在$k\geqslant 3$时使用右边放缩，即得
+\begin{equation*}
+  I_n > \frac{1}{2}+\frac{1}{12} + 2 \left( J_n-\frac{1}{6}-\frac{1}{20} \right) - \left( I_n-\frac{1}{2}-\frac{1}{12}-\frac{1}{30}+\frac{1}{(2n+1)(2n+2)} \right)
+\end{equation*}
+将其中的$J_{n}$用$1-I_n-\frac{1}{2n+1}$替换掉，即得
+\begin{equation*}
+  I_n>\frac{83}{120}-\frac{1}{2(2n+1)}-\frac{1}{4(2n+1)(2n+2)}
+\end{equation*}
+因此在$n \geqslant 100$时，便有
+\begin{equation*}
+  I_n \geqslant I_{100} > \frac{83}{120}-\frac{1}{2(2\times 100+1)}-\frac{1}{4(2\times 100+1)(2 \times 100 + 2)} = 0.6891729471.....
+\end{equation*}
+这个值已经非常接近$0.69$了。
 \end{proof}
 
 
