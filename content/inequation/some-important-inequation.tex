@@ -90,7 +90,12 @@
 \end{equation*}
 如果记向量$\vv{a}=(x_1,x_2,\ldots,x_n), \vv{b}=(y_1,y_2,\ldots,y_n)$，则柯西不等式即表明$|\vv{a} \cdot \vv{b}| \leqslant |\vv{a}| \cdot |\vv{b}|$.
 
-把不等式的左边展开，再利用不等式$2xy \leqslant x^2+y^2$即可轻松证明柯西不等式，但更为流行的是下面的证明:
+证明很简单:
+\begin{equation*}
+  \left( \sum_{i=1}^nx_i^2 \right) \left( \sum_{i=1}^nx_i^2 \right) - \left( \sum_{i=1}^nx_iy_i \right)^2 = \sum_{1 \leqslant i < j \leqslant n}(x_iy_j-x_jy_i)^2 \geqslant 0
+\end{equation*}
+
+但更为流行的是下面的证明:
 
 \begin{proof}[证明]
   构造二次函数
