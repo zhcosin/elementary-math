@@ -13,7 +13,15 @@ f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
  \end{equation}
 则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
 \end{definition}
-这定义的几何意义是容易理解的，本文主要讨论上凸函数，因为下凸函数只要乘以$-1$，即可变为上凸函数，但本文关于上凸函数的结论都可以类似的得到下凸函数的结论。
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/function/pic/definition-of-convexity-function.pdf}
+\caption{}
+\label{fig:definition-of-convexity-function}
+\end{figure}
+
+这定义的几何意义如图\ref{fig:definition-of-convexity-function}，本文主要讨论上凸函数，因为下凸函数只要乘以$-1$，即可变为上凸函数，但本文关于上凸函数的结论都可以类似的得到下凸函数的结论。
 
 需要特别强调的是上述定义中对函数连续性的要求，这并不是说不连续的函数就没有凸性，而是因为这是一个不完善的定义，只有连续函数的上凸才能用上述不等式刻画，对于非连续函数而言，满足上述不等式还不足以得出它的凸性，这从下面这个函数就可以看出:
 \begin{equation*}
