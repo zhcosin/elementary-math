@@ -67,7 +67,8 @@
   \begin{eqnarray*}
     \sum_{i=1}^n\alpha_ix_i &=& \sum_{i=1}^n \frac{p_i}{\sum_{k=1}^np_k}x_i \\
                             &=& \frac{1}{\sum_{i=1}^np_i} \cdot \sum_{i=1}^np_ix_i \\
-    & \geqslant & \prod_{i=1}^nx_i^{p_i}
+                            & \geqslant & \left (\prod_{i=1}^nx_i^{p_i} \right)^{\frac{1}{\sum_{i=1}^n p_i}} \\
+    & = & \prod_{i=1}^n x_i^{\alpha_i}
   \end{eqnarray*}
   所以不等式得证。
 
