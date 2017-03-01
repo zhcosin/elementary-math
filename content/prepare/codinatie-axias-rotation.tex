@@ -4,6 +4,8 @@
 
 在高级中学数学教材中，三角函数的伸缩变换已经为人所熟知，而本文要讨论的是坐标变换的一般性理论。
 
+这些变换包括平移、旋转、伸缩、对称，通常所说的位似变换可以通过伸缩变换得到，其中，平移、旋转、对称都是恒等变换，即不改变平面图形的形状和大小，或者说变换前后的图形是全等的，而位似变换前后的图象则是相似的，形状不变，大小可以改变。
+
 \subsection{平移}
 
 平移变换由平移向量$\vv{s}=(a,b)$唯一确定，平面上任意一点$P$与它在变换下的像$P'$满足$\vv{PP'}=\vv{s}$为常向量，因此如果点$P$的坐标是$(x,y)$，点$P'(x',y')$的坐标将是$(x+a, y+b)$，即
@@ -90,6 +92,7 @@
 \end{equation*}
 或者写成这样:
 \begin{equation*}
+  \label{eq:formulas-rotation-axias-matrix}
   \left(
     \begin{array}{c}
       x' \\
@@ -120,6 +123,74 @@
 
 \subsection{伸缩}
 
+伸缩变换是以原点为基准，把平面沿着坐标轴的两个方向进行拉伸或压缩，两个方向上各有一个 \emph{伸缩因子}，分别用$\lambda$和$\mu$代表$x$和$y$方向的伸缩因子，则显然新旧坐标之间的关系是:
+\begin{equation}
+  \label{eq:scale-translation-coordinate-formula}
+  \left\{
+    \begin{array}{ccc}
+      x' & = & \lambda x \\
+      y' & = & \mu y
+    \end{array}
+  \right.
+\end{equation}
+矩阵形式为
+\begin{equation*}
+  \left(
+    \begin{array}{c}
+      x' \\
+      y'
+    \end{array}
+  \right)
+    =
+    \left(
+      \begin{array}{cc}
+        \lambda & 0 \\
+        0 & \mu
+      \end{array}
+    \right)
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+\end{equation*}
+或者写成这样:
+\begin{equation*}
+  \label{eq:scale-translation-coordinate-formula-matrix}
+  \left(
+    \begin{array}{c}
+      x' \\
+      y' \\
+      1
+    \end{array}
+  \right)
+    =
+    \left(
+      \begin{array}{ccc}
+        \lambda & 0 & 0 \\
+        0 & \mu & 0 \\
+        0 & 0 & 1
+      \end{array}
+    \right)
+  \left(
+    \begin{array}{c}
+      x \\
+      y \\
+      1
+    \end{array}
+  \right)
+\end{equation*}
+
+如果两个方向上的伸缩因子相等，则称它为以原点为中心的 \emph{位似变换}，位似变换是恒等变换。
+
+\begin{example}
+  抛物线的标准方程$y^2=2px(p>0)$，对它进行位似变换，记原抛物线为$C$，新的曲线为$C'$，那么$C$也可以由新曲线进行位似变换得到，假定这个变换的伸缩因子为$\lambda$，就有$x=\lambda x', y=\lambda y'$，于是新的曲线方程是$\lambda^2y'^2=2p\lambda x'$，取$\lambda = p$，则得$y'^2=2x'$，这表明任何一个抛物线$y^2=2px(p>0)$的图象的形状都是一样的，不同的只是大小。事实上，同样的方法应用到圆、椭圆、双曲线上，得出的结论是: 率心率相同的二次曲线都是相似的，换句话说，离心率是确定二次曲线形状的参数，离心率相同，则形状相同，不同的只是大小。
+\end{example}
+
+\begin{example}
+  讨论一下椭圆的面积问题，对于标准椭圆方程$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1(a>b>0)$进行伸缩因子分别为$\lambda$和$1$的伸缩变换得到新曲线$C'$，换言之，曲线$C'$借由伸缩因子分别为$\frac{1}{\lambda}$和$1$的伸缩变换则得出标准椭圆曲线，此时坐标关系为$x=x'/\lambda, y=y'$，于是新曲线的方程是$\frac{x'^2}{\lambda^2a^2}+\frac{y'^2}{b^2}=1$，取$\lambda=\frac{b}{a}$，则新曲线的方程是$x'^2+y'^2=b^2$，这是一个圆的方程，椭圆的短轴是它的直径。根据祖暅原理，如果两个几何体在任一水平面上的截面积都相同，那么它俩体积相等。同理也有，如果两个平面图形被某一方向上的任一直线所截得的线段长度都相等，那么它俩面积也相等，进一步，如果它俩被某一方向的任意直线所截得的线段长度都有相同的比例，那么它们面积之比也为此固定比例。在我们这里，既然这个圆是由椭圆在$x$方向上伸缩变换得出，那么由任一水平直线去截这个圆与椭圆，所得线段之比必为固定比例$\frac{b}{a}$（直接计算也可以得到），这个圆的面积是$\pi b^2$，如果椭圆面积为$S$，则$\frac{\pi b^2}{S}=\frac{b}{a}$，所以椭圆的面积$S=\pi ab$。
+\end{example}
 
 %%% Local Variables:
 %%% mode: latex
