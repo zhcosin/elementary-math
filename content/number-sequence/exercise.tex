@@ -128,6 +128,18 @@ $$
 这个值已经非常接近$0.69$了。
 \end{proof}
 
+\begin{exercise}
+  已知数列$\{a_n\}$满足: $a_1=1$，$a_{n+1}=a_n+\frac{1}{a_n^2}$，求证$a_{2015}>18$.
+\end{exercise}
+
+\begin{proof}[证明]
+  易见这是一个递增的正项数列，在递推式两边同时三次方:
+  \begin{equation*}
+    a_{n+1}^3=\left( a_n+\frac{1}{a_n^2} \right)^3 = a_n^3+3+\frac{3}{a_n^3}+\frac{1}{a_n^6}>a_n^3+3
+  \end{equation*}
+  所以$a_{2015}>a_1^3+3\times 2014=6043 > 5832 = 18^3$.
+\end{proof}
+
 
 %%% Local Variables:
 %%% mode: latex
