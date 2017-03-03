@@ -1,5 +1,5 @@
 
-\section{多项式定理}
+\section{多项式乘幂定理}
 \label{sec:polynomial-theorem}
 
 从中学数学教材中熟知有如下的二项式定理
@@ -14,8 +14,8 @@
 
 利用数学归纳法，证明是很容易的，此处略去。
 
-把这定理推广到多个数相加的情况，就有如下的多项式定理
-\begin{theorem}[多项式定理]
+把这定理推广到多个数相加的情况，就有如下的多项式乘幂定理
+\begin{theorem}[多项式乘幂定理]
   对于任意$m$个实数$x_i(i=1,2,\ldots,m)$，以及任意的正整数$n$，有如下等式:
   \begin{equation}
     \label{eq:polynomial-theorem}
@@ -25,6 +25,80 @@
 \end{theorem}
 
 对加数的个数$m$使用数学归纳法，并利用二项式定理，便可以证明此定理，此处同样略去。
+
+这公式随着次数和加数个数的增加会迅速变长，它的项数就是方程$\sum_{i=1}^mr_i=n$的非负整数解的个数，这个值是$C_{n+m-}^{m-1}$(参见\ref{sec:solve-number-of-equation}小节)，比如说，对于$n=3,m=3$的情况，把这公式写出来就是:
+\begin{equation*}
+  (a+b+c)^3 = a^3+b^3+c^3+3a^2b+3a^2c+3b^2a+3b^2c+3c^2a+3c^2b+6abc
+\end{equation*}
+
+为了以后书写方便，我们引入所谓轮换求和和对称求和的符号，对于三个实数$a,b,c$而言，轮换求和是
+\begin{equation*}
+  \sum_{cyc} f(a,b,c) = f(a,b,c) + f(b, c, a) + f(c, a ,b)
+\end{equation*}
+而对称求和是
+\begin{equation*}
+  \sum_{sym} f(a,b,c) = f(a, b, c) + f(a, c, b) + f(b, c, a) + f(b, a, c) + f(c, a, b) + f(c, b, a)
+\end{equation*}
+即轮换求和是将序列$a,b,c$首尾相接后轮换进行求和，而对称求和是要对所有可能的排列进行求和。
+
+在这种符号下，$(a+b+c)^3$ 的展开可以写成如下这样:
+\begin{equation*}
+  (a+b+c)^3 = \sum_{sym}a^3+3\sum_{sym}a^2b+6abc
+\end{equation*}
+而$(a+b+c+d)^4$的展开则是
+\begin{equation*}
+  (a+b+c+d)^4 = \sum_{sym} a^4 + 4 \sum_{sym}a^3b + 6\sum_{sym}a^2b^2+12\sum_{sym}a^2bc+24abcd
+\end{equation*}
+
+现在利用这些简化的符号来表达多项式乘幂定理，可以看出，定理公式中因子次数组合相同的项都具有相同的系数，把系数提出来就是对称求和，所以这定理可以改写为
+\begin{equation*}
+  \left( \sum_{i=1}^m x_i \right)^n = \sum_{r_i \geqslant 0, \sum_{k=1}^m r_k=n} \frac{n!}{r_1!r_2!\cdots r_n!} \sum_{sym} x_1^{r_1}x_2^{r_2}\cdots x_n^{r_n}
+\end{equation*}
+
+\begin{example}[均值不等式]
+  作为多项式乘幂定理的一个应用，我们来证明均值不等式: 对任意$n$个正实数$x_i(i=1,2,\ldots,n)$，有下面不等式成立:
+  \begin{equation*}
+    \sqrt[n]{x_1x_2\cdots x_n} \leqslant \frac{x_1+x_2+\cdots x_n}{n}
+  \end{equation*}
+  由于证明过程写起来比较晦涩，先写出$n=3$的过程示例，以帮助理解，以$a,b,c$标记这三个数，由$(a^k+b^k)-(a^{k-1}b+ab^{k-1})=(a-b)(a^{k-1}-b^{k-1}) \geqslant 0$得$a^k+b^k \geqslant a^{k-1}b+ab^{k-1}$，于是
+  \begin{equation*}
+    \sum_{sym}a^2b = \frac{1}{2}\sum_{sym}(a^2b+bc^2) = \frac{1}{2} \sum_{sym}b(a^2+c^2) \geqslant \frac{1}{2}\sum_{sym}2bac = 6abc
+  \end{equation*}
+  同样
+  \begin{equation*}
+    \sum_{sym}a^3 = \sum_{sym}\frac{a^3+b^3}{2} \geqslant \sum_{sym}\frac{a^2b+ab^2}{2}=\frac{1}{2}\sum_{sym}a^2b \geqslant 3abc
+  \end{equation*}
+  所以最终
+  \begin{equation*}
+    (a+b+c)^3=\sum_{sym}a^3+3\sum_{sym}a^2b+6abc \geqslant 3abc+18abc+6abc=27abc
+  \end{equation*}
+  于是三元均值不等式得证。
+
+  可以看出，这就是一个不断平衡各个因子次数的过程，它基于$a^k+b^k\geqslant a^{k-1}b+ab^{k-1}$这个基本的不等式，下面我们把这个过程一般化。
+
+  只需要证明如下的不等式
+  \begin{equation*}
+    (x_1+x_2+\cdots+x_n)^n \geqslant n^n x_1x_2\cdots x_n
+  \end{equation*}
+  我们考虑左边按照多项式乘幂定理展开后的对称求和的通项
+  \begin{equation*}
+    \frac{n!}{r_1!r_2!\cdots r_n!}\sum_{sym}x_1^{r_1}x_2^{r_2}\cdots x_n^{r_n}
+  \end{equation*}
+  这个对称求和是针对$r_1,r_2,\ldots,r_n$这个组合的各种可能的排列的，把右边的对称求和（不要系数）记作$\sigma(r_1,r_2,\ldots,r_n)$，我们来平衡这些次数。
+
+  理想的次数平衡是每个因子的次数$r_i$都是1，如果不是如此的话，因为这$\sum_{i=1}^nr_i=n$，所以必然存在某两个$r_i$和$r_j$使得$r_i-1 \geqslant r_j+1$即$r_i - r_j \geqslant 2$，我们把这两个次数平衡一次，变成$r_i-1$和$r_j+1$，基本不等式是
+  \begin{equation*}
+  (x_1^{r_i}y_2^{r_j}+x_2^{r_i}x_1^{r_j})-(x_1^{r_i-1}x_2^{r_j+1}+x_2^{r_i-1}x_1^{r_j+1})=x_1^{r_j}x_2^{r_j}(x_1-x_2)(x_1^{r_i-r_j-1}-x_2^{r_i-r_j-1}) \geqslant 0
+  \end{equation*}
+  所以
+  \begin{eqnarray*}
+    \sigma(r_1,\ldots,r_i,\ldots,r_j,\ldots,r_n) & = & \sum_{sym}x_i^{r_i}x_j^{r_j}\cdots \\
+ & = & \frac{1}{n-1} \sum_{sym}(x_i^{r_i}x_j^{r_j}+x_i^{r_j}x_j^{r_i})\cdots \\
+ & \geqslant & \frac{1}{n-1} \sum_{sym} (x_1^{r_i-1}x_2^{r_j+1}+x_2^{r_i-1}x_1^{r_j+1})\cdots \\
+                               & = & \frac{1}{2(n-1)} \sum_{sym}x_1^{r_i-1}x_2^{r_j+1}\cdots \\
+    & = & \frac{1}{2(n-1)} \sigma(r_1,\ldots,r_i-1,\ldots,r_j+1,\ldots,r_n)
+  \end{eqnarray*}
+\end{example}
 
 %%% Local Variables:
 %%% mode: latex
