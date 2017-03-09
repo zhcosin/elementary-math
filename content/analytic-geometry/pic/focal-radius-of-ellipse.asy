@@ -1,10 +1,11 @@
 
+import graph;
 import geometry;
 
 size(200,200);
 
-draw((-8,0) -- (8,0), Arrow);
-draw((0,-4) -- (0,4), Arrow);
+xaxis("$x$", -8, 8, Arrow);
+yaxis("$x$", -4, 4, Arrow);
 
 real a = 5;
 real b = 3;
