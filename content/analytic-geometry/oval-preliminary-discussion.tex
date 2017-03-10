@@ -89,7 +89,7 @@ r=\frac{b^2}{a-c\cos{\theta}}
 解出$r$即得到\ref{eq:focal-radius}，由此之前的余弦定理式也是成立的，因此必然$PF_2=2a-r$，充分性得证。
 \end{proof}
 
-\subsection{切线}
+\subsection{切线与光学性质}
 \label{sec:oval-tangent}
 
 椭圆曲线将其所在平面分成了三个部分：椭圆内部、椭圆曲线上、椭圆外部，对于椭圆曲线上的点，正如大家所熟知的，它们的坐标都满足椭圆的方程：
@@ -107,7 +107,9 @@ r=\frac{b^2}{a-c\cos{\theta}}
 \end{equation}
 因为之前椭圆曲线与其方程之间以及椭圆内部的平面区域与其不等式之间都是可以互推的。
 
-接下来讨论椭圆的切线问题，在椭圆上任取一个点 $P(x_0,y_0)$，那么该点处的切线方程将是:
+接下来讨论椭圆的切线问题，所谓切线，仿照圆的定义，按照直线与椭圆的交点数目，把直线与椭圆的位置关系划分为三类：相切、相交、相离。
+
+在椭圆上任取一个点 $P(x_0,y_0)$，我们在例\ref{ep:the-tangent-after-scale-translation}中利用伸缩变换曾经得出过如下的切线方程:
 \begin{equation}
 \frac{x_0x}{a^2}+\frac{y_0y}{b^2}=1 \label{eq:tangent}
 \end{equation}
@@ -122,7 +124,7 @@ r=\frac{b^2}{a-c\cos{\theta}}
 \label{fig:oval-tangent-line}
 \end{figure}
 
-这直线为何就是切线方程呢？在这直线上任取一点 $T(x_T,y_T)$，有：
+在这里，我们换一个角度来阐明它就是切线，在这直线上任取一点 $T(x_T,y_T)$，有：
 \begin{equation}
 (\frac{x_0^2}{a^2}+\frac{y_0^2}{b^2})+(\frac{x_T^2}{a^2}+\frac{y_T^2}{b^2}) \geqslant 2(\frac{x_0x_T}{a^2}+\frac{y_0y_T}{b^2})=2
 \end{equation}
@@ -130,12 +132,44 @@ r=\frac{b^2}{a-c\cos{\theta}}
 \begin{equation}
 \frac{x_T^2}{a^2}+\frac{y_T^2}{b^2} \geqslant 1
 \end{equation}
-这表明直线\ref{eq:tangent}上除点$P$外任何一点都在椭圆外，与椭圆只有$P$一个交点，所以它理所当然就是点$P$处的切线方程，其实我们在例\ref{ep:the-tangent-after-scale-translation}中通过伸缩变换曾经得出过椭圆的切线方程。
+这表明直线\ref{eq:tangent}上除点$P$外任何一点都在椭圆外，与椭圆只有$P$一个交点，所以它理所当然就是点$P$处的切线方程。
 
-\subsection{光学性质}
-\label{sec:oval-optical-nature}
+椭圆具有一个漂亮的光学性质：从椭圆的焦点之一发出的光线，经椭圆反射之后，必经过另一个焦点。需要说明的是光线经椭圆反射，等同于经椭圆上相应点处的切线反射。
 
-椭圆的光学性质是：从椭圆的焦点之一发出的光线，经椭圆反射之后，必经过另一个焦点。现在来证明这一事实，首先说明的一点是光线经椭圆反射，等同于经椭圆上相应点处的切线反射，假定从焦点发出的光线到达椭圆上一点$P(x_0,y_0)$，而该点处的切线便是上一小节我们所求者，于是得出法线的方程为
+为着证明这一点，提出如下定理:
+\begin{theorem}[椭圆切线定理]
+  椭圆上某点处的切线，是该点与椭圆两个焦点连线所形成的焦点三角形在该点处的外角平分线。
+\end{theorem}
+
+\begin{proof}[证明]
+  分两步证明，先证明定理中所说的外角平分线是椭圆的切线，再证明切线的唯一性。
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/oval-focus-triangle-external-bisector.pdf}
+\caption{三角形外角平分线的一个性质}
+\label{fig:oval-focus-triangle-external-bisector}
+\end{figure}
+
+  要证明此外角平分线与椭圆相切，只需证明它与椭圆只有唯一公共点即可。这实际上来自于平面几何中的一个结论：如图\ref{fig:oval-focus-triangle-external-bisector}，点$P$是三角形$\triangle ABC$在顶点$A$处的外角平分线上异于点$A$的任意一点，那么有不等式$PB+PC>AB+AC$成立。
+
+  证明也很简单，作出点$C$关于此外角平分线的对称点$C'$，那么有$PB+PC=PB+PC' > BC' = AB + AC' = AB+AC$.
+
+  这表明点$P$不可能在椭圆上，所以此外角平分线与椭圆除点$A$外无其它公共点，即为切线。
+
+  再继续证明切线的唯一性，这只要证明在上述三角形$ABC$中，过点$A$的其它直线上，必存在另一个异于点$A$的点$Q$，使得$QB+QC=AB+AC$即可，因为这样点$Q$就是该直线与椭圆的另一个交点，从而直线与椭圆是相交而非相切。
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/oval-focus-triangle-non-external-bisector.pdf}
+\caption{椭圆切线唯一性}
+\label{fig:oval-focus-triangle-non-external-bisector}
+\end{figure}
+
+  如图\ref{fig:oval-focus-triangle-non-external-bisector}，同样作点$C$关于这直线的对称点$C'$，记$BC'$与直线交点为$K$，则$KB+KC=KB+KC'=BC'<AB+AC'=AB+AC$，这表明点$K$到$B$和$C$两点的距离之和小于$AB+AC$，显然直线上无穷远处的点到$B$和$C$的距离之和大于$AB+AC$，所以直线上必存在一点$Q$，使得$QB+QC=AB+AC$，于是得证。
+\end{proof}
+
+如果要利用切线方程来证明这一事实，假定从焦点发出的光线到达椭圆上一点$P(x_0,y_0)$，而该点处的切线便是上一小节我们所求者，于是得出法线的方程为
 
 \begin{figure}[htbp]
   \centering
