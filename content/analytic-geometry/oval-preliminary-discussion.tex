@@ -28,7 +28,9 @@
   r=\frac{b^2}{a-c\cos{\theta}}
 \end{equation}
 这是倾斜角形式的 \emph{焦半径公式}。
-如果$PF_1$延长线与椭圆相交于另一点$Q$，易知向量$\vv{F_1Q}$与$x$轴正方向单位向量成角$\theta+\pi$，因此在上式中将$\theta$换成$\theta+\pi$，即得可知
+
+\begin{example}
+ 如果$PF_1$延长线与椭圆相交于另一点$Q$，易知向量$\vv{F_1Q}$与$x$轴正方向单位向量成角$\theta+\pi$，因此在上式中将$\theta$换成$\theta+\pi$，即得可知
 \begin{equation}
   \label{eq:oval-focal-radius-theta-2}
   F_1P=\frac{b^2}{a-c\cos{\theta}}, \  F_1Q=\frac{b^2}{a+c\cos{\theta}}
@@ -38,18 +40,29 @@
   \label{eq:oval-focal-line-split}
   \frac{1}{FP}+\frac{1}{FQ}=\frac{2a}{b^2}
 \end{equation}
-既然倒数和为定值，那么根据均值不等式便有
-\begin{equation*}
-  PQ=PF+QF \geqslant \frac{4}{\frac{1}{FP}+\frac{1}{FQ}}=\frac{2b^2}{a}
-\end{equation*}
-椭圆上任意两点间的连线称为弦，过焦点的弦称为焦点弦，那么上式就表明，焦点的长度有最小值，而根据焦半径公式，这个最小值只有在焦点弦与长轴垂直时取得。
+\end{example}
 
-实际上根据倾斜角形式的焦半径式，我们可以得出焦点弦的准确范围:
-\begin{equation*}
-  PQ=PF+QF=\frac{b^2}{a-c\cos{\theta}}+\frac{b^2}{a+c\cos{\theta}}=\frac{2ab^2}{a^2-c^2\cos^2{\theta}}
-\end{equation*}
-而$0 \leqslant \cos^2{\theta} \leqslant 1$，所以焦点弦的范围是$[\frac{2b^2}{a}, 2a]$
-最大值是长轴长，这一点从直观上是明显的。
+\begin{example}
+设$A$、$B$是椭圆上的两个动点，且两个动点在运动过程中始终保持$AF_1 \parallel BF_2$，我们来确定$AF_2$与$BF_1$的交点$P$的轨迹。
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/oval-two-focus-radius-intersectionpoint.pdf}
+\caption{}
+\label{fig:oval-two-focus-radius-intersectionpoint}
+\end{figure}
+
+如图 \ref{fig:oval-two-focus-radius-intersectionpoint}，假定$AF_1=r_1$，$BF_2=r_2$，由$\triangle PAF_1 \sim \triangle PBF_2$且相似比为$r_1/r_2$，有
+\begin{eqnarray*}
+  PF_1 + PF_2 & = & \frac{PF_1}{BF_1}BF_1 + \frac{PF_2}{AF_2}AF_2 \\
+              & = & \frac{r_1}{r_1+r_2}BF_1 + \frac{r_2}{r_1+r_2}AF_2 \\
+              & = & \frac{r_1}{r_1+r_2}(2a-r_2) + \frac{r_2}{r_1+r_2}(2a-r_1) \\
+              & = & 2a - \frac{2r_1r_2}{r_1+r_2} \\
+              & = & 2a - \frac{2}{\frac{1}{r_1}+\frac{1}{r_2}} \\
+  & = & 2a - \frac{b^2}{a}
+\end{eqnarray*}
+最后一个等号处利用了上一个例子中的结论，这结果这表明点$P$的轨迹是一个具有相同焦点的椭圆。
+\end{example}
 
 \subsection{第一定义与第二定义的等价性}
 \label{sec:the-equalance-for-two-definition-of-oval}
