@@ -1,0 +1,77 @@
+
+\section{几个重要的定理}
+\label{sec:some-import-plane-geometry-theorem}
+
+本节讲述几个在平面几何中占有重要地位的定理。
+
+\subsection{张角定理}
+\label{sec:spread-angle-theorem}
+
+\begin{theorem}[张角定理]
+  在三角形$ABC$中，$D$是$BC$边上任意一点，有下式成立:
+  \begin{equation}
+    \label{eq:spread-angle-theorem}
+    \frac{\sin{\angle{BAC}}}{AD} = \frac{\sin{\angle{CAD}}}{AB} + \frac{\sin{\angle{BAD}}}{AC}
+  \end{equation}
+
+  \begin{figure}[htbp]
+  \centering
+\includegraphics{content/plane-geometry/pic/spread-angle-theorem.pdf}
+\caption{张角定理}
+\label{fig:spread-angle-theorem}
+\end{figure}
+
+\end{theorem}
+
+\begin{proof}[证明]
+  因为$S_{\triangle ABC} = S_{\triangle ABD} + S_{\triangle CBD}$，所以
+  \begin{equation*}
+    \frac{1}{2}AB \cdot AC \cdot \sin{\angle BAC} =
+    \frac{1}{2}AB \cdot AD \cdot \sin{\angle BAD} +
+    \frac{1}{2}AC \cdot AD \cdot \sin{\angle CAD} 
+  \end{equation*}
+  两边同除以$\frac{1}{2}AB \cdot AC \cdot AD$即得证。
+\end{proof}
+
+张角定理的逆也是成立的，即如果平面上四个点满足定理中的等式，就有$B$、$C$、$D$三点共线，这也可以用来处理共线问题。
+
+\subsection{梅涅劳斯(menelaus)定理}
+\label{sec:menelaus-theorem}
+
+\begin{theorem}[梅涅劳斯定理]
+  设$X$、$Y$、$Z$是三角形$ABC$的三边$BC$、$CA$、$AB$或其延长线上的点，其中有奇数个点在边的延长线上，则此三点共线的充分必要条件是下式成立:
+  \begin{equation}
+    \label{eq:menelaus-theorem}
+    \frac{AZ}{ZB} \cdot \frac{BX}{XC} \cdot \frac{CY}{YA} = 1
+ \end{equation}
+ 
+  \begin{figure}[htbp]
+  \centering
+\includegraphics{content/plane-geometry/pic/menelaus-theorem.pdf}
+\caption{梅涅劳斯定理}
+\label{fig:menelaus-theorem}
+\end{figure}
+
+\end{theorem}
+
+最精巧的是下面这个辅助线的证明
+\begin{proof}[证明]
+  先证必要性，只就有一个点在边的延长线上进行证明，三个点的情况是类似的，如图\ref{fig:menelaus-theorem-proof}，点$X$在$BC$边延长线上，过$C$作$XYZ$的平行线，与边$AB$相交于点$P$，那么有
+ 
+  \begin{figure}[htbp]
+  \centering
+\includegraphics{content/plane-geometry/pic/menelaus-theorem-proof.pdf}
+\caption{梅涅劳斯定理的证明}
+\label{fig:menelaus-theorem-proof}
+\end{figure}
+
+  \begin{equation*}
+    \frac{AZ}{ZB} \cdot \frac{BX}{XC} \cdot \frac{CY}{YA} =
+    \frac{AZ}{ZB} \cdot \frac{BZ}{ZP} \cdot \frac{PZ}{ZA} = 1
+  \end{equation*}
+所以必要性成立，充分性利用同一法即可得证，略去
+\end{proof}
+
+%%% Local Variables:
+%%% TeX-master: "../../book"
+%%% End:
