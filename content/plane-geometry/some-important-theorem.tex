@@ -115,7 +115,7 @@
 \label{sec:cevian-theorem}
 
 \begin{theorem}[塞瓦定理]
-  在三角形$ABC$中，点$X$、$Y$、$Z$分别是三边$AB$、$BC$、$CA$上的点，则三条线段$AY$、$BZ$、$CX$交于一点的充分必要条件是
+  在三角形$ABC$中，点$X$、$Y$、$Z$分别是三边$AB$、$BC$、$CA$或其延长线上的点，其中有偶数个点在边的延长线上，则三条线段$AY$、$BZ$、$CX$交于一点$P$的充分必要条件是
   \begin{equation}
     \label{eq:cevian-theorem}
     \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} = 1
@@ -129,7 +129,68 @@
 \label{fig:cevian-theorem}
 \end{figure}
 
-要注意的是塞瓦定理中三个点都在边上，没有延长线上的点，所以虽然与梅涅劳斯定理中的比例式一样，但却是三线共点，而非三点共线。
+同样只证明必要性，第一个证明是直接使用了梅涅劳斯定理:
+\begin{proof}[证明一]
+  对三角形$ABY$和截线$XPC$使用梅涅劳斯定理得
+  \begin{equation*}
+    \frac{AX}{XB} \cdot \frac{BC}{CY} \cdot \frac{YP}{PA} = 1
+  \end{equation*}
+  再对三角形$ACY$和截线$BPZ$使用梅涅劳斯定理得
+  \begin{equation*}
+    \frac{YB}{BC} \cdot \frac{CZ}{ZA} \cdot \frac{AP}{PY} = 1
+  \end{equation*}
+  两式相乘即得塞瓦定理。
+\end{proof}
+
+面积方法仍然是最直接的:
+\begin{proof}[证明二]
+  \begin{equation*}
+    \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} =
+    \frac{S_{\triangle CPA}}{S_{\triangle CPB}} \cdot
+    \frac{S_{\triangle APB}}{S_{\triangle APC}} \cdot
+    \frac{S_{\triangle BPC}}{S_{\triangle BPA}} = 1
+  \end{equation*}
+\end{proof}
+
+同样有向量方法
+\begin{proof}[证明三]
+  仍然记$\vv{AX}=\lambda_1\vv{XB}$，$\vv{BY}=\lambda_2\vv{YC}$，$\vv{CZ}=\lambda_3\vv{ZA}$，有
+  \begin{equation*}
+    \vv{AX}=\frac{\lambda_1}{1+\lambda_{1}}\vv{AB}, \ \vv{AZ}=\frac{1}{1+\lambda_3}\vv{AC}
+  \end{equation*}
+  因为点$P$是$BZ$与$CX$的交点，所以存在两个实数$s$和$t$，使得
+  \begin{eqnarray*}
+    \vv{AP} &=& (1-s)\vv{AB}+s\vv{AZ} = (1-s)\vv{AB}+\frac{s}{1+\lambda_3}\vv{AC} \\
+    \vv{AP} &=& (1-t)\vv{AC}+t\vv{AX} =  \frac{t\lambda_1}{1+\lambda_{1}}\vv{AB}+(1-t)\vv{AC}
+  \end{eqnarray*}
+  于是得方程组
+  \begin{eqnarray}
+    1-s &=&  \frac{t\lambda_1}{1+\lambda_{1}} \\
+    \frac{s}{1+\lambda_3} &=& 1-t
+  \end{eqnarray}
+  解之得
+  \begin{equation*}
+    t = 1- \frac{1}{(1+\lambda_1)(1+\lambda_3)-\lambda_1}
+  \end{equation*}
+  所以
+  \begin{equation*}
+    \vv{AP}
+    = \left( 1- \frac{1}{(1+\lambda_1)(1+\lambda_3)-\lambda_1} \right) \cdot \frac{\lambda_1}{1+\lambda_{1}} \vv{AB}+\frac{1}{(1+\lambda_1)(1+\lambda_3)-\lambda_1}\vv{AC}
+  \end{equation*}
+  另一方面有
+  \begin{equation*}
+    \vv{AY}=\frac{1}{1+\lambda_2}\vv{AB}+\frac{\lambda_2}{1+\lambda_2}\vv{AC}
+  \end{equation*}
+  于是$\vv{AP}$与$\vv{AY}$共线的充分必要条件是两组系数成比例，经计算即为$\lambda_1\lambda_2\lambda_3=1$，即得证。
+\end{proof}
+
+\begin{example}[梅涅劳斯定理与塞瓦定理的统一]
+根据这证明过程，实际上梅涅劳斯定理和塞瓦定理可以统一起来：假定$X$、$Y$、$Z$是三角形$ABC$三边$AB$、$BC$、$CA$或它们的延长线上的点，有分比$\vv{AX}=\lambda_1\vv{XB}$，$\vv{BY}=\lambda_2\vv{YC}$，$\vv{CZ}=\lambda_3\vv{ZA}$，那么这三点共线的充分必要条件是$\lambda_1\lambda_2\lambda_3=-1$（梅涅劳斯定理），而$AY$、$BZ$、$CX$三线共点的充分必要条件是$\lambda_1\lambda_2\lambda_3=1$（塞瓦定理）。
+\end{example}
+
+\begin{example}[三角形的几个心]
+ 根据塞瓦定理，我们可以证明三角形中的三条中线交于同一点，称为\emph{重心}、三条内角平分线交于同一点，称为\emph{内心}，三条高线交于同一点，称为\emph{垂心}，一个内角的平分线与另外两个外角的平分线交于同一点，称为\emph{旁心}。现在就来证实这些事实。 
+\end{example}
 
 %%% Local Variables:
 %%% TeX-master: "../../book"
