@@ -15,20 +15,20 @@ draw(A -- B -- C -- cycle);
 real tb = 0.6;
 real tc = 0.4;
 
-pair Y = ((1-tb)*C.x+tb*A.x, (1-tb)*C.y+tb*A.y);
-label("$Y$", Y, NE);
-pair Z = ((1-tc)*A.x+tc*B.x, (1-tc)*A.y+tc*B.y);
-label("$Z$", Z, NW);
+pair Z = ((1-tb)*C.x+tb*A.x, (1-tb)*C.y+tb*A.y);
+label("$Z$", Z, NE);
+pair X = ((1-tc)*A.x+tc*B.x, (1-tc)*A.y+tc*B.y);
+label("$X$", X, NW);
 
-draw(B -- Y);
-draw(C -- Z);
+draw(B -- Z);
+draw(C -- X);
 
-pair P = intersectionpoint(B -- Y, C -- Z);
+pair P = intersectionpoint(B -- Z, C -- X);
 label("$P$", P, SSW);
 
-line ax = line(locate(A), locate(P));
+line ay = line(locate(A), locate(P));
 
-pair X = locate(intersectionpoint(ax, line(locate(B), locate(C))));
-label("$X$", X, S);
+pair Y = locate(intersectionpoint(ay, line(locate(B), locate(C))));
+label("$Y$", Y, S);
 
-draw(A -- X);
+draw(A -- Y);

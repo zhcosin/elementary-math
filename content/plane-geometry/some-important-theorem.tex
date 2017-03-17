@@ -13,6 +13,7 @@
     \label{eq:spread-angle-theorem}
     \frac{\sin{\angle{BAC}}}{AD} = \frac{\sin{\angle{CAD}}}{AB} + \frac{\sin{\angle{BAD}}}{AC}
   \end{equation}
+\end{theorem}
 
   \begin{figure}[htbp]
   \centering
@@ -21,10 +22,8 @@
 \label{fig:spread-angle-theorem}
 \end{figure}
 
-\end{theorem}
-
 \begin{proof}[证明]
-  因为$S_{\triangle ABC} = S_{\triangle ABD} + S_{\triangle CBD}$，所以
+  因为$S_{\triangle ABC} = S_{\triangle ABD} + S_{\triangle ACD}$，所以
   \begin{equation*}
     \frac{1}{2}AB \cdot AC \cdot \sin{\angle BAC} =
     \frac{1}{2}AB \cdot AD \cdot \sin{\angle BAD} +
@@ -39,38 +38,98 @@
 \label{sec:menelaus-theorem}
 
 \begin{theorem}[梅涅劳斯定理]
-  设$X$、$Y$、$Z$是三角形$ABC$的三边$BC$、$CA$、$AB$或其延长线上的点，其中有奇数个点在边的延长线上，则此三点共线的充分必要条件是下式成立:
+  设$X$、$Y$、$Z$是三角形$ABC$的三边$AB$、$BC$、$CA$或其延长线上的点，其中有奇数个点在边的延长线上，则此三点共线的充分必要条件是下式成立:
   \begin{equation}
     \label{eq:menelaus-theorem}
-    \frac{AZ}{ZB} \cdot \frac{BX}{XC} \cdot \frac{CY}{YA} = 1
+    \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} = 1
  \end{equation}
+\end{theorem}
  
-  \begin{figure}[htbp]
-  \centering
+\begin{figure}[htbp]
+\centering
 \includegraphics{content/plane-geometry/pic/menelaus-theorem.pdf}
-\caption{梅涅劳斯定理}
+\caption{梅涅劳斯定理:只有一个点在边的延长线上的情形}
 \label{fig:menelaus-theorem}
 \end{figure}
-
-\end{theorem}
-
-最精巧的是下面这个辅助线的证明
-\begin{proof}[证明]
-  先证必要性，只就有一个点在边的延长线上进行证明，三个点的情况是类似的，如图\ref{fig:menelaus-theorem-proof}，点$X$在$BC$边延长线上，过$C$作$XYZ$的平行线，与边$AB$相交于点$P$，那么有
  
-  \begin{figure}[htbp]
-  \centering
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/menelaus-theorem2.pdf}
+\caption{梅涅劳斯定理:三个点都在边的延长线上的情形}
+\label{fig:menelaus-theorem2}
+\end{figure}
+
+只证明必要性，得证之后利用同一法即可轻松得到充分性的证明。
+最精巧的是下面这个辅助线的证明
+\begin{proof}[证明一]
+  过$C$作$XYZ$的平行线，与边$AB$相交于点$P$，那么有
+ 
+\begin{figure}[htbp]
+\centering
 \includegraphics{content/plane-geometry/pic/menelaus-theorem-proof.pdf}
 \caption{梅涅劳斯定理的证明}
 \label{fig:menelaus-theorem-proof}
 \end{figure}
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/menelaus-theorem-proof2.pdf}
+\caption{梅涅劳斯定理的证明}
+\label{fig:menelaus-theorem-proof2}
+\end{figure}
 
   \begin{equation*}
-    \frac{AZ}{ZB} \cdot \frac{BX}{XC} \cdot \frac{CY}{YA} =
-    \frac{AZ}{ZB} \cdot \frac{BZ}{ZP} \cdot \frac{PZ}{ZA} = 1
+    \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} =
+    \frac{AX}{XB} \cdot \frac{BX}{XP} \cdot \frac{PX}{XA} = 1
   \end{equation*}
-所以必要性成立，充分性利用同一法即可得证，略去
+所以必要性成立，充分性利用同一法即可得证，略去。
 \end{proof}
+
+面积方法仍然是行之有效的手段:
+\begin{proof}[证明二]
+  \begin{equation*}
+    \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} =
+    \frac{S_{\triangle AYX}}{S_{\triangle BYX}} \cdot
+    \frac{S_{\triangle BYX}}{S_{\triangle CYX}} \cdot
+    \frac{S_{\triangle CYX}}{S_{\triangle AYX}} = 1
+  \end{equation*}
+\end{proof}
+
+再给一个向量方法的证明:
+\begin{proof}[证明三]
+  记$\vv{AX}=\lambda_1\vv{XB}$, $\vv{BY}=\lambda_2\vv{YC}$, $\vv{CZ}=\lambda_3\vv{ZA}$，则有
+  \begin{equation*}
+    \vv{XZ} = \vv{AZ}-\vv{AX}=\frac{1}{1+\lambda_3}\vv{AC}-\frac{\lambda_1}{1+\lambda_1}\vv{AB}
+  \end{equation*}
+  同时
+  \begin{eqnarray*}
+    \vv{XY} &=& \vv{AY} - \vv{AX} = \left( \frac{1}{1+\lambda_2}\vv{AB}+\frac{\lambda_2}{1+\lambda_2}\vv{AC} \right) - \frac{\lambda_1}{1+\lambda_1}\vv{AB} \\
+    &=& \left( \frac{1}{1+\lambda_2}-\frac{\lambda_1}{1+\lambda_1} \right)\vv{AB}+\frac{\lambda_2}{1+\lambda_2}\vv{AC} 
+  \end{eqnarray*}
+这两个向量共线的充分必要条件是上面这两组系数对应成比例，经过计算即为等式$\lambda_1\lambda_2\lambda_3=-1$，因为是有奇数个点在边的延长线上，所以它等价于定理中的等式。
+\end{proof}
+
+从向量形式中我们得到了梅涅劳斯定理的向量表达: $\lambda_1\lambda_2\lambda_3=-1$，而且向量形式的证明，充分性与必要性是统一的。
+
+\subsection{塞瓦(cevian)定理}
+\label{sec:cevian-theorem}
+
+\begin{theorem}[塞瓦定理]
+  在三角形$ABC$中，点$X$、$Y$、$Z$分别是三边$AB$、$BC$、$CA$上的点，则三条线段$AY$、$BZ$、$CX$交于一点的充分必要条件是
+  \begin{equation}
+    \label{eq:cevian-theorem}
+    \frac{AX}{XB} \cdot \frac{BY}{YC} \cdot \frac{CZ}{ZA} = 1
+  \end{equation}
+\end{theorem}
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/cevian-theorem.pdf}
+\caption{塞瓦定理}
+\label{fig:cevian-theorem}
+\end{figure}
+
+要注意的是塞瓦定理中三个点都在边上，没有延长线上的点，所以虽然与梅涅劳斯定理中的比例式一样，但却是三线共点，而非三点共线。
 
 %%% Local Variables:
 %%% TeX-master: "../../book"
