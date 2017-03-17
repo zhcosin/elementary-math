@@ -15,14 +15,14 @@ draw(A -- B -- C -- cycle);
 real ta = 1.6;
 real tc = 0.4;
 
-pair X = ((1-ta)*B.x+ta*C.x, (1-ta)*B.y+ta*C.y);
-label("$X$", X, SE);
-pair Z = ((1-tc)*A.x+tc*B.x, (1-tc)*A.y+tc*B.y);
-label("$Z$", Z, NW);
-pair Y = intersectionpoint(X -- Z, A -- C);
-label("$Y$", Y, NE);
+pair Y = ((1-ta)*B.x+ta*C.x, (1-ta)*B.y+ta*C.y);
+label("$Y$", Y, SE);
+pair X = ((1-tc)*A.x+tc*B.x, (1-tc)*A.y+tc*B.y);
+label("$X$", X, NW);
+pair Z = intersectionpoint(X -- Y, A -- C);
+label("$Z$", Z, NE);
 
-draw(C -- X);
+draw(C -- Y);
 draw(X -- Y -- Z);
 
 line cp = parallel(locate(C), line(locate(X), locate(Z)));
