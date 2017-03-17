@@ -115,6 +115,16 @@
  既然是恒为非负的二次函数，其判别式必小于等于零，于是即得柯西不等式，等号成立的条件就是二次函数有零点$t_0$，使得$x_it_0+y_i=0(i=1,2,\ldots,n)$，也就是两组数成比例。
 \end{proof}
 
+\begin{example}
+  高中数学教材上有一类习题，是说点$P(x,y)$是椭圆$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1(a>0, b>0)$上任一点，$\lambda$和$\mu$是两个固定的实数，求$\lambda x + \mu y$的最值。
+
+  这题目可以使用判别式来求解，也可以使用椭圆参数方程来求，最直接的就是使用柯西不等式:
+  \begin{equation*}
+    (\lambda x + \mu y)^2 = (a\lambda \cdot \frac{x}{a} + b\mu \cdot \frac{y}{b})^2 \leqslant (a^2\lambda^2+b^2\mu^2)(\frac{x^2}{a^2}+\frac{y^2}{b^2}) = a^2\lambda^2+b^2\mu^2
+  \end{equation*}
+  可以验证等号是可以取到的。
+\end{example}
+
 \subsection{排序不等式}
 
 \begin{theorem}[排序不等式]
