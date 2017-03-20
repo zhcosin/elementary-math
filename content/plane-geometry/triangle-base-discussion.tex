@@ -1,0 +1,73 @@
+
+\section{三角形基础}
+\label{sec:triangle-base-discussion}
+
+三角形是平面几何中最基本的图形之一，简单的图形却蕴含了丰富的内容，三角形的内容可以说是平面几何基础中最重要的内容。
+
+\subsection{内外角平分线定理}
+\label{sec:triangle-angle-bisector-theorem}
+
+\begin{theorem}[三角形内外角平分线定理]
+  三角形$ABC$中，角$A$的内角平分线交$BC$边于$E$，同时它的外角平分线交$BC$边延长线于$F$，那么有
+  \begin{equation}
+    \label{eq:triangle-angle-bisector-theorem}
+    \frac{BE}{EC} = \frac{AB}{AC} = \frac{BF}{FC}
+  \end{equation}
+\end{theorem}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/triangle-angle-bisector-theorem.pdf}
+\caption{三角形内外角平分线定理}
+\label{fig:triangle-angle-bisector-theorem}
+\end{figure}
+
+如果外角平分线与$BC$边平行，可以视为点$F$无穷远，此时右边的$AF : FC$按极限理解，等式也是成立的。
+
+\begin{proof}[证明一]
+  过点$C$分别作内角平分线和外角平分线的平行线，分别与$AB$边及其延长线相交于点$P$和$Q$，那么易得$AC=AP$和$AC=AQ$，所以
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/triangle-angle-bisector-theorem-proof.pdf}
+\caption{三角形内外角平分线定理的证明}
+\label{fig:triangle-angle-bisector-theorem-proof}
+\end{figure}
+
+  \begin{equation*}
+    \frac{BE}{EC} = \frac{BA}{AP} = \frac{AB}{AC}
+  \end{equation*}
+  和
+  \begin{equation*}
+    \frac{BF}{FC} = \frac{BA}{AQ} = \frac{AB}{AC}
+  \end{equation*}
+于是定理得证。
+\end{proof}
+
+\begin{proof}[证明二]
+  辅助线的作法同证明一，对三角形$QBC$和截线$AE$应用梅涅劳斯定理可得$BE:EC=AB:AC$，对三角形$PBC$和截线$AF$应用梅涅劳斯定理可得$BF:FC=AB:AC$。
+\end{proof}
+
+\subsection{正弦定理和余弦定理}
+\label{sec:sine-theorem-and-cosine-theorem}
+
+\subsection{外心}
+\label{sec:triangle-excenter}
+
+\subsection{内心}
+\label{sec:triangle-incenter}
+
+\subsection{重心}
+\label{sec:triangle-centroid}
+
+\subsection{垂心}
+\label{sec:triangle-orthocentre}
+
+\subsection{旁心}
+\label{sec:escenter}
+
+
+
+%%% Local Variables:
+%%% TeX-master: "../../book"
+%%% End:
