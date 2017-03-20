@@ -13,6 +13,7 @@
     \label{eq:triangle-angle-bisector-theorem}
     \frac{BE}{EC} = \frac{AB}{AC} = \frac{BF}{FC}
   \end{equation}
+  反之，如果三角形$BC$边上和边的延长线上分别有两个点$E$和$F$能满足这比例式，那么$AE$和$AF$就分别是$\angle BAC$的内角平分线和外角平分线。
 \end{theorem}
 
 \begin{figure}[htbp]
@@ -23,6 +24,8 @@
 \end{figure}
 
 如果外角平分线与$BC$边平行，可以视为点$F$无穷远，此时右边的$AF : FC$按极限理解，等式也是成立的。
+
+只证明定理本身，逆定理根据同一法是容易得到的。
 
 \begin{proof}[证明一]
   过点$C$分别作内角平分线和外角平分线的平行线，分别与$AB$边及其延长线相交于点$P$和$Q$，那么易得$AC=AP$和$AC=AQ$，所以
@@ -47,6 +50,19 @@
 \begin{proof}[证明二]
   辅助线的作法同证明一，对三角形$QBC$和截线$AE$应用梅涅劳斯定理可得$BE:EC=AB:AC$，对三角形$PBC$和截线$AF$应用梅涅劳斯定理可得$BF:FC=AB:AC$。
 \end{proof}
+
+\begin{example}[阿波罗尼奥斯圆]
+  今来考虑平面上到两个定点的距离之比为常数的动点轨迹，记这两个定点为$A$和$B$，动点$P$在运动过程中始终满足$PA:PB=\lambda(\neq 1)$，这里限制常数不等于1是因为那是线段$AB$的垂直平分线。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/apollonius-circle.pdf}
+\caption{Apollonius圆}
+\label{fig:apollonius-circle}
+\end{figure}
+
+ 首先在直线$AB$上可以找到两个点$E$和$F$，使得$\vv{AE}=\lambda\vv{EB}$和$\vv{AF}=-\lambda\vv{FB}$，这里点$E$在线段$AB$而点$F$在延长线上，动点$P$在运动过程中恒有$PA:PB=AE:EB$和$PA:PB=AF:FB$，当$P$不在直线$AB$上时，根据三角形的内外角平分线定理的逆定理，就有$PE$和$PF$分别是$\angle APB$的内角平分线和外角平分线，所以$PE \perp PF$，于是点$P$的轨迹就是以线段$EF$为直径的圆。这个结论最早是由古希腊几何学家阿波罗尼奥斯\footnote{参考文献\cite{conic-sections}的作者。}(Apollonius)发现的，所以称为阿波罗尼奥斯圆。
+\end{example}
 
 \subsection{正弦定理和余弦定理}
 \label{sec:sine-theorem-and-cosine-theorem}
