@@ -15,6 +15,8 @@
   \end{equation}
 \end{theorem}
 
+张角定理的逆也是成立的，即如果平面上四个点满足定理中的等式，就有$B$、$C$、$D$三点共线，这也可以用来处理共线问题。
+
   \begin{figure}[htbp]
   \centering
 \includegraphics{content/plane-geometry/pic/spread-angle-theorem.pdf}
@@ -22,7 +24,7 @@
 \label{fig:spread-angle-theorem}
 \end{figure}
 
-\begin{proof}[证明]
+\begin{proof}[证明一]
   因为$S_{\triangle ABC} = S_{\triangle ABD} + S_{\triangle ACD}$，所以
   \begin{equation*}
     \frac{1}{2}AB \cdot AC \cdot \sin{\angle BAC} =
@@ -32,7 +34,21 @@
   两边同除以$\frac{1}{2}AB \cdot AC \cdot AD$即得证。
 \end{proof}
 
-张角定理的逆也是成立的，即如果平面上四个点满足定理中的等式，就有$B$、$C$、$D$三点共线，这也可以用来处理共线问题。
+\begin{proof}[证明二]
+  采用分析法，要证的等式
+  \begin{equation*}
+    \Longleftrightarrow AB \cdot AC \sin{\angle BAC} =
+      AD \cdot (AB \sin{\angle BAD + AC \sin{\angle CAD}})
+  \end{equation*}
+  根据正弦定理有$AB \sin{\angle BAD} = BD \sin{\angle ADB}$，$AC \sin{\angle CAD} = CD \sin{\angle ADC}$，所以欲证式又等价于
+  \begin{eqnarray*}
+    & \Longleftrightarrow & AB \cdot AC \sin{\angle BAC} =
+                            AD \cdot (BD \sin{\angle ADB} + CD \sin{\angle ADC}) \\
+    & \Longleftrightarrow & AB \cdot AC \sin{\angle BAC} = AD \cdot BC \sin{\angle ADP}
+  \end{eqnarray*}
+  此式两边都等于$2S_{\triangle ABC}$，所以成立，于是得证。
+\end{proof}
+
 
 \subsection{梅涅劳斯(menelaus)定理}
 \label{sec:menelaus-theorem}
@@ -192,7 +208,15 @@
 \end{example}
 
 \begin{example}[三角形的几个心]
- 根据塞瓦定理，我们可以证明三角形中的三条中线交于同一点，称为\emph{重心}、三条内角平分线交于同一点，称为\emph{内心}，三条高线交于同一点，称为\emph{垂心}，一个内角的平分线与另外两个外角的平分线交于同一点，称为\emph{旁心}。现在就来证实这些事实。 
+ 利用塞瓦定理，我们知道三角形的三条中线是交于同一点的，该点称为三角形的 \emph{重心}。
+
+ 同样，利用塞瓦定理和三角形内角平分线定理，还可以知道三角形的三条内角平分线也是交于同一点的，这点称为三角形的 \emph{内心}，它是三角形内切圆圆心。
+
+ 对于三角形的一个角的内角平分线和另外两个角的外角平分线，根据三角形的内外角平分线定理，可得这三线也是相交于同一点的，这一点称为三角形的 \emph{旁心}，它是旁切圆的圆心。
+
+ 对于三条高线，假定$BC$边上的高线垂足是$D$，则有$\frac{BD}{CD}=\frac{c \cos{B}}{b \cos{C}}$，仿此有另外两式，三式相乘并根据塞瓦定理即知三条高也相交于同一点，称该点为三角形的 \emph{垂心}。
+
+这四个心再加上三角形的\emph{外心}(三边的中垂线交点)，合称为三角形的五心。 
 \end{example}
 
 %%% Local Variables:
