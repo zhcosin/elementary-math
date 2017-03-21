@@ -29,4 +29,4 @@ draw(B -- F);
 draw(P -- F, dashed);
 
 circle apollonius = circle(locate(E), locate(F));
-draw(apollonius);
+draw(apollonius, red);
