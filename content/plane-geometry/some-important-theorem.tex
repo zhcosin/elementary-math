@@ -249,6 +249,31 @@
 因为$\frac{AP}{PB}=\frac{r_A}{r_B}$，同样有另外两式，三式相乘后由塞瓦定理知三线共点。
 \end{example}
 
+\begin{example}
+  如图\ref{fig:example-for-cevian-ap-perp-bc}，在$\triangle ABC$中，点$D$是角$BAC$的平分线与$BC$边的交点，过$D$向$AB$和$AC$引垂线，垂足分别是$E$、$F$，连接$BF$和$CE$相交于点$P$，今来证明$AP \perp BC$。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/example-for-cevian-ap-perp-bc.pdf}
+\caption{}
+\label{fig:example-for-cevian-ap-perp-bc}
+\end{figure}
+
+延长$AP$与$BC$边相交于点$Q$，那么由塞瓦定理有
+\begin{equation*}
+  \frac{AE}{EB} \cdot \frac{BQ}{QC} \cdot \frac{CF}{FA} = 1
+\end{equation*}
+另外显然有$AE=AF$，所以由上式得$\frac{BQ}{QC}=\frac{EB}{FC}$，而由几何关系和角平分线定理得
+\begin{equation*}
+  \frac{EB}{FC} = \frac{BD \cos{B}}{CD \cos{C}} = \frac{AB \cos{B}}{AC \cos{C}}
+\end{equation*}
+所以
+\begin{equation*}
+  \frac{BQ}{QC} = \frac{AB \cos{B}}{AC \cos{C}}
+\end{equation*}
+这说明点$Q$与$BC$边上的高线垂足重合，所以$AP$就是高线。
+\end{example}
+
 %%% Local Variables:
 %%% TeX-master: "../../book"
 %%% End:
