@@ -274,6 +274,37 @@
 这说明点$Q$与$BC$边上的高线垂足重合，所以$AP$就是高线。
 \end{example}
 
+\begin{example}
+ 如图\ref{fig:eample-for-cevian-ape-equal-apf}，在$\triangle ABC$中，$AD$是$BC$边上的高线，点$P$是这高线上任一点，直线$CP$、$FP$分别与边$AB$、$AC$相交于$E$、$F$，连接$DE$和$DF$，求证$\angle ADE = \angle ADF$。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/eample-for-cevian-ape-equal-apf.pdf}
+\caption{}
+\label{fig:eample-for-cevian-ape-equal-apf}
+\end{figure}
+
+这是某年的全国高中联赛试题，也是一道名题，证法很多，从纯几何方法到坐标方法都有，这里只提供一个利用塞瓦定理的证明。
+
+由塞瓦定理有
+\begin{equation*}
+  \frac{AE}{EB} \cdot \frac{BD}{DC} \cdot \frac{CF}{FA} = 1
+\end{equation*}
+另一方面有
+\begin{equation*}
+  \frac{AE}{EB} = \frac{S_{\triangle AED}}{S_{\triangle BED}} = \frac{AD \sin{\angle ADE}}{BD \sin{\angle BDE}} = \frac{AD \sin{\angle ADE}}{BD \cos{\angle ADE}}
+\end{equation*}
+同理有
+\begin{equation*}
+  \frac{AF}{FC} = \frac{AD \sin{\angle ADF}}{CD \cos{\angle ADF}}
+\end{equation*}
+这两式相除得
+\begin{equation*}
+  \frac{AE}{EB} \cdot \frac{BD}{DC} \cdot \frac{CF}{FA} = \frac{\sin{\angle ADE} \cos{\angle ADF}}{\cos{\angle ADE} \sin{\angle ADF}} 
+\end{equation*}
+将这式子与由塞瓦定理所得式子相比较得$\sin{\angle ADE} \cos{\angle ADF} = \cos{\angle ADE} \sin{\angle ADF}$，于是$\sin{(\angle ADE - \angle ADF)} = 0$，而这两个都是锐角，所以$\angle ADE = \angle ADF$。
+\end{example}
+
 %%% Local Variables:
 %%% TeX-master: "../../book"
 %%% End:
