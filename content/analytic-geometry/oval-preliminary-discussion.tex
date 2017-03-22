@@ -271,7 +271,52 @@ OP\cdot OQ = OR^2
 
 前面曾经考虑过，当点$P(x_0,y_0)$在椭圆内部时，方程\ref{eq:tangent}所代表的直线似乎难以描述，现在我们给它取一个好听的名字：极线。准确的说，是点$P$ 关于该椭圆的极线，而点$P$则称为直线\ref{eq:tangent}关于椭圆的极点。当点$P$在椭圆曲线上时，它关于椭圆的极线就是椭圆在该点处的切线（相切），当点$P$在椭圆外部时，它关于椭圆的极线就是对应的切点弦所在直线（相交），而当点$P$在椭圆内时，对应的极线就在椭圆外部了（相离）。而且我们看到，点$P$无论位于哪个位置（椭圆中心除外），它关于椭圆的极线的方向都是$OP$ 的共轭方向，所以如果让点$P$在一条从椭圆中心出发的射线上由椭圆内到椭圆外缓慢移动，我们将看到它关于椭圆的极线由远及近平行移动，当点$P$ 移到椭圆上的那一刻，极点刚好位于极线上，而极线也成为过极点的切线，此后，当点$P$移动到椭圆外时，极线则与椭圆椭圆相交，当点$P$向无穷远处移动时，极线则向椭圆中心无限靠近。容易看出，对于平面上任何一点（椭圆中心除外），它关于椭圆的极线都是唯一存在的，反过来，对于平面上任何一条不通过椭圆中心的直线，它关于椭圆的极点也是唯一存在的。而切点与切线，不过是极点刚好位于极线上的一种特殊情况罢了。
 
+\subsection{平面几何观点下的椭圆}
+\label{sec:oval-on-geometry}
 
+这一节尝试从纯几何的角度对椭圆进行讨论。
+
+\begin{definition}
+  平面上到两个定点的距离之和为定值(大于这两个定点之间的线段长)的动点轨迹称为椭圆。
+\end{definition}
+
+这两个点称为椭圆的焦点，以$F_1$和$F_2$来表示，两个焦点之间的距离称为椭圆的焦距，记为$2c$，这个距离和记为$2a$。
+
+相应的，如果某个点$Q$满足$QF_1+QF_2<2a$，称点在椭圆的\emph{内部}，不等式如果是大于，则点在椭圆的\emph{外部}。
+
+\begin{property}
+  椭圆是轴对称图形，两个焦点所在直线以及它们的垂直平分线是两条对称轴。椭圆也是中心对称图形，两个焦点的中点是对称中心。
+\end{property}
+
+这个性质是显而易的，如果点$P$满足$PF_1+PF_2=2a$，那么该点关于上面所说的两条对称轴的对称点，以及关于两个焦点的中点的对称点，也都能够满足这个距离和的要求。
+
+椭圆上任意两个不同的点之间的连线段称为椭圆的\emph{弦}。
+
+\begin{property}
+椭圆任一条弦上的除端点外的任意点都在椭圆的内部。  
+\end{property}
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/oval-chord-located-in-oval.pdf}
+\caption{椭圆弦上的点除端点外都在椭圆内部}
+\label{fig:oval-chord-located-in-oval}
+\end{figure}
+
+\begin{proof}[证明]
+  如图\ref{fig:oval-chord-located-in-oval}，$AB$是椭圆的一条弦，点$P$是这弦上异于端点的任意一点，根据我们在例\ref{example:ptolemy-inequality-for-triangle}中所证的不等式，有
+  \begin{eqnarray*}
+   PF_1 & < & \frac{PB}{AB} AF_1 + \frac{PA}{AB} + BF_1 \\
+   PF_2 & < & \frac{PB}{AB} AF_2 + \frac{PA}{AB} + BF_2 
+  \end{eqnarray*}
+  两式相加得
+  \begin{eqnarray*}
+    PF_1+PF_2 & < & \frac{PB}{AB} (AF_1+AF_2) + \frac{PA}{AB} (BF_1+BF_2) \\
+              & = & \frac{PB}{AB} \cdot 2a + \frac{PA}{AB} \cdot 2a \\
+    & = & 2a
+  \end{eqnarray*}
+  这就证明了结论。
+\end{proof}
 
 
 %%% Local Variables:
