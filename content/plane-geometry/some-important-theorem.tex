@@ -358,15 +358,20 @@
   在三角形$ABC$中，点$D$是$BC$边上任一点，那么有如下不等式成立:
   \begin{equation}
     \label{eq:ptolemy-inequality-for-triangle}
-    AD \cdot BC < AB \cdot CD + AC \cdot BD
-  \end{equation}
-  或者写成如下的比例式
-  \begin{equation}
-    \label{eq:ptolemy-inequality-for-triangle-rate}
     AD < \frac{CD}{BC} \cdot AB + \frac{BD}{BC} \cdot AC
   \end{equation}
+  而如果点$D$是在$BC$边的延长线上，例如是在射线$BC$的延长线上，就成立着:
+  \begin{equation}
+    \label{eq:ptolemy-inequality-for-triangle-extend}
+    AD > -\frac{BC}{AB} \cdot AB + \frac{AC}{AB} \cdot AC
+  \end{equation}
+  点$D$在射线$CB$延长线上时也有类似结论。
 
-  这个不等式与四边形中的托勒密不等式极为相似，实际上它就是四边形退化为三角形的情形，这个例子就是说托勒密不等式在这种情况下仍然成立，现在就来证明这个不等式。
+  延长线的那个不等式难以记忆，借助向量就容易记忆了，$AB$与$AC$的系数跟点$D$分$\vv{BC}$的比$\lambda$有关，因为$\vv{BD}=\lambda\vv{DC}$，所以那两个系数其实就是$1/(1+\lambda)$和$\lambda/(1+\lambda)$。
+
+  第一个不等式与四边形中的托勒密不等式极为相似，实际上它就是四边形退化为三角形的情形，这个例子就是说托勒密不等式在这种情况下仍然成立，现在就来证明这个不等式。
+
+  只要证明第一个不等式就行了，当点$D$在射线$BC$的延长线上时，点$C$就在线段$BD$上，这时对三角形$ABD$和$BD$边上的点$C$应用第一个不等式就可以得出第二个不等式。
 
   最简单的是利用向量的证明: 设$\vv{BD}=\lambda\vv{DC}$，那么
   \begin{eqnarray*}
