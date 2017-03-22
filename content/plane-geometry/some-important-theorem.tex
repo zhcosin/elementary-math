@@ -304,6 +304,100 @@
 将这式子与由塞瓦定理所得式子相比较得$\sin{\angle ADE} \cos{\angle ADF} = \cos{\angle ADE} \sin{\angle ADF}$，于是$\sin{(\angle ADE - \angle ADF)} = 0$，而这两个都是锐角，所以$\angle ADE = \angle ADF$。
 \end{example}
 
+\subsection{斯特瓦尔特(Stewart)定理}
+\label{sec:stewart-theorem}
+
+\begin{theorem}[斯特瓦尔特定理]
+  在三角形$ABC$中，点$D$是$BC$边上任一点，有下式成立:
+  \begin{equation}
+    \label{eq:stewart-theorem}
+    CD \cdot AB^2 + BD \cdot AC^2 = BC \cdot AD^2 + BD \cdot CD \cdot BC
+  \end{equation}
+\end{theorem}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/stewart-theorem.pdf}
+\caption{斯特瓦尔特定理}
+\label{fig:stewart-theorem}
+\end{figure}
+
+\begin{proof}[证明一]
+  由余弦定理
+  \begin{eqnarray*}
+    \cos{\angle ADB} & = & \frac{AD^2+BD^2-AB^2}{2 AD \cdot BD} \\
+    \cos{\angle ADC} & = & \frac{AD^2+CD^2-AC^2}{2 AD \cdot CD} 
+  \end{eqnarray*}
+  因为$\angle ADB$与$\angle ADC$互补，所以$\cos{\angle ADB} + \cos{\angle ADC} = 0$，将上两式相加化简就得定理中的等式。
+\end{proof}
+
+\begin{proof}[证明二]
+  设$\vv{BD}=\lambda \vv{DC}$，则
+  \begin{equation*}
+    \vv{AD}=\frac{1}{1+\lambda}\vv{AB}+\frac{\lambda}{1+\lambda}\vv{AC}
+  \end{equation*}
+  将$\lambda$换为$\frac{BD}{DC}$，就是
+  \begin{equation*}
+    \vv{AD}=\frac{CD}{BC}\vv{AB}+\frac{BD}{BC}\vv{AC}
+  \end{equation*}
+  两边平方
+  \begin{equation*}
+    AD^2=\frac{CD^2}{BC^2} \cdot AB^2 + \frac{BD^2}{BC^2} \cdot AC^2 + \frac{ BD \cdot CD}{BC^2} \cdot 2 AB \cdot AC \cdot \cos{\angle BAC}
+  \end{equation*}
+  利用余弦定理将上式中最后一个余弦值换掉，化简就得定理中的等式。
+\end{proof}
+
+\begin{example}[三角形中的托勒密不等式]
+  \label{example:ptolemy-inequality-for-triangle}
+  在三角形$ABC$中，点$D$是$BC$边上任一点，那么有如下不等式成立:
+  \begin{equation}
+    \label{eq:ptolemy-inequality-for-triangle}
+    AD \cdot BC < AB \cdot CD + AC \cdot BD
+  \end{equation}
+  或者写成如下的比例式
+  \begin{equation}
+    \label{eq:ptolemy-inequality-for-triangle-rate}
+    AD < \frac{CD}{BC} \cdot AB + \frac{BD}{BC} \cdot AC
+  \end{equation}
+
+  这个不等式与四边形中的托勒密不等式极为相似，实际上它就是四边形退化为三角形的情形，这个例子就是说托勒密不等式在这种情况下仍然成立，现在就来证明这个不等式。
+
+  最简单的是利用向量的证明: 设$\vv{BD}=\lambda\vv{DC}$，那么
+  \begin{eqnarray*}
+    \vv{AD} & = & \frac{1}{1+\lambda}\vv{AB}+\frac{\lambda}{1+\lambda}\vv{AC} \\
+   & = & \frac{CD}{BC}\vv{AB}+\frac{BD}{BC}\vv{AC} 
+  \end{eqnarray*}
+  由此
+  \begin{eqnarray*}
+    |\vv{AD}| & = & \left| \frac{CD}{BC}\vv{AB}+\frac{BD}{BC}\vv{AC} \right| \\
+              & < & \left| \frac{CD}{BC}\vv{AB} \right| + \left| \frac{BD}{BC}\vv{AC} \right| \\
+              & = & \frac{CD}{BC} | \vv{AB} | + \frac{BD}{BC} |\vv{AC} |
+  \end{eqnarray*}
+  即得证。
+
+  第二个证明就是利用斯特瓦尔特定理，在那定理中的等式两边同时乘以$BC$，得
+  \begin{equation*}
+    CD \cdot BC \cdot AB^2 + BD \cdot BC \cdot AC^2 = BC^2 \cdot AD^2 + BD \cdot CD \cdot BC^2
+  \end{equation*}
+  将等式左边两项中的$BC$都拆分为$BD+CD$，得
+  \begin{equation*}
+    (CD^2+ BD\cdot CD) AB^2 + (BD^2+BD\cdot CD) AC^2 = BC^2 \cdot AD^2 + BD \cdot CD \cdot BC^2
+  \end{equation*}
+  整理得
+  \begin{equation*}
+    CD^2 \cdot AB^2 + BD^2 AC^2 + BD \cdot CD \cdot (AB^2+AC^2-BC^2) = BC^2 \cdot AD^2
+  \end{equation*}
+  根据余弦定理，$AB^2+AC^2-BC^2=2 \cdot AB \cdot AC \cdot \cos{\angle BAC} < 2 \cdot AB \cdot AC$，所以有
+  \begin{equation*}
+    CD^2 \cdot AB^2 + BD^2 AC^2 + 2 \cdot BD \cdot CD \cdot AB \cdot AC > BC^2 \cdot AD^2
+  \end{equation*}
+  所以
+  \begin{equation*}
+    (CD \cdot AB + BD \cdot AC)^2 > BC^2 \cdot AD^2
+  \end{equation*}
+  于是得证。
+\end{example}
+
 %%% Local Variables:
 %%% TeX-master: "../../book"
 %%% End:
