@@ -322,6 +322,12 @@
 \label{fig:stewart-theorem}
 \end{figure}
 
+这定理中的等式较长，不太容易记住，写成如下的含比例的式子或许会有所帮助:
+\begin{equation}
+  \label{eq:stewart-theorem-rate}
+  \frac{CD}{BC}\cdot AB^2 + \frac{BD}{BC} \cdot AC^2 = AD^2 + BD \cdot CD
+\end{equation}
+
 \begin{proof}[证明一]
   由余弦定理
   \begin{eqnarray*}
@@ -375,27 +381,18 @@
   \end{eqnarray*}
   即得证。
 
-  第二个证明就是利用斯特瓦尔特定理，在那定理中的等式两边同时乘以$BC$，得
-  \begin{equation*}
-    CD \cdot BC \cdot AB^2 + BD \cdot BC \cdot AC^2 = BC^2 \cdot AD^2 + BD \cdot CD \cdot BC^2
-  \end{equation*}
-  将等式左边两项中的$BC$都拆分为$BD+CD$，得
-  \begin{equation*}
-    (CD^2+ BD\cdot CD) AB^2 + (BD^2+BD\cdot CD) AC^2 = BC^2 \cdot AD^2 + BD \cdot CD \cdot BC^2
-  \end{equation*}
-  整理得
-  \begin{equation*}
-    CD^2 \cdot AB^2 + BD^2 AC^2 + BD \cdot CD \cdot (AB^2+AC^2-BC^2) = BC^2 \cdot AD^2
-  \end{equation*}
-  根据余弦定理，$AB^2+AC^2-BC^2=2 \cdot AB \cdot AC \cdot \cos{\angle BAC} < 2 \cdot AB \cdot AC$，所以有
-  \begin{equation*}
-    CD^2 \cdot AB^2 + BD^2 AC^2 + 2 \cdot BD \cdot CD \cdot AB \cdot AC > BC^2 \cdot AD^2
-  \end{equation*}
-  所以
-  \begin{equation*}
-    (CD \cdot AB + BD \cdot AC)^2 > BC^2 \cdot AD^2
-  \end{equation*}
-  于是得证。
+  第二个证明就是利用斯特瓦尔特定理，在定理中的等式两边同时除以$BC$，改为如下含比例的等式:
+  \begin{eqnarray*}
+    AD^2 & = & \frac{CD}{BC} \cdot AB^2 + \frac{BD}{BC} \cdot AC^2 - BD \cdot CD \\
+    & = & \frac{CD \cdot BC}{BC^2} \cdot AB^2 + \frac{BD \cdot BC}{BC^2} \cdot AC^2 - BD \cdot CD \\
+    & = & \frac{CD \cdot (BD+CD)}{BC^2} \cdot AB^2 + \frac{BD \cdot (BD+CD)}{BC^2} \cdot AC^2 - BD \cdot CD \\
+    & = & \frac{CD^2}{BC^2} \cdot AB^2 + \frac{BD^2}{BC^2} \cdot AC^2 + \frac{BD \cdot CD}{BC^2}(AB^2+AC^2-BC^2) \\
+    & = & \frac{CD^2}{BC^2} \cdot AB^2 + \frac{BD^2}{BC^2} \cdot AC^2 + \frac{BD \cdot CD}{BC^2} \cdot 2 \cdot AB \cdot AC \cdot \cos{\angle BAC} \\
+    & < & \frac{CD^2}{BC^2} \cdot AB^2 + \frac{BD^2}{BC^2} \cdot AC^2 + \frac{BD \cdot CD}{BC^2} \cdot 2 \cdot AB \cdot AC \\
+    & = & \left( \frac{CD}{BC}\cdot AB + \frac{BD}{BC} \cdot AC \right)^2
+  \end{eqnarray*}
+  所以不等式成立。
+ 于是得证。
 \end{example}
 
 %%% Local Variables:
