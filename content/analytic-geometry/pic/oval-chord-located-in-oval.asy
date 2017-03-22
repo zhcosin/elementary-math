@@ -24,7 +24,7 @@ pair B = (a * cos(theta2), b * sin(theta2));
 label("$A$", A, NW);
 label("$B$", B, NE);
 
-draw(A -- B);
+draw(line(locate(A), locate(B)));
 draw(A -- F1);
 draw(A -- F2);
 draw(B -- F1);
@@ -33,8 +33,15 @@ draw(B -- F2);
 real t = 0.3;
 pair P = ((1-t)*A.x+t*B.x, (1-t)*A.y+t*B.y);
 label("$P$", P, N);
-
 draw(P -- F1);
 draw(P -- F2);
+
+real s = 1.3;
+pair Q = ((1-s)*A.x+s*B.x, (1-s)*A.y+s*B.y);
+label("$Q$", Q, N);
+draw(Q -- F1);
+draw(Q -- F2);
+
+
 
 	  
