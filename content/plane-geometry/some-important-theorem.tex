@@ -412,6 +412,25 @@
   \end{eqnarray*}
   所以不等式成立。
   \end{proof}
+
+  当点$D$在$BC$边的延长线上时，比如说在$C$这一侧，有什么样的结论呢，这时把点$C$看成在三角形$ABD$的边$BD$上，应用刚证明的不等式，就有
+  \begin{equation*}
+    BD \cdot AC < CD \cdot AB + BC \cdot AD
+  \end{equation*}
+  所以
+  \begin{equation*}
+    AD > -\frac{CD}{BC} AB + \frac{BD}{BC} AC
+  \end{equation*}
+  这个结果看起来难以记忆，但实际上那两个系数跟点$D$分$\vv{BC}$的比例有关，我们把这结果统一成下面这样:
+
+  \begin{statement}
+    在三角形$ABC$中，点$D$是$BC$边所在直线上不与$B$和$C$重合的任一点，设$\vv{BD}=\lambda\vv{DC}$，那么在$\lambda>0$时成立不等式
+    \begin{equation}
+      \label{eq:definite-proportion-inequality2}
+      AD < \frac{1}{1+\lambda} AB + \frac{\lambda}{1+\lambda} AC
+    \end{equation}
+    在$\lambda<0$时不等式反向。
+  \end{statement}
 \end{example}
 
 %%% Local Variables:
