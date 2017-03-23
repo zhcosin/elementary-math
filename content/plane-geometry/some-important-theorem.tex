@@ -355,31 +355,17 @@
 
 \begin{example}
   \label{example:ptolemy-inequality-for-triangle}
-  在这个例子中，我们来建立一个有用的不等式，在三角形$ABC$中，点$D$是$BC$边所在直线上的任意一点，$\vv{BD}=\lambda\vv{DC}$，如果$\lambda>0$，那么有如下不等式成立:
+  在这个例子中，我们来建立一个有用的不等式，在三角形$ABC$中，点$D$是$BC$边上的异于端点的任意一点，那么有如下不等式成立:
   \begin{equation}
     \label{eq:definite-proportion-inequality}
-    AD < \frac{1}{1+\lambda}AB+\frac{\lambda}{1+\lambda}AC
-  \end{equation}
-  在$\lambda<0$时不等式反向。
-  
-  将定比$\lambda$用线段的比例来表示，当$D$是$BC$边上任一点，就是下面这个不等式
-  \begin{equation}
-    \label{eq:ptolemy-inequality-for-triangle}
     AD < \frac{CD}{BC} \cdot AB + \frac{BD}{BC} \cdot AC
   \end{equation}
-  而如果点$D$是在$BC$边的延长线上$C$一侧时，则是这样的
-  \begin{equation}
-    \label{eq:ptolemy-inequality-for-triangle-extend}
-    AD > -\frac{BC}{AB} \cdot AB + \frac{AC}{AB} \cdot AC
-  \end{equation}
-  点$D$在$BC$延长线上点$B$一侧时，则是
-  \begin{equation}
-    \label{eq:definite-proportion-inequality-extends-b}
-  \end{equation}
-
-  点$D$在边$BC$边上的那个不等式与四边形中的托勒密不等式极为相似，实际上它就是四边形退化为三角形的情形，这个例子就是说托勒密不等式在这种情况下仍然成立。
-
-  只要证明点$D$在$BC$边上的情形就行了，当点$D$在射线$BC$的延长线上时，点$C$就在线段$BD$上，这时对三角形$ABD$和$BD$边上的点$C$应用点在边上的不等式就可以得出点在边的延长线上的结果。
+  或者写成乘积的形式
+  \begin{equation*}
+    BC \cdot AD < CD \cdot AB + BD \cdot AC
+  \end{equation*}
+  
+  这个不等式与四边形中的托勒密不等式极为相似，实际上它就是四边形退化为三角形的情形，这个例子就是说托勒密不等式在这种情况下仍然成立。
 
   最简单的是利用向量的证明:
   \begin{proof}[证明一]
