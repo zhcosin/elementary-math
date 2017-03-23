@@ -290,6 +290,8 @@ OP\cdot OQ = OR^2
 
 这个性质是显而易的，如果点$P$满足$PF_1+PF_2=2a$，那么该点关于上面所说的两条对称轴的对称点，以及关于两个焦点的中点的对称点，也都能够满足这个距离和的要求。
 
+两个焦点的中点称为椭圆的\emph{中心}。
+
 椭圆上任意两个不同的点之间的连线段称为椭圆的\emph{弦}。
 
 \begin{property}
@@ -328,6 +330,42 @@ OP\cdot OQ = OR^2
   \end{eqnarray*}
   所以结论成立。
 \end{proof}
+
+\begin{property}
+  设点$P$是椭圆上任一点，点$O$是椭圆的中心，那么线段$OP$上除点$P$外的任一点都在椭圆内部，而$OP$延长线上位于$P$一侧的点都在椭圆的外部。
+\end{property}
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/oval-ray-from-center-split.pdf}
+\caption{}
+\label{fig:oval-ray-from-center-split}
+\end{figure}
+
+\begin{proof}[证明]
+  设点$M$是线段$OP$上的任一点，根据我们在例\ref{example:ptolemy-inequality-for-triangle}中所得到的不等式，记$\vv{OM}=\lambda\vv{MP}(\lambda>0)$，有
+  \begin{eqnarray*}
+    MF_1 < \frac{1}{1+\lambda} OF_1 + \frac{\lambda}{1+\lambda} PF_1 \\
+    MF_2 < \frac{1}{1+\lambda} OF_2 + \frac{\lambda}{1+\lambda} PF_2 
+  \end{eqnarray*}
+  两式相加得
+  \begin{eqnarray*}
+    MF_1+MF_2 & < & \frac{1}{1+\lambda} (OF_1 + OF_2) + \frac{\lambda}{1+\lambda}  (PF_1 + PF_2) \\
+              & = &  \frac{1}{1+\lambda} F_1F_2 + \frac{\lambda}{1+\lambda}  (PF_1 + PF_2) \\
+              & < & \frac{1}{1+\lambda} (PF_1+PF_2) + \frac{\lambda}{1+\lambda}  (PF_1 + PF_2) \\
+    & = & PF_1 + PF_2
+  \end{eqnarray*}
+  同样，如果记点$N$是线段$OP$延长线上位于$P$一侧的任一点，把$P$看成$\vv{ON}$的分点，可以得出
+  \begin{equation*}
+    NF_1 + NF_2 > PF_1 + PF_2
+  \end{equation*}
+  所以最终
+  \begin{equation*}
+    MF_1 + MF_2 < 2a < NF_1 + NF_2
+  \end{equation*}
+  故得证。
+\end{proof}
+
 
 
 %%% Local Variables:
