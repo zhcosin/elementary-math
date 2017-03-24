@@ -343,23 +343,38 @@ OP\cdot OQ = OR^2
 \end{figure}
 
 \begin{proof}[证明]
-  设点$M$是线段$OP$上的任一点，根据我们在例\ref{example:ptolemy-inequality-for-triangle}中所得到的不等式，记$\vv{OM}=\lambda\vv{MP}(\lambda>0)$，有
-  \begin{eqnarray*}
-    MF_1 < \frac{1}{1+\lambda} OF_1 + \frac{\lambda}{1+\lambda} PF_1 \\
-    MF_2 < \frac{1}{1+\lambda} OF_2 + \frac{\lambda}{1+\lambda} PF_2 
-  \end{eqnarray*}
-  两式相加得
-  \begin{eqnarray*}
-    MF_1+MF_2 & < & \frac{1}{1+\lambda} (OF_1 + OF_2) + \frac{\lambda}{1+\lambda}  (PF_1 + PF_2) \\
-              & = &  \frac{1}{1+\lambda} F_1F_2 + \frac{\lambda}{1+\lambda}  (PF_1 + PF_2) \\
-              & < & \frac{1}{1+\lambda} (PF_1+PF_2) + \frac{\lambda}{1+\lambda}  (PF_1 + PF_2) \\
-    & = & PF_1 + PF_2
-  \end{eqnarray*}
-  同样，如果记点$N$是线段$OP$延长线上位于$P$一侧的任一点，把$P$看成$\vv{ON}$的分点，可以得出
+  先证明一个几何不等式，如图\ref{fig:pt-inside-triangle-distance-sum}，点$P$是三角形$ABC$内任一点，那么有不等式$PB+PC<AB+AC$成立。
+  为这不等式给出两个证法，第一个是作辅助线，延长$CP$与$AB$相交于点$E$，那么有
   \begin{equation*}
-    NF_1 + NF_2 > PF_1 + PF_2
+    PB+PC < (BE + EP) + PC = BE + EC < BE + (EA + AC) = AB + AC
   \end{equation*}
-  所以最终
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/pt-inside-triangle-distance-sum.pdf}
+\caption{}
+\label{fig:pt-inside-triangle-distance-sum}
+\end{figure}
+
+这就证明了这个不等式，另外一个证明是利用我们在例\ref{example:ptolemy-inequality-for-triangle}中所建立的不等式，延长$AP$与$BC$相交于点$D$，有
+\begin{eqnarray*}
+  BP < \frac{AP}{AD} BD + \frac{DP}{AD} AB \\
+  CP < \frac{AP}{AD} CD + \frac{DP}{AD} AC 
+\end{eqnarray*}
+两式相加得
+\begin{eqnarray*}
+  BP + CP & < & \frac{AP}{AD} (BD+CD) + \frac{DP}{AD} (AB+AC) \\
+  & = & \frac{AP}{AD} BC + \frac{DP}{AD} (AB+AC) \\
+  & < & \frac{AP}{AD} (AB+AC) + \frac{DP}{AD} (AB+AC) \\
+  & = & AB+AC
+\end{eqnarray*}
+这样也证明了这个不等式。
+
+利用这个不等式，在图\ref{fig:oval-ray-from-center-split}，中，就有
+\begin{equation*}
+  MF_1 + MF_2 < PF_1 + PF_2 < NF_1 + NF_2
+\end{equation*}
+  也就是
   \begin{equation*}
     MF_1 + MF_2 < 2a < NF_1 + NF_2
   \end{equation*}
