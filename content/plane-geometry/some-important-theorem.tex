@@ -274,17 +274,18 @@
 \end{example}
 
 \begin{example}
- 如图\ref{fig:eample-for-cevian-ape-equal-apf}，在$\triangle ABC$中，$AD$是$BC$边上的高线，点$P$是这高线上任一点，直线$CP$、$FP$分别与边$AB$、$AC$相交于$E$、$F$，连接$DE$和$DF$，求证$\angle ADE = \angle ADF$。
+ 如图\ref{fig:example-for-cevian-ade-equal-adf}，在$\triangle ABC$中，$AD$是$BC$边上的高线，点$P$是这高线上任一点，直线$CP$、$FP$分别与边$AB$、$AC$相交于$E$、$F$，连接$DE$和$DF$，求证$\angle ADE = \angle ADF$。
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{content/plane-geometry/pic/eample-for-cevian-ape-equal-apf.pdf}
+\includegraphics{content/plane-geometry/pic/example-for-cevian-ade-equal-adf.pdf}
 \caption{}
-\label{fig:eample-for-cevian-ape-equal-apf}
+\label{fig:example-for-cevian-ade-equal-adf}
 \end{figure}
 
-这是某年的全国高中联赛试题，也是一道名题，证法很多，从纯几何方法到坐标方法都有，这里只提供一个利用塞瓦定理的证明。
+这是某年的全国高中联赛试题，也是一道名题，证法很多，从纯几何方法到坐标方法都有，这里只提供两个利用塞瓦定理的证明。
 
+\begin{proof}[证明一]
 由塞瓦定理有
 \begin{equation*}
   \frac{AE}{EB} \cdot \frac{BD}{DC} \cdot \frac{CF}{FA} = 1
@@ -302,6 +303,19 @@
   \frac{AE}{EB} \cdot \frac{BD}{DC} \cdot \frac{CF}{FA} = \frac{\sin{\angle ADE} \cos{\angle ADF}}{\cos{\angle ADE} \sin{\angle ADF}} 
 \end{equation*}
 将这式子与由塞瓦定理所得式子相比较得$\sin{\angle ADE} \cos{\angle ADF} = \cos{\angle ADE} \sin{\angle ADF}$，于是$\sin{(\angle ADE - \angle ADF)} = 0$，而这两个都是锐角，所以$\angle ADE = \angle ADF$。
+\end{proof}
+
+\begin{proof}[证明二]
+  如图\ref{fig:example-for-cevian-ade-equal-adf}，过点$A$作$BC$边的平行线，分别与$DE$和$DF$和延长线相交于$T$、$S$，由塞瓦定理
+  \begin{equation*}
+    \frac{AE}{EB} \cdot \frac{BD}{DC} \cdot \frac{CF}{FA} = 1
+  \end{equation*}
+  但由于
+  \begin{equation*}
+    \frac{AE}{EB} = \frac{AT}{BD}, \  \frac{CF}{FA} = \frac{CD}{AS}
+  \end{equation*}
+  所以得到$AT = AS$，结合$TS \perp AD$知$\angle ADE = \angle ADF$。
+\end{proof}
 \end{example}
 
 \subsection{斯特瓦尔特(Stewart)定理}

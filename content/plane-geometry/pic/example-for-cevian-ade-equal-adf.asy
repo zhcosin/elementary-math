@@ -21,10 +21,10 @@ pair P = ((1-t)*A.x+t*D.x, (1-t)*A.y+t*D.y);
 label("$P$", P, NE);
 
 pair E = locate(intersectionpoint(line(locate(C), locate(P)), line(locate(A), locate(B))));
-label("$E$", E, NW);
+label("$E$", E, W);
 
 pair F = locate(intersectionpoint(line(locate(B), locate(P)), line(locate(A), locate(C))));
-label("$F$", F, NE);
+label("$F$", F, E);
 
 draw(B -- F);
 draw(C -- E);
@@ -32,6 +32,16 @@ draw(C -- E);
 draw(D -- E);
 draw(D -- F);
 
+line ats = parallel(locate(A), line(locate(B), locate(C)));
+pair T = locate(intersectionpoint(ats, line(locate(D), locate(E))));
+pair S = locate(intersectionpoint(ats, line(locate(D), locate(F))));
+
+label("$T$", T, NW);
+label("$S$", S, NE);
+
+draw(T -- S, dashed);
+draw(E -- T, dashed);
+draw(F -- S, dashed);
 
 
 
