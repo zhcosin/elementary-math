@@ -1,0 +1,146 @@
+
+\section{几个原理}
+\label{sec:some-principle}
+
+\subsection{容斥原理}
+\label{subsec:inclusion-exclusion-principle}
+
+\begin{principle}[容斥原理]
+  用$|A|$表示集合$A$的元素个数，则多个集合的并集的元素个数是:
+  \begin{equation}
+    \label{eq:inclusion-exclusion-principle}
+    \begin{split}
+    |\cup_{i=1}^nA_i|= & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
+ & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i|
+    \end{split}
+  \end{equation}
+\end{principle}
+容斥原理的含义借助韦恩图是显而易见的，其证明用数学归纳法即可，这里从略。
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/prepare/pic/inclusion-exclusion-principle.pdf}
+\caption{容斥原理示意图}
+\label{fig:inclusion-exclusion-principle}
+\end{figure}
+
+
+\begin{example}[伯努利(Bernoulli)信封问题]
+  作为容斥原理的一个直接应用，这里讨论一下伯努利信封问题: 有相同数目的信封和信件若干，将这些信件装进这些信封，使得没有任何一封信件与信封搭配正确，问题是有多少种装法。
+
+  记信件数目是$n$，并把信件和信封依次编号为$1,2,\ldots,n$，信件与所属的信封编号相同。那么要计算所有信件都搭配错误的组装数，可以考虑其反面即至少有一封信件搭配正确的组装数目，再从总数$n!$中减去它即可，根据容斥原理，构造出集合$A_i$表示第$i$封信件搭配正确的组装方案，则$|A_i|=(n-1)!$，那么至少有一封信件搭配正确的方案集合就是这些$A_i$的并集，其数目是
+  \begin{equation*}
+    \begin{split}
+      &    \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
+      & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i| \\
+      = & n (n-1)! - C_n^2(n-2)! + C_n^3(n-3)! - \cdots + (-1)^{n+1}C_n^n0! \\
+      = & n!\sum_{i=1}^n(-1)^{i+1}\frac{1}{i!}
+    \end{split}
+  \end{equation*}
+  所以从总数$n!$中减去它就得到最后的结果，在$0!=1$的约定下，这结果可以写为:
+  \begin{equation}
+    \label{eq:bernoulli-envelope-problem-solution}
+    \sum_{i=0}^n(-1)^i \frac{1}{i!}
+  \end{equation}
+
+  欧拉对此问题有一个借助数列递推的解法，记信封数目为$n$时的结果为$a_n$，那么$a_1=0$，来看下这个数列的递推情况，在有$n+1$个信封时，考虑编号为1的那封信件，除1号信封外它有$n$个信封可以装入，假定它装入的信封编号是$r$，那再考虑编号为$r$的信件，它此时有两个选择，一是它可以装入1号信封，这时其它的$n-1$个信件的装法是$a_{n-1}$，它的另一个选择是不装入1号信封，这时由于1号信封等同于$r$号信封，所以除1号信件以外的$n$封信件有$a_n$种装法，于是得到该数列的递推公式为:
+  \begin{equation*}
+    a_{n+1}=n(a_n+a_{n-1})
+  \end{equation*}
+  两边同除以$(n+1)!$并记$b_n=\frac{a_n}{n!}$可得
+  \begin{equation*}
+    b_{n+1}=\frac{n}{n+1}b_n+\frac{1}{n+1}b_{n-1}
+  \end{equation*}
+  即
+  \begin{equation*}
+    b_{n+1}-b_n=-\frac{1}{n+1}(b_n-b_{n-1})
+  \end{equation*}
+  所以
+  \begin{equation*}
+    b_n-b_{n-1}= \sum_{i=2}^{n}(b_i-b_{i-1})= \sum_{i=2}^n (-1)^{i}\frac{1}{i!}
+  \end{equation*}
+  于是
+  \begin{equation*}
+    a_n= n!b_n = n!(b_1 + \sum_{i=2}^n(b_i-b_{i-1})) = n! \sum_{i=2}^n(-1)^{i}\frac{1}{i!}
+  \end{equation*}
+  同样在$0!=1$的约定下即有
+  \begin{equation*}
+    a_n = n!\sum_{i=0}^n(-1)^{i}\frac{1}{i!}
+  \end{equation*}
+\end{example}
+
+\subsection{数学归纳法}
+\label{subsec:mathematical-induction}
+
+除了常用的第一数学归纳法以外，我们还有以下的:
+\begin{principle}[第二数学归纳法]
+如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item $P(1)$成立;
+  \item 由$P(1),P(2),\dots,P(k)$成立能够推证出$P(k+1)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立.
+\end{principle}
+有些命题在递推过程中，依赖的是前面的所有结论而非仅仅依赖前一个结论，此时第二数学归纳法就非常适用。
+\begin{principle}[倒推归纳法]
+如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item 有无穷多个正整数$n$使命题成立;
+  \item 由$P(k)$成立能够推证$P(k-1)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立。
+\end{principle}
+倒推归纳法的原理也是显而易见的，对于任何一个给定的正整数$n$，由于不超过$n$的正整数只有有限个，所以必然存在一个大于$n$的正整数$N$，使得命题$P(N)$成立，再倒推回来，知$P(n)$成立。
+
+\begin{example}[均值不等式]
+作为一个例子，我们用倒推归纳法来证明均值不等式，这比用通常的第一数学归纳法来得更加容易:
+
+  均值不等式的内容是： 对任意$n(n\geqslant2)$个正实数$a_i$，有下面不等式成立:
+\[ \frac{1}{n}\sum_{i=1}^na_i \geqslant \left( \prod_{i=1}^na_i \right)^{\frac{1}{n}} \]
+
+\begin{proof}[证明]\footnote{这个倒推归纳法的证明来自于参考文献\cite{the-secret-of-inequality}.}
+  对$n=2$的情形，有$\frac{1}{2}(a_1+a_2)-\sqrt{a_1a_2}=\frac{1}{2}(\sqrt{a_1}-\sqrt{a_2})^2\geqslant 0$知不等式成立。
+
+ 反复使用$n=2$的结论，我们就可以得到当$n$是2的幂的时候不等式是成立的，然而2的幂是无穷多的，所以只要证明，不等式如果对$n+1$个正实数成立就必然对$n$个正实数也成立就可以了。
+
+对于任意$n$个正实数，我们再添加一个正实数$a_{n+1}=\frac{1}{n}\sum_{i=1}^na_i$构成$n+1$个正实数，由假设，不等式对$n+1$个正实数是成立的，所以有
+\[
+\frac{1}{n+1}\sum_{i=1}^{n+1}a_i \geqslant \left( \prod_{i=1}^{n+1}a_i \right)^{\frac{1}{n+1}}
+\]
+而由于$a_{n+1}$正好等于其它$n$个实数的平均数，所以
+\[ \frac{1}{n+1}\sum_{i=1}^{n+1}a_i = \frac{1}{n}\sum_{i=1}^{n}a_i \]
+因此前一式即为:
+\[
+\frac{1}{n}\sum_{i=1}^{n}a_i \geqslant \left( \prod_{i=1}^{n}a_i \right)^{\frac{1}{n+1}} \cdot \left( \frac{1}{n}\sum_{i=1}^na_i \right)^{\frac{1}{n+1}}
+\]
+化简即得
+\[
+\frac{1}{n}\sum_{i=1}^na_i \geqslant \left( \prod_{i=1}^na_i \right)^{\frac{1}{n}} 
+\]
+即得证。
+\end{proof}
+\end{example}
+
+\begin{principle}[跳跃数学归纳法]
+  如果与正整数有关的命题$P(n)$满足:
+  \begin{enumerate}
+  \item $P(1)$,$P(2)$,$\ldots$,$P(m)$成立;
+  \item 由$P(k)$成立能够推证$P(k+m)$成立;
+  \end{enumerate}
+那么该命题对于一切正整数成立。
+\end{principle}
+
+数学归纳法还有其他形式，比如解决对偶性问题（如正余弦）的螺旋归纳法，解决同时与两个正整数相关的命题的二重归纳法等，但它们的道理都是类似的。
+
+数学归纳法的奠基也并非一定要从1开始。
+
+
+\subsection{抽屉原理}
+\label{sec:drawer-principle}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
