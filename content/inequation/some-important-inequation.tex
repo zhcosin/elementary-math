@@ -4,6 +4,31 @@
 
 本节叙述一些在初等数学领域非常重要的不等式\footnote{这一节主要参考了文献\cite{contest-math-course}和\cite{caculus-course}以及\cite{olympic-math}.}，这些不等式应用广泛，刻画的不等式关系非常深刻。
 
+\subsection{排序不等式}
+
+\begin{theorem}[排序不等式]
+  对于任何两组按照相同的大小顺序排列好（均从小到大或者均从大到小）的两组实数$x_i(i=1,2,\ldots,n)$和$y_i(i=1,2,\ldots,n)$，有下面的不等式成立
+  \begin{eqnarray}
+    \label{eq:rearrangement inequality}
+    & x_1y_n+x_2y_{n-1}+\cdots+x_ny_1 \nonumber \\
+    \leqslant & x_1y_{r_1}+x_2y_{r_2}+\cdots+x_ny_{r_n} \nonumber \\
+    \leqslant & x_1y_1+x_2y_2+\cdots+x_ny_n
+  \end{eqnarray}
+  其中$r_i(i=1,2,\ldots,n)$是$1,2,\ldots,n$的任意一个排列。
+\end{theorem}
+不等式的通俗说法就是，反序和最小，同序和最大，乱序和居中。
+
+\begin{proof}[证明]
+  对于中间的乱序和，如果$r_1 \neq 1$，那么$y_1$就必定跟某个$x_m$搭配着，也就是$x_1y_{r_1}$和$x_my_1$这两项，我们尝试交换一下这两个搭配，看看和会怎么变化
+  \begin{equation*}
+    (x_1y_1+x_my_{r_1})-(x_1y_{r_1}+x_my_1) = (x_1-x_m)(y_1-y_{r_1}) \geqslant 0
+  \end{equation*}
+  因此这样做的结果是使得和式变大了，照此逐步调整下去，所得和式将会继续变大，直到所有$r_i=i(i=1,2,\ldots,n)$都成立时得到同序和为最大，这就证明了不等式的左边，这个方法称为 \emph{逐步调整法}。
+
+  至于不等式的右边，只要把第二组数$y_1,y_2,\ldots,y_n$换为$-y_n,-y_{n-1},\ldots,-y_1$，则它与$x_i$单调性相同，把左边不等式应用到这两组数上即可得到右边不等式。
+\end{proof}
+
+
 \subsection{均值不等式}
 
 \begin{theorem}[均值不等式]
@@ -52,6 +77,18 @@
   因为左边各项之积为1，所以我们只要能够证明：如果$n$个正实数$x_i(i=1,2,\ldots,n)$满足$x_1x_2\cdots x_n=1$，则$x_1+x_2+\cdots +x_n \geqslant n$ 就可以了。
 
   对于$n=2$的情况是很容易验证的，假定对于$n$个数也成立，现在来看$n+1$个数的情况，先把$x_nx_{n+1}$绑在一起视为一个数，这样$n+1$个数就成了$n$个数，根据归纳假设可得$x_1+\cdots + x_{n-1} + x_nx_{n+1} \geqslant n$，于是我们只要证明$x_n+x_{n+1} \geqslant x_nx_{n+1}+1$就可以了，也就是要证明$(x_n-1)(x_{n+1}-1)\leqslant 0$，这个似乎不一定成立，但是乘积为1的$n+1$个正实数，必定至少有一个大于等于1，同时至少有一个小于等于1，我们可以重新排序这些正实数，使得这两个数放在最后（或者干脆一开始绑定两个数的时候就绑这两个数），于是不等式$(x_n-1)(x_{n+1}-1)\leqslant 0$就成立了，所以得证。
+\end{proof}
+
+\begin{proof}[证明三]
+  仍同证明二，只要证明辅助命题: 如果$n$个正实数$x_i(i=1,2,\ldots,n)$乘积为1，则它们的和不小于$n$就可以了。
+
+  利用排序不等式，这$n$个正实数乘积为1，则存在另外$n$个正实数$y_i(i=1,2,\dots,n)$使得$x_1=y_1/y_2,x_2=y_2/y_3,\dots,x_n=y_n/y_1$，于是对于序列$y_i$和$1/y_i$，就有(利用了乱序和大于等于反序和)
+  \begin{eqnarray*}
+    x_1+x_2+\dots+x_n & = & 
+                            \frac{y_1}{y_2}+\frac{y_2}{y_3}+\cdots+\frac{y_n}{y_1} \\
+    & \geqslant & \frac{y_1}{y_1}+\frac{y_2}{y_2}+\cdots+\frac{y_n}{y_n} = n
+  \end{eqnarray*}
+  所以辅助命题成立，从而得证。
 \end{proof}
 
 \begin{example}
@@ -125,31 +162,7 @@
   可以验证等号是可以取到的。
 \end{example}
 
-\subsection{排序不等式}
-
-\begin{theorem}[排序不等式]
-  对于任何两组按照相同的大小顺序排列好（均从小到大或者均从大到小）的两组实数$x_i(i=1,2,\ldots,n)$和$y_i(i=1,2,\ldots,n)$，有下面的不等式成立
-  \begin{eqnarray}
-    \label{eq:rearrangement inequality}
-    & x_1y_n+x_2y_{n-1}+\cdots+x_ny_1 \nonumber \\
-    \leqslant & x_1y_{r_1}+x_2y_{r_2}+\cdots+x_ny_{r_n} \nonumber \\
-    \leqslant & x_1y_1+x_2y_2+\cdots+x_ny_n
-  \end{eqnarray}
-  其中$r_i(i=1,2,\ldots,n)$是$1,2,\ldots,n$的任意一个排列。
-\end{theorem}
-不等式的通俗说法就是，反序和最小，同序和最大，乱序和居中。
-
-\begin{proof}[证明]
-  对于中间的乱序和，如果$r_1 \neq 1$，那么$y_1$就必定跟某个$x_m$搭配着，也就是$x_1y_{r_1}$和$x_my_1$这两项，我们尝试交换一下这两个搭配，看看和会怎么变化
-  \begin{equation*}
-    (x_1y_1+x_my_{r_1})-(x_1y_{r_1}+x_my_1) = (x_1-x_m)(y_1-y_{r_1}) \geqslant 0
-  \end{equation*}
-  因此这样做的结果是使得和式变大了，照此逐步调整下去，所得和式将会继续变大，直到所有$r_i=i(i=1,2,\ldots,n)$都成立时得到同序和为最大，这就证明了不等式的左边，这个方法称为 \emph{逐步调整法}。
-
-  至于不等式的右边，只要把第二组数$y_1,y_2,\ldots,y_n$换为$-y_n,-y_{n-1},\ldots,-y_1$，则它与$x_i$单调性相同，把左边不等式应用到这两组数上即可得到右边不等式。
-\end{proof}
-
-排序不等式刻画的是在乘法运算中所蕴含的规律，本书倾向于认为在均值不等式、柯西不等式、排序不等式中，排序不等式是最基本的不等式，因为从\ref{sec:polynomial-theorem}节利用多项式乘幂定理证明均值不等式的过程中可以看出，均值不等式赖以成立的基础是不等式$x^n+y^n \geqslant x^{n-1}y+xy^{n-1}(n \in N_+)$，而柯西不等式则是得益于不等式$x^2+y^2 \geqslant 2xy$，而这两个简单不等式都是排序不等式的直接推论。
+本书倾向于认为在均值不等式、柯西不等式、排序不等式中，排序不等式是最基本的不等式，因为从\ref{sec:polynomial-theorem}节利用多项式乘幂定理证明均值不等式的过程中可以看出，均值不等式赖以成立的基础是不等式$x^n+y^n \geqslant x^{n-1}y+xy^{n-1}(n \in N_+)$，而柯西不等式则是得益于不等式$x^2+y^2 \geqslant 2xy$，而这两个简单不等式都是排序不等式的直接推论。
 
 \subsection{切比雪夫(Chebyshev)不等式}
 
