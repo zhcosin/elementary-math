@@ -1,0 +1,124 @@
+
+\section{向量}
+\label{sec:vector}
+
+向量是在直线上的有向线段的基础上发展起来的现代化的数学工具，在处理一些几何问题时往往会有事半功倍的功效。
+
+向量的基础概念包含向量的共线，三角形法则和平行四边形法则，向量的分解定理和定比分点，内积与外积等。
+
+\subsection{定比分点}
+\label{sec:definition-proportion}
+
+设有一直线$AB$，点$P$是直线上任一点，当点$P$不与$A$、$B$重合时就存在唯一实数$\lambda$使得$\vv{AP}=\lambda\vv{PB}$，若设$O$是平面上任一点，那么容易推得
+\begin{equation}
+  \label{eq:vector-definition-proportion}
+  \vv{OP} = \frac{1}{1+\lambda} \vv{OA} + \frac{\lambda}{1+\lambda} \vv{OB}
+\end{equation}
+当点$P$位于线段$AP$上时$\lambda>0$，位于$AB$延长线上$B$一侧时$\lambda<-1$，位于$A$一侧时$-1<\lambda<0$，上式称为向量的 \emph{定比分点公式}。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/vector-definition-proportion.pdf}
+\caption{}
+\label{fig:vector-definition-proportion}
+\end{figure}
+
+注意到上式中的两个系数和为1，还有另外一种表示，如果记$t= \lambda / (1+\lambda)$，那么有
+\begin{equation}
+  \label{eq:vector-definition-proportion-t}
+  \vv{OP} = (1-t) \vv{OA} + t \vv{OB}
+\end{equation}
+式中$t$的意义是$\vv{AP} = t \vv{AB}$，而且这式子对于点$P$与线段$AB$端点重合时也有效，因而它能将直线上的点与实数建立起一一对应。
+
+利用复数则可以去掉点$O$的细枝末节，以各点的字母代指该点在复平面上所代表的复数，就有
+\begin{equation}
+  \label{eq:complex-definition-proportion}
+  P = (1-t)A + tB
+\end{equation}
+
+\begin{example}
+  对于一个三角形$ABC$和一个定点$O$，由等式$\vv{OP} = \alpha \vv{OA} + \beta \vv{OB} + \gamma \vv{OC}$确定出该三角形所在平面上的一个点，如果三个系数都为非负并且$\alpha+\beta+\gamma = 1$，那么点$P$位于三角形的内部或者三条边上，其中位于内部时三个系数都为正而和为1，位于三条边上时有一个系数为零而另外两个相加为1，当有两个系数为零另外一个为1时正好是顶点之一。
+\end{example}
+
+\begin{example}[三角形的重心]
+  作为向量方法的一个展示，我们来证明：三角形的三条中线交于一点，这点称为三角形的重心。
+  
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/barycentric-of-triangle-vector.pdf}
+\caption{}
+\label{fig:barycentric-of-triangle-vector}
+\end{figure}
+
+  先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交于点$G$，只要证明$BC$边上的中线$AD$通过此点就可以了，这只要证明$\vv{AG}$与$\vv{AD}$共线就行了。
+
+  因为点$G$同时位于$BF$和$CE$上，所以存在两个实数$t$和$s$，使得
+  \begin{eqnarray*}
+    \vv{AG} = (1-t) \vv{AB} + t \vv{AF} = (1-t) \vv{AB} + \frac{1}{2} t \vv{AC} \\
+    \vv{AG} = s \vv{AE} + (1-s) \vv{AC} = \frac{1}{2} s \vv{AB} + (1-s) \vv{AC}
+  \end{eqnarray*}
+  于是得方程组
+  \begin{eqnarray*}
+    1-t = \frac{1}{2} s \\
+    1-s = \frac{1}{2} t
+  \end{eqnarray*}
+  解得$t=s=2/3$，所以$AG=\frac{1}{3}(\vv{AB}+\vv{AC})$，而$\vv{AD}=\frac{1}{2}(\vv{AB}+\vv{AC})$，所以$\vv{AG}$与$\vv{AD}$共线，得证。
+
+  由向量式$AG=\frac{1}{3}(\vv{AB}+\vv{AC})$中的向量都按定点$O$来表出，就得$\vv{OG}=\frac{1}{3}(\vv{OA}+\vv{OB}+\vv{OC})$，这就是重心的向量表达。
+\end{example}
+
+\begin{example}[贝塞尔(Bezier)曲线]
+  贝塞尔曲线的初衷是为了将一些离散的点用光滑的曲线连接起来，它的基本原理很简单，如图\ref{fig:bezier-curve}，$Z_0$和$Z_1$是两个点，点$C$是不与$Z_0$和$Z_1$共线的一个指定点（称为控制点），对于一个实数$\lambda>0$，可以在线段$Z_0C$和$CZ_1$上分别定出点$A$和$B$，使得$Z_0A:AC = \lambda$和$CB:BZ_1=\lambda$，然后在线段$AB$上再定出一个点$Z$使得$AZ:ZB=\lambda$，当$\lambda$在正实数范围内变动时，点$Z$的轨迹就是一条曲线，这就是贝塞尔曲线。
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/bezier-curve.pdf}
+\caption{}
+\label{fig:bezier-curve}
+\end{figure}
+
+由这原理知贝塞尔曲线是以$\lambda$为参数的曲线，我们来推导它的参数式，记$t = \lambda / (1+\lambda)$，并以各点的字母也同时代指该点所对应的复数，就有
+\begin{eqnarray*}
+  Z & = & (1-t) A + t B \\
+    & = & (1-t)[(1-t)Z_0+tC] + t [(1-t)C+tB] \\
+  & = & (1-t)^2 Z_0 + 2t(1-t)C +t^2 Z_1
+\end{eqnarray*}
+这是只有一个控制点的情况，如果有两个控制点$C_1$和$C_2$，先在线段$Z_0C_1$、$C_1C_2$、$C_2Z_0$上各取点$A_1$、$A_2$、$A_3$使得$\frac{Z_0A_1}{A_1C_1}=\frac{C_1A_2}{A_2C_2}=\frac{C_2A_3}{A_3Z_1}=\lambda$，然后再在线段$A_1A_2$和$A_2A_3$上分别取点$B_1$和$B_2$使得$\frac{A_1B_1}{B_1A_2}=\frac{A_2B_2}{B_2A_3}=\lambda$，最后在线段$B_1B_2$上取点$Z$使得$\frac{B_1Z}{ZB_2}=\lambda$，点$Z$随着$\lambda$变动的轨迹就是由控制点$C_1$和$C_2$所确定的贝塞尔曲线，如图\ref{fig:bezier-curve-two-control-pt}所示。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/bezier-curve-two-control-pt.pdf}
+\caption{}
+\label{fig:bezier-curve-two-control-pt}
+\end{figure}
+
+这时的贝塞尔曲线的参数方程是
+\begin{equation*}
+  Z = (1-t)^3Z_0 + 3(1-t)^2tC_1 + 3t(1-t)^2C_2 + t^3Z_1
+\end{equation*}
+
+类似于可以得到由端点$Z_0$、$Z_1$和$n-1$个控制点$C_k(k=1,2,\ldots,n-1)$所决定的贝塞尔曲线，它的参数方程是
+\begin{equation*}
+  Z = \sum_{i=0}^nC_n^i(1-t)^{n-i}t^iC_i 
+\end{equation*}
+其中$C_0$和$C_n$分别代指端点$Z_0$和$Z_1$，容易发现各个控制点的系数就是$((1-t)+t)^n$按照二项式定理展开后的各项。
+
+现在来证明贝塞尔曲线的一个性质，如图，三角形$ABC$中，以$B$、$C$为端点以$A$为控制点的贝塞尔曲线段，将全位于由$BC$边上的中位线$EF$所分割出来的梯形$EBCF$中，并且中位线$EF$的中点是这中位线与贝塞尔曲线的唯一公共点。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/bezier-curve-contaied-by-median-trapezoid.pdf}
+\caption{}
+\label{fig:bezier-curve-contaied-by-median-trapezoid}
+\end{figure}
+
+证明很简单，只要将方程$Z = (1-t)^2B + 2t(1-t)A + t^2C$改写为以$A$为起点的向量形式
+\begin{equation*}
+  \vv{AZ} = (1-t)^2\vv{AB} + t^2 \vv{AC}
+\end{equation*}
+根据均值不等式知系数和大于等于$1/2$，并且两个系数都为非负，所以这曲线全被包含于梯形$EBCF$中，并且当$t=1/2$时系数和刚好等于$1/2$，所以中位线的中点是这曲线与中位线的唯一公共点。
+\end{example}
+
+%%% Local Variables:
+%%% TeX-master: "../../book"
+%%% End:
