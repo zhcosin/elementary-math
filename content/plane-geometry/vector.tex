@@ -83,7 +83,7 @@
     & = & (1-t)[(1-t)Z_0+tC] + t [(1-t)C+tB] \\
   & = & (1-t)^2 Z_0 + 2t(1-t)C +t^2 Z_1
 \end{eqnarray*}
-这是只有一个控制点的情况，如果有两个控制点$C_1$和$C_2$，先在线段$Z_0C_1$、$C_1C_2$、$C_2Z_0$上各取点$A_1$、$A_2$、$A_3$使得$\frac{Z_0A_1}{A_1C_1}=\frac{C_1A_2}{A_2C_2}=\frac{C_2A_3}{A_3Z_1}=\lambda$，然后再在线段$A_1A_2$和$A_2A_3$上分别取点$B_1$和$B_2$使得$\frac{A_1B_1}{B_1A_2}=\frac{A_2B_2}{B_2A_3}=\lambda$，最后在线段$B_1B_2$上取点$Z$使得$\frac{B_1Z}{ZB_2}=\lambda$，点$Z$随着$\lambda$变动的轨迹就是由控制点$C_1$和$C_2$所确定的贝塞尔曲线，如图\ref{fig:bezier-curve-two-control-pt}所示。
+这是只有一个控制点的情况，如果有两个控制点$C_1$和$C_2$，先在线段$Z_0C_1$、$C_1C_2$、$C_2Z_1$上各取点$A_1$、$A_2$、$A_3$使得$\frac{Z_0A_1}{A_1C_1}=\frac{C_1A_2}{A_2C_2}=\frac{C_2A_3}{A_3Z_1}=\lambda$，然后再在线段$A_1A_2$和$A_2A_3$上分别取点$B_1$和$B_2$使得$\frac{A_1B_1}{B_1A_2}=\frac{A_2B_2}{B_2A_3}=\lambda$，最后在线段$B_1B_2$上取点$Z$使得$\frac{B_1Z}{ZB_2}=\lambda$，点$Z$随着$\lambda$变动的轨迹就是由控制点$C_1$和$C_2$所确定的贝塞尔曲线，如图\ref{fig:bezier-curve-two-control-pt}所示。
 
 \begin{figure}[htbp]
 \centering
@@ -97,7 +97,7 @@
   Z = (1-t)^3Z_0 + 3(1-t)^2tC_1 + 3t(1-t)^2C_2 + t^3Z_1
 \end{equation*}
 
-类似于可以得到由端点$Z_0$、$Z_1$和$n-1$个控制点$C_k(k=1,2,\ldots,n-1)$所决定的贝塞尔曲线，它的参数方程是
+其中$t=\lambda/(1+\lambda)$，类似的可以得到由端点$Z_0$、$Z_1$和$n-1$个控制点$C_k(k=1,2,\ldots,n-1)$所决定的贝塞尔曲线，它的参数方程是
 \begin{equation*}
   Z = \sum_{i=0}^nC_n^i(1-t)^{n-i}t^iC_i 
 \end{equation*}
@@ -112,7 +112,7 @@
 \label{fig:bezier-curve-contaied-by-median-trapezoid}
 \end{figure}
 
-证明很简单，只要将方程$Z = (1-t)^2B + 2t(1-t)A + t^2C$改写为以$A$为起点的向量形式
+证明很简单，只要将参数方程$Z = (1-t)^2B + 2t(1-t)A + t^2C$改写为以$A$为起点的向量形式
 \begin{equation*}
   \vv{AZ} = (1-t)^2\vv{AB} + t^2 \vv{AC}
 \end{equation*}
