@@ -3,18 +3,18 @@ import geometry;
 
 size(120);
 
-pair A = (2, 7);
-label("$A$", A, N);
-pair B = (-5, 0);
-label("$B$", B, SW);
-pair C = (5, 0);
-label("$C$", C, SE);
-pair D = (-1, 0);
-label("$D$", D, S);
+pair O = (2, 7);
+label("$O$", O, N);
+pair A = (-5, 0);
+label("$A$", A, SW);
+pair B = (5, 0);
+label("$B$", B, SE);
+pair P = (-1, 0);
+label("$P$", P, S);
 
 
-draw(line(locate(B), locate(C)));
+draw(line(locate(A), locate(P)));
 
-draw(A -- B, Arrow);
-draw(A -- C, Arrow);
-draw(A -- D, Arrow);
+draw(O -- A, Arrow);
+draw(O -- B, Arrow);
+draw(O -- P, Arrow);
