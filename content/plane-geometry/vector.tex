@@ -39,7 +39,7 @@
 \begin{example}
   对于一个三角形$ABC$和一个定点$O$，由等式$\vv{OP} = \alpha \vv{OA} + \beta \vv{OB} + \gamma \vv{OC}$确定出该三角形所在平面上的一个点，如果三个系数都为非负并且$\alpha+\beta+\gamma = 1$，那么点$P$位于三角形的内部或者三条边上，其中位于内部时三个系数都为正而和为1，位于三条边上时有一个系数为零而另外两个相加为1，当有两个系数为零另外一个为1时正好是顶点之一。
 
-  这结论还可以推广到任意凸多边形的情况，设有凸多边形$A_1A_2\cdots A_n$，由向量$\vv{OP}=\sum_{i=1}^n\vv{alpha_i}\vv{OA_i}$其中$\alpha_i\geqslant 0$并且$\sum_{i=1}^nalpha_i=1$所决定的点$P$位于凸多边形的内部或者边界上，如果有某个$alpha_i$为1而其余的$alpha_i$全为零，则它是凸多边形的顶点，如果有两个相邻的$alpha_i$之和为1而其余$alpha_i$全为零，则它在凸多边形的边上，其余情况下这点位于凸多边形的内部。
+  这结论还可以推广到任意凸多边形的情况，设有凸多边形$A_1A_2\cdots A_n$，由向量$\vv{OP}=\sum_{i=1}^n\alpha_i\vv{OA_i}$其中$\alpha_i\geqslant 0$并且$\sum_{i=1}^n\alpha_i=1$所决定的点$P$位于凸多边形的内部或者边界上，如果有某个$\alpha_i$为1而其余的$\alpha_i$全为零，则它是凸多边形的顶点，如果有两个相邻的$\alpha_i$之和为1而其余$\alpha_i$全为零，则它在凸多边形的边上，其余情况下这点位于凸多边形的内部。
 \end{example}
 
 \begin{example}[三角形的重心]
@@ -64,9 +64,12 @@
     1-t = \frac{1}{2} s \\
     1-s = \frac{1}{2} t
   \end{eqnarray*}
-  解得$t=s=2/3$，所以$AG=\frac{1}{3}(\vv{AB}+\vv{AC})$，而$\vv{AD}=\frac{1}{2}(\vv{AB}+\vv{AC})$，所以$\vv{AG}$与$\vv{AD}$共线，得证。
+  解得$t=s=2/3$，所以$AG=\frac{1}{3}(\vv{AB}+\vv{AC})$，而$\vv{AD}=\frac{1}{2}(\vv{AB}+\vv{AC})$，所以$\vv{AG}=\frac{2}{3}\vv{AD}$，因而共线，得证，还顺便得到结论：重心把每一条中线都分为$2:1$的两段。
 
-  由向量式$AG=\frac{1}{3}(\vv{AB}+\vv{AC})$中的向量都按定点$O$来表出，就得$\vv{OG}=\frac{1}{3}(\vv{OA}+\vv{OB}+\vv{OC})$，这就是重心的向量表达。
+  由向量式$AG=\frac{1}{3}(\vv{AB}+\vv{AC})$中的向量都按定点$O$来表出，就得$\vv{OG}=\frac{1}{3}(\vv{OA}+\vv{OB}+\vv{OC})$，这就是重心的向量表达，由此还得重心的坐标:
+  \begin{equation*}
+    \left( \frac{x_A+x_B+x_C}{3}, \frac{y_A+y_B+y_C}{3} \right)
+  \end{equation*}
 \end{example}
 
 \begin{example}[贝塞尔(Bezier)曲线]
