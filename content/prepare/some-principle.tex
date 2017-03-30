@@ -9,8 +9,8 @@
   用$|A|$表示集合$A$的元素个数，则多个集合的并集的元素个数是:
   \begin{eqnarray}
     \label{eq:inclusion-exclusion-principle}
-    \left| \bigcup_{i=1}^nA_i \right| = & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n} \left| A_i \cap A_j \right| +\sum_{1 \leqslant i <j <k \leqslant n} \left| A_i\cap A_j \cap A_k \right| \nonumber \\
- & -\cdots+(-1)^{n+1} \left| \bigcap_{i=1}^n A_i \right|
+    \left| \bigcup_{i=1}^nA_i \right| & = & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n} \left| A_i \cap A_j \right| +\sum_{1 \leqslant i <j <k \leqslant n} \left| A_i\cap A_j \cap A_k \right| \nonumber \\
+ & & -\cdots+(-1)^{n+1} \left| \bigcap_{i=1}^n A_i \right|
   \end{eqnarray}
 \end{principle}
 容斥原理的含义借助韦恩图是显而易见的，其证明用数学归纳法即可，这里从略。
