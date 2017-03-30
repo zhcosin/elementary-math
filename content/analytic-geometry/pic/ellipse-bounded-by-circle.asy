@@ -29,3 +29,8 @@ draw(O -- P);
 draw(P -- F1);
 draw(P -- F2);
 
+pair E = locate(intersectionpoint(line(locate(P), locate(F1)), parallel(locate(O), line(locate(P), locate(F2)))));
+label("$E$", E, NW);
+
+draw(O -- E, dashed);
+
