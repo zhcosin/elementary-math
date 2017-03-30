@@ -112,6 +112,30 @@
  由性质\ref{ppty:triangle-circumradius-area-sides}，结合面积$S=\frac{1}{2}(a+b+c)r=sr$即得证。
 \end{proof}
 
+\subsection{欧拉不等式}
+\label{sec:euler-inequality}
+
+\begin{theorem}[欧拉(Euler)不等式]
+  三角形的外接圆半径$R$和内切圆半径$r$满足不等式$R \geqslant 2r$.
+\end{theorem}
+
+\begin{proof}[证明]
+  由性质\ref{ppty:triangle-circumradius-area-sides}和面积公式$S=sr$，这里$s$为半周长，欲证不等式等价于
+  \begin{equation*}
+    \frac{abc}{4S} \geqslant \frac{2S}{s}
+  \end{equation*}
+  即要证$8S^2 \leqslant sabc$，由海伦公式，只需证
+  \begin{eqnarray*}
+    & \Longleftrightarrow & 8s(s-a)(s-b)(s-c) \leqslant sabc \\
+    & \Longleftrightarrow & (a+b-c)(b+c-a)(c+a-b) \leqslant abc
+  \end{eqnarray*}
+  作代换 $x=a+b-c$，$y=b+c-a$，$z=c+a-b$，则又等价于
+  \begin{equation*}
+    xyz \leqslant \frac{x+z}{2} \cdot \frac{y+x}{2} \cdot \frac{z+y}{2}
+  \end{equation*}
+  由均值不等式，这显然成立，所以得证。
+\end{proof}
+
 \subsection{重心}
 \label{sec:triangle-centroid}
 
