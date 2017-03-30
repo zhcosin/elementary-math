@@ -252,6 +252,30 @@
 \end{example}
 
 \begin{example}
+  如图\ref{fig:ceva-circle}，圆周上有顺次六个点$A$、$B$、$C$、$D$、$E$、$F$，那么三条线段$AD$、$BE$、$CF$交于一点的充分必要条件是
+  \begin{equation*}
+    \frac{AB}{BC} \cdot \frac{CD}{DE} \cdot \frac{EF}{FA} = 1
+  \end{equation*}
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/ceva-circle.pdf}
+\caption{}
+\label{fig:ceva-circle}
+\end{figure}
+
+证明是很容易的，连接$AC$、$CE$、$EA$，对三角形$ACE$使用塞瓦定理就有
+\begin{equation*}
+  \frac{AX}{XC} \cdot \frac{CY}{YE} \cdot \frac{EZ}{ZA} = 1
+\end{equation*}
+但是又有
+\begin{equation*}
+  \frac{AX}{XC} = \frac{AB \sin{\angle ABX}}{BC \sin{\angle CBX}}
+\end{equation*}
+仿此有另外两式，三式相乘并利用 $\angle ABX = \angle EDY$等一系列等角，即可得结论的必要性，而充分性仍然由同一法得出，略去。
+\end{example}
+
+\begin{example}
   如图\ref{fig:example-for-cevian-ap-perp-bc}，在$\triangle ABC$中，点$D$是角$BAC$的平分线与$BC$边的交点，过$D$向$AB$和$AC$引垂线，垂足分别是$E$、$F$，连接$BF$和$CE$相交于点$P$，今来证明$AP \perp BC$。
 
 \begin{figure}[htbp]
