@@ -474,6 +474,45 @@
   \end{statement}
 \end{example}
 
+\begin{example}
+  在这个例子中，我们利用斯特瓦尔特定理来建立三角形中的中线长公式、角平分线长公式、高线长公式。
+
+  三角形$ABC$的$BC$边上的中线长是
+  \begin{equation}
+    \label{eq:midline-length-triangle}
+    AD^2 = \frac{1}{4}(2b^2+2c^2-a^2)
+  \end{equation}
+  由此可以继续推得一个不等式$AD < \frac{1}{2}(b+c)$。
+
+  利用内角平分线定理可求得角平分线分对边的比例，于是可以得出角$A$的平分线长度
+  \begin{equation}
+    \label{eq:bisec-angle-length-triangle}
+    AD^2 = bc \left( 1 - \left( \frac{a}{b+c} \right)^2 \right)
+  \end{equation}
+  由此可得不等式$AD < \sqrt{bc}$。
+
+  用斯特瓦尔特定理求高线长比较麻烦，倒是直接使用余弦定理方便:
+  \begin{eqnarray*}
+    AD & = & b \sin{C} \\
+       & = & b \sqrt{1-\cos^2{C}} \\
+       & = & b \sqrt{1-\left( \frac{a^2+b^2-c^2}{2ab} \right)^2} \\
+    & = & \frac{1}{a} \sqrt{a^2b^2-\frac{(a^2+b^2-c^2)^2}{4}} \\
+    & = & \frac{1}{2a} \sqrt{(a+b+c)(a+b-c)(b+c-a)(c+a-b)}
+  \end{eqnarray*}
+  这就是高线长公式。
+
+  由于$S_{\triangle ABC} = \frac{1}{2} a \cdot AD$，再记$p=\frac{1}{2}(a+b+c)$为半周长，那么我们实际上得出了著名的 \emph{海伦公式}:
+  \begin{equation}
+    \label{eq:helen-area-triangle}
+    S_{\triangle ABC} = \sqrt{p(p-a)(p-b)(p-c)}
+  \end{equation}
+  这与我国古代数学家秦九韶在《数书九章》中提出的三斜求积术是等价的（见高线推导过程）:
+  \begin{equation}
+    \label{eq:three-inclined-quadrature-operation}
+    S_{\triangle ABC} = \frac{1}{2} \sqrt{a^2b^2- \left( \frac{a^2+b^2-c^2}{2} \right)^2}
+  \end{equation}
+\end{example}
+
 %%% Local Variables:
 %%% TeX-master: "../../book"
 %%% End:
