@@ -72,8 +72,45 @@
 \subsection{外心}
 \label{sec:triangle-excenter}
 
+\begin{property}
+  \label{ppty:triangle-circumradius-area-sides}
+  三角形的外接圆半径$R$，面积$S$，和三边之间有如下的关系式
+  \begin{equation}
+    \label{eq:triangle-circumradius-area-sides}
+    abc = 4RS
+  \end{equation}
+\end{property}
+
+\begin{proof}[证明]
+  由正弦定理和海伦公式，过程中$p=\frac{1}{2}(a+b+c)$为半周长
+  \begin{eqnarray*}
+    2R & = & \frac{a}{\sin{A}} \\
+       & = & \frac{a}{\sqrt{1-\cos^2{A}}} \\
+       & = & \frac{a}{\sqrt{1-\left( \frac{b^2+c^2-a^2}{2bc} \right)^2}} \\
+       & = & \frac{2abc}{\sqrt{4b^2c^2-(b^2+c^2-a^2)^2}} \\
+       & = & \frac{2abc}{\sqrt{((b+c)^2-a^2)(a^2-(b-c)^2)}} \\
+       & = & \frac{2abc}{\sqrt{(a+b+c)(b+c-a)(a+b-c)(c+a-b)}} \\
+       & = & \frac{abc}{2 \sqrt{p(p-a)(p-b)(p-c)}} \\
+    & = & \frac{abc}{2S}
+  \end{eqnarray*}
+\end{proof}
+
+这性质意味着，如果以三角形为底面，外接圆半径为高作三棱柱，其体积与以三边为棱长的长方体的体积之间，有着固定的比例关系，不知这能否有构造法说明这一点?
+
 \subsection{内心}
 \label{sec:triangle-incenter}
+
+\begin{property}
+  三角形的内切圆半径$r$，外接圆半径$R$，以及半周长$s$，与三边之间有如下关系
+  \begin{equation}
+    \label{eq:triangle-abc-equal-4Rrs}
+    abc = 4Rrs
+  \end{equation}
+\end{property}
+
+\begin{proof}[证明]
+ 由性质\ref{ppty:triangle-circumradius-area-sides}，结合面积$S=\frac{1}{2}(a+b+c)r=sr$即得证。
+\end{proof}
 
 \subsection{重心}
 \label{sec:triangle-centroid}
