@@ -7,13 +7,11 @@
 
 \begin{principle}[容斥原理]
   用$|A|$表示集合$A$的元素个数，则多个集合的并集的元素个数是:
-  \begin{equation}
+  \begin{eqnarray}
     \label{eq:inclusion-exclusion-principle}
-    \begin{split}
-    |\cup_{i=1}^nA_i|= & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
- & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i|
-    \end{split}
-  \end{equation}
+    \left| \bigcup_{i=1}^nA_i \right| = & \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n} \left| A_i \bigcap A_j \right| +\sum_{1 \leqslant i <j <k \leqslant n} \left| A_i\bigcap A_j \bigcap A_k \right| \nonumber \\
+ & -\cdots+(-1)^{n+1} \left| \bigcap_{i=1}^nA_i \right|
+  \end{eqnarray}
 \end{principle}
 容斥原理的含义借助韦恩图是显而易见的，其证明用数学归纳法即可，这里从略。
 
@@ -29,14 +27,12 @@
   作为容斥原理的一个直接应用，这里讨论一下伯努利信封问题: 有相同数目的信封和信件若干，将这些信件装进这些信封，使得没有任何一封信件与信封搭配正确，问题是有多少种装法。
 
   记信件数目是$n$，并把信件和信封依次编号为$1,2,\ldots,n$，信件与所属的信封编号相同。那么要计算所有信件都搭配错误的组装数，可以考虑其反面即至少有一封信件搭配正确的组装数目，再从总数$n!$中减去它即可，根据容斥原理，构造出集合$A_i$表示第$i$封信件搭配正确的组装方案，则$|A_i|=(n-1)!$，那么至少有一封信件搭配正确的方案集合就是这些$A_i$的并集，其数目是
-  \begin{equation*}
-    \begin{split}
+  \begin{eqnarray*}
       &    \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
       & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i| \\
       = & n (n-1)! - C_n^2(n-2)! + C_n^3(n-3)! - \cdots + (-1)^{n+1}C_n^n0! \\
       = & n!\sum_{i=1}^n(-1)^{i+1}\frac{1}{i!}
-    \end{split}
-  \end{equation*}
+  \end{eqnarray*}
   所以从总数$n!$中减去它就得到最后的结果，在$0!=1$的约定下，这结果可以写为:
   \begin{equation}
     \label{eq:bernoulli-envelope-problem-solution}
