@@ -1,5 +1,5 @@
 
-\section{三角形基础}
+\section{三角形}
 \label{sec:triangle-base-discussion}
 
 三角形是平面几何中最基本的图形之一，简单的图形却蕴含了丰富的内容，三角形的内容可以说是平面几何基础中最重要的内容。
@@ -68,6 +68,37 @@
 
 \subsection{正弦定理和余弦定理}
 \label{sec:sine-theorem-and-cosine-theorem}
+
+\subsection{海伦公式}
+\label{sec:helen-area-formula}
+
+\begin{theorem}[海伦(Helen)公式]
+  三角形面积$S$可表为(式中$s$为半周长)
+  \begin{equation}
+    \label{eq:helen-area-formula}
+    S = \sqrt{s(s-a)(s-b)(s-c)}
+  \end{equation}
+\end{theorem}
+
+\begin{proof}[证明]
+  由面积公式
+  \begin{eqnarray*}
+    S & = & \frac{1}{2} bc \sin{A} \\
+      & = & \frac{1}{2} bc \sqrt{1-\cos^2{A}} \\
+      & = & \frac{1}{2} bc \sqrt{1- \left( \frac{b^2+c^2-a^2}{2bc} \right)^2} \\
+      & = & \frac{1}{4} \sqrt{4b^2c^2-(b^2+c^2-a^2)^2} \\
+      & = & \frac{1}{4} \sqrt{((b+c)^2-a^2)(a^2-(b-c)^2)} \\
+      & = & \frac{1}{4} \sqrt{(a+b+c)(b+c-a)(a+b-c)(a+c-b)} \\
+    & = & \sqrt{s(s-a)(s-b)(s-c)}
+  \end{eqnarray*}
+\end{proof}
+
+  这与我国古代数学家秦九韶在《数书九章》中提出的三斜求积术是等价的（见推导过程）:
+  \begin{equation}
+    \label{eq:three-inclined-quadrature-operation}
+    S_{\triangle ABC} = \frac{1}{2} \sqrt{a^2b^2- \left( \frac{a^2+b^2-c^2}{2} \right)^2}
+  \end{equation}
+\end{example}
 
 \subsection{外心}
 \label{sec:triangle-excenter}
