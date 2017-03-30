@@ -310,13 +310,22 @@ OP\cdot OQ = OR^2
     = \frac{1}{2} (F_1F_2 + PF_1 + PF_2) = a+c
   \end{equation*}
   所以椭圆上的任意点都被包含于以椭圆中心为圆心，以$a+c$为半径的圆内。
+\end{proof}
 
   其实这个外含圆的半径还可以进一步缩小，取$PF_1$中点$E$，有
   \begin{equation*}
     OP < PE + OE = \frac{1}{2} PF_1 + \frac{1}{2} PF_2 = a
   \end{equation*}
   然后因为在直线$F_1F_2$的两侧延长线上各有一点$P_1$、$P_2$，使得$P_1F_1=P_2F_2=a-c$，易知这两个点在椭圆上，所以这个半径$a$不能再减小了。
-\end{proof}
+
+  \begin{proof}[证明二]
+    利用三角形的中线长公式 $l^2 = \frac{1}{4}(2a^2+2b^2-c^2)$，这里$a$、$b$、$c$分别代指三角形三边而非椭圆中的相关意义。那么有
+    \begin{eqnarray*}
+      l^2 - \left( \frac{a+b}{2} \right)^2 & = &  \frac{1}{4}(2a^2+2b^2-c^2) - \left( \frac{a+b}{2} \right)^2 \\
+      & = & \frac{1}{4} \left( (a-b)^2 - c^2 \right)
+    \end{eqnarray*}
+    显然这是负值，所以中线长小于另外两边和的一半，于是应用到性质中就有 $OP < \frac{1}{2} (PF_1+PF_2) = a$，得证。
+  \end{proof}
 
 椭圆上任意两个不同的点之间的连线段称为椭圆的\emph{弦}。
 
