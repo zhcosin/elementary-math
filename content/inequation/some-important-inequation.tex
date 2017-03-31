@@ -4,6 +4,29 @@
 
 本节叙述一些在初等数学领域非常重要的不等式\footnote{这一节主要参考了文献\cite{contest-math-course}和\cite{caculus-course}以及\cite{olympic-math}.}，这些不等式应用广泛，刻画的不等式关系非常深刻。
 
+\subsection{绝对值不等式}
+\label{sec:absolute-value-inequality}
+
+\begin{theorem}
+  对于任意两个实数$a$和$b$，成立 $|a+b| \leqslant |a| + |b|$，等号成立的充分必要条件是$ab \geqslant 0$.
+\end{theorem}
+
+证明很简单，略去。
+
+\begin{inference}
+  对于任意两个实数$a$和$b$，成立不等式$||a|-|b|| \leqslant |a+b| \leqslant |a| + |b|$，左边取等的条件是$ab \leqslant 0$，右边取等条件是$ab \geqslant 0$。
+\end{inference}
+
+\begin{proof}[证明]
+  只需证明左边，因为$|a|=|(a+b)-b| \leqslant |a+b| + |b|$，所以$|a|-|b| \leqslant |a+b|$，类似还可得到$|b|-|a| \leqslant |a+b|$，所以$||a|-|b|| \leqslant |a+b|$。
+\end{proof}
+
+\begin{example}
+  对于任意非零实数$x$，成立不等式$\left| x+\frac{1}{x} \right| \geqslant 2$.
+
+  最简单的证明就是由两项同号，有$\left| x+\frac{1}{x} \right| = |x|+\frac{1}{|x|} \geqslant 2$，这里利用了二元均值不等式。
+\end{example}
+
 \subsection{排序不等式}
 
 \begin{theorem}[排序不等式]
