@@ -176,7 +176,24 @@
 \subsection{重心}
 \label{sec:triangle-centroid}
 
-纯面积方法证明三条中线交于一点。
+\begin{theorem}
+  三角形的三条中线相交于一点。
+\end{theorem}
+
+
+三条中线的交点称为三角形的 \emph{重心}。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/centroid-of-triangle.pdf}
+\caption{三角形的重心}
+\label{fig:centroid-of-triangle}
+\end{figure}
+
+根据塞瓦定理，这是显然的，在例\ref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出一个纯面积方法的证明:
+\begin{proof}[证明]
+  先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交得交点$G$，易得$S_{\triangle AGC} = S_{\triangle BGC}$ 和 $S_{\triangle AGB} = S_{\triangle CGB}$，从而得到$S_{\triangle AGB} = S_{\triangle AGC}$，所以$AG$延长后与$BC$的交点$D$必是$BC$边中点，得证。
+\end{proof}
 
 \subsection{垂心}
 \label{sec:triangle-orthocentre}
