@@ -100,7 +100,7 @@
   \end{equation}
 \end{example}
 
-\subsection{外心}
+\subsection{外接圆与外心}
 \label{sec:triangle-excenter}
 
 \begin{property}
@@ -134,7 +134,7 @@
 证明二实际上是又把海伦公式推了一遍。
 
 
-\subsection{内心}
+\subsection{内切圆与内心}
 \label{sec:triangle-incenter}
 
 \begin{property}
@@ -153,7 +153,7 @@
 \label{sec:euler-inequality}
 
 \begin{theorem}[欧拉(Euler)不等式]
-  三角形的外接圆半径$R$和内切圆半径$r$满足不等式$R \geqslant 2r$.
+  三角形的外接圆半径$R$和内切圆半径$r$满足不等式$R \geqslant 2r$，等号仅当三角形为正三角形时取得。
 \end{theorem}
 
 \begin{proof}[证明]
@@ -170,7 +170,7 @@
   \begin{equation*}
     xyz \leqslant \frac{x+z}{2} \cdot \frac{y+x}{2} \cdot \frac{z+y}{2}
   \end{equation*}
-  由均值不等式，这显然成立，所以得证。
+  由均值不等式，这显然成立，易见取等条件是三角形为正三角形。
 \end{proof}
 
 \subsection{重心}
@@ -222,8 +222,8 @@
 
 \end{proof}
 
-\subsection{欧拉(Euler)定理与欧拉线}
-\label{sec:euler-theorem-and-euler-line}
+\subsection{欧拉(Euler)定理与欧拉公式}
+\label{sec:euler-theorem-and-euler-formula}
 
 \begin{theorem}[欧拉(Euler)定理]
   三角形$ABC$的外心$O$，重心$G$，垂心$H$共线且$OG=\frac{1}{2}GH$。
@@ -242,7 +242,11 @@
   作出中线$AD$，假如直线$OG$与直线$AH$相交于点$H'$，那么由重心性质，$AG:GD=2:1$，而$OD \parallel AH$，所以$AH'=2OD$，根据性质\ref{property:circumcenter-orthocenter-ah-equal-2od}，$H'$必是垂心，得证。
 \end{proof}
 
-\subsection{旁心}
+\begin{theorem}
+  三角形的外接圆圆心和内切圆圆心的距离是 $d=\sqrt{R(R-2r)}$，其中$R$和$r$分别指代外接圆半径和内切圆半径。
+\end{theorem}
+
+\subsection{旁切圆与旁心}
 \label{sec:escenter}
 
 
