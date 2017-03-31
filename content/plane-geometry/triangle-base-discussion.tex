@@ -176,8 +176,54 @@
 \subsection{重心}
 \label{sec:triangle-centroid}
 
+纯面积方法证明三条中线交于一点。
+
 \subsection{垂心}
 \label{sec:triangle-orthocentre}
+
+\begin{property}
+  \label{property:circumcenter-orthocenter-ah-equal-2od}
+  在三角形$ABC$中，$O$和$H$分别为外心和垂心，$D$是$BC$边中点，则有$OD \parallel AH$并且$OD = \frac{1}{2} AH$。
+\end{property}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/property-circumcenter-orthocenter-oh-equal-2od.pdf}
+\caption{外心和垂心的一个性质}
+\label{fig:property-circumcenter-orthocenter-oh-equal-2od}
+\end{figure}
+
+\begin{proof}[证明]
+  平行是明显的，只证明2倍比例关系，如图\ref{fig:property-circumcenter-orthocenter-oh-equal-2od-proof}，作出外接圆和过$B$的直径$BP$，连接$AP$、$CP$，那么显然有$OD \parallel CP$并且$OD=\frac{1}{2}CP$，又容易证得四边形$AHCP$为平行四边形，所以$AH$与$CP$平行且相等，故得证。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/property-circumcenter-orthocenter-oh-equal-2od-proof.pdf}
+\caption{}
+\label{fig:property-circumcenter-orthocenter-oh-equal-2od-proof}
+\end{figure}
+
+\end{proof}
+
+\subsection{欧拉(Euler)定理与欧拉线}
+\label{sec:euler-theorem-and-euler-line}
+
+\begin{theorem}[欧拉(Euler)定理]
+  三角形$ABC$的外心$O$，重心$G$，垂心$H$共线且$OG=\frac{1}{2}GH$。
+\end{theorem}
+
+定理中的这条直线称为三角形的 \emph{欧拉线}。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/euler-circumcenter-orthocenter-barycenter-line.pdf}
+\caption{}
+\label{fig:euler-circumcenter-orthocenter-barycenter-line}
+\end{figure}
+
+\begin{proof}[证明]
+  作出中线$AD$，假如直线$OG$与直线$AH$相交于点$H'$，那么由重心性质，$AG:GD=2:1$，而$OD \parallel AH$，所以$AH'=2OD$，根据性质\ref{property:circumcenter-orthocenter-ah-equal-2od}，$H'$必是垂心，得证。
+\end{proof}
 
 \subsection{旁心}
 \label{sec:escenter}
