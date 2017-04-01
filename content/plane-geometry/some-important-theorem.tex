@@ -35,20 +35,16 @@
 \end{proof}
 
 \begin{proof}[证明二]
-  采用分析法，要证的等式
-  \begin{equation*}
-    \Longleftrightarrow AB \cdot AC \sin{\angle BAC} =
-      AD \cdot (AB \sin{\angle BAD + AC \sin{\angle CAD}})
-  \end{equation*}
-  根据正弦定理有$AB \sin{\angle BAD} = BD \sin{\angle ADB}$，$AC \sin{\angle CAD} = CD \sin{\angle ADC}$，所以欲证式又等价于
-  \begin{eqnarray*}
-    & \Longleftrightarrow & AB \cdot AC \sin{\angle BAC} =
-                            AD \cdot (BD \sin{\angle ADB} + CD \sin{\angle ADC}) \\
-    & \Longleftrightarrow & AB \cdot AC \sin{\angle BAC} = AD \cdot BC \sin{\angle ADP}
-  \end{eqnarray*}
-  此式两边都等于$2S_{\triangle ABC}$，所以成立，于是得证。
+  由正弦定理有 $AB \sin{\angle BAC} = BC \sin{\angle ACB}$以及$AD \sin{\angle CAD} = CD \sin{\angle ACD}$，两式相除得
+  \[
+    \frac{\sin{\angle CAD}}{\sin{\angle BAC}} \cdot \frac{AD}{AB} = \frac{CD}{BC}
+  \]
+  同理也有
+  \[
+    \frac{\sin{\angle BAD}}{\sin{\angle BAC}} \cdot \frac{AD}{AC} = \frac{BD}{BC}
+  \]
+  两式相加再整理即得定理中等式。
 \end{proof}
-
 
 \subsection{梅涅劳斯(Menelaus)定理}
 \label{sec:menelaus-theorem}
