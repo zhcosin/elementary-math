@@ -1,4 +1,5 @@
 
+import graph;
 import geometry;
 
 size(150);
@@ -27,9 +28,17 @@ line f2n = perpendicular(F2, mn);
 
 pair M = locate(intersectionpoint(mn, f1m));
 pair N = locate(intersectionpoint(mn, f2n));
-label("$M$", M, NW);
-label("$N$", N, E);
-draw(M -- N);
+label("$M$", M, (0,1));
+label("$N$", N, NE);
+//draw(M -- N);
+
+real fmn(real x) {
+  return b^2 * (1- (P.x * x)/(a^2)) / P.y;
+}
+
+path pmn = graph(fmn, -5, 6);
+
+draw(pmn); 
 
 draw(F1 -- M);
 draw(F2 -- N);
