@@ -156,7 +156,7 @@
   三角形的外接圆半径$R$和内切圆半径$r$满足不等式$R \geqslant 2r$，等号仅当三角形为正三角形时取得。
 \end{theorem}
 
-\begin{proof}[证明]
+\begin{proof}[证明一]
   由性质\ref{ppty:triangle-circumradius-area-sides}和面积公式$S=sr$，这里$s$为半周长，欲证不等式等价于
   \begin{equation*}
     \frac{abc}{4S} \geqslant \frac{2S}{s}
@@ -171,6 +171,23 @@
     xyz \leqslant \frac{x+z}{2} \cdot \frac{y+x}{2} \cdot \frac{z+y}{2}
   \end{equation*}
   由均值不等式，这显然成立，易见取等条件是三角形为正三角形。
+\end{proof}
+
+\begin{proof}[证明二]
+  由$2R=\frac{a}{\sin{A}}$及$r=\frac{1}{2}(b+c-a)\tan{\frac{A}{2}}$得
+  \begin{eqnarray*}
+    \frac{r}{R} & = & \frac{(b+c-a)}{a}\sin{A}\tan{\frac{A}{2}} \\
+                & = & \frac{(b+c-a)}{a} \cdot 2\sin^2{\frac{A}{2}} \\
+                & = & \frac{(b+c-a)}{a} (1-\cos{A}) \\
+                & = & \frac{(b+c-a)}{a} \left( 1-\frac{b^2+c^2-a^2}{2bc} \right) \\
+                & = & \frac{(b+c-a)[a^2-(b-c)^2]}{2abc} \\
+    & = & \frac{(b+c-a)(c+a-b)(a+b-c)}{2abc}
+  \end{eqnarray*}
+  因此要证的不等式等价于
+  \[
+    (b+c-a)(c+a-b)(a+b-c) \leqslant abc
+  \]
+  以下同证明一。
 \end{proof}
 
 \subsection{重心}
