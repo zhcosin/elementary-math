@@ -138,6 +138,7 @@
 \label{sec:triangle-incenter}
 
 \begin{property}
+  \label{property:triangle-incenter-ki-kb-kc-equal}
   三角形$ABC$中，设顶点$A$与内心$I$所在直线与三角形外接圆相交于另一点$K$，则$KB=KI=KC$。
 \end{property}
 
@@ -309,6 +310,32 @@
 \begin{theorem}
   三角形的外接圆圆心和内切圆圆心的距离是 $d=\sqrt{R(R-2r)}$，其中$R$和$r$分别指代外接圆半径和内切圆半径。
 \end{theorem}
+
+\begin{proof}[证明一]
+  如图\ref{fig:triangle-distance-of-incenter-circumcenter}，设外心和内心连线所在直线与外接圆相交于$U$、$V$两点，角$A$的平分线与外接圆相交于另一点$K$，由相交弦定理有$AI \cdot IK = UI \cdot IV$，下面来计算各条线段长度。
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/triangle-distance-of-incenter-circumcenter.pdf}
+\caption{}
+\label{fig:triangle-distance-of-incenter-circumcenter}
+\end{figure}
+
+由性质\ref{property:triangle-incenter-ki-kb-kc-equal}，有$KI=KB=2R\sin{\frac{A}{2}}$，$AI=r/ \sin{\frac{A}{2}}$，记$OI=d$则$UI\cdot VI=(R+d)(R-d)$，于是$R^2-d^2=2Rr$，得证。
+\end{proof}
+
+\begin{proof}[证明二]
+  在三角形$AOI$中，对$\angle OAI$使用余弦定理，由$AO=R$， $AI=r/\sin{\frac{A}{2}}$，$\angle OAI = \left| \angle OAB - \angle IAB \right| = \left| \left( \frac{\pi}{2}-B \right) - \frac{A}{2} \right| = \left| \frac{\pi}{2} - \left( B+\frac{A}{2} \right) \right|$，再利用性质\ref{property:ration-inradius-and-circumradius-of-triangle}，有
+  \begin{eqnarray*}
+    d^2 & = & R^2+\left( \frac{r}{\sin{\frac{A}{2}}} \right)^2 - 2R \cdot \frac{r}{\sin{\frac{A}{2}}} \cdot \cos{\left( \frac{\pi}{2}-\left( B+\frac{A}{2} \right) \right)} \\
+        & = & R^2 + \frac{r^2}{\sin^2 \frac{A}{2}} -2Rr \frac{\sin{\left( B+\frac{A}{2} \right)}}{\sin{\frac{A}{2}}} \\
+    & = & R^2 + 2Rr \cdot \frac{2\sin{\frac{B}{2}}\sin{\frac{C}{2}}}{\sin{\frac{A}{2}}}-2Rr \cdot \frac{\sin{\left( B+\frac{A}{2} \right)}}{\sin{\frac{A}{2}}} \\
+        & = & R^2 + 2Rr \left( \frac{2\sin{\frac{B}{2}}\sin{\frac{C}{2}}}{\sin{\frac{A}{2}}} - \frac{\sin{\left( B+\frac{A}{2} \right)}}{\sin{\frac{A}{2}}} \right) \\
+        & = & R^2 + 2Rr \left( \frac{2\sin{\frac{B}{2}}\sin{\frac{C}{2}}}{\sin{\frac{A}{2}}} - \frac{\cos{\left( \frac{B-C}{2} \right)}}{\sin{\frac{A}{2}}} \right) \\
+        & = & R^2 - 2Rr \cdot \frac{\cos{\left( \frac{B+C}{2} \right)}}{\sin{\frac{A}{2}}} \\
+    & = & R^2 - 2Rr
+  \end{eqnarray*}
+\end{proof}
 
 \subsection{旁切圆与旁心}
 \label{sec:escenter}
