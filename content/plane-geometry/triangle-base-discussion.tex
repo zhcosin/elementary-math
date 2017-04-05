@@ -153,6 +153,7 @@
 \end{proof}
 
 \begin{property}
+  \label{property:ration-inradius-and-circumradius-of-triangle}
   三角形的内切圆半径$r$和外接圆半径$R$之间有如下等量关系
   \begin{equation}
     \label{eq:inradius-and-circumradius-ration}
@@ -224,6 +225,16 @@
     (b+c-a)(c+a-b)(a+b-c) \leqslant abc
   \]
   以下同证明一。
+\end{proof}
+
+\begin{proof}[证明三]
+  由性质\ref{property:ration-inradius-and-circumradius-of-triangle}，及均值不等式和正弦函数在区间$(0,\pi)$上的上凸性质，有
+  \begin{eqnarray*}
+    \frac{r}{R} & = & 4\sin{\frac{A}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}} \\
+                & \leqslant & 4 \left( \frac{\sin{\frac{A}{2}}+\sin{\frac{B}{2}}+\sin{\frac{C}{2}}}{3} \right)^3 \\
+                & \leqslant & 4 \left( \sin{\frac{\frac{A}{2}+\frac{B}{2}+\frac{C}{2}}{3}} \right)^3 \\
+    & = & \frac{1}{2}
+  \end{eqnarray*}
 \end{proof}
 
 \subsection{重心}
