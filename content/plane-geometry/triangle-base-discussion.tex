@@ -152,7 +152,26 @@
   $KB=KC$是显然的，只证明$KI=KB$，易得$\angle KIB=\angle KAB + \angle IBA = (\angle BAC + \angle ABC)/2$，同时$\angle KBI = \angle KBC + \angle IBC = \angle KAC + \angle IBC = (\angle BAC + \angle ABC)/2$，所以$KB=KI$。
 \end{proof}
 
+\begin{property}
+  三角形的内切圆半径$r$和外接圆半径$R$之间有如下等量关系
+  \begin{equation}
+    \label{eq:inradius-and-circumradius-ration}
+    \frac{r}{R} = 4 \sin{\frac{A}{2}} \sin{\frac{B}{2}} \sin{\frac{C}{2}}
+  \end{equation}
+\end{property}
 
+\begin{proof}[证明]
+  因为$r=\frac{1}{2}(b+c-a)\tan{\frac{A}{2}}$，$R=a/(2\sin{A})$，所以
+  \begin{eqnarray*}
+    \frac{r}{R} & = & \frac{b+c-a}{a} \cdot \tan{\frac{A}{2}}\sin{A}\\
+                & = & \frac{\sin{B} + \sin{C} - \sin{A}}{\sin{A}} \cdot \tan{\frac{A}{2}}\sin{A} \\
+                & = & (\sin{B} + \sin{C} - \sin{A}) \tan{\frac{A}{2}} \\
+                & = & (\sin{B} + \sin{C} - \sin{(B+C)}) \tan{\frac{A}{2}} \\
+                & = & \left( 2\sin{\frac{B+C}{2}}\cos{\frac{B-C}{2}}-2\sin{\frac{B+C}{2}}\cos{\frac{B+C}{2}} \right) \tan{\frac{A}{2}} \\
+                & = & 4\sin{\frac{B+C}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}}\tan{\frac{A}{2}} \\
+    & = & 4 \sin{\frac{A}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}}
+  \end{eqnarray*}
+\end{proof}
 
 \begin{property}
   三角形的内切圆半径$r$，外接圆半径$R$，以及半周长$s$，与三边之间有如下关系
