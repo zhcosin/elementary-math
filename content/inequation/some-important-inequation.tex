@@ -51,6 +51,23 @@
   至于不等式的右边，只要把第二组数$y_1,y_2,\ldots,y_n$换为$-y_n,-y_{n-1},\ldots,-y_1$，则它与$x_i$单调性相同，把左边不等式应用到这两组数上即可得到右边不等式。
 \end{proof}
 
+\begin{example}[Nesbitt不等式]
+  对于任意三个非负实数$a,b,c$，有下面不等式成立
+  \begin{equation}
+    \label{eq:nesbitt-inequality}
+    \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \geqslant \frac{3}{2}
+  \end{equation}
+
+  \begin{proof}[证明]
+    由对称性，不失一般性，设$a\geqslant b \geqslant c$，则也有$a+b \geqslant c+a \geqslant b+c$，因而由排序不等式，有
+    \begin{eqnarray*}
+     \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \geqslant \frac{a}{a+b} + \frac{b}{b+c} + \frac{c}{c+a} \\ 
+     \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \geqslant \frac{b}{a+b} + \frac{c}{b+c} + \frac{a}{c+a}  
+    \end{eqnarray*}
+    两式相加即得证。
+  \end{proof}
+\end{example}
+
 
 \subsection{均值不等式}
 
