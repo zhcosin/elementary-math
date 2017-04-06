@@ -100,6 +100,29 @@
   \end{equation}
 \end{example}
 
+\subsection{一些三角恒等式}
+\label{sec:some-equation-in-triangle}
+
+\begin{property}
+  \label{property:triangle-sinA-sinB-sinC-cosA-cosB-cosC}
+  在三角形$ABC$中，有如下恒等式成立:
+  \begin{eqnarray}
+    \label{eq:triangle-sinA-sinB-sinC-cosA-cosB-cosC}
+   \sin{A} + \sin{B} + \sin{C} & = & 4\cos{\frac{A}{2}}\cos{\frac{B}{2}}\cos{\frac{C}{2}} \\ 
+   \cos{A} + \cos{B} + \cos{C} & = & 1 + 4 \sin{\frac{A}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}}  
+  \end{eqnarray}
+\end{property}
+
+\begin{proof}[证明]
+  只证明第一个，第二个也是类似的。
+  \begin{eqnarray*}
+    \sin{A} + \sin{B} + \sin{C} & = & (\sin{A}+\sin{B})+\sin{(A+B)} \\
+                                & = & 2 \sin{\frac{A+B}{2}} \cos{\frac{A-B}{2}} + 2 \sin{\frac{A+B}{2}} \cos{\frac{A+B}{2}} \\
+                                & = & 4\sin{\frac{A+B}{2}} \cos{\frac{A}{2}} \cos{\frac{B}{2}} \\
+    & = & 4\cos{\frac{A}{2}} \cos{\frac{B}{2}} \cos{\frac{C}{2}}
+  \end{eqnarray*}
+\end{proof}
+
 \subsection{外接圆与外心}
 \label{sec:triangle-excenter}
 
@@ -173,6 +196,15 @@
                 & = & 4\sin{\frac{B+C}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}}\tan{\frac{A}{2}} \\
     & = & 4 \sin{\frac{A}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}}
   \end{eqnarray*}
+\end{proof}
+
+
+\begin{inference}
+  三角形的外心到三边的距离的代数和是$R+r$，代数和是指：对于某一边，如果外心和另一个顶点在此边所在直线同侧，则外心到这边的距离取正值，否则取负值，$R$和$r$分别指代外接圆半径和内切圆半径。
+\end{inference}
+
+\begin{proof}[证明]
+  由外心性质，容易得这个距离和是$R(\cos{A}+\cos{B}+\cos{C})$，结合性质\ref{property:triangle-sinA-sinB-sinC-cosA-cosB-cosC}中的三角恒等式和性质\ref{property:ration-inradius-and-circumradius-of-triangle}，即可得证。
 \end{proof}
 
 \begin{property}
