@@ -1,0 +1,39 @@
+
+\section{题选}
+\label{sec:inequality-exercises}
+
+\begin{exercise}
+  已知三个正实数$a,b,c$满足
+  \begin{equation*}
+    \frac{1}{1+a} + \frac{1}{1+b} + \frac{1}{1+c} = 1
+  \end{equation*}
+  求证
+  \begin{equation*}
+    (a-1)(b-1)(c-1) \leqslant 1
+  \end{equation*}
+\end{exercise}
+
+\begin{proof}[证明]
+  作代换
+  \begin{equation*}
+    \frac{1}{1+a} = \frac{x}{x+y+z}, \  \frac{1}{1+b} = \frac{y}{x+y+z}, \  \frac{1}{1+c} = \frac{z}{x+y+z}
+  \end{equation*}
+  其中$x,y,z$是三个正实数，于是只要证明
+  \begin{equation*}
+    (y+z-x)(z+x-y)(x+y-z) \leqslant xyz
+  \end{equation*}
+  如果左边为负，不等式显然成立，否则可再作代换
+  \begin{equation*}
+    r = y+z-x, \  s = z+x-y, \  t = x+y-z
+  \end{equation*}
+  于是只要证明
+  \begin{equation*}
+    rst \leqslant \frac{s+t}{2} \frac{t+r}{2} \frac{r+s}{2}
+  \end{equation*}
+  由均值，这显然。
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
