@@ -123,6 +123,51 @@
   \end{eqnarray*}
 \end{proof}
 
+\subsection{重心}
+\label{sec:triangle-centroid}
+
+\begin{theorem}
+  三角形的三条中线相交于一点。
+\end{theorem}
+
+
+三条中线的交点称为三角形的 \emph{重心}。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/centroid-of-triangle.pdf}
+\caption{三角形的重心}
+\label{fig:centroid-of-triangle}
+\end{figure}
+
+根据塞瓦定理，这是显然的，在例\ref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出几个证明:
+\begin{proof}[证明一]
+  先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交得交点$G$，易得$S_{\triangle AGC} = S_{\triangle BGC}$ 和 $S_{\triangle AGB} = S_{\triangle CGB}$，从而得到$S_{\triangle AGB} = S_{\triangle AGC}$，所以$AG$延长后与$BC$的交点$D$必是$BC$边中点，得证。
+\end{proof}
+
+\begin{proof}[证明二]
+  仍然先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交于交点$G$，直线$AG$与$BC$边相交于$D$，中位线$EF$与直线$AG$相交于$P$，那么有$\triangle EFG \sim \triangle BCG$且相似比为$1/2$，于是$BG=2GF$，所以$\triangle PFG \sim \triangle BDG$且相似比也为$1/2$，所以$BD=2PF$，而显然有$BD=2EP$，所以点$P$是线段$EF$中点，于是点$D$也是线段$BC$中点，于是得证。
+\end{proof}
+
+\begin{property}
+  对于平面上任一点$P$和三角形$ABC$的重心$G$，有下式成立:
+  \begin{equation}
+    \label{eq:pa2-pb2-pc2-equal-3pg2-ga2-gb2-gc2}
+    PA^2+PB^2+PC^2 = 3PG^2 + GA^2 + GB^2 + GC^2
+  \end{equation}
+\end{property}
+
+\begin{proof}[证明]
+  \begin{eqnarray*}
+    \vv{PA}^2 = (\vv{PG}+\vv{GA})^2 = \vv{PG}^2 + \vv{GA}^2+2\vv{PG}\cdot\vv{GA}
+  \end{eqnarray*}
+  仿此有另外两式，三式相加并利用$\vv{GA}+\vv{GB}+\vv{GC}=\vv{0}$即得证。
+\end{proof}
+
+\begin{inference}
+  三角形的重心是到三个顶点的距离平方和最小的点。
+\end{inference}
+
 \subsection{外接圆与外心}
 \label{sec:triangle-excenter}
 
@@ -269,51 +314,6 @@
     & = & \frac{1}{2}
   \end{eqnarray*}
 \end{proof}
-
-\subsection{重心}
-\label{sec:triangle-centroid}
-
-\begin{theorem}
-  三角形的三条中线相交于一点。
-\end{theorem}
-
-
-三条中线的交点称为三角形的 \emph{重心}。
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{content/plane-geometry/pic/centroid-of-triangle.pdf}
-\caption{三角形的重心}
-\label{fig:centroid-of-triangle}
-\end{figure}
-
-根据塞瓦定理，这是显然的，在例\ref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出几个证明:
-\begin{proof}[证明一]
-  先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交得交点$G$，易得$S_{\triangle AGC} = S_{\triangle BGC}$ 和 $S_{\triangle AGB} = S_{\triangle CGB}$，从而得到$S_{\triangle AGB} = S_{\triangle AGC}$，所以$AG$延长后与$BC$的交点$D$必是$BC$边中点，得证。
-\end{proof}
-
-\begin{proof}[证明二]
-  仍然先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交于交点$G$，直线$AG$与$BC$边相交于$D$，中位线$EF$与直线$AG$相交于$P$，那么有$\triangle EFG \sim \triangle BCG$且相似比为$1/2$，于是$BG=2GF$，所以$\triangle PFG \sim \triangle BDG$且相似比也为$1/2$，所以$BD=2PF$，而显然有$BD=2EP$，所以点$P$是线段$EF$中点，于是点$D$也是线段$BC$中点，于是得证。
-\end{proof}
-
-\begin{property}
-  对于平面上任一点$P$和三角形$ABC$的重心$G$，有下式成立:
-  \begin{equation}
-    \label{eq:pa2-pb2-pc2-equal-3pg2-ga2-gb2-gc2}
-    PA^2+PB^2+PC^2 = 3PG^2 + GA^2 + GB^2 + GC^2
-  \end{equation}
-\end{property}
-
-\begin{proof}[证明]
-  \begin{eqnarray*}
-    \vv{PA}^2 = (\vv{PG}+\vv{GA})^2 = \vv{PG}^2 + \vv{GA}^2+2\vv{PG}\cdot\vv{GA}
-  \end{eqnarray*}
-  仿此有另外两式，三式相加并利用$\vv{GA}+\vv{GB}+\vv{GC}=\vv{0}$即得证。
-\end{proof}
-
-\begin{inference}
-  三角形的重心是到三个顶点的距离平方和最小的点。
-\end{inference}
 
 \subsection{垂心}
 \label{sec:triangle-orthocentre}
