@@ -143,6 +143,38 @@
  这结论还有另外一种解释，把这三个圆看成三个球，这三个球有公切面（实际上有两个），这三个点$P$、$Q$、$R$将同时位于这公切面和三个球心所决定的平面上，从而位于两个平面的交线上（三个球半径两两不等，所以这两个平面必定相交）。那这三个点为什么在公切面上呢，可以这样理解，每两个球有一个公切圆锥，三个公切圆锥的顶点就是这三个点，而这三个圆锥与前述公切面必定都相切于一条圆锥的母线，所以作为圆锥顶点必定在这条母线上，也就在公切面上。
 \end{example}
 
+\begin{example}[梅涅劳斯定理的推广及三角形内接三角形的最大面积]
+  我们先把梅涅劳斯定理推广成如下的结论: 在三角形$ABC$中，点$D$、$E$、$F$分别是三边$BC$、$CA$、$AB$所在直线上的点，设$\vv{BD}=\lambda_1\vv{DC}$，$\vv{CE}=\lambda_2\vv{EA}$，$\vv{AF}=\lambda_3\vv{FB}$，则有面积比
+  \begin{equation*}
+    \frac{S_{\triangle DEF}}{S_{\triangle ABC}} = \frac{1+\lambda_1\lambda_2\lambda_3}{(1+\lambda_1)(1+\lambda_2)(1+\lambda_3)}
+  \end{equation*}
+  上式中的 $S_{\triangle DEF}$ 是有向面积，有正负号。
+ 
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/menelaus-theorem-extends.pdf}
+\caption{梅涅劳斯定理的推广}
+\label{fig:menelaus-theorem-extends}
+\end{figure}
+
+\begin{proof}[证明]
+  先证明三个点分别在三条边上的情况，这时$\lambda_i>0(i=1,2,3)$，显然有$S_{\triangle DEF} = S_{\triangle ABC} - (S_{\triangle AEF}+S_{\triangle BDF}+S_{\triangle CED})$，而
+  \begin{equation*}
+    \frac{S_{\triangle AEF}}{S_{\triangle ABC}} = \frac{AF}{AB} \cdot \frac{AE}{AC} = \frac{\lambda_1}{1+\lambda_1} \cdot \frac{1}{1+\lambda_3}
+  \end{equation*}
+  同理还有
+  \begin{equation*}
+   \frac{S_{\triangle BDF}}{S_{\triangle ABC}} = \frac{\lambda_2}{(1+\lambda_2)(1+\lambda_1)}, \  \frac{S_{\triangle CED}}{S_{\triangle ABC}} = \frac{\lambda_3}{(1+\lambda_3)(1+\lambda_2)} 
+ \end{equation*}
+ 于是便可得结论。
+
+ 对于有点在边的延长线上的情况，此时需要将面积$S_{\triangle AEF}$、$S_{\triangle BDF}$、$S_{\triangle CFD}$、$S_{\triangle DEF}$理解为有向面积，于是关系式$S_{\triangle DEF} = S_{\triangle ABC} - (S_{\triangle AEF}+S_{\triangle BDF}+S_{\triangle CED})$仍然成立，所以结论也是成立的。
+\end{proof}
+
+在三个点$D$、$F$、$F$都在边上而非延长线上的情形，三角形$DEF$称为三角形$ABC$的内接三角形，利用刚证明的结论，我们可以考虑三角形的内接三角形的最大面积问题。
+
+\end{example}
+
 \subsection{塞瓦(Ceva)定理}
 \label{sec:cevian-theorem}
 
