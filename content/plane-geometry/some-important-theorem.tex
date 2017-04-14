@@ -305,6 +305,50 @@
 仿此有另外两式，三式相乘并利用 $\angle ABX = \angle EDY$等一系列等角，即可得结论的必要性，而充分性仍然由同一法得出，略去。
 \end{example}
 
+\begin{example}[塞瓦定理的一个推广]
+  塞瓦定理可以推广成如下的结论：在三角形$ABC$中，点$D$、$E$、$F$分别是三边$BC$、$CA$、$AB$上的点，有比例$\vv{AF}=\lambda_1\vv{FB}$，$\vv{BD}=\lambda_2\vv{DC}$，$\vv{CE}=\lambda_3\vv{EA}$，$BE$与$CF$相交于点$X$， $CF$与$AD$相交于$Y$， $AD$与$BE$相交于$Z$，则有
+  \begin{equation*}
+    \frac{S_{\triangle XYZ}}{S_{\triangle ABC}} = \frac{(\lambda_1\lambda_2\lambda_3-1)^2}{(1+\lambda_1+\lambda_1\lambda_2)(1+\lambda_2+\lambda_2\lambda_3)(1+\lambda_3+\lambda_3\lambda_1)}
+  \end{equation*}
+  
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/ceva-theorem-extends.pdf}
+\caption{塞瓦定理的一个推广}
+\label{fig:ceva-theorem-extends}
+\end{figure}
+
+\begin{proof}[证明]
+  如图\ref{fig:ceva-theorem-extends}，显然有$S_{\triangle XYZ} = S_{\triangle ABC} - (S_{\triangle ABZ} + S_{\triangle BCX} + S_{\triangle CAY})$，于是只要求出此式中被减掉的那三个三角形的面积就行了，因为
+  \begin{equation*}
+    S_{\triangle ABZ} = \frac{BZ}{BE} S_{\triangle ABE} = \frac{BZ}{BE} \cdot \frac{AE}{AC} S_{\triangle ABC}
+  \end{equation*}
+  式中$AE/AC$是容易求的，$BZ/BE$可以对三角形$BCE$和截线$AZD$使用梅涅劳斯定理得
+  \begin{equation*}
+    \frac{BZ}{ZE} \cdot \frac{EA}{AC} \cdot \frac{CD}{DB} = 1
+  \end{equation*}
+  所以
+  \begin{equation*}
+    \frac{BZ}{ZE} = \lambda_2(1+\lambda_3)
+  \end{equation*}
+  从而
+  \begin{equation*}
+    \frac{BZ}{BE} = \frac{\lambda_2(1+\lambda_3)}{1+\lambda_2(1+\lambda_3)}
+  \end{equation*}
+  所以最终
+  \begin{equation*}
+    \frac{S_{\triangle ABZ}}{S_{\triangle ABC}} = \frac{BZ}{BE} \cdot \frac{AE}{AC} = \frac{\lambda_2(1+\lambda_3)}{(1+\lambda_3)(1+\lambda_2+\lambda_2\lambda_3)}
+  \end{equation*}
+  同样可得另外两式
+  \begin{eqnarray*}
+    \frac{S_{\triangle BCX}}{S_{\triangle ABC}} & = & \frac{\lambda_3(1+\lambda_1)}{(1+\lambda_1)(1+\lambda_3+\lambda_3\lambda_1)} \\
+    \frac{S_{\triangle CAY}}{S_{\triangle ABC}} & = & \frac{\lambda_1(1+\lambda_2)}{(1+\lambda_2)(1+\lambda_1+\lambda_1\lambda_2)} 
+  \end{eqnarray*}
+  由此三式即可得结论。
+\end{proof}
+
+\end{example}
+
 \begin{example}
   如图\ref{fig:example-for-cevian-ap-perp-bc}，在$\triangle ABC$中，点$D$是角$BAC$的平分线与$BC$边的交点，过$D$向$AB$和$AC$引垂线，垂足分别是$E$、$F$，连接$BF$和$CE$相交于点$P$，今来证明$AP \perp BC$。
 
