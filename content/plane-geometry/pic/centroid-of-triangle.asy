@@ -22,6 +22,10 @@ label("$F$", F, NE);
 draw(A -- D);
 draw(B -- F);
 draw(C -- E);
+draw(E -- F, dashed);
 
 pair G = interp(A, D, 2/3);
 label("$G$", G, SSW);
+
+pair P = intersectionpoint(A -- D, E -- F);
+label("$P$", P, NE);

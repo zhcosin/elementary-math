@@ -287,9 +287,13 @@
 \label{fig:centroid-of-triangle}
 \end{figure}
 
-根据塞瓦定理，这是显然的，在例\ref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出一个纯面积方法的证明:
-\begin{proof}[证明]
+根据塞瓦定理，这是显然的，在例\ref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出几个证明:
+\begin{proof}[证明一]
   先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交得交点$G$，易得$S_{\triangle AGC} = S_{\triangle BGC}$ 和 $S_{\triangle AGB} = S_{\triangle CGB}$，从而得到$S_{\triangle AGB} = S_{\triangle AGC}$，所以$AG$延长后与$BC$的交点$D$必是$BC$边中点，得证。
+\end{proof}
+
+\begin{proof}[证明二]
+  仍然先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交于交点$G$，直线$AG$与$BC$边相交于$D$，中位线$EF$与直线$AG$相交于$P$，那么有$\triangle EFG \sim \triangle BCG$且相似比为$1/2$，于是$BG=2GF$，所以$\triangle PFG \sim \triangle BDG$且相似比也为$1/2$，所以$BD=2PF$，而显然有$BD=2EP$，所以点$P$是线段$EF$中点，于是点$D$也是线段$BC$中点，于是得证。
 \end{proof}
 
 \begin{property}
