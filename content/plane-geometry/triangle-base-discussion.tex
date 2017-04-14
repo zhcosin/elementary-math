@@ -140,7 +140,7 @@
 \label{fig:centroid-of-triangle}
 \end{figure}
 
-根据塞瓦定理，这是显然的，在例\ref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出几个证明:
+根据塞瓦定理，这是显然的，在\autoref{example:barycentric-of-triangle-vector}中也给出了向量方法的证明，这里再给出几个证明:
 \begin{proof}[证明一]
   先由$AB$边上的中线$CE$和$AC$边上的中线$BF$相交得交点$G$，易得$S_{\triangle AGC} = S_{\triangle BGC}$ 和 $S_{\triangle AGB} = S_{\triangle CGB}$，从而得到$S_{\triangle AGB} = S_{\triangle AGC}$，所以$AG$延长后与$BC$的交点$D$必是$BC$边中点，得证。
 \end{proof}
@@ -249,7 +249,7 @@
 \end{inference}
 
 \begin{proof}[证明]
-  由外心性质，容易得这个距离和是$R(\cos{A}+\cos{B}+\cos{C})$，结合性质\ref{property:triangle-sinA-sinB-sinC-cosA-cosB-cosC}中的三角恒等式和性质\ref{property:ration-inradius-and-circumradius-of-triangle}，即可得证。
+  由外心性质，容易得这个距离和是$R(\cos{A}+\cos{B}+\cos{C})$，结合\autoref{property:triangle-sinA-sinB-sinC-cosA-cosB-cosC}中的三角恒等式和\autoref{property:ration-inradius-and-circumradius-of-triangle}，即可得证。
 \end{proof}
 
 \begin{property}
@@ -261,7 +261,7 @@
 \end{property}
 
 \begin{proof}[证明]
- 由性质\ref{ppty:triangle-circumradius-area-sides}，结合面积$S=\frac{1}{2}(a+b+c)r=sr$即得证。
+ 由\autoref{ppty:triangle-circumradius-area-sides}，结合面积$S=\frac{1}{2}(a+b+c)r=sr$即得证。
 \end{proof}
 
 \subsection{欧拉不等式}
@@ -272,7 +272,7 @@
 \end{theorem}
 
 \begin{proof}[证明一]
-  由性质\ref{ppty:triangle-circumradius-area-sides}和面积公式$S=sr$，这里$s$为半周长，欲证不等式等价于
+  由\autoref{ppty:triangle-circumradius-area-sides}和面积公式$S=sr$，这里$s$为半周长，欲证不等式等价于
   \begin{equation*}
     \frac{abc}{4S} \geqslant \frac{2S}{s}
   \end{equation*}
@@ -306,7 +306,7 @@
 \end{proof}
 
 \begin{proof}[证明三]
-  由性质\ref{property:ration-inradius-and-circumradius-of-triangle}，及均值不等式和正弦函数在区间$(0,\pi)$上的上凸性质，有
+  由\autoref{property:ration-inradius-and-circumradius-of-triangle}，及均值不等式和正弦函数在区间$(0,\pi)$上的上凸性质，有
   \begin{eqnarray*}
     \frac{r}{R} & = & 4\sin{\frac{A}{2}}\sin{\frac{B}{2}}\sin{\frac{C}{2}} \\
                 & \leqslant & 4 \left( \frac{\sin{\frac{A}{2}}+\sin{\frac{B}{2}}+\sin{\frac{C}{2}}}{3} \right)^3 \\
@@ -331,7 +331,7 @@
 \end{figure}
 
 \begin{proof}[证明]
-  平行是明显的，只证明2倍比例关系，如图\ref{fig:property-circumcenter-orthocenter-oh-equal-2od-proof}，作出外接圆和过$B$的直径$BP$，连接$AP$、$CP$，那么显然有$OD \parallel CP$并且$OD=\frac{1}{2}CP$，又容易证得四边形$AHCP$为平行四边形，所以$AH$与$CP$平行且相等，故得证。
+  平行是明显的，只证明2倍比例关系，如\autoref{fig:property-circumcenter-orthocenter-oh-equal-2od-proof}，作出外接圆和过$B$的直径$BP$，连接$AP$、$CP$，那么显然有$OD \parallel CP$并且$OD=\frac{1}{2}CP$，又容易证得四边形$AHCP$为平行四边形，所以$AH$与$CP$平行且相等，故得证。
 
 \begin{figure}[htbp]
 \centering
@@ -359,7 +359,7 @@
 \end{figure}
 
 \begin{proof}[证明]
-  作出中线$AD$，假如直线$OG$与直线$AH$相交于点$H'$，那么由重心性质，$AG:GD=2:1$，而$OD \parallel AH$，所以$AH'=2OD$，根据性质\ref{property:circumcenter-orthocenter-ah-equal-2od}，$H'$必是垂心，得证。
+  作出中线$AD$，假如直线$OG$与直线$AH$相交于点$H'$，那么由重心性质，$AG:GD=2:1$，而$OD \parallel AH$，所以$AH'=2OD$，根据\autoref{property:circumcenter-orthocenter-ah-equal-2od}，$H'$必是垂心，得证。
 \end{proof}
 
 \begin{theorem}
@@ -369,7 +369,7 @@
 这公式称为\emph{欧拉公式}。
 
 \begin{proof}[证明一]
-  如图\ref{fig:triangle-distance-of-incenter-circumcenter}，设外心和内心连线所在直线与外接圆相交于$U$、$V$两点，角$A$的平分线与外接圆相交于另一点$K$，由相交弦定理有$AI \cdot IK = UI \cdot IV$，下面来计算各条线段长度。
+  如\autoref{fig:triangle-distance-of-incenter-circumcenter}，设外心和内心连线所在直线与外接圆相交于$U$、$V$两点，角$A$的平分线与外接圆相交于另一点$K$，由相交弦定理有$AI \cdot IK = UI \cdot IV$，下面来计算各条线段长度。
  
 \begin{figure}[htbp]
 \centering
@@ -378,11 +378,11 @@
 \label{fig:triangle-distance-of-incenter-circumcenter}
 \end{figure}
 
-由性质\ref{property:triangle-incenter-ki-kb-kc-equal}，有$KI=KB=2R\sin{\frac{A}{2}}$，$AI=r/ \sin{\frac{A}{2}}$，记$OI=d$则$UI\cdot VI=(R+d)(R-d)$，于是$R^2-d^2=2Rr$，得证。
+由\autoref{property:triangle-incenter-ki-kb-kc-equal}，有$KI=KB=2R\sin{\frac{A}{2}}$，$AI=r/ \sin{\frac{A}{2}}$，记$OI=d$则$UI\cdot VI=(R+d)(R-d)$，于是$R^2-d^2=2Rr$，得证。
 \end{proof}
 
 \begin{proof}[证明二]
-  在三角形$AOI$中，对$\angle OAI$使用余弦定理，由$AO=R$， $AI=r/\sin{\frac{A}{2}}$，$\angle OAI = \left| \angle OAB - \angle IAB \right| = \left| \left( \frac{\pi}{2}-B \right) - \frac{A}{2} \right| = \left| \frac{\pi}{2} - \left( B+\frac{A}{2} \right) \right|$，再利用性质\ref{property:ration-inradius-and-circumradius-of-triangle}，有
+  在三角形$AOI$中，对$\angle OAI$使用余弦定理，由$AO=R$， $AI=r/\sin{\frac{A}{2}}$，$\angle OAI = \left| \angle OAB - \angle IAB \right| = \left| \left( \frac{\pi}{2}-B \right) - \frac{A}{2} \right| = \left| \frac{\pi}{2} - \left( B+\frac{A}{2} \right) \right|$，再利用\autoref{property:ration-inradius-and-circumradius-of-triangle}，有
   \begin{eqnarray*}
     d^2 & = & R^2+\left( \frac{r}{\sin{\frac{A}{2}}} \right)^2 - 2R \cdot \frac{r}{\sin{\frac{A}{2}}} \cdot \cos{\left( \frac{\pi}{2}-\left( B+\frac{A}{2} \right) \right)} \\
         & = & R^2 + \frac{r^2}{\sin^2 \frac{A}{2}} -2Rr \frac{\sin{\left( B+\frac{A}{2} \right)}}{\sin{\frac{A}{2}}} \\
