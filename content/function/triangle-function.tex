@@ -5,8 +5,75 @@
 \subsection{三倍角公式}
 \label{sec:triple-angle-formula}
 
-\subsection{两种类型的切比雪夫(Chebyshev)多项式}
-\label{sec:chebyshev-polynome}
+\subsection{第一类切比雪夫多项式}
+\label{sec:first-chebyshev-polynome}
+
+我们知道余弦的二倍角公式和三倍角公式
+\begin{eqnarray*}
+  \cos{2\theta} & = & 2\cos^2{\theta}-1 \\
+  \cos{3\theta} & = & 4\cos^3{\theta}-3\cos{\theta}
+\end{eqnarray*}
+于是$\cos{3\theta}$和$\cos{4\theta}$分别表成了$\cos{\theta}$的二次多项式和三次多项式，那么对于一般形式的$\cos{n\theta}$，情况又如何呢?
+
+由和差化积公式可得
+\[ \cos{(n+1)\theta}+\cos{(n-1)\theta}=2\cos{n\theta}\cos{\theta} \]
+所以
+\[ \cos{(n+1)\theta}=2\cos{n\theta}\cos{\theta}-\cos{(n-1)\theta} \]
+假如$\cos{n\theta}$和$\cos{(n-1)\theta}$分别是$\cos{\theta}$的$n$次多项式和$n-1$次多项式，那么$\cos{(n+1)\theta}$显然也是$\cos{\theta}$的一个次数不超过$n+1$的多项式，而易见最高次系数$a_n$满足递归关系$a_{n+1}=2a_n$，而$a_2=2,a_3=4$，所以$a_n=2^{n-1}$，最高次项系数恒正，从而$\cos{(n+1)\theta}$表成了$\cos{\theta}$的$n+1$次多项式。这结果就是如下的定理:
+
+\begin{theorem}[切比雪夫多项式定理]
+  对于任意正整数$n$，$\cos{n\theta}$可表为$\cos{\theta}$的$n$次多项式，这多项式的最高次项系数是$2^{n-1}$，这多项式称为\emph{第一类切比雪夫(Chebyshev)多项式}。
+\end{theorem}
+
+第一类切比雪零头多项式以$T_n(x)$标记，按定义有$\cos{n\theta}=T_n(\cos{\theta})$。
+
+容易得$T_0(x)=1,T_1(x)=x$并有如下递推式
+\begin{equation}
+  \label{eq:first-chebyshev-polynome-recursion}
+  T_{n+1}(x)=2xT_n(x)-T_{n-1}(x)
+\end{equation}
+当然也可以用这个递归式来定义第一类切比雪夫多项式，只是少了三角函数的背景，成了为了定义而定义了。
+
+前几个多项是如下的表:
+\begin{eqnarray*}
+  T_0(x) & = & 1 \\
+  T_1(x) & = & x \\
+  T_2(x) & = & 2x^2-1 \\
+  T_3(x) & = & 4x^3-3x \\
+  T_4(x) & = & 8x^4-4x^2+1 \\
+  T_5(x) & = & 16x^5-20x^3+5x \\
+  T_6(x) & = & 32x^6-48x^4+18x^2-1
+\end{eqnarray*}
+
+在讨论这些多项式的性质之前，我们再从另外一个角度来引导出第一类切比雪夫多项。由复数的乘幂公式，复数$z=r(\cos{\theta}+i\sin{\theta})$的乘方是
+\begin{equation*}
+  z^n=[r(\cos{\theta}+i\sin{\theta})]^n = r^n(\cos{n\theta}+i\sin{n\theta})
+\end{equation*}
+在上式中将$\theta$换成$-\theta$得
+\begin{equation*}
+  [r(\cos{\theta}-i\sin{\theta})]^n = r^n(\cos{n\theta}-i\sin{n\theta})
+\end{equation*}
+两式相加，并按二项定理将左边展开，所有求和指标为奇数的项都被消去，得
+\begin{eqnarray*}
+  \cos{n\theta} & = & \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^i\cos^{n-2i}{\theta}\sin^{2i}{\theta} \\
+  & = & \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^i\cos^{n-2i}{\theta}(1-\cos^2{\theta})^i \\
+\end{eqnarray*}
+上式中右边每一项都是$\cos{\theta}$的$n$次多项式，所有最高次项式的和是$C_n^0+C_n^2+C_n^4+\cdots$，这是对上标为偶数的二次项系数求和，由组合数性质，这个和是$2^{n-1}$，于是$\cos{n\theta}$就是$\cos{\theta}$的$n$次多项式，最高次项系数是$2^{n-1}$，这样也引出了第一类的切比雪夫多项式，还得出了它的具体表达式:
+\begin{equation*}
+  T_n(x) = \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^ix^{n-2i}(1-x^2)^{2i}
+\end{equation*}
+
+以下我们来推证这些多项式的一些性质，我们先由公式$\cos{n\theta}=T_n(\cos{\theta})$得出结论，再尝试利用递推关系来加以证明。
+
+\begin{property}
+  对于任意满足$|x|\leqslant 1$的实数$x$，都有$|T_n(x)| \leqslant 1$.
+\end{property}
+
+
+
+\subsection{第二类切比雪夫多项式}
+\label{sec:second-chebyshev-polynome}
+
 
 
 %%% Local Variables:
