@@ -2,8 +2,50 @@
 \section{方程的求解}
 \label{sec:solve-high-equation}
 
-\subsection{卡当公式与三次方程的解法}
+\subsection{Cardano 公式与三次方程的解法}
 \label{sec:solve-equation-with-3-degree}
+
+对于一般的复系数一元三次方程
+\begin{equation*}
+  ax^3+bx^2+cx+d=0
+\end{equation*}
+首先可以先把它的三次方系数化为1，成为
+\begin{equation*}
+  x^3+ax^2+bx+c=0
+\end{equation*}
+然后仿照解二次方程的配方法，将前两项凑配三次方，因为$(x+1)^3$展开后三次方与二次方的系数比是$1:3$，所以作代换$y=x+a/3$，可以消掉二次项，成为如下形式
+\begin{equation*}
+  x^3+px+q=0
+\end{equation*}
+假定$x=u+v$是这方程的根，那么变形得
+\begin{equation*}
+  (u^3+v^3)+(u+v)(3uv+p)+q=0
+\end{equation*}
+因为是引入了两个自由变量$u$和$v$，可以加上一些额外的限制，这里就限定$3uv+p=0$，于是便得$u^3+v^3=-q$，如果令$U=u^3,V=v^3$，就有
+\begin{equation*}
+  U+V = -q, \  UV=-\frac{p^3}{27}
+\end{equation*}
+所以$U$和$V$是下面的一元二次方程的根
+\begin{equation*}
+  r^2+qr-\frac{p^3}{27} = 0
+\end{equation*}
+由二次方程的求根公式，有
+\begin{equation*}
+  U = \frac{-q+\sqrt{q^2+\frac{4p^3}{27}}}{2}, \  V = \frac{-q-\sqrt{q^2+\frac{4p^3}{27}}}{2}
+\end{equation*}
+再分别将$U$和$V$开三次方，便得出$u$和$v$，但有个问题是开三次方就能得出三个$u$和三个$v$，$u+v$的组合就能有九种，是不是都是三次方程的根呢，不是的，因为有$3uv=-p$，假定$U$的一个立方根是$u_0$，那么它的另外两个立方根就是$\omega u_0$和$\omega^2 u_0$，这里$\omega=\cos{\frac{2\pi}{3}}+i\sin{\frac{2\pi}{3}}=-\frac{1}{2}+\frac{\sqrt{3}}{2}i$是1的一个立方根，同样有$V$的三个立方根是$v_0$、$\omega v_0$和$\omega^2 v_0$，合理选取$u_0$和$v_0$使得$3u_0v_0=-p$，那么由条件$3uv=-p$的限制，$U$和$V$各自的三个立方根只能这样搭配:
+\begin{eqnarray*}
+  x_1 & = & u_0+v_0 \\
+  x_2 & = & \omega u_0 + \omega^2 v_0 \\
+  x_3 & = & \omega^2 u_0 + \omega v_0
+\end{eqnarray*}
+这便是三次方程$x^3+px+q=0$的全部三个解，也可以把它写成下面这样
+\begin{equation}
+  \label{eq:cardano-formula}
+  x_{1,2,3} = \sqrt[3]{\frac{-q+\sqrt{q^2+\frac{4p^3}{27}}}{2}} + \sqrt[3]{\frac{-q-\sqrt{q^2+\frac{4p^3}{27}}}{2}}
+\end{equation}
+这公式称为\emph{Cardano 公式}。
+
 
 \subsection{四次方程的解法}
 \label{sec:solve-equation-with-4-degree}
@@ -11,7 +53,6 @@
 \subsection{牛顿迭代法}
 \label{sec:newton-iterator-method}
 
- 
 
 
 %%% Local Variables:
