@@ -2,9 +2,6 @@
 \section{三角函数}
 \label{sec:triangle-function}
 
-\subsection{三倍角公式}
-\label{sec:triple-angle-formula}
-
 \subsection{第一类切比雪夫多项式}
 \label{sec:first-chebyshev-polynome}
 
@@ -21,7 +18,7 @@
 \[ \cos{(n+1)\theta}=2\cos{n\theta}\cos{\theta}-\cos{(n-1)\theta} \]
 假如$\cos{n\theta}$和$\cos{(n-1)\theta}$分别是$\cos{\theta}$的$n$次多项式和$n-1$次多项式，那么$\cos{(n+1)\theta}$显然也是$\cos{\theta}$的一个次数不超过$n+1$的多项式，而易见最高次系数$a_n$满足递归关系$a_{n+1}=2a_n$，而$a_2=2,a_3=4$，所以$a_n=2^{n-1}$，最高次项系数恒正，从而$\cos{(n+1)\theta}$表成了$\cos{\theta}$的$n+1$次多项式。这结果就是如下的定理:
 
-\begin{theorem}[切比雪夫多项式定理]
+\begin{theorem}
   对于任意正整数$n$，$\cos{n\theta}$可表为$\cos{\theta}$的$n$次多项式，这多项式的最高次项系数是$2^{n-1}$，这多项式称为\emph{第一类切比雪夫(Chebyshev)多项式}。
 \end{theorem}
 
@@ -115,6 +112,37 @@
   U_5(x) & = & 32x^5-32x^3+6x \\
   U_6(x) & = & 64x^6-80x^4+24x^2-1
 \end{eqnarray*}
+
+\subsection{两类切比雪夫多项式的关系与它们的根}
+\label{sec:relation-between-two-chebyshev-polynome}
+
+由三角关系，不难推得两类切比雪夫多项式的一些关系式
+\begin{property}
+  两类切比雪夫多项式间满足如下一些关系式:
+  \begin{eqnarray*}
+    T_n^2(x)+(1-x^2)U_{n-1}^2(x) & = & 1 \\
+    T_n(x)+\sqrt{x^2-1}U_{n-1}(x) & = & (x+\sqrt{x^2-1})^n
+  \end{eqnarray*}
+\end{property}
+
+两类多项式还有以下的双重递归:
+\begin{eqnarray*}
+  T_{n+1}(x) & = & xT_n(x)-(1-x^2)U_{n-1}(x) \\
+  U_n(x) & = & xU_{n-1}(x)+T_n(x)
+\end{eqnarray*}
+初始值$T_0(x)=1, U_{-1}(x)=1$，这由余弦和正弦的和角公式便可得出。
+
+在高等数学中，切比雪夫多项是一类正交多项，可以利用它们来逼近函数和曲线，如同泰勒多项式中$1,x,x^2\cdots$的地位一样，不过这不在本书讨论范围。
+
+下面来讨论切比雪夫多项式的根，对于第一类，因为$T_n(\cos{\theta})=\cos{n\theta}$，所以$T_n(x)$的全部根是
+\begin{equation*}
+  x_i=\cos{\frac{2i-1}{2n}\pi}, \  i=1,2,\ldots,n
+\end{equation*}
+同样，$U_n(x)$的全部根是
+\begin{equation*}
+  x_i=\cos{\frac{i}{n+1}\pi}, \  i=1,2,\ldots,n
+\end{equation*}
+显然这些根全部都在区间$[-1,1]$上
 
 %%% Local Variables:
 %%% mode: latex
