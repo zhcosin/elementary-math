@@ -74,7 +74,47 @@
 \subsection{第二类切比雪夫多项式}
 \label{sec:second-chebyshev-polynome}
 
+第一类切比雪夫多项式刻画的是$\cos{n\theta}$展开为$\cos{\theta}$的多项式，那么正弦的情况又如何呢，还是先观察一下二倍角公式和三倍角公式
+\begin{eqnarray*}
+  \sin{2\theta} & = & 2\sin{\theta}\cos{\theta} \\
+  \sin{3\theta} & = & 3\sin{\theta}-4\sin^3{\theta}
+\end{eqnarray*}
+不难发现，$\sin{n\theta}$无法表示为$\sin{\theta}$的多项式，但是$\sin{n\theta}$似乎可以表达为$\sin{\theta}$与一个关于$\cos{\theta}$的多项式的乘积，也就是说，$\sin{n\theta}/\sin{\theta}$可表为$\cos{\theta}$的多项式。那么对于一般情况，仍然由和差化积
+\begin{equation*}
+  \sin{(n+1)\theta}=2\sin{n\theta}\cos{\theta}-\sin{(n-1)\theta}
+\end{equation*}
+可见，$\sin{(n+1)\theta}$也能表为$\sin{\theta}$与一个关于$\cos{\theta}$的$n$次多项式之积，于是得到
+\begin{theorem}
+  对于任意正整数$n$，$\sin{(n+1)\theta}/\sin{\theta}$可表为一个关于$\cos{\theta}$的$n$次多项式，其最高次项系数是$2^n$，这多项式称为\emph{第二类切比雪夫多项式}。
+\end{theorem}
 
+仍然有递推公式$U_0(x)=1, U_1(x)=2x$和
+\begin{equation*}
+  U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)
+\end{equation*}
+可以发现，两类切比雪夫多项的递推公式是相同的，不同的是两个初始值。
+
+第二类切比雪夫多项式以$U_n(x)$标记，有
+\begin{equation*}
+  \frac{\sin{(n+1)\theta}}{\sin{\theta}} = U_n(\cos{\theta})
+\end{equation*}
+
+同样利用复数的乘方公式，可以得到第二类切比雪夫多项式的具体表达:
+\begin{equation*}
+  U_n(x) = \sum_{0 \leqslant 2i+1 \leqslant n+1}(-1)^iC_n^{2i+1}\cos^{n-2k}{\theta}(1-\cos^2{\theta})^{k}
+\end{equation*}
+其最高次项系数是$C_{n+1}^1+C_{n+1}^3+C_{n+1}^5+\cdots=2^n$。
+
+前几个多项式是
+\begin{eqnarray*}
+  U_0(x) & = & 1 \\
+  U_1(x) & = & 2x \\
+  U_2(x) & = & 4x^2-1 \\
+  U_3(x) & = & 8x^3-4x \\
+  U_4(x) & = & 16x^4-12x^2+1 \\
+  U_5(x) & = & 32x^5-32x^3+6x \\
+  U_6(x) & = & 64x^6-80x^4+24x^2-1
+\end{eqnarray*}
 
 %%% Local Variables:
 %%% mode: latex
