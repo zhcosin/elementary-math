@@ -31,7 +31,7 @@
 \end{equation}
 当然也可以用这个递归式来定义第一类切比雪夫多项式，只是少了三角函数的背景，成了为了定义而定义了。
 
-前几个多项是如下的表:
+前几个多项式是如下的表:
 \begin{eqnarray*}
   T_0(x) & = & 1 \\
   T_1(x) & = & x \\
@@ -42,7 +42,7 @@
   T_6(x) & = & 32x^6-48x^4+18x^2-1
 \end{eqnarray*}
 
-在讨论这些多项式的性质之前，我们再从另外一个角度来引导出第一类切比雪夫多项。由复数的乘幂公式，复数$z=r(\cos{\theta}+i\sin{\theta})$的乘方是
+在讨论这些多项式的性质之前，我们再从另外一个角度来引导出第一类切比雪夫多项式。由复数的乘幂公式，复数$z=r(\cos{\theta}+i\sin{\theta})$的乘方是
 \begin{equation*}
   z^n=[r(\cos{\theta}+i\sin{\theta})]^n = r^n(\cos{n\theta}+i\sin{n\theta})
 \end{equation*}
@@ -50,14 +50,14 @@
 \begin{equation*}
   [r(\cos{\theta}-i\sin{\theta})]^n = r^n(\cos{n\theta}-i\sin{n\theta})
 \end{equation*}
-两式相加，并按二项定理将左边展开，所有求和指标为奇数的项都被消去，得
+两式相加，并按二项式定理将左边展开，所有求和指标为奇数的项都被消去，得
 \begin{eqnarray*}
   \cos{n\theta} & = & \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^i\cos^{n-2i}{\theta}\sin^{2i}{\theta} \\
   & = & \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^i\cos^{n-2i}{\theta}(1-\cos^2{\theta})^i \\
 \end{eqnarray*}
-上式中右边每一项都是$\cos{\theta}$的$n$次多项式，所有最高次项式的和是$C_n^0+C_n^2+C_n^4+\cdots$，这是对上标为偶数的二次项系数求和，由组合数性质，这个和是$2^{n-1}$，于是$\cos{n\theta}$就是$\cos{\theta}$的$n$次多项式，最高次项系数是$2^{n-1}$，这样也引出了第一类的切比雪夫多项式，还得出了它的具体表达式:
+上式中右边每一项都是$\cos{\theta}$的$n$次多项式，所有最高次项的系数和是$C_n^0+C_n^2+C_n^4+\cdots$，这是对上标为偶数的二次项系数求和，由组合数性质，这个和是$2^{n-1}$，于是$\cos{n\theta}$就是$\cos{\theta}$的$n$次多项式，最高次项系数是$2^{n-1}$，这样也引出了第一类的切比雪夫多项式，还得出了它的具体表达式:
 \begin{equation*}
-  T_n(x) = \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^ix^{n-2i}(1-x^2)^{2i}
+  T_n(x) = \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^ix^{n-2i}(1-x^2)^{i}
 \end{equation*}
 
 以下我们来推证这些多项式的一些性质，我们先由公式$\cos{n\theta}=T_n(\cos{\theta})$得出结论，再尝试利用递推关系来加以证明。
@@ -98,7 +98,7 @@
 
 同样利用复数的乘方公式，可以得到第二类切比雪夫多项式的具体表达:
 \begin{equation*}
-  U_n(x) = \sum_{0 \leqslant 2i+1 \leqslant n+1}(-1)^iC_n^{2i+1}\cos^{n-2k}{\theta}(1-\cos^2{\theta})^{k}
+  U_n(x) = \sum_{0 \leqslant 2i+1 \leqslant n+1}(-1)^iC_n^{2i+1}x^{n-2i}(1-x^2)^{i}
 \end{equation*}
 其最高次项系数是$C_{n+1}^1+C_{n+1}^3+C_{n+1}^5+\cdots=2^n$。
 
@@ -142,7 +142,7 @@
 \begin{equation*}
   x_i=\cos{\frac{i}{n+1}\pi}, \  i=1,2,\ldots,n
 \end{equation*}
-显然这些根全部都在区间$[-1,1]$上
+显然这些根全部都在区间$[-1,1]$上。
 
 %%% Local Variables:
 %%% mode: latex
