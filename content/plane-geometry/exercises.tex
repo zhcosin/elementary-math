@@ -3,14 +3,59 @@
 
 \begin{exercise}
 \label{exercise:2016-06-24-1}
-  如图，在三角形$ABC$中，$AO$是$BC$边上的高，$D$是$AO$的中点，点$E$是其内切圆$\odot I$与$BC$边的切点，连接$ED$并延长与内切圆相交于另一点$F$，过点$C$并与$BC$垂直的直线与$BI$的延长线相交于$G$，求证:(1) $EF \perp FG$,(2)$EF$平分角$BFC$。
+  (姚佳斌供题)如图，在三角形$ABC$中，$AO$是$BC$边上的高，$D$是$AO$的中点，点$E$是其内切圆$\odot I$与$BC$边的切点，连接$ED$并延长与内切圆相交于另一点$F$，过点$C$并与$BC$垂直的直线与$BI$的延长线相交于$G$，求证:(1) $EF \perp FG$,(2)$EF$平分角$BFC$。
 \end{exercise}
+
 \begin{figure}[htbp]
   \centering
 \includegraphics{content/plane-geometry/pic/2016-06-24-1.pdf}
 \caption{}
 \label{fig:2016-06-24-1}
 \end{figure}
+
+\begin{exercise}
+ 如\autoref{fig:exercise-ahk-coline}，在$\triangle ABC$中，点$H$是垂心，$AD$是$BC$边上的中线，过$H$作$AD$的垂线，分别与$AC$、$AB$边相交于$E$、$F$，连结$BE$、$CF$相交于点$K$，求证 $A$、$H$、$K$三点共线。
+\end{exercise}
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/plane-geometry/pic/exercise-ahk-coline.pdf}
+\caption{}
+\label{fig:exercise-ahk-coline}
+\end{figure}
+
+\begin{proof}[证明]
+  只要证明$BE$、$CF$、$AH$三线共点就可以了，设$BC$边上的高线垂足是$M$，由塞瓦定理，只需证
+  \[ \frac{AF}{FB} \cdot \frac{BM}{MC} \cdot \frac{CE}{EA} = 1 \]
+  延长$FE$与$BC$边延长线相交于点$P$，再设$EF$与$AD$交点为$L$，则对$\triangle ABC$和截线$FEP$应用梅涅劳斯定理得
+  \[ \frac{AF}{FB} \cdot \frac{BP}{PC} \cdot \frac{CE}{EA} = 1 \]
+  所以只需要证明下式就可以了:
+  \[ \frac{BM}{MC} = \frac{BP}{PC} \]
+  现在就来证明这一点，易知$L$、$D$、$M$、$H$四点共圆，所以
+  \[ AL \cdot AD = AH \cdot AM \]
+  又易知$A$、$L$、$M$、$P$四点共圆，所以
+  \[ DL \cdot DA = DM \cdot DP \]
+  这两式相加得
+  \[ AD^2 = AH \cdot AM + DM \cdot DP \]
+  以下就来从这式中求出$DP$，易知
+  \begin{eqnarray*}
+    AD^2 & = & \frac{1}{2}(b^2+c^2)-\frac{1}{4}c^2 \\
+    AH & = & \frac{\cos{A}}{\sin{B}}b \\
+    AM & = & c \sin{B} \\
+    DM & = & \frac{1}{2}a-b \cos{C}
+  \end{eqnarray*}
+  全部代入前式中即得
+  \[ DP = \frac{a^2}{2(a-2b\cos{C})} \]
+  进而(结合余弦定理)
+  \begin{eqnarray*}
+  BP & = & DP+\frac{a}{2} = \frac{a^2+c^2-b^2}{2(a-2b\cos{C})}  \\
+  PC & = & DP-\frac{a}{2} = \frac{a^2+b^2-c^2}{2(a-2b\cos{C})} 
+  \end{eqnarray*}
+  于是
+  \[ \frac{BP}{PC} = \frac{a^2+c^2-b^2}{a^2+b^2-c^2} = \frac{2ac\cos{B}}{2ab\cos{C}} = \frac{c\cos{B}}{b\cos{C}} = \frac{BM}{MC} \]
+  得证。
+\end{proof}
+
 
 \begin{exercise}
   \label{ec:2017-02-09-01}
