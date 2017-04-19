@@ -142,6 +142,67 @@ $$
   遗留问题，如果要证明的是 $18.2<a_{2015}<18.3$呢（编程计算知这是成立的）?
 \end{proof}
 
+\begin{exercise}
+  数列$a_n$满足$a_1=2$，$(n+1)a_{n+1}^2=na_n^2+a_n$，求证
+  \[ \sum_{i=2}^n \frac{a_i^2}{i^2}<\frac{9}{5} \]
+\end{exercise}
+
+\begin{proof}[证明一]
+  由数列归纳法易证$a_n>1$，所以
+\[ a_{n+1}^2=\frac{na_n^2+a_n}{n+1} < \frac{na_n^2+a_n^2}{n+1} = a_n^2 \]
+于是数列递减，所以当$n>1$时，$a_n < a_1=2$
+\[ (n+1)a_{n+1}^2 = na_n^2+a_n < na_n^2+2\]
+于是累加下去，就有
+\[ na_n^2 < a_1^2+2(n-1)=2(n+1) \]
+所以
+\[ a_n^2 < 2(1+\frac{1}{n}) \]
+于是
+\[ \sum_{i=2}^n \frac{a_i^2}{i^2} <2 \left( \sum_{i=2}^n \frac{1}{i^2}+\sum_{i=2}^n \frac{1}{i^3} \right) \]
+借用放缩
+\[ \frac{1}{i^2}<\frac{1}{(i-1)i}=\frac{1}{i-1}+\frac{1}{i} \]
+和
+\[ \frac{1}{i^3}<\frac{1}{(i-1)i(i+1)} = \frac{1}{2} \left( \frac{1}{(i-1)i}-\frac{1}{i(i+1)} \right) \]
+从$i \geqslant 4$开始放缩，累加即得
+\begin{align*}
+\sum_{i=2}^n \frac{a_i^2}{i^2} & < 2 \left( \frac{1}{4}+\frac{1}{9}+(\frac{1}{3}-\frac{1}{n})+\frac{1}{8}+\frac{1}{27}+\frac{1}{2}(\frac{1}{12}-\frac{n}{n+1}) \right) \\
+& < 2 \left( \frac{1}{4}+\frac{1}{9}+\frac{1}{3}+\frac{1}{8}+\frac{1}{27}+\frac{1}{24} \right) \\
+& = 2 \left( \frac{3}{4}+\frac{4}{27} \right)<\frac{9}{5}
+\end{align*}
+\end{proof}
+
+\begin{proof}[证明二]
+ 不以要证的不等式为目标，研究下这个数列的性态，因为
+\[ a_{n+1}^2=a_n \frac{na_n+1}{n+1} \]
+显然$\frac{na_n+1}{n+1}$是$a_n$和1的加权平均，因为$a_n>1$有$\frac{na_n+1}{n+1}<a_n$，所以有
+\begin{align*}
+a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
+& <\frac{1}{2} \left( a_n+\frac{na_n+1}{n+1} \right)  \\
+& = \frac{2n+1}{2n+2}a_n+\frac{1}{2n+2}
+\end{align*}
+另一方面，由$\frac{na_n+1}{n+1}<a_n$，所以
+\[ a_{n+1}^2=a_n \cdot  \frac{na_n+1}{n+1} > \left( \frac{na_n+1}{n+1} \right)^2 \]
+所以
+\[ a_{n+1}>\frac{n}{n+1}a_n+\frac{1}{n+1} \]
+综合这两个估计，得到
+\[ \frac{n}{n+1}a_n+\frac{1}{n+1} < a_{n+1} < \frac{2n+1}{2n+2}a_n+\frac{1}{2n+2} \]
+左右都是$a_n$和1的加权平均，只是权重不同，上式改写为
+\[ \frac{n}{n+1}(a_n-1) < a_{n+1}-1 < \frac{2n+1}{2n+2} (a_n-1) \]
+所以最后就有估计式
+\[ 1+\frac{1}{n} < a_n < 1 + \frac{1}{2} \cdot \frac{(2n-1)!!}{(2n)!!} \]
+对于后面的双阶乘，由熟知的放缩
+\begin{align*}
+& \left( \frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n} \right)^2 \\
+={} & \left( \frac{1}{2} \cdot \frac{1}{2} \right) \left(\frac{3}{4} \cdot \frac{3}{4} \right) \cdots \left( \frac{2n-1}{2n} \cdot \frac{2n-1}{2n} \right) \\
+<{} & \left( \frac{1}{2} \cdot \frac{2}{3} \right) \left( \frac{3}{4} \cdot \frac{4}{5} \right) \cdots \left( \frac{2n-1}{2n} \cdot \frac{2n}{2n+1} \right) \\
+={} & \frac{1}{2n+1}
+\end{align*}
+所以$a_n$的估计式两端都以1为极限，由夹逼定理，$a_n$极限为1.
+
+而仍由那估计式，可以得出
+\[ a_n^2< \left( 1+\frac{1}{2\sqrt{2n+1}} \right)^2 <2+\frac{1}{4} \frac{1}{2n+1} < 2+\frac{1}{8n} \]
+由这不等式，仍同证明一中的放缩，同样可证得题目中的不等式。 
+\end{proof}
+
 
 %%% Local Variables:
 %%% mode: latex
