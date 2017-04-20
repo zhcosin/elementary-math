@@ -2,7 +2,7 @@
 \section{方程的求解}
 \label{sec:solve-high-equation}
 
-\subsection{Cardano 公式与三次方程的解法}
+\subsection{Cardano 公式与 Vieta 替换}
 \label{sec:solve-equation-with-3-degree}
 
 对于一般的复系数一元三次方程
@@ -46,6 +46,25 @@
 \end{equation}
 这公式称为\emph{Cardano 公式}。
 
+注意到在解方程$x^3+px+q=0$时所作的代换$x=u+v$并且后面限定了$3uv=-p$，所以实际上我们是作了代换
+\begin{equation}
+  \label{eq:vieta-substitution}
+  x=u-\frac{p}{3u}
+\end{equation}
+这替换称为\emph{Vieta 替换}，在这替换下，方程$x^3+px+q=0$化为
+\begin{equation}
+  \label{eq:u3-p3-27u-3+q=0}
+  u^3-\frac{p^3}{27}\cdot \frac{1}{x^3}+q=0 
+\end{equation}
+这可以化为一个关于$u^3$的二次方程，于是$u^3$可解出(两个复数值)，再开立方便得出$u$的值，然后$x=u-\frac{p}{3u}$就是方程$x^3+px+q=0$的解，这样就算是解出了三次方程。但是有个问题是，$u^3$是从二次方程解出来的，所以有两个复数值，而对每一个进行开立方都会产生三个复数根，所以最后$u$会有6个值，是不是这三次方程就会有6个解呢？当然不是，首先可以求出$u^3$的两个值为
+\[ u^3=\frac{-q \pm \sqrt{q^2+\frac{4p^3}{27}}}{2} \]
+假定$u_0$满足
+\[ u_0^3=\frac{-q + \sqrt{q^2+\frac{4p^3}{27}}}{2} \]
+不难得到
+\[ \left( -\frac{p}{3u_0} \right)^3=\frac{-q - \sqrt{q^2+\frac{4p^3}{27}}}{2} \]
+这就是说，如果$u_0$满足方程\ref{eq:u3-p3-27u-3+q=0}，那么$-p/(3u_0)$也满足它，所以方程\ref{eq:u3-p3-27u-3+q=0}的六个解是可以搭配为三对的，而对于 Vieta 替换$x=u-p/(3u)$，如果记$h(u)=u-p/(3u)$，则计算便知
+\[ h(u)=h(-\frac{p}{3u}) \]
+所以刚才的三对$u$，每一对中的$u$经 Vieta 替换都得出相同的$x$，所以最终方程$x^3+px+q=0$只有三个复数解。
 
 \subsection{四次方程的解法}
 \label{sec:solve-equation-with-4-degree}
