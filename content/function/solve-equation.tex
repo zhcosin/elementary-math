@@ -2,7 +2,7 @@
 \section{方程的求解}
 \label{sec:solve-high-equation}
 
-\subsection{Cardano 公式与 Vieta 替换}
+\subsection{Cardano公式与Vieta替换}
 \label{sec:solve-equation-with-3-degree}
 
 对于一般的复系数一元三次方程
@@ -65,6 +65,25 @@
 这就是说，如果$u_0$满足方程\ref{eq:u3-p3-27u-3+q=0}，那么$-p/(3u_0)$也满足它，所以方程\ref{eq:u3-p3-27u-3+q=0}的六个解是可以搭配为三对的，而对于 Vieta 替换$x=u-p/(3u)$，如果记$h(u)=u-p/(3u)$，则计算便知
 \[ h(u)=h(-\frac{p}{3u}) \]
 所以刚才的三对$u$，每一对中的$u$经 Vieta 替换都得出相同的$x$，所以最终方程$x^3+px+q=0$只有三个复数解。
+
+\subsection{三次方程的三角解法}
+\label{sec:cubic-equation-triangle-solved}
+
+仍然只考虑方程$x^3+px+q=0$，作代换$x=\cos{\theta}$，得方程
+\[ u^3\cos^3{\theta}+pu\cos{\theta}+q=0 \]
+熟知$\cos{3\theta}=4\cos^3{\theta}-3\cos{\theta}$，所以为了将上述方程中的余弦归到同一项，令
+\[ \frac{u^3}{pu}=\frac{4}{-3} \]
+得到$u=2\sqrt{-p/3}$，而原方程则化为
+\[ -\frac{2p}{3}\sqrt{-\frac{p}{3}}\cos{3\theta}+q=0 \]
+于是就得出了$\cos{3\theta}$的值
+\[ \cos{3\theta}=-\frac{3q}{2p}\sqrt{-\frac{3}{p}} \]
+这里需要说明的一点是，我们的三角函数目前为止都是限制在实数范围内的，复数的余弦还是一个没有定义的概念，对此这里有两种方案，一种方案是认可方程中的系数$p$和$q$都是实数，也就是说我们只讨论实系数三次方程的三角形式的解，但是要注意的是上面的$\cos{3\theta}$的值中有开方，所以即便是实系数的三次方程，上式右端也可能是一个虚数，所以这种方案并不理想，另一方案是我们认为三角函数已经推广到复数，并认为三角函数在实数范围内的运算规则对复数仍然成立，这样就不用关注到底是实数还是复数了，反正运算法则是一样的。
+
+得到了$\cos{3\theta}$的值，我们利用反三角求出角度$3\theta$，并进一步得出$\theta$
+\[ \theta= \pm \frac{1}{3}\arccos \left( -\frac{3q}{2p}\sqrt{-\frac{3}{p}} \right) + \frac{2}{3}k\pi, \  (k=0,1,\cdots) \]
+于是原三次方程的解$x=u\cos{\theta}$便可以表为
+\[ x=2\sqrt{-\frac{p}{3}} \cos{\left( \pm \frac{1}{3}\arccos \left( -\frac{3q}{2p}\sqrt{-\frac{3}{p}} \right) + \frac{2}{3}k\pi \right)}, \  (k=0,1,2) \]
+注意到由余弦的周期性，上面的整数$k$只需要取遍$0,1,2$便可以得到三次方程的三个解，这就是三次方程的三角形式的解。
 
 \subsection{四次方程的解法}
 \label{sec:solve-equation-with-4-degree}
