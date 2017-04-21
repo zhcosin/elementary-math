@@ -33,6 +33,24 @@
   由均值，这显然。
 \end{proof}
 
+\begin{exercise}
+\footnote{题目来源于重庆左文泽.}
+  设$a$,$b$,$c$是三个互不相等的实数，求证
+  \[ \left( \frac{a}{a-b} \right)^2 + \left( \frac{b}{b-c} \right)^2 + \left( \frac{c}{c-a} \right)^2 \geqslant 1 \]
+\end{exercise}
+
+\begin{proof}[证明]
+  作代换
+  \[ x=\frac{a}{a-b}, \  y=\frac{b}{b-c} \  z=\frac{c}{c-a} \]
+  则只需证$x^2+y^2+z^2 \geqslant 1$，而在这代换下，易知
+  \[ \left( 1-\frac{1}{x} \right) \left( 1-\frac{1}{y} \right) \left( 1-\frac{1}{z} \right) = 1 \]
+  整理即为
+  \[ x+y+z = (xy+yz+zx)+1 \]
+  记等式左右两边的公共值为$t$，则
+    \[ x^2+y^2+z^2 = (x+y+z)^2-2(xy+yz+zx) = t^2-2(t-1)=(t-1)^2+1 \geqslant 1 \]
+  得证。
+\end{proof}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
