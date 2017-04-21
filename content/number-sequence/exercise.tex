@@ -203,6 +203,36 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 由这不等式，仍同证明一中的放缩，同样可证得题目中的不等式。 
 \end{proof}
 
+\begin{exercise}\footnote{来自悠闲数学娱乐论坛.}
+  数列$a_n$满足，$a_1=1$，$na_na_{n+1}=1$，求证: 
+  \begin{enumerate}
+  \item
+    \[ \frac{a_{n+2}}{n} = \frac{a_n}{n+1} \]
+  \item
+    \[ 2(\sqrt{n+1}-1) \leqslant \frac{1}{2a_3}+\frac{1}{3a_4}+\cdots+\frac{1}{(n+1)a_{n+2}} \leqslant n \]
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}[证明]
+  首先在$a_{n+1}a_n=\frac{1}{n}$中将$n$替换为$n+1$得$a_{n+2}a_{n}=\frac{1}{n+1}$，这两式相除即得
+\[ \frac{a_{n+2}}{n} = \frac{a_n}{n+1} \]
+第一问得证。
+第二问，通项
+\[ \frac{1}{(k+1)a_{k+2}} = \frac{1}{ka_k} = a_{k+1} \]
+所以只是要证明下式
+\[ 2(\sqrt{n+1}-1) \leqslant a_2+a_3+\cdots+a_{n+1} \leqslant n \]
+这只要能证明下面这个估计就能办到($n>1$)
+\[ 2(\sqrt{n}-\sqrt{n-1}) \leqslant a_n \leqslant 1 \]
+用数列归纳法试了一下，递推存在一点困难，倒是证明更强的放缩容易些($n>1$)
+\[ \frac{1}{\sqrt{n-1}} \leqslant a_n \leqslant 1 \]
+以下就来数列归纳法吧，计算得$a_2=1$，$a_3=\frac{1}{2}$，都符合这不等式，于是假定$a_n$满足这不等式，来看$a_{n+2}$的情况:
+\[ a_{n+2} = \frac{n}{n+1}a_n < a_n \leqslant 1 \]
+同时
+\[ a_{n+2} = \frac{n}{n+1}a_n \geqslant \frac{n}{n+1} \cdot \frac{1}{\sqrt{n-1}} > \frac{1}{\sqrt{n+1}} \]
+于是得证。
+说明：这里数归是从$n$到$n+2$而不是$n+1$是因为，试算了前面几项，发现它是一个锯齿数列，也就是偶数项都向1靠近，奇数项都向0靠近，所以就分别考虑两个子列了。
+\end{proof}
+
 
 %%% Local Variables:
 %%% mode: latex
