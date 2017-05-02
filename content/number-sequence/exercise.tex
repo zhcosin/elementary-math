@@ -246,6 +246,34 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
   右端尚未有思路，但是根据程序显示的结果，数列在$a_4$就已经超过0.57，但是直到$a_{100000}$都还没超过0.61，所以此数列增长极其缓慢，从要证的结论来看它有上界，因而有极限，猜测这极限应该小于1，若能证明这一点，则结论便能得到证明。
 \end{proof}
 
+\begin{exercise}\footnote{由网友"其妙"供题。}
+  两个数列$a_n$和$b_n$满足: $a_1=0$, $b_1=\frac{1}{2}$，并有递推关系
+  \[ a_{n+1}=\frac{a_n+b_n}{2}, \  b_{n+1}=\sqrt{a_{n+1}b_n} \]
+  求证这两个数列有共同的极限，并求出这个极限。
+\end{exercise}
+
+\begin{proof}[证明]
+  因为
+\[ \frac{a_{n+1}}{b_{n+1}}=\frac{\frac{a_n+b_n}{2}}{\sqrt{a_{n+1}b_n}} = \frac{\frac{a_n+b_n}{2}}{\sqrt{\frac{a_n+b_n}{2}b_n}} = \sqrt{\frac{1+\frac{a_n}{b_n}}{2}} \]
+所以令$c_n=a_n / b_n$，就有
+\[ c_{n+1}=\sqrt{\frac{1+c_n}{2}} \]
+受半角公式
+\[ \cos{\frac{\theta}{2}}=\sqrt{\frac{1+\cos{\theta}}{2}} \]
+启发，令$c_n=\cos{\theta_n}$，则可取$\theta_{n+1}=\theta_n / 2$，结合$\cos{\theta_1}=c_1=a_1 / b_1=0$可取$\theta_1=\pi / 2$，于是$\theta_n=\pi / 2^n$，所以得到
+\[ a_n=\cos\frac{\pi}{2^n}b_n \]
+再回到$b_n$的递推式，有
+\[ b_{n+1}^2=a_{n+1}b_n=\cos{\frac{\pi}{2^{n+1}}} b_{n+1}b_n\]
+所以
+\[ b_{n+1}=\cos{\frac{\pi}{2^{n+1}}} b_n \]
+于是便不难求得
+\[ b_n=b_1 \cos{\frac{\pi}{2^2}}\cos{\frac{\pi}{2^3}}\cdots \cos{\frac{\pi}{2^n}} \]
+对这个余弦的连乘积，将它乘以$\sin{\frac{\pi}{2^n}}$再利用正弦的二倍角公式便会发生连锁反应，反应的结果便是这连乘积等于$\left( 2^{n-1}\sin{\frac{\pi}{2^n}} \right)^{-1}$，所以
+\[ b_n=\frac{1}{2^n \sin{\frac{\pi}{2^n}}} \]
+而
+\[ a_n=\cos{\frac{\pi}{2^n}}b_n=\frac{1}{2^n}\cot{\frac{\pi}{2^n}} \]
+由熟知的极限$\lim_{x \to 0} \frac{\sin{x}}{x}=1$便知$a_n$和$b_n$有共同的极限$\frac{1}{\pi}$.
+\end{proof}
+
 
 %%% Local Variables:
 %%% mode: latex
