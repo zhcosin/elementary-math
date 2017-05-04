@@ -137,7 +137,6 @@
 
 \begin{example}
   对于任意两个正整数$m<n$，证明 $\frac{n!}{m!(n-m)!}$是整数。
-\end{example}
 
 \begin{proof}[证明]
   这就是要证明组合数$C_n^m$是整数，从组合数的实际意义来看它应该是整数，但我们感兴趣的是数学证明，这个结论在初等数论中应用整数的素数分解定理可以很容易的证明它，这里我们使用数学归纳法来证明。
@@ -156,7 +155,17 @@
   \[ (r+1)(r+2) \cdots (r+m+1) - r(r+1) \cdots (r+m) = (m+1) \cdot (r+1)(r+2) \cdots (r+m) \]
   由对$m$的归纳假设, $(r+1)(r+2) \cdots (r+m)$是$m!$的倍数，所以这个差便是$(m+1)!$的倍数，再由对$r$的归纳假设，左边的减数也是$(m+1)!$的倍数，所以左边的被减数也能被$(m+1)!$所整除，按照对$r$的归纳法，这就证得了任意$m+1$个连续正整数的乘积都能被$(m+1)!$所整除，再按对$m$的数学归纳法，就证得了我们最终的结论。
 \end{proof}
+\end{example}
 
+\begin{example}
+  求证多项式系数$\frac{n!}{n_1!n_2!\cdots n_m!}$是整数，其中$n=n_1+n_2+\cdots+n_m(n_i\geqslant 0, i=1,2,\ldots,n)$。
+
+\begin{proof}[证明]
+  由上一个例子中所证得的，二项式系数是整数，而多项式系数
+  \[ \frac{n!}{n_1!n_2!\cdots n_m!} = \frac{n!}{n_1!(n-n_1)!} \cdot \frac{(n-n_1)!}{n_2!(n-n_1-n_2)!} \cdots \frac{(n-n_1-n_2-\cdots-n_{m-1})!}{n_m!0!} \]
+  于是这多项式系数就转化成了若干个二项式系数的乘积，所以它亦是整数。
+\end{proof}
+\end{example}
 
 \subsection{抽屉原理}
 \label{sec:drawer-principle}
