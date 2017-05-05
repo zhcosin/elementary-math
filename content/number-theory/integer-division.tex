@@ -163,8 +163,41 @@
   (2). 类似的可以证明，略去。
 \end{proof}
 
+对于多个整数的情形，我们也有类似的结论:
+\begin{theorem}
+  如果$d$是若干个整数$a_i(i=1,2,\ldots,n)$的最大公因数，那么存在整数$s_i(i=1,2,\ldots,n)$使得$d=\sum_{i=1}^n s_ia_i$.
+\end{theorem}
+
+\begin{inference}
+  整数$a_i(i=1,2,\ldots,n)$的公因数，与$(a_1,a_2,\ldots,a_n)$的因数相同。
+\end{inference}
+
+\begin{theorem}
+  设整数$d$是若干个整数$a_i(i=1,2,\ldots,n)$的一个公因数，如果存在$n$个整数$s_i(i=1,2,\ldots,n)$使得$d=\sum_{i=1}^n s_ia_i$，那么$d$便是这$n$个整数的最大公因数。
+\end{theorem}
+
+最后给出多个整数的最大公因数的一个实际的求法:
+\begin{theorem}
+  对于若干个正整数$a_i(i=1,2,\ldots,n)$，若记$d_1=a_1, d_2=(d_1,a_2), d_3=(d_2, a_3),\ldots,d_n=(d_{n-1},a_n)$，则$d_n$就是这$n$个整数的最大公因数，即$d_n=(a_1,a_2,\ldots,a_n)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  因为$d_k=(d_{k-1},a_k)$，所以$d_k \mid a_k$，$d_k \mid d_{k-1}$，由数学归纳法即可容易得到$d_n \mid a_i(i=1,2,\dots,n)$，即$d_n$是这$n$个整数的一个公因数.
+
+  记这$n$个整数的最大公因数为$d$，那么由前一推论，有$d_n \mid d$，又有 $d \mid a_1=d_1$，又$d \mid a_2$，即$d$同时整除$d_1$和$a_2$，于是就有$d \mid d_2$，依次下去，有$d \mid d_i(i=1,2,\ldots,n)$，所以$d \mid d_n$，即$d$跟$d_n$能互相整除，所以$d=d_n$。
+
+  要证明它是最大公因数也可以通过这个$d_n$可以表示为$\sum_{i=1}^n s_ia_i$的形式，此处略去。
+\end{proof}
+
 \subsection{最小公倍数}
 \label{sec:least-common-multiple}
+
+\begin{definition}
+  如果整数$c$既是$a$的倍数，也是$b$的倍数，即它能同时被$a$和$b$所整除，则称它是$a$和$b$的一个 \emph{公倍数}.
+\end{definition}
+显然整数$a$和$b$的乘积$ab$便是它俩的一个公倍数。
+
+只考虑正整数的情形，显然两个正整数的公倍数同时大于等于$a$和$b$，于是在它俩的所有公倍数中，必定有一个最小的，称之为这两个正整数的 \emph{最小公倍数}，记为$[a,b]$，多个数的情形仍有类似的定义及符号。
 
 \subsection{素数与算术基本定理}
 \label{sec:prime-number-and-fundamental-theorem-of-arithmetic}
