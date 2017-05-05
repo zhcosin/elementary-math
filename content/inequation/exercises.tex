@@ -33,8 +33,8 @@
   由均值，这显然。
 \end{proof}
 
-\begin{exercise}
-  (2008年IMO试题)设$a$,$b$,$c$是三个互不相等的实数，求证
+\begin{exercise}\footnote{2008年IMO试题.}
+  设$a$,$b$,$c$是三个互不相等的实数，求证
   \[ \left( \frac{a}{a-b} \right)^2 + \left( \frac{b}{b-c} \right)^2 + \left( \frac{c}{c-a} \right)^2 \geqslant 1 \]
 \end{exercise}
 
@@ -48,6 +48,25 @@
   记等式左右两边的公共值为$t$，则
     \[ x^2+y^2+z^2 = (x+y+z)^2-2(xy+yz+zx) = t^2-2(t-1)=(t-1)^2+1 \geqslant 1 \]
   得证。
+\end{proof}
+
+\begin{exercise}\footnote{2017年德国数学奥林匹克试题.}
+  已知非负实数$x$、$y$、$z$满足$x+y+z=1$，求证:
+  \[ 1 \leqslant \frac{x}{1-yz}+\frac{y}{1-zx}+\frac{z}{1-xy} \leqslant \frac{9}{8} \]
+\end{exercise}
+
+\begin{proof}[证明]
+  显见$0 \leqslant x,y,z \leqslant 1$，作代换
+  \[ a=\frac{x}{1-yz}, \  b=\frac{y}{1-zx}, \  c=\frac{z}{1-xy} \]
+  只需证明$1\leqslant a+b+c \leqslant 9/8$，在这代换下有$a,b,c \geqslant 0$，并且
+  \begin{align*}
+    a = {} & x+ayz \\
+    b = {} & y+bzx \\
+    c = {} & z+cxy
+  \end{align*}
+  三式相加并利用$x+y+z=1$得
+  \[ a+b+c=1+ayz+bzx+cxy \]
+  显然右边大于等于1，所以$a+b+c\geqslant 1$，原不等式左边得证。右边待证。
 \end{proof}
 
 %%% Local Variables:
