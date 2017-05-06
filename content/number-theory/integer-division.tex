@@ -150,11 +150,20 @@
 \end{proof}
 
 \begin{theorem}
+  \label{theorem:a-prime-b--a-c--a--bc}
   设整数$a$与$b$互素，$c$是一个整数，则$a$,$c$的公因数和$a$,$bc$的公因数相同，从而也有相同的最大公因数。
 \end{theorem}
 
 \begin{proof}[证明]
   显然$a$,$c$的公因数也都是$a$和$bc$的公因数，只要再证明$a$,$bc$的公因数也都是$a$,$c$的公因数即可，由条件$a$,$b$互素，存在整数$s$和$t$使得$sa+tb=1$，两边乘以$c$得$(cs)\cdot a+t\cdot bc=c$，所以$a$,$bc$的公因数必然整除$c$，从而它也是$a$,$c$的公因数，既然两对数有着相同的公因数集合，自然也有相同的最大公因数。
+\end{proof}
+
+\begin{inference}
+  如果$a$与$b$互素，并且$a \mid bc$，则有$a \mid c$.
+\end{inference}
+
+\begin{proof}[证明]
+  因为$a \mid bc$知$a$是$a$,$bc$的最大公因数，由\autoref{theorem:a-prime-b--a-c--a--bc}知它也是$a$,$c$的最大公因数，即$a \mid c$.
 \end{proof}
 
 再补充一个关于最大公因数的结论:
