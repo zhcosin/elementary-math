@@ -246,13 +246,16 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
   右端尚未有思路，但是根据程序显示的结果，数列在$a_4$就已经超过0.57，但是直到$a_{100000}$都还没超过0.61，所以此数列增长极其缓慢，从要证的结论来看它有上界，因而有极限，猜测这极限应该小于1，若能证明这一点，则结论便能得到证明。
 \end{proof}
 
-\begin{exercise}\footnote{由网友"其妙"供题。}
+\begin{exercise} 
   两个数列$a_n$和$b_n$满足: $a_1=0$, $b_1=\frac{1}{2}$，并有递推关系
   \[ a_{n+1}=\frac{a_n+b_n}{2}, \  b_{n+1}=\sqrt{a_{n+1}b_n} \]
   求证这两个数列有共同的极限，并求出这个极限。
 \end{exercise}
 
-\begin{proof}[证明]
+题目来源: 悠闲数学娱乐论坛，原帖链接: \url{http://kuing.orzweb.net/viewthread.php?tid=4569&extra=page%3D1}.
+
+\begin{proof}[证明一]
+  (解答于 2017-05-02)
   因为
 \[ \frac{a_{n+1}}{b_{n+1}}=\frac{\frac{a_n+b_n}{2}}{\sqrt{a_{n+1}b_n}} = \frac{\frac{a_n+b_n}{2}}{\sqrt{\frac{a_n+b_n}{2}b_n}} = \sqrt{\frac{1+\frac{a_n}{b_n}}{2}} \]
 所以令$c_n=a_n / b_n$，就有
@@ -272,6 +275,25 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 而
 \[ a_n=\cos{\frac{\pi}{2^n}}b_n=\frac{1}{2^n}\cot{\frac{\pi}{2^n}} \]
 由熟知的极限$\lim_{x \to 0} \frac{\sin{x}}{x}=1$便知$a_n$和$b_n$有共同的极限$\frac{1}{\pi}$.
+
+补充说明：在令$c_n=\cos{\theta_n}$时尚需证明$|c_n| \leqslant 1$，这利用$c_n$的递推式和初始值$c_1=0$，由数学归纳法便知$0 \leqslant c_n \leqslant 1$，如果初始$c_1>1$，便不能使用余弦了，但却可以使用双曲函数$\cosh{x}=(e^x+e^{-x})/2$，双曲函数有着相同的倍半公式。
+\end{proof}
+
+\begin{proof}[证明二]
+  (解答于 2012-05-18)
+  首先在$a_n$的递推式两边取极限即知它俩如果收敛就必定收敛到相同的极限，将$b_n=2a_{n+1}-a_n$代入$b_n$的递推式中换掉$b_n$和$b_{n+1}$得到
+  \[ (2a_{n+2}-a_{n+1})^{2} = a_{n+1}(2a_{n+1}-a_n) \]
+  展开整理得
+  \[ a_{n+2}^2-a_{n+2}a_{n+1} = \frac{1}{4}(a_{n+1}^2-a_{n+1}a_n) \]
+  逐次把下标推下去，就有
+  \[ a_{n+1}^2-a_{n+1}a_n = \frac{1}{4^{n+1}} \]
+  把它视为关于$a_{n+1}$的二次方程，解之得
+  \[ a_{n+1} = \frac{1}{2} \left( a_n+\sqrt{a_n^2+\frac{1}{4^n}} \right) \]
+令$a_n=1/(2^n \tan{\theta_n})$，代入上式得$\tan{\theta_{n+1}}=\tan{\frac{\theta_n}{2}}$，所以可以取$\theta_{n+1}=\theta_n/2$，进而得$\theta_n=\pi / 2^n$，所以$n>1$时有
+\[ a_n = \frac{1}{2^n \tan{\frac{\pi}{2^n}}} \]
+比较$a_n$的递推式和定义式可得
+\[ b_n = \sqrt{a_n^2+\frac{1}{4^n}} = \frac{1}{2^n \sin{\frac{\pi}{2^n}}} \]
+由熟知的极限$\lim_{x \rightarrow 0} \frac{\sin{x}}{x}=1$即知$a_n$和$b_n$有共同的极限$1/\pi$.
 \end{proof}
 
 
