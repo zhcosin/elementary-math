@@ -19,7 +19,20 @@
 \subsection{多项式函数}
 \label{sec:polynome-function}
 
-(包含有理系数多项式)
+在此讨论一下有理系数多项式的有理根的问题，因为有理系数多项式方程总可以化为一个整系数多项式方程，所以只要讨论整系数多项式的根就行了，这时我们有以下定理
+\begin{theorem}
+  整系数$n$次多项式
+  \[ a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0 \]
+  如果有一个有理根$r/s$($r$、$s$互素)，则$r \mid a_0$，$s \mid a_n$，在最高次项系数$a_n=1$的特殊情况下，它的有理数都只能是整数根，而且这些根都是常数项$a_0$的因数。
+\end{theorem}
+
+\begin{proof}[证明]
+  由条件得
+  \[ a_n \left( \frac{r}{s} \right)^{n} + a_{n-1}\left( \frac{r}{s} \right)^{n-1} + \cdots + a_1 \frac{r}{s} + a_0 = 0 \]
+  整理得
+  \[ a_nr^n + a_{n-1}r^{n-1}s + \cdots + a_1rs^{n-1} + a_0s^n = 0 \]
+  左边除最后一项外都能被$r$整除，所以$r \mid a_0s^{n-1}$，而$r$与$s$互素，所以$r \mid a_0$，同样，左边除第一项外都能被$s$整除，所以$s \mid a_nr^n$，从而$s \mid a_n$.
+\end{proof}
 
 \subsection{插值多项式}
 \label{sec:interpolation-polynome}
