@@ -5,6 +5,68 @@
 \subsection{奇排列与偶排列}
 \label{sec:odd-permutation-and-even-permutation}
 
+为了讨论行列式的每一项的符号，这一小节来讨论下奇排列与偶排列。
+
+我们来考虑正整数$1,2,\ldots,n$的任一排列，称其为一个$n$级排列，交换其中两个元素的位置的操作称为一个 \emph{对换}, 我们先指出如下定理
+\begin{theorem}
+  \label{theorem:all-rangement-can-be-producted-by-exchange}
+  正整数$1,2,\ldots,n$的任一排列$a_1,a_2,\ldots,a_n$均可由原始排列$1,2,\ldots,n$经过有限次对换得到，同样它也可以经过有限次对换得出原始排列$1,2,\ldots,n$。
+\end{theorem}
+
+\begin{proof}[证明]
+  我们给出一个实际的对换方案，如果$a_1 \neq 1$，则必然有某个$a_i=1(i>1)$，于是我们先对换$a_1$和$a_i$，对换之后就可以使得新的$a_1=1$了，然后再看$a_2$是否等于2，如果不是则做类似处理，依次这样下去，最多对换$n-1$次，便可以得出原始排列$1,2,\ldots,n$，这是一个对换方案，然后把这个对换方案做一个逆对换，便可以由原始排列$1,2,\ldots,n$得出排列$a_1,a_2,\ldots,a_n$.
+\end{proof}
+
+显然由这定理可知，任意两个不同的$n$级排列都可以通过对换操作互相转换。
+
+现在我们准备引入排列的奇偶性，为此先给出如下结论
+\begin{theorem}
+  如果一个排列是经由原始排列$1,2,\ldots,n$通过奇数次对换得到，则它也只能经由奇数次对换得到，同样，如果它是由原始排列经过偶数次对换得到，则它也只能通过偶数次对换得到。
+\end{theorem}
+
+\begin{proof}[证明]
+  我们对排列的级数$n$作数学归纳法。显然$n=1,2$时结论均成立，假定结论对小于等于$n$级的排列都成立，我们来考虑$n+1$级排列的情况。
+
+  假定一个$n+1$级排列$a_1,a_2,\ldots,a_n,a_{n+1}$是由原始排列$1,2,\ldots,n,n+1$经由奇数次对换得到的，
+\end{proof}
+
+由这定理可知对于一个确定的$n$级排列，由原始排列得到它的对换次数的奇偶数是确定的，根具体的对换方案无关，仅由排列本身确定，为此我们把只能由原始排列通过奇数次对换而得到的排列称为\emph{奇排列}，而把只能由偶数次对换而得到的排列称为\emph{偶排列}，根据上面两个定理可知，一个排列，必然要么是奇排列要么是偶数列，不能两者都是或者两者都不是。
+
+由上述定理立即可得:
+\begin{theorem}
+  对排列作一次对换将改变其奇偶性。
+\end{theorem}
+
+虽然我们定义了排列的奇偶性，但对于一个具体的排列，要指出它是奇排列还是偶排列却还是不容易的，最简单的办法就是按照\autoref{theorem:all-rangement-can-be-producted-by-exchange}的证明过程中的步骤构成出一个对换方案来，并由其对换次数来确定排列的奇偶性，但我们还有更可行的方法，为此提出 \emph{正序} 与 \emph{逆序} 的概念。
+\begin{definition}
+  对于正整数$1,2,\ldots,n$的任一排列$a_1,a_2,\ldots,a_n$，如果其中两个元素$a_i$和$a_j$满足$i<j$且$a_i<a_j$，则称它们是这排列中的一个 \emph{正序}，如果它们满足$i<j$而$a_i>a_j$，则称其为这排列中的一个 \emph{逆序}，一个排列中所有正序的个数称为 \emph{正序数}，所有逆序的个数称为 \emph{逆序数}。
+\end{definition}
+
+显然，一个排列中的正序数与逆序数之和是$C_n^2=n(n-1)/2$.
+
+我们指出
+\begin{theorem}
+  \label{theorem:odevity-of-rangement-equivalent-to-its-inversion-odvity}
+  一个排列的逆序数，与排列本身具备相同的奇偶性。
+\end{theorem}
+
+为了证明这个定理，我们先证如下引理
+\begin{lemma}
+  \label{lemma:all-rangement-can-be-producted-by-adjacent-exchange}
+  正整数$1,2,\ldots,n$的任一排列都可以由原始排列$1,2,\ldots,n$通过有限次相邻元素的对换得到。
+\end{lemma}
+
+\begin{proof}[证明]
+  我们仍然实际构造出一个方案，假设这排列是$a_1,a_2,\ldots,n$，如果$a_1 \neq 1$，则在原始排列中，把数$a_i$依次跟它前一个元素对换，直到把它移动第一个元素的位置，同样的方法逐个应用到$a_2,a_3,\ldots,a_n$，即可在有限步内将原始排列$1,2,\ldots,n$变成$a_1,a_2,\ldots,a_n$。
+\end{proof}
+
+有了这引理，我们回到\autoref{theorem:odevity-of-rangement-equivalent-to-its-inversion-odvity}的证明上
+\begin{proof}[证明]
+   由\autoref{lemma:all-rangement-can-be-producted-by-adjacent-exchange}，排列可以由原始排列通过相邻元素的对换而得来，而这对换的次数的奇偶性又是排列自身确定的，而显然相邻元素的对换必然改变逆序数的奇偶性，所以经过多少次相邻元素的对换，逆序数的奇偶性就改变多少次，而原始排列$1,2,\ldots,n$的逆序数是零，所以逆序数的奇偶性，与对换次数的奇偶性相同，即与排列的奇偶性相同。
+\end{proof}
+
+显然，利用逆序数是容易求得一个具体排列的奇偶性的。
+
 \subsection{行列式的概念}
 \label{sec:determinant-concept}
 
