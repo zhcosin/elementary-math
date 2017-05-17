@@ -70,6 +70,30 @@
 \subsection{行列式的概念}
 \label{sec:determinant-concept}
 
+我们把二级行列式和三级行列式的概念推广到任意$n\times n$的数阵上，对于一个$n \times n$的数阵
+\[
+  \begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{pmatrix}
+\]
+它的行列式是所有位于不同行且不同列的元素的乘积的代数和，也就是说，求和中的每一项如果不考虑符号都具备形式
+\[ a_{i_1j_1}a_{i_2j_2} \cdots a_{i_nj_n} \]
+其中$i_1,i_2,\ldots,i_n$和$j_1,j_2,\ldots,j_n$都是$1,2,\ldots,n$的一个排列，而这求和中将会遍及所有可能的排列。我们把上式按$i_k$的顺序重新排列成
+\[ a_{1j_1}a_{2j_2} \cdots a_{nj_n} \]
+这时$j_1,j_2,\ldots,j_n$已经不再是原来的排列了，我们只是仍使用相同的符号，然后这一项的符号是这样定义的：当$j_1,j_2,\ldots,j_n$是奇排列是带负号，为偶排列时带正号，这样所有这样的项的和便是由数阵所决定的行列式的值。
+\[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = \sum_{j_1,j_2,\ldots,j_n} (-1)^{\tau (j_1,j_2,\ldots,j_n)} a_{1j_1}a_{2j_2} \cdots a_{nj_n}
+\]
+
 \subsection{行列式的性质与计算}
 \label{sec:determinant-properties}
 
