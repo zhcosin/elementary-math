@@ -5,6 +5,30 @@
 \subsection{二元一次不定方程}
 \label{sec:indefinite-binary-equation-of-the-first-degree}
 
+\begin{theorem}
+  二元一次不定方程$ax+by=c$有整数解的充分必要条件是$a$和$b$的最大公因数$d$能够整除$c$.
+\end{theorem}
+
+\begin{proof}[证明]
+  先证必要证，如果这方程有解，比如说$x=x_0,y=y_0$是它的一个解，则$ax_0+by_0=c$，显然$a$和$b$的最大公因数$d$能够整除左边，自然也就能整除$c$，必要性成立。
+
+  再证充分性，如果$d=(a,b) \mid c$，记$c=c_1d$，由最大公因数性质，存在整数$s$和$t$使得$sa+tb=d$，于是$(c_1s)a+(c_1t)b=c$，从而$x=c_1s,y=c_1t$是方程的一个解，充分性成立。
+\end{proof}
+
+\begin{theorem}
+  如果二元一次不定方程$ax+by=c$有一个解$x=x_0,y=y_0$，则它的全部解是
+  \[ x=x_0+b_1t, \  y=y_0-a_1t \  (t=0, \pm 1, \pm 2, \ldots ) \]
+  其中$a_1$和$b_1$分别是从$a$和$b$中约去它们的最大公因数后剩下的因子。
+\end{theorem}
+
+\begin{proof}[证明]
+  显然$x=x_0+b_1t,y=y_0-a_1t,(t=0, \pm 1, \pm 2, \ldots)$都是这方程的解，只要证明它给出了方程的全部解即可，设$x=x_1,y=y_1$是方程的任意一个解，即$ax_1+by_1=c$，则
+  \[ a(x_1-x_0)+b(y_1-y_0)=0 \]
+  两边约去$a$和$b$的最大公因数$d$后得
+  \[ a_1(x_1-x_0)+b_1(y_1-y_0)=0 \]
+  这表明$a_1 \mid b_1(y_1-y_0)$且$b_1 \mid a_1(x_1-x_0)$，但$(a_1,b_1)=1$，所以必有$a_1 \mid (y_1-y_0)$, $b_1 \mid (x_1-x_0)$，记$y_1-y_0=a_1t_1$,$x_1-x_0=b_1t_2$，则由上式得$t_1+t_2=0$，所以记$t=t_2$，则$x_1=x_0+b_1t,y_1=y_0-a_1t$，这就表明定理中的解给出了方程的全部解。
+\end{proof}
+
 \subsection{勾股方程与费马问题}
 \label{sec:pythagorean-equation-and-fermat-problem}
 
