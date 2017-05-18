@@ -8,4 +8,4 @@
 
 曾经为是否公开这份笔记的源码而纠结了几个月的时间，现在再次决定公开它，计较太多实在没啥益处，但愿这是我最后一次就这个问题做决定。
 
-笔记中的图片都是用 =Asymptote= 绘制的，编译之前需要先使用 =texlive= 自带的 =Asymptote= 程序将源文件(*.asy)转换为pdf文件，我只写了一个 =linux= 脚本 =build-pic.sh= ,没有提供相应的 =windows= 批处理脚本，这是因为我实在没搞定如何使用 =windows= 的脚本来递归的将目录下的 =asy= 文件调用 =Asymptote= 转换成 =pdf= 文件，虽然我笔记主要是在 =windows= 下写成的，但因为我每绘制一张图都会将它生成 =pdf= 文件，所以我这并不存在这个问题，如果有谁愿意帮我写一个 =windows= 脚本来完成这件工作，我非常感激，说明一下，利用 =Asymptote= 将 =*.asy= 源文件生成 =pdf= 的命令是 =asy -f pdf xxx.asy= 。
+笔记中的图片都是用 =Asymptote= 绘制的，编译之前需要先使用 =texlive= 自带的 =Asymptote= 程序将源文件(xxx.asy)转换为pdf文件，我只写了一个 =linux= 脚本 =build-pic.sh= ,没有提供相应的 =windows= 批处理脚本，这是因为我实在没搞定如何使用 =windows= 的脚本来递归的将目录下的 =asy= 文件调用 =Asymptote= 转换成 =pdf= 文件，虽然我笔记主要是在 =windows= 下写成的，但因为我每绘制一张图都会将它生成 =pdf= 文件，所以我这并不存在这个问题，如果有谁愿意帮我写一个 =windows= 脚本来完成这件工作，我非常感激，说明一下，利用 =Asymptote= 将 =*.asy= 源文件生成 =pdf= 的命令是 =asy -f pdf xxx.asy= 。
