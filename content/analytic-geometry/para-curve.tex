@@ -1,0 +1,33 @@
+
+\section{抛物线}
+\label{sec:para-curve}
+
+\begin{property}
+  如\autoref{fig:parabola-focus-chord-three-line-intersection}所示，过抛物线对称轴上焦点外侧任一点$D$，分别向过焦点$F$的弦$MN$的两个端点引直线，分别与准线相交于点$P$和$Q$，准线与对称轴的交点是$R$，那么有直线$DR$、$PN$、$QM$三线共点。
+\end{property}
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/analytic-geometry/pic/parabola-focus-chord-three-line-intersection.pdf}
+\caption{抛物线焦点弦的一个性质}
+\label{fig:parabola-focus-chord-three-line-intersection}
+\end{figure}
+
+\begin{proof}[证明]
+  由塞瓦定理，只需证
+  \begin{equation}
+    \label{eq:parabola-focus-chord-three-line-intersection-ceva}
+  \frac{DN}{NQ} \cdot \frac{QR}{RP} \cdot \frac{PM}{MD} = 1 
+  \end{equation}
+  设点$N$在准线上的投影是$N_0$，则有$NF=NN_0$，再设点$N$在抛物线对称轴上的投影是$N_1$，则
+  \[ \frac{DN}{NQ} = \frac{NN_1}{QN_0} = \frac{NN_1}{NF} \cdot \frac{NN_0}{QN_0} = \sin{\angle NFD} \cdot \tan{\angle DQP} \]
+  同理可得
+  \[ \frac{DM}{MP} = \sin{\angle MFR} \cdot \tan{\angle DPQ} \]
+  而显然$\angle NFD = \angle MFR$，而且
+  \[ \frac{QR}{RP} = \frac{\frac{DR}{RP}}{\frac{DR}{QR}} = \frac{\tan{\angle DPQ}}{\tan{\angle DQP}} \]
+  因此式\ref{eq:parabola-focus-chord-three-line-intersection-ceva}成立，结论得证。
+\end{proof}
+
+%%% Local Variables:
+%%% TeX-master: "../../book"
+%%% End:
