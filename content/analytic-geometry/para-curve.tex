@@ -3,7 +3,7 @@
 \label{sec:para-curve}
 
 \begin{property}
-  如\autoref{fig:parabola-focus-chord-three-line-intersection}所示，过抛物线对称轴上焦点外侧任一点$D$，分别向过焦点$F$的弦$MN$的两个端点引直线，分别与准线相交于点$P$和$Q$，准线与对称轴的交点是$R$，那么有直线$DR$、$PN$、$QM$三线共点。
+  如\autoref{fig:parabola-focus-chord-three-line-intersection}所示，过抛物线对称轴上焦点外侧任一点$D$，分别向过焦点$F$的弦$MN$的两个端点引直线，分别与准线相交于点$P$和$Q$，准线与对称轴的交点是$R$，那么: (1)直线$DR$、$PN$、$QM$三线共点(设为点$T$)，(2)对称轴上的四点$R$、$T$、$F$、$D$构成调和点列。
 \end{property}
 
 \begin{figure}[htbp]
@@ -14,7 +14,7 @@
 \end{figure}
 
 \begin{proof}[证明]
-  由塞瓦定理，只需证
+  (1) 由塞瓦定理，只需证
   \begin{equation}
     \label{eq:parabola-focus-chord-three-line-intersection-ceva}
   \frac{DN}{NQ} \cdot \frac{QR}{RP} \cdot \frac{PM}{MD} = 1 
@@ -26,6 +26,32 @@
   而显然$\angle NFD = \angle MFR$，而且
   \[ \frac{QR}{RP} = \frac{\frac{DR}{RP}}{\frac{DR}{QR}} = \frac{\tan{\angle DPQ}}{\tan{\angle DQP}} \]
   因此式\ref{eq:parabola-focus-chord-three-line-intersection-ceva}成立，结论得证。
+
+  (2) 对 $\triangle QRD$ 和截线$PTN$ 使用梅涅劳斯定理得
+  \[ \frac{DN}{NQ} \cdot \frac{QP}{PR} \cdot \frac{RT}{TD} = 1 \]
+  再对 $\triangle PRD$ 和截线 $QTM$ 使用梅涅劳斯定理得
+  \[ \frac{DM}{MP} \cdot \frac{PQ}{QR} \cdot \frac{RT}{TD} = 1 \]
+  由此二式便得
+  \[ \frac{RT}{TD} \left( \frac{DN}{NQ} + \frac{DM}{MP} \right) = 1 \]
+  记$\angle NFD=\theta$，$\angle DQP=\alpha$，$\angle DPQ=\beta$，则由(1)的证明过程中所得结果可得
+  \[ \frac{DN}{NQ} + \frac{DM}{MP} = \sin{\theta} (\tan{\alpha} + \tan{\beta}) \]
+  记$DF=d$，有熟知的焦半径
+  \[ NF=\frac{p}{1-\cos{\theta}}, \  MF = \frac{p}{1+\cos{\theta}} \]
+  由几何关系得
+  \[ \tan{\alpha} = \tan{\angle DNN_1} = \frac{DN_1}{NN_1} = \frac{DF-NF\cos{\theta}}{NF \sin{\theta}} = \frac{d(1-\cos{\theta})-p\cos{\theta}}{p\sin{\theta}} \]
+  同理可得
+  \[ \tan{\beta} = \frac{d(1+\cos{\theta})+p\cos{\theta}}{p\sin{\theta}} \]
+  由此二式便得
+  \[ \sin{\theta}(\tan{\alpha} + \tan{\beta}) = \frac{2d}{p} \]
+  即
+  \[ \frac{DN}{NQ} + \frac{DM}{MP} = \frac{2d}{p} \]
+  所以
+  \[ \frac{RT}{TD} = \frac{p}{2d} \]
+  由此便知，当抛物线和点$D$的位置确定后，点$T$的位置便固定下来，与焦点弦的具体位置无关，由上式不难求得
+  \[ RT = \frac{p(p+d)}{p+2d}, \  TF=\frac{dp}{p+2d} \]
+  于是
+  \[ \frac{RT}{TF} = \frac{p+d}{d} = \frac{RD}{DF} \]
+  所以这四点为调和点列.
 \end{proof}
 
 %%% Local Variables:
