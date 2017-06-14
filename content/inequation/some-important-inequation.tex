@@ -153,6 +153,19 @@
 两式相加即得证。
 \end{example}
 
+\begin{example}
+  在这个例子中，我们来建立一个有用的不等式。设$x_i > -1(i=1,2,\ldots,n)$，记$s=\sum_{i=1}^nx_i$，则有
+  \[ \prod_{i=1}^n(1+x_i) < 1+s+\frac{s^2}{2!}+\cdots+\frac{s^n}{n!} \]
+  并且，如果所有$x_i$的符号都相同，则还有
+  \[ \prod_{i=1}^n(1+x_i) \geqslant 1+s \]
+  \begin{proof}[证明]
+    因$1+x_i>0$，由AM-GM不等式得
+    \[ \prod_{i=1}^n(1+x_i) \leqslant \left( 1+\frac{s}{n} \right)^n = \sum_{k=0}^n \frac{n(n-1)\cdots(n-k+1)}{n^k} \frac{s^n}{k!} < \sum_{k=0}^n \frac{s^k}{k!}  \]
+    第一个不等式得证，再证第二个，如果$x_i$的符号都相同（允许有零），则按归纳法，$n=1$时显然是成立的，假定对$n$个数时也是成立的，那么对于$n+1$个数，则有
+    \[ \prod_{i=1}^n (1+x_i) \geqslant (1+x_{n+1})(1+\sum_{i=1}^nx_i) = 1+\sum_{i=1}^{n+1}x_i + x_{n+1}\sum_{i=1}^nx_i \geqslant 1+\sum_{i=1}^{n+1}x_i \]
+  \end{proof}
+\end{example}
+
 对于均值不等式中最基本的$G_n\leqslant A_n$，将每个数的权重一般化，得如下的加权形式
 \begin{theorem}[加权平均值不等式]
   对于任意$n$个正实数$x_{i}(i=1,2,\ldots,n)$和一组权值$\alpha_i\geqslant 0(i=1,2,\ldots,n),\sum_{i=1}^n\alpha_i=1$，有如下的不等式
