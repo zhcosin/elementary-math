@@ -11,13 +11,16 @@
 \begin{document}
 
 \maketitle
-%\include{cover}
 
-%\dominitoc% Initialization
+\pagenumbering{Roman}    %Roman字体书写页码
 
 \include{preface}
 
+\setcounter{page}{1}   %重新开始页码
 \include{tableofcontents}
+
+\setcounter{page}{1}   %重新开始页码
+\mainmatter    %前言和目录页码结束，正文重新开始设置页码
 
 \include{content/prepare/prepare}
 
