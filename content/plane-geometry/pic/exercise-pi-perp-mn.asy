@@ -25,7 +25,7 @@ pair F = locate(intersectionpoints(A -- B, theincircle)[0]);
 
 label("$D$", D, S);
 label("$E$", E, NE);
-label("$F$", F, NW);
+label("$F$", F, W);
 
 draw(B -- E);
 draw(C -- F);
@@ -49,3 +49,6 @@ label("$N$", N, NW);
 
 draw(M -- A -- N);
 draw(M -- N);
+
+draw(D -- M);
+draw(D -- N);
