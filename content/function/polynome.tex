@@ -2,8 +2,53 @@
 \section{多项式}
 \label{sec:polynome}
 
+这一节是\cite{advanced-algebra}的学习笔记，讨论了多项式的整除理论与及因式分解相关内容。
+
+\subsection{数域}
+\label{sec:number-field}
+
+域本来是抽象代数中的一个概念，但早点接触它还是有好处的。
+
+\begin{definition}
+  如果一个数集包含了0和1，并且对集合中任意两数(可以相同)进行加减乘除运算所得的结果都仍然在这集合中(称为对这四种运算具有封闭性)，则称该数集为一个 \emph{数域}.
+\end{definition}
+
+易知任何数域都包含有理数集作为它的一个子集，常见的有理数集、实数集、复数集都是数域，但数域是一个更宽泛的概念，例如下面这个例子。
+
+\begin{example}
+  设$\pi$是一个无理数，则定义数集 $A_{\pi} = \{x|x=a+b\pi,a,b\in Q\}$，这里$Q$是有理数集，易证这是一个数域，其中除了有理数外，还包含一些无理数，这些无理数都跟一个确定的无理数$\pi$有关，这个数集可以称为是由无理数$\pi$生成的 \emph{最小数域}，这类数域在构造某些特例时是有用的。
+\end{example}
+
+\subsection{一元多项式}
+\label{sec:polynome-with-one-variable}
+
+
+
 \subsection{整除的概念与带余除法}
 \label{sec:polynome-integer-division-and-devision-with-remainder}
+
+\begin{theorem}[带余除法]
+  对数域$P$上的任意两个非零多项式$f(x)$和$g(x)$，存在数域$P$上的另外两个多项式$q(x)$和$r(x)$，其中$r(x)$次数低于$g(x)$或者是零多项式，使得下式成立
+  \[ f(x) = q(x) g(x) + r(x) \]
+\end{theorem}
+
+\begin{proof}[证明]
+  如果$f(x)$的次数低于$g(x)$，则取$u(x)=0$, $r(x)=f(x)$就可以了，以下证明$f(x)$比$g(x)$次数高的情况，设
+  \[ f(x)=\sum_{i=0}^na_ix^i, \   g(x)=\sum_{i=0}^nb_ix^i \]
+  其中$n>m>0$，则首先用
+  \[ u_0(x)=\frac{a_n}{b_m}x^{n-m} \]
+  与$g(x)$相乘得出一个$n$次多项式，于是这个多项式与$f(x)$的差就是一个次数低于$n$的多项式，即
+  \[ f(x) = u_0(x) g(x) + f_1(x) \]
+  如果$f_1(x)$的次数仍然高于或者等于$g(x)$，则我们再对$f_1(x)$施以同样的手法可得出第二个等式
+  \[ f_1(x) = u_1(x)g(x) + f_2(x) \]
+  依次下去，必定能够在有限步之内(最多$n-m+1$步)使得某个$f_r(x)$的次数低于$g(x)$或者成为零多项式，这时便有
+  \[ f(x) = g(x) \sum_{i=0}^{r-1}u_i(x) + f_r(x) \]
+  于是取
+  \[ u(x)=\sum_{i=0}^{r-1}u_i(x), \  r(x)=f_r(x) \]
+  就可以满足定理要求。
+\end{proof}
+
+这个证明过程实际上就是多项式除法的运算过程。
 
 \subsection{最大公因式与辗转相除法}
 \label{sec:greatest-common-divisor-and-euclidean-division}
