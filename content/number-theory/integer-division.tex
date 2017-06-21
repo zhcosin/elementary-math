@@ -166,6 +166,14 @@
   因为$a \mid bc$知$a$是$a$,$bc$的最大公因数，由\autoref{theorem:a-prime-b--a-c--a--bc}知它也是$a$,$c$的最大公因数，即$a \mid c$.
 \end{proof}
 
+\begin{theorem}
+  如果$(a,b)=1$，$n$是一个正整数，则$(a,b^n)=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+  由$a$、$b$互素，存在整数$s$和$t$，使得$sa+tb=1$，于是$(1-sa)^n=t^nb^n$，左边按二项式定理展开，并把含有$a$的项归并到一起，得$1+au=t^nb^n$，即$-ua+t^nb^n=1$，故$(a,b^n)=1$.
+\end{proof}
+
 再补充一个关于最大公因数的结论:
 \begin{theorem}
   设有整数$a$和$b$，最大公因数是$(a,b)$，那么
