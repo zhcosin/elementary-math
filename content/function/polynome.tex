@@ -204,6 +204,49 @@
   由条件，存在多项式$u(x)$和$v(x)$使$u(x)f(x)+v(x)g(x)=1$，又设$h(x)=f(x)f_1(x)$，在前等式两边同乘$f_1(x)$可得$u(x)f(x)f_1(x)+v(x)g(x)f_1(x)=f_1(x)$，即$u(x)h(x)+v(x)g(x)f_1(x)=f_1(x)$，显然$g(x)$能整除等式的左边，因而也能整除右边，即$g(x) \mid f_1(x)$，从而$f(x)g(x) \mid f(x)f_1(x) = h(x)$.
 \end{proof}
 
+最大公因式可以推广到多个多项式的情形。
+
+\begin{definition}
+  如果$d(x)$是一组多项式$f_i(x)(i=1,2,\ldots,n)$的公因式，并且这组多项式的任一公因式都是$d(x)$的因式，则称$d(x)$是这组多项式的公因式，也记为$d(x)=(f_1(x),f_2(x),\ldots,f_n(x))$.
+\end{definition}
+
+\begin{theorem}
+  对一组多项式$f_i(x)(i=1,2,\ldots,n)$，定义递推序列$d_1(x)=f_1(x)$,$d_k(x)=(d_{k-1}(x), f_k(x))$，则$d_n$便是这组多项式的最大公因式。
+\end{theorem}
+
+依据这定理，最大公因式可以逐次求，先求出$f_1(x)$与$f_2(x)$的最大公因式$d_2(x)$，再求$d_2(x)$与$f_3(x)$的最大公因式，逐次下去，最后求得$d_{n-1}(x)$与$f_n(x)$的最大公因式$d_n(x)$就是这一组多项式的最大公因式。
+
+\begin{proof}[证明]
+  记$r_k(x)=(f_1(x),f_2(x),\ldots,f_k(x))$，易知$d_k(x) \mid f_i(x)(i=1,2,\ldots,k)$，从而$d_k(x) \mid r_k(x)$，另一方面，$r_k(x)$作为$f_1(x),f_2(x),\ldots,f_{k-1}(x)$的一个公因式，也必然是$d_{k-1}(x)$的因式，所以$r_k(x) \mid d_{k-1}(x)$，又$r_k(x) \mid f_k(x)$，所以$r_k(x) \mid d_k(x)$，因此$d_k(x)=r_k(x)(i=1,2,\ldots,n)$（不计常数因子）。
+\end{proof}
+
+同样有性质定理
+\begin{theorem}
+  设一组多项式$f_i(x)(i=1,2,\ldots,n)$的最大公因式是$d(x)$，则存在多项式$u_i(x)(i=1,2,\ldots,n)$使得
+  \[ d(x) = \sum_{i=1}^n u_i(x)f_i(x) \]
+\end{theorem}
+
+\begin{proof}[证明]
+  对多项式的个数使用数学归纳法，$n=2$时显然成立，假若对于$n-1$个多项式也成立，则对于$n$个多项式的情形，由前述定理，$d_n(x)=(d_{n-1}(x), f_n(x))$，因而存在多项式$p(x)$和$u_n(x)$使得
+  \[ d_n(x) = p(x)d_{n-1}(x) + u_n(x)f_n(x) \]
+  而根据归纳假设，存在$p_i(x)(i=1,2,\ldots,n-1)$，使得
+  \[ d_{n-1}(x) = \sum_{i=1}^{n-1}p_i(x)f_i(x) \]
+  代入前式即得结论。
+\end{proof}
+
+同样的，有多个项式互素的定义
+\begin{definition}
+  如果一组多项式的最大公因式是1，则称它们\emph{互素}。
+\end{definition}
+
+一组多项式互素与它们两两互素是不同的，两两互素是更强的约束。
+
+\begin{theorem}
+  一组多项式$f_i(x)(i=1,2,\ldots,n)$互素的充分必要条件是存在一组多项式$u_i(x)(i=1,2,\ldots,n)$，使得
+  \[ \sum_{i=1}^n u_i(x)f_i(x) = 1 \]
+\end{theorem}
+证明略。
+
 \subsection{因式分解定理}
 \label{sec:factoring-theorem}
 
