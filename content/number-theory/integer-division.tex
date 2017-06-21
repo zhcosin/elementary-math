@@ -166,6 +166,14 @@
   因为$a \mid bc$知$a$是$a$,$bc$的最大公因数，由\autoref{theorem:a-prime-b--a-c--a--bc}知它也是$a$,$c$的最大公因数，即$a \mid c$.
 \end{proof}
 
+\begin{inference}
+  如果$(a,b)=1$，且$a \mid c$, $b \mid c$，则$ab \mid c$.
+\end{inference}
+
+\begin{proof}[证明]
+  设$c=aa_1$，则$b \mid aa_1$，由上一推论，有$b \mid a_1$，从而$ab \mid aa_1=c$.
+\end{proof}
+
 \begin{theorem}
   如果$(a,b)=1$，$n$是一个正整数，则$(a,b^n)=1$.
 \end{theorem}
