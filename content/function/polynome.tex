@@ -204,6 +204,30 @@
   由条件，存在多项式$u(x)$和$v(x)$使$u(x)f(x)+v(x)g(x)=1$，又设$h(x)=f(x)f_1(x)$，在前等式两边同乘$f_1(x)$可得$u(x)f(x)f_1(x)+v(x)g(x)f_1(x)=f_1(x)$，即$u(x)h(x)+v(x)g(x)f_1(x)=f_1(x)$，显然$g(x)$能整除等式的左边，因而也能整除右边，即$g(x) \mid f_1(x)$，从而$f(x)g(x) \mid f(x)f_1(x) = h(x)$.
 \end{proof}
 
+\begin{inference}
+  如果$(f(x),g(x))=1$且$(f(x),h(x))=1$，则$(f(x),g(x)h(x))=1$.
+\end{inference}
+
+\begin{proof}[证明一]
+  设$d(x)=(f(x),g(x)h(x))$，则由$(f(x),g(x))=1$知$(d(x),g(x))=1$，而由$d(x) \mid g(x)h(x)$便得$d(x) \mid h(x)$，于是$d(x)$是$f(x)$与$h(x)$的一个公因式，但是$(f(x),h(x))=1$，所以$d(x)=1$.
+\end{proof}
+
+\begin{proof}[证明二]
+  将等式$u_1(x)f(x)+v_1(x)g(x)=1$与$u_2(x)f(x)+v_2(x)h(x)=1$相乘得
+  \[ [u_1(x)u_2(x)f(x)+u_2(x)v_1(x)g(x)+u_1(x)v_2(x)h(x)]f(x)+v_1(x)v_2(x)g(x)h(x)=1 \]
+ 即得结论.
+\end{proof}
+
+这个结论还可以推广到更一般的情况:
+\begin{theorem}
+  \label{two-group-polynome-product-prime}
+  设$f(x)=f_1(x)f_2(x) \cdots f_n(x)$，$g(x)=g_1(x)g_2(x) \cdots g_m(x)$，并且对于任意的$i(1 \leqslant i \leqslant n)$和$j(1 \leqslant j \leqslant m)$都有$(f_i(x), g_j(x))=1$，则$(f(x), g(x))=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+  因为每一个$f_i(x)$都与所有的$g_j(x)$互素，所以$(f_i(x), g(x))=1(i=1,2,\ldots,n)$，进一步就有$(f(x),g(x))=1$.
+\end{proof}
+
 最大公因式可以推广到多个多项式的情形。
 
 \begin{definition}
