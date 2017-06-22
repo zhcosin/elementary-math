@@ -159,6 +159,7 @@
 \end{proof}
 
 \begin{inference}
+  \label{inference:a-prime-b-and-a-mid-bc-so-a-mid-c}
   如果$a$与$b$互素，并且$a \mid bc$，则有$a \mid c$.
 \end{inference}
 
@@ -176,6 +177,19 @@
 
 \begin{proof}[证明二]
   由条件，存在整数$s$和$t$使$sa+tb=1$，又设$c=ak$，则$sak+tbk=k$，即$sc+tbk=k$，显然$b$能够整除等式的左端，因而也能整除右端，即$b \mid k$，从而$ab \mid ak=c$.
+\end{proof}
+
+\begin{inference}
+  \label{inference:a-prime-b-and-a-prime-c-so-a-prime-bc}
+  若$(a,b)=1$,且$(a,c)=1$，则$(a,bc)=1$.
+\end{inference}
+
+\begin{proof}[证明]
+  设$d=(a,bc)$，由$(a,b)=1$，显然有$(d,b)=1$，这是因为$d$与$b$的公因式必然也是$a$与$b$的公因式，所以$(d,b)=1$.又$d \mid bc$，由\autoref{inference:a-prime-b-and-a-mid-bc-so-a-mid-c}，有$d \mid c$，于是$d$成为$a$与$c$的公因式，但$(a,c)=1$，所以$d=1$，即$(a,bc)=1$.
+\end{proof}
+
+\begin{proof}[证明二]
+  把等式$s_1a+t_1b=1$和$s_2a+t_2c=1$相乘，得$(s_1s_2a+s_1c+s_2b)a+t_1t_2bc=1$，即知$(a,bc)=1$.
 \end{proof}
 
 \begin{theorem}
@@ -273,6 +287,110 @@
 
 \subsection{素数与算术基本定理}
 \label{sec:prime-number-and-fundamental-theorem-of-arithmetic}
+
+\begin{definition}
+  如果一个整数除1与自身以外没有其它因数，则称之为一个 \emph{素数}.
+\end{definition}
+
+素数是数论中极其重要的一个概念。
+
+\begin{theorem}
+  \label{theorem:prime-with-any-integer-relation}
+  设$p$为一个素数，而$a$为任一整数，则要么$(p,a)=1$，要么$p \mid a$.
+\end{theorem}
+
+\begin{proof}[证明]
+  设$d=(p,a)$，$d$作为$p$的一个因数，由素数定义，或者$d=1$，或者$d=p$，若$d=1$，即$(p,a)=1$，若$d=p$，即$p \mid a$.
+\end{proof}
+
+\begin{inference}
+  设$p$为一素数，$a$和$b$为两个整数，若$p \mid ab$，则必有$p \mid a$或者$p \mid b$.
+\end{inference}
+
+\begin{proof}[证明]
+  若$p \mid a$则结论成立，而$p \nmid a$时，由\autoref{theorem:prime-with-any-integer-relatio}知$(p,a)=1$，此时由\autoref{inference:a-prime-b-and-a-mid-bc-so-a-mid-c}知必有$p \mid b$，得证。
+\end{proof}
+
+利用归纳法，这结论可以推广到多个数的情形:
+\begin{inference}
+  设$p$为一素数，如果$p \mid a_1a_2\cdots a_n$，则$p$必能整除诸$a_i$中至少一个。
+\end{inference}
+
+提一个关于素数的有用结论:
+\begin{theorem}
+  \label{theorem:two-group-prime-without-repeat-prime-each-other}
+  若$a=p_1p_2 \cdots p_n$，$b=q_1q_2 \cdots q_m$，且诸$p_i(i=1,2,\ldots,n)$及诸$q_j(j=1,2,\ldots,n)$均为素数，并且这两组素数中没有相同的，即不存在$i,j$，使得$p_i=q_j$，那么$(a,b)=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+ 证明这个定理的关键就是\autoref{inference:a-prime-b-and-a-prime-c-so-a-prime-bc}，因为由它，由$(p_i,q_j)=1$，便知$(p_i, b)=1(i=1,2,\ldots,n)$，进一步便有$(a,b)=1$.
+\end{proof}
+
+\begin{definition}
+  如果一个整数不是素数，则称它为一个 \emph{合数}.
+\end{definition}
+
+由定义，设$a$为一合数，则其必存在因子$b$，使得$1<b<a$，即$a=bb_1$，换句话说，合数必能被分解为比它小的两个数之乘积，进一步，如果分解出来的这两个数中还有合数，则继续进行分解，直到乘积中全部是素数为止，这样我们就得到以下著名的定理:
+
+\begin{theorem}[算术基本定理]
+  \label{theorem:arithmetic-base-theorem}
+  任一大于1的正整数$a$都能表成一些素数的乘积，即
+  \[ a=p_1p_2 \cdots p_n \]
+  诸$p_i$均为素数并可以相等，并且这分解式在不考虑各因子的顺序的情况下是唯一的。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证明可分解性，使用数学归纳法，对于$a=2$时，已经表成一个素数之积了，假定对于小于$a$的正整数都能分解为素数之积，则对于$a$，若它本身是素数，则勿需再分解，若不是素数，则必然可表示为两个比它小的两个因数之乘积，根据归纳假设，这两个因数均能分解为素数之积，把这两个因式的分解式合起来，就是$a$的分解式，这就是证明了$a$也能表为素数之积。
+
+  再证明分解式的唯一性，设$a$还有另一种素数分解
+  \[ a=q_1q_2 \cdots q_m \]
+  其中诸$q_i$也是素数，则有
+  \[ p_1p_2 \cdots p_n = q_1q_2 \cdots q_m \]
+  则每一个$p_i$都能整除诸$q_i$之积，由素数性质，它必然能整除$q_i$中的某一个，比如说是$q_s$，但$q_i$本身是素数，除1及自身之外没有其它因数，所以只能$p_i=q_s$，这就是说，左边每一个$p$都必然等于右边的某个$q$，同理，右边的每个$q$也必然等于左边的某个$p$，但此时还不能断定左右两个分解式是相同的，因为分解式中允许有相同的素数重复出现的情况，我们还必须证明相同素数出现的重复次数也相同，设某个素数$r$在两个分解式中分解出现$s$次和$t$次，则$r^s$能够整除诸$q_i$之积，由\autoref{theorem:two-group-prime-without-repeat-prime-each-other}，有$r^s$与$q_i$之积中除去$r^t$之外的各项乘积是互素的，所以只能$r^s \mid r^t$，同理有$r^t \mid r^s$，所以$s=t$，这就证明了结论。
+\end{proof}
+
+对于任意正整数$a$，在它的分解式中把相同的素数写成幂的形式，就得出如下的 \emph{标准分解式}:
+\[ a = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_m}, \  \alpha_i > 0 (i=1,2,\ldots m) \]
+在讨论两个乃至多个正整数时，可以把只出现在其中某个正整数的分解式中的素数也合并到别的数的分解式中去并标以零次，这通常对于讨论问题是有用的，这样对于两个数$a$和$b$，就有分解式
+\[ a = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_n}, \  \alpha_i \geqslant 0 (i=1,2,\ldots n) \]
+和
+\[ b = p_1^{\beta_1}p_2^{\beta_2} \cdots p_n^{\beta_n}, \  \beta_i \geqslant 0 (i=1,2,\ldots n) \]
+
+在此分解式基础上，有如下的重磅结论:
+\begin{theorem}
+  \label{theorem:integer-division-with-prime-decompose}
+  设两个正整数$a$和$b$有分解式
+\[ a = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_n}, \  \alpha_i \geqslant 0 (i=1,2,\ldots n) \]
+和
+\[ b = p_1^{\beta_1}p_2^{\beta_2} \cdots p_n^{\beta_n}, \  \beta_i \geqslant 0 (i=1,2,\ldots n) \]
+  则$a \mid b$的充分必要条件是$\alpha_i \leqslant \beta_i(i=1,2,\ldots,n)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  充分性是显然的，只证必要性，由$a \mid b$知$p_i^{\alpha_i} \mid b$，但根据\autoref{theorem:two-group-prime-without-repeat-prime-each-other}，$p_i^{alpha_i}$与$b$的分解式中除$p_i^{\beta_i}$以外的那部分子乘积是互素的，所以必然$p_i^{\alpha_i} \mid p_i^{\beta_i}$，因此$\alpha_i \leqslant \beta_i(i=1,2,\ldots,n)$.
+\end{proof}
+
+由此得
+\begin{inference}
+  设$a$的标准分解式为
+\[ a = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_m}, \  \alpha_i > 0 (i=1,2,\ldots m) \]
+则$a$的所有因式都具有形式
+\[ d = p_1^{\beta_1}p_2^{\beta_2} \cdots p_m^{\beta_m}, \  0 \leqslant \beta_i \leqslant \alpha_i (i=1,2,\ldots m) \]
+\end{inference}
+
+进一步可得
+\begin{theorem}
+  仍设两个正整数$a$和$b$有分解式
+\[ a = p_1^{\alpha_1}p_2^{\alpha_2} \cdots p_m^{\alpha_n}, \  \alpha_i \geqslant 0 (i=1,2,\ldots n) \]
+和
+\[ b = p_1^{\beta_1}p_2^{\beta_2} \cdots p_n^{\beta_n}, \  \beta_i \geqslant 0 (i=1,2,\ldots n) \]
+则它俩的最大公因数和最小公倍数分别是
+\[ (a,b) = p_1^{\gamma_1}p_2^{\gamma_2} \cdots p_m^{\gamma_n}, \  \gamma_i=\min\{\alpha_i,\beta_i\} (i=1,2,\ldots n) \]
+和
+\[ [a,b] = p_1^{\delta_1}p_2^{\delta_2} \cdots p_m^{\delta_n}, \  \delta_i=\max\{\alpha_i,\beta_i\} (i=1,2,\ldots n) \]
+\end{theorem}
+
+这几个定理和推论，利用素数分解把整除理论推上了巅峰，提示了整除性的本质，而这一切的基础，正是整数的素数分解，正是基于此理由，素数分解定理才被称为算术基本定理。
 
 \subsection{高斯函数}
 \label{sec:gauss-function}
