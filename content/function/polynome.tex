@@ -19,6 +19,12 @@
   设$\pi$是一个无理数，则定义数集 $A_{\pi} = \{x|x=a+b\pi,a,b\in Q\}$，这里$Q$是有理数集，易证这是一个数域，其中除了有理数外，还包含一些无理数，这些无理数都跟一个确定的无理数$\pi$有关，这个数集可以称为是由无理数$\pi$生成的 \emph{最小数域}，这类数域在构造某些特例时是有用的。
 \end{example}
 
+\begin{definition}
+  系数都在某个数域$P$中的多项式$f(x)$称为数域$P$上的多项式。
+\end{definition}
+
+本节所讨论的多项式都是针对某个数域$P$上的多项式而言的，在无特别说明时，这个数域$P$可以是任何数域，当然把它单单理解为实数集和复数集，对结论也没有什么影响。
+
 \subsection{一元多项式}
 \label{sec:polynome-with-one-variable}
 
@@ -183,6 +189,7 @@
 \end{proof}
 
 \begin{theorem}
+  \label{theorem:f-prime-g-and-f-mid-gh-so-f-mid-h}
   如果$(f(x),g(x))=1$，且$f(x) \mid g(x)h(x)$，则$f(x) \mid h(x)$.
 \end{theorem}
 
@@ -274,7 +281,96 @@
 \subsection{因式分解定理}
 \label{sec:factoring-theorem}
 
-(包含复系数与实系数多项式的因式分解)
+把一个多项式写成它的因式的乘积叫做 \emph{因式分解}.
+
+\begin{definition}
+  如果数域$P$上一个多项式不能被分解成同一数域上的两个比它次数低的多项式的乘积，则称它是一个 \emph{不可约多项式}，或者说该多项式在数域$P$上\emph{不可约}.
+\end{definition}
+
+按定义，不可约多项式的因式只有1与它本身(不考虑常数因子)。
+
+一个多项式是否是不可约多项式与所讨论的数论有关，比如多项式$x^4-4$在有理数域上可以被分解为$(x^2-2)(x^2+2)$，这两个因子都是有理数域上的不可约多项式，但在实数域上可以进一步分解为
+\[ (x-\sqrt{2})(x+\sqrt{2})(x^2+2) \]
+这些因子都是实数域上的不可约多项式，而在复数域上则还能被继续分解为
+\[ (x-\sqrt{2})(x+\sqrt{2})(x-\sqrt{2}i)(x+\sqrt{2}i) \]
+所以，关于一个多项式还能不能被继续分解，只有在指定了数域后才有意义。
+
+不可约多项式在多项式整除理论中的作用，与整数的整除理论中素数的作用类似。
+
+\begin{theorem}
+  设$f(x)$是数域$P$上的不可约多项式，$g(x)$是该数域上的任一多项式，则要么$f(x) \mid g(x)$，要么$(f(x), g(x))=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+  设$d(x) = (f(x), g(x))$，则由于$f(x)$不可约，$d(x)$作为$f(x)$的因式，要么是1，要么便是$f(x)$自身，如果是前者，则$(f(x),g(x))=1$，如果是后者，则$f(x) \mid g(x)$.
+\end{proof}
+
+\begin{inference}
+  设$f(x)$为不可约多项式，如果$f(x) \mid g(x)h(x)$，则$f(x) \mid g(x)$或者$f(x) \mid h(x)$.
+\end{inference}
+
+\begin{proof}[证明]
+  如果$f(x) \mid g(x)$，自然结论成立，若是$f(x)$不能整除$g(x)$，由$f(x)$不可约，则只能$(f(x), g(x))=1$，于是按照\autoref{theorem:f-prime-g-and-f-mid-gh-so-f-mid-h}就有$f(x) \mid h(x)$，即得证。
+\end{proof}
+
+利用数学归纳法，这结论可以推广到多个数的情形
+\begin{inference}
+  如果$f(x)$是不可约多项式，且$f(x) \mid g_1(x)g_2(x) \cdots g_n(x)$，则$f(x)$必定整除诸$g_i(x)$中至少一个。
+\end{inference}
+
+如果一个多项式不是不可约多项式，则它可以表为两个次数较低的多项式之积，若这两个多项式还有不可约的，则再继续进行分解，由于每一次分解都会降低某一因式的次数，所以这个过程不可能无限的进行下去，直到所有因式都成为不可约多项式为止，于是我们得到以下重要的结果
+
+\begin{theorem}[多项式因式分解定理]
+  数域$P$上的任一非零多项式$f(x)$都可以被分解为同一数域上的一些不可约多项式的乘积
+  \[ f(x) = p_1(x)p_2(x) \cdots p_n(x) \]
+  并且此分解在不考虑常数因式及各因式的顺序的情况下是唯一的。
+\end{theorem}
+
+\begin{proof}[证明]
+  先证分解式的存在性，对多项式$f(x)$的次数作归纳，如果$f(x)$的次数为一，结论是显然的，因为一次多项式在任何数域上都是不可约的，假定任何次数小于$n$的多项式都能被分解为一些次数更低的不可约多项式之积，则对于任一次数为$n$的多项式$f(x)$，如果它本身就是不可约的，则结论显然是成立的，如果它不是不可约的，则它能被分解为两个次数低于$n$的因式之积，按照归纳假设，这两个因式都能被分解，于是把这两个因式的分解式合并起来，就得到$f(x)$的分解式。
+
+  再证分解式的唯一性，设$f(x)$同时还有如下的分解
+  \[ f(x) = q_1(x)q_2(x) \cdots q_m(x) \]
+  其中$q_i(x)$都是数域$P$上的不可约多项式，则有
+  \[ p_1(x)p_2(x) \cdots p_n(x) = q_1(x)q_2(x) \cdots q_m(x) \]
+  由于左边每一个$p_i(x)$都能整除右边，而$p_i(x)$不可约，于是必定能整除某个$q_j(x)$，但是$q_j(x)$也是不可约的，所以只能$p_i(x) = c q_j(x)$，即在允许相差一个常数因子的意义下是相等的，于是左边每一个$p_i(x)$都能与右边的某个$q_j(x)$对应上，同理右边每一个$q_i(x)$也能与左边某一个$p_j(x)$对应上，但这还不能说明左右两边是相同的，还必须证明在等式的两边，每一个不可约多项式(相差常数因子的视为相同)重复出现的次数出是一样的。假定某个不可约多项式$h(x)$在左右两边重复出现的次数分别是$s$和$t$，则$h^s(x)$能整除右边，根据\autoref{two-group-polynome-product-prime}知，$h^s(x)$与右边除去$h^t(x)$之外的部分积是互素的，于是必然有$h^s(x) \mid h^t(x)$，同理也有$h^t(x) \mid h^s(x)$，因而只能$s=t$，所以这两个分解式是一样的。
+\end{proof}
+
+在定理的分解式中，把每一个因式的最高次项系数都提出来，然后把相同的因式写成幂的形式，就得到如下的 \emph{标准分解式}:
+\[ f(x)=c p_1^{\alpha_1}(x)p_2^{\alpha_2}(x) \cdots p_n^{\alpha_n}(x), \  \alpha_i>0 (i=1,2,\ldots,n) \]
+
+对于两个多项式，把它们的分解式中出现的因式都并起来，原来并不出现的因式标之以零次幂，则得到如下的表示
+\[ f(x)=c p_1^{\alpha_1}(x)p_2^{\alpha_2}(x) \cdots p_n^{\alpha_n}(x), \  \alpha_i \geqslant 0 (i=1,2,\ldots,n) \]
+和
+\[ g(x)=d p_1^{\beta_1}(x)p_2^{\beta_2}(x) \cdots p_n^{\beta_n}(x), \  \beta_i \geqslant 0 (i=1,2,\ldots,n) \]
+在此基础上，可导出如下一些重要结论:
+
+\begin{theorem}
+  设两个多项式$f(x)$与$g(x)$有如上分解式，则$f(x) \mid g(x)$的充分必要条件是$\alpha_i \leqslant \beta_i(i=1,2,\ldots,n)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  充分性显然，只证必要性，如果$f(x) \mid g(x)$，则$p_i^{\alpha_i}(x) \mid g(x)$，而根据\autoref{two-group-polynome-product-prime}，有$p_i^{\alpha_i}(x)$与$g(x)$分解式中除$p_i^{\beta_i}(x)$以外剩余的部分是互素的，所以$p_i^{\alpha_i}(x) \mid p_i^{\beta_i}(x)$，所以$\alpha_i \leqslant \beta_i$.
+\end{proof}
+
+因为$f(x)$能被它的因式整除，所以由上述定理便得到
+\begin{theorem}
+  设多项式$f(x)$的标准分解式为
+\[ f(x)=c p_1^{\alpha_1}(x)p_2^{\alpha_2}(x) \cdots p_n^{\alpha_n}(x), \  \alpha_i>0 (i=1,2,\ldots,n) \]
+则它的所有因式都具有形式
+\[ d(x)=d p_1^{\beta_1}(x)p_2^{\beta_2}(x) \cdots p_n^{\beta_n}(x), \  0 \leqslant \beta_i \leqslant \alpha_i (i=1,2,\ldots,n) \]
+\end{theorem}
+
+进一步便可得出
+\begin{theorem}
+  设$f(x)$和$g(x)$具有标准分解式
+\[ f(x)=c p_1^{\alpha_1}(x)p_2^{\alpha_2}(x) \cdots p_n^{\alpha_n}(x), \  \alpha_i \geqslant 0 (i=1,2,\ldots,n) \]
+和
+\[ g(x)=d p_1^{\beta_1}(x)p_2^{\beta_2}(x) \cdots p_n^{\beta_n}(x), \  \beta_i \geqslant 0 (i=1,2,\ldots,n) \]
+则它俩的最大公因式是
+\[ d(x)= p_1^{\gamma_1}(x)p_2^{\gamma_2}(x) \cdots p_n^{\gamma_n}(x), \  \gamma_i=\min\{\alpha_i,\beta_i\} (i=1,2,\ldots,n) \]
+\end{theorem}
+
 
 \subsection{重因式}
 \label{sec:mulitple-factor}
