@@ -192,6 +192,16 @@
   把等式$s_1a+t_1b=1$和$s_2a+t_2c=1$相乘，得$(s_1s_2a+s_1c+s_2b)a+t_1t_2bc=1$，即知$(a,bc)=1$.
 \end{proof}
 
+这个推论还可以推广为下述的定理
+\begin{theorem}
+  \label{theorem:two-group-prime-without-repeat-prime-each-other}
+  若$a=p_1p_2 \cdots p_n$，$b=q_1q_2 \cdots q_m$，且对于任意$i$和$j$都有$(p_i,q_j)=1$，那么$(a,b)=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+ 由$(p_i,q_j)=1$，根据\autoref{inference:a-prime-b-and-a-prime-c-so-a-prime-bc}便知$(p_i, b)=1(i=1,2,\ldots,n)$，进一步便有$(a,b)=1$.
+\end{proof}
+
 \begin{theorem}
   如果$(a,b)=1$，$n$是一个正整数，则$(a,b^n)=1$.
 \end{theorem}
@@ -308,23 +318,13 @@
 \end{inference}
 
 \begin{proof}[证明]
-  若$p \mid a$则结论成立，而$p \nmid a$时，由\autoref{theorem:prime-with-any-integer-relatio}知$(p,a)=1$，此时由\autoref{inference:a-prime-b-and-a-mid-bc-so-a-mid-c}知必有$p \mid b$，得证。
+  若$p \mid a$则结论成立，而$p \nmid a$时，由\autoref{theorem:prime-with-any-integer-relation}知$(p,a)=1$，此时由\autoref{inference:a-prime-b-and-a-mid-bc-so-a-mid-c}知必有$p \mid b$，得证。
 \end{proof}
 
 利用归纳法，这结论可以推广到多个数的情形:
 \begin{inference}
   设$p$为一素数，如果$p \mid a_1a_2\cdots a_n$，则$p$必能整除诸$a_i$中至少一个。
 \end{inference}
-
-提一个关于素数的有用结论:
-\begin{theorem}
-  \label{theorem:two-group-prime-without-repeat-prime-each-other}
-  若$a=p_1p_2 \cdots p_n$，$b=q_1q_2 \cdots q_m$，且诸$p_i(i=1,2,\ldots,n)$及诸$q_j(j=1,2,\ldots,n)$均为素数，并且这两组素数中没有相同的，即不存在$i,j$，使得$p_i=q_j$，那么$(a,b)=1$.
-\end{theorem}
-
-\begin{proof}[证明]
- 证明这个定理的关键就是\autoref{inference:a-prime-b-and-a-prime-c-so-a-prime-bc}，因为由它，由$(p_i,q_j)=1$，便知$(p_i, b)=1(i=1,2,\ldots,n)$，进一步便有$(a,b)=1$.
-\end{proof}
 
 \begin{definition}
   如果一个整数不是素数，则称它为一个 \emph{合数}.
