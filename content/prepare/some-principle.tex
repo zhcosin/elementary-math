@@ -28,10 +28,10 @@
 
   记信件数目是$n$，并把信件和信封依次编号为$1,2,\ldots,n$，信件与所属的信封编号相同。那么要计算所有信件都搭配错误的组装数，可以考虑其反面即至少有一封信件搭配正确的组装数目，再从总数$n!$中减去它即可，根据容斥原理，构造出集合$A_i$表示第$i$封信件搭配正确的组装方案，则$|A_i|=(n-1)!$，那么至少有一封信件搭配正确的方案集合就是这些$A_i$的并集，其数目是
   \begin{eqnarray*}
-      &    \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
-      & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i| \\
-      = & n (n-1)! - C_n^2(n-2)! + C_n^3(n-3)! - \cdots + (-1)^{n+1}C_n^n0! \\
-      = & n!\sum_{i=1}^n(-1)^{i+1}\frac{1}{i!}
+ &  &    \sum_{i=1}^n|A_i|-\sum_{1\leqslant i <j \leqslant n}|A_i \cap A_j|+\sum_{1 \leqslant i <j <k \leqslant n}|A_i\cap A_j \cap A_k| \\
+  &    & -\cdots+(-1)^{n+1}|\cap_{i=1}^nA_i| \\
+   &   = & n (n-1)! - C_n^2(n-2)! + C_n^3(n-3)! - \cdots + (-1)^{n+1}C_n^n0! \\
+    &  = & n!\sum_{i=1}^n(-1)^{i+1}\frac{1}{i!}
   \end{eqnarray*}
   所以从总数$n!$中减去它就得到最后的结果，在$0!=1$的约定下，这结果可以写为:
   \begin{equation}
