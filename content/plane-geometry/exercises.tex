@@ -138,7 +138,7 @@
  若$\triangle ABC$中成立$b+c=2a$，求证$OI \perp AI$，其中$O$和$I$分别表外心和内心。
 \end{exercise}
 
-\begin{proof}[证明]
+\begin{proof}[证明一]
   只需证明$AO^2=OI^2+AI^2$，记外接圆半径和内切圆半径分别为$R$和$r$，由几何关系及欧拉公式有
   \[ AO=R, \  OI^2=R^2-2Rr, \  AI=\frac{r}{\sin{\frac{A}{2}}} \]
   以上三式代入勾股式后知只需证
@@ -148,6 +148,11 @@
   和
   \[ r=\frac{1}{2}(b+c-a)\tan{\frac{A}{2}}=\frac{1}{2}a\tan{\frac{A}{2}} \]
   由此二式便知要证的等式成立。
+\end{proof}
+
+\begin{proof}[证明二](魏子豪)
+
+  设角平分线$AI$交$BC$边于$E$，交外接圆于另一点$D$，则易证$AI=2IE$，又$DC:DE=BA:BE=2:1$以及$DC=DI$知$IE=ED$，于是$I$为$AD$中点，于是由垂径定理，$AI \perp AD$.
 \end{proof}
 
 %%% Local Variables:
