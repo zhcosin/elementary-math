@@ -123,7 +123,7 @@
   \[ qS_m(n) = q^2 + 2^mq^3 + \cdots + (n-1)^m q^n + n^m q^{n+1} \]
   两式相减
   \[ (1-q)S_m(n) = q +(2^m-1)q^2 + (3^m-2^m)q^3 + \cdots + (n^m-(n-1)^m)q^m - n^mq^{n+1}  \]
-  而利用下面的公式(它可以由公式\autoref{eq:a-power-n-substract-b-power-n}得出，也可以由二项式定理得出)
+  而利用下面的公式(它可以由\autoref{eq:a-power-n-substract-b-power-n}得出，也可以由二项式定理得出)
   \[ (1+k)^n-k^n = 1+k+k^2 + \cdots + k^{n-1} \]
   上式可化为
   \begin{eqnarray*}
@@ -139,6 +139,7 @@
 \end{example}
 
 \begin{example}[自然数的幂和]
+  \label{example:sum-of-power-of-integer}
   在上面得出了公式
   \[ 1+2+\cdots+n = \frac{1}{2}n(n+1) \]
   现在就来讨论下一般的$S_m(n)=\sum_{i=1}^ni^m$的求和公式，仍然由
@@ -158,6 +159,62 @@
   一般的可以知道，$S_m(n)$是关于$n$的$m+1$次多项式。
 \end{example}
 
+\subsection{差分与高阶等差数列}
+\label{sec:difference-and-high-level-common-difference-sequence}
+
+\begin{definition}
+  对于无穷数列$\ldots,a_{-2},a_{-1},a_0,a_1,a_2,\ldots$，定义它的 \emph{一阶差分数列} 为
+  \[ \Delta a_n = a_n-a_{n-1} \]
+  进一步递归的定义它的$m$阶差分数列是
+  \[ \Delta^ma_n = \Delta^{m-1}a_n - \Delta^{m-1}a_{n-1} \]
+  即$m$阶差分是$m-1$阶差分的差分，这称为 \emph{高阶差分}，为了方便，可以把数列本身看作它自己的 \emph{零阶差分数列}.
+\end{definition}
+
+差分将一个数列变换为另一个数列，这与平方运算把一个数变成另一个数，求导运算把一个函数变成另一个函数没什么差别，所以差分是在数列这种数学对象上的一种运算。
+
+接下来有高阶等差数列的定义
+\begin{definition}
+  如果一个数列$a_n$的$m$阶差分数列是等差数列，则该数列称为 \emph{$m$阶等差数列}.
+\end{definition}
+
+显然等差数列本身即是零阶等差数列，同时，如果一个数列是$m$阶等差数列，则它也必然是$m+1$阶等差数列，$m+2$阶等差数列，等等。
+
+易见
+\begin{theorem}
+  数列$a_n$是$m$阶等差数列的充分必要条件是$\Delta a_n$是$m-1$阶等差数列.
+\end{theorem}
+
+现在讨论一下高阶等差数列的通项问题，先考虑一阶等差数列$a_n$，按定义，它的一阶差分数列是等差数列，于是有
+\[ a_n - a_{n-1} = rn+s \]
+于是对于整数$n$(包括负整数)，就有
+\begin{eqnarray*}
+  a_n & = & a_0 + \sum_{i=1}^n(a_i-a_{i-1}) \\
+      & = &  a_0 + \sum_{i=1}^n(ri+s) \\
+      & = &  a_0 + ns + r\sum_{i=1}^n i \\
+  & = & a_0 + ns + \frac{1}{2}rn(n+1)
+\end{eqnarray*}
+这表明它的通项是关于$n$的二次多项式，再重复同样的过程并利用自然数的幂和公式(\autoref{example:sum-of-power-of-integer})便可得出二阶等差数列的通项是关于$n$的三次多项式，如此等等，于是得出如下重要结果
+\begin{theorem}
+  无穷数列$\ldots,a_{-2},a_{-1},a_0,a_1$是$m$阶等差数列的充分必要条件是，它的通项能表成关于下标的$m+1$次多项式.
+\end{theorem}
+
+\begin{proof}[证明]
+  对$m$施行数学归纳法，$m=0$的情况是显然的，假设必要性对于小于$m$的正整数都成立，那么对于一个$m$阶等差数列$a_n$，它的一阶差分数列是$m-1$阶等差数列，因而通项为关于下标的$m$次多项式，于是
+  \[ a_n-a_{n-1} = \sum_{j=0}^m b_jn^j \]
+  累加得
+  \begin{eqnarray*}
+    a_n & = & a_0 + \sum_{i=0}^n(a_i-a_{i-1}) \\
+        & = & a_0 + \sum_{i=0}^n\sum_{j=0}^mb_ji^j \\
+    & = & a_0 + \sum_{j=0}^mb_j\sum_{i=0}^ni^j \\
+  \end{eqnarray*}
+  在\autoref{example:sum-of-power-of-integer}中，我们就已经知道$\sum_{i=1}^ni^j$是$j+1$次多项式，于是$a_n$便是关于$n$的$m+1$次多项式，所以必要性成立.
+
+  再证充分性，同样施行归纳法，如果数列的通项是关于下标的一次多项式，显然它必然是(零阶)等差数列，即$m=0$时充分性成立，假若充分性对于小于$m$的正整数都成立，现在设数列$a_n$的通项是关于$n$的$m+1$次多项式，即
+  \[ a_n = \sum_{i=0}^{m+1}b_in^i \]
+  则它的差分数列
+  \[ a_{n+1}-a_n = \sum_{i=0}^{m+1}b_i((1+n)^i-n^i) \]
+  显然，$n^{m+1}$被抵销，这成为一个次数低于$m+1$的多项式，按归纳假设，这差分数列必然是某一阶的等差数列，且阶数小于$m$，于是原来的数列$a_n$也是某一阶的等差数列，且阶数小于等于$m$，自然也是$m$阶等差数列.
+\end{proof}
 
 \subsection{递推数列的通项}
 
