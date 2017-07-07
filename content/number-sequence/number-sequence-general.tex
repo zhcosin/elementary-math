@@ -288,7 +288,6 @@ a_{n+2}-ra_{n+1}=s(a_{n+1}-ra_n)
 如果方程有两个不相等的根$x_1=r,x_2=s$，那么
 \[ a_n = \frac{a_2-sa_1}{r(r-s)} r^n - \frac{a_2-ra_1}{s(r-s)} s^n \]
 
-
 如果这两个根不相等，则还有另一种求法，因为$r$和$s$都是方程$x^2=px+q$的根，因此既然有\ref{eq:two-level-linear-recurrence-sequence-1}成立，也就必然有
 \begin{equation}
   \label{eq:two-level-linear-recurrence-sequence-2}
@@ -305,9 +304,13 @@ a_{n+2}-sa_{n+1}=r(a_{n+1}-sa_n)
 \[ a_n=c_1r^n+c_2s^n \]
 其中$c_1$和$c_2$是常数，这常数跟$a_1$、$a_2$以及$r$和$s$有关，跟$r$和$s$有关实际上就是跟$p$与$q$有关，可以直接将$a_1$和$a_2$的值代入上式中定出$c_1$和$c_2$，这只需求解一个二元一次方程组就可以了。
 
+而对于有两个等根的情形，通项具有形式
+\[ a_n = (c_1+c_2n)r^n \]
+的情形，同样可以利用待定系数法求出$c_1,c_2$.
+
 更一般的情形是
 \begin{theorem}
-对于线性递推数列$\sum_{k=1}^n\lambda _k a_k=c$，称方程$\sum_{k=1}^n\lambda _k x^k = c$为它的特征方程，在复数范围内这个特征方程必有$n$个根（重根按重数计算），假定这些根是 $x_i(i=1,2,\cdots,m, m \leq n)$，相应根的重数是$r_i(i=1,2,\cdots,m, \sum_{i=1}^mr_i=n)$，则它的通项是：
+对于线性递推数列$\sum_{k=1}^n\lambda_k a_{p+k}=c$，称方程$\sum_{k=1}^n\lambda _k x^k = c$为它的特征方程，在复数范围内这个特征方程必有$n$个根（重根按重数计算），假定这些根是 $x_i(i=1,2,\cdots,m, m \leq n)$，相应根的重数是$r_i(i=1,2,\cdots,m, \sum_{i=1}^mr_i=n)$，则它的通项是：
 \[ a_n=\sum_{i=1}^mP_{r_i-1}(n)x_i^n \]
 上式中$P_{r_i-1}(n)$表示一个关于$n$的次数是$r_i-1$的多项式，如果哪个根是单重根，则它的系数是常数。
 \end{theorem}
@@ -318,6 +321,14 @@ a_{n+2}-sa_{n+1}=r(a_{n+1}-sa_n)
 将$a_1=1$和$a_2=1$带入求出两个系数，最后得：
 \[ a_n= \frac{1}{\sqrt{5}}\left[ \left( \frac{1+\sqrt{5}}{2} \right)^n - \left( \frac{1-\sqrt{5}}{2} \right)^n \right] \]
 令人惊讶的是一个所有项都是正整数的数列，其通项居然出现了无理数，事实上，利用二项定理可以证明，这个表达式将永远是正整数。
+\end{example}
+
+\begin{example}
+  讨论数列$a_1=1,a_2=1$，而以后的项由$a_{n+2}=a_{n+1}-a_n$决定，其特征方程是$x^2=x-1$，方程在复数范围内有两个根
+  \[ \alpha = \frac{1+\sqrt{3}i}{2}, \  \beta = \frac{-1+\sqrt{3}i}{2} \]
+  通项则有形式$a_n=c_1 \alpha^n + c_2 \beta^n$的形式，将$a_1$和$a_2$的值代入通项定出$c_1$和$c_2$后得
+  \[ a_n = \frac{1}{\sqrt{3}i} \left( \frac{1+\sqrt{3}i}{2} \right)^{n} - \frac{1}{\sqrt{3}i} \left( \frac{-1+\sqrt{3}i}{2} \right)^n \]
+ 这时的通项，就不得不借助复数来表达了，实际上这还是一个周期数列。
 \end{example}
 
 \begin{example}
