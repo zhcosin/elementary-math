@@ -32,6 +32,12 @@
   对于空间中的多个向量，如果通过平移使得它们的起点相同时，起点与所有的终在同一平面内，则称这些向量是\emph{共面向量}。否则便称它们不共面。
 \end{definition}
 
+对于两个向量，还可以引入夹角概念:
+\begin{definition}
+  通过平移使得两个向量$\bm{\alpha}$和$\bm{\beta}$起点相同，此时两个向量所在两条射线的夹角便称为这两个向量的 \emph{夹角}，记作$<\bm{\alpha},\bm{\beta}>$，其取值范围是$[0,\dfrac{\pi}{2}]$.
+\end{definition}
+
+显然，两个共线向量的夹角是0或者$\pi$(不考虑零向量)。
 
 \begin{definition}
 两个向量可以进行相加，通过平移使得第二个向量的起点与第一个向量的终点重合，这时由第一个向量的起点为起点并以第二个向量的终点为终点的向量，便称为这两个向量的和，即$\vv{AB}+\vv{BC}=\vv{AC}$.
@@ -67,10 +73,9 @@
 
 不难看出，对于两个向量构成的平行四边形中，两条对角形所代表的向量，便分别是它们的和与差所代表的向量，后文将由此得出一个平行四边形的性质，显然，两个向量的和向量与差向量，与原来的两个向量共面。
 
-\subsection{向量的分解定理}
-\label{sec:decompose-of-vector}
+而对于空间中的三个向量相加，很容易把平行四边形法则推广为平行六面体法则，即让三个向量的起点相同，以这三个向量为邻边作平行六面体，则以共同起点到对角顶点的向量就代表它们的和向量。
 
-首先容易得出向量的共线定理
+关于向量共线的一条重要结果是
 \begin{theorem}[向量共线定理]
   \label{theorem:collinear-vector}
   向量$\bm{\alpha}$与非零向量$\bm{\beta}$共线的充分必要条件是存在唯一实数$\lambda$，使得$\bm{\alpha}=\lambda \bm{\beta}$.
@@ -80,6 +85,9 @@
  充分性可由实数与向量乘法的定义得到，下证必要性，若向量$\bm{\alpha}$与非零向量$\bm{\beta}$共线，如果$\bm{\alpha}$为零向量，则$\lambda=0$就符合要求，在$\bm{\alpha}$为非零向量的情况下，根据共线的定义，$\bm{\alpha}$与$\bm{\beta}$的方向相同或相反，取实数$\lambda$满足$|\lambda| = \dfrac{|\alpha|}{|\beta|}$，并根据方向相反还是相反来取定其符号，则显然有$\bm{\alpha} = \lambda \bm{\beta}$，又若还存在另一实数$\mu$使得$\bm{\alpha}=\mu \bm{\beta}$，则有$(\lambda - \mu)\bm{\beta}=\bm{0}$，而$\bm{\beta}$是非零向量，根据数与向量的乘法定义，这必须$\lambda=\mu$。
 \end{proof}
 
+
+\subsection{向量的分解定理}
+\label{sec:decompose-of-vector}
 对于三个共面向量$\bm{\alpha}$,$\bm{\beta}$,$\bm{\gamma}$，通过平移使它们的起点重合，并记共同起点为$O$以及$\vv{OA}=\bm{\alpha}$,$\vv{OB}=\bm{\beta}$,$\vv{OC}=\bm{\gamma}$，若$\bm{\alpha}$与$\bm{\beta}$不共线，则过$\bm{\gamma}$的终点$C$分别作直线$OB$与$OA$的平行线，分别与直线$OA$及$OB$相交于$M$和$N$，则显然$\vv{OM}$与$\bm{\alpha}$共线，$\vv{ON}$与$\bm{\beta}$共线，于是由\autoref{theorem:collinear-vector}，存在唯一的一对实数$(\lambda,\mu)$，使得$\vv{OM}=\lambda \bm{\alpha}$以及$\vv{ON}=\mu \bm{\beta}$，于是$\bm{\gamma}=\vv{OM}+\vv{ON}=\lambda \bm{\alpha} + \mu \bm{\beta}$，这便得出如下的共面向量分解定理
 \begin{theorem}[共面向量分解定理]
   \label{theorem:coplanar-vector}
@@ -103,6 +111,92 @@
 
   若是还存在另一组实数$u$、$v$、$w$使得$\bm{\delta} = u \bm{\alpha} + v \bm{\beta} + w \bm{\gamma}$，则有$(\lambda-u)\bm{\alpha}+(\mu-v)\bm{\beta}+(\nu-w)\bm{\gamma}=0$，若是$\lambda \neq u$，便得出$\bm{\alpha}$与$\bm{\beta}$、$\bm{\gamma}$共面，这与定理条件矛盾，所以$\lambda = u$，进一步类似的方法得出$\mu =v$和$\nu=w$.
 \end{proof}
+
+
+\subsection{向量的坐标表示}
+\label{sec:codrnation-of-vector}
+
+在空间直角坐标系下，通过平移使得向量$\bm{\alpha}$的起点与坐标原点$O$重合，这时向量便由终点$A$所唯一确定，于是建立起向量与空间中的点之间的一一映射关系，在此情境下，把终点的坐标$(x,y,z)$称为向量的坐标，即$\bm{\alpha}=(x,y,z)$，于是向量与与三维坐标建立起一一映射关系，于是坐标原点就代表零向量，零向量的坐标是$(0,0,0)$，这时向量$\bm{\alpha}$的长度就是终点到原点的距离$|\bm{\alpha}| = \sqrt{x^2+y^2+z^2}$.
+
+显然，若两个向量相等，则它俩坐标相等。
+
+根据向量加法的三角形法则和与实数相乘的意义，可以验证，若$\bm{\alpha}=(x_1,y_1,z_1)$，$\bm{\beta}=(x_2,y_2,z_2)$，则
+\begin{eqnarray*}
+  \bm{\alpha} \pm \bm{\beta} & = & (x_1 \pm x_2, y_1 \pm y_2, z_1 \pm z_2) \\
+  \lambda \bm{\alpha} & = & (\lambda x_1, \lambda y_1, \lambda z_1)
+\end{eqnarray*}
+
+于是向量$\bm{\alpha}=(x,y,z)$的相反向量是$-\bm{\alpha}=(-x,-y,-z)$.
+
+再设$\bm{\alpha}=\vv{OA}=(x_1,y_1,z_1)$，$\bm{\beta}=\vv{OB}=(x_2,y_2,z_2)$，在$\triangle OAB$中应用余弦定理可以求出
+\[ \cos{<\bm{\alpha},\bm{\beta}>} = \frac{x_1x_2+y_1y_2+z_1z_2}{\sqrt{x_1^2+y_1^2+z_1^2} \sqrt{x_2^2+y_2^2+z_2^2}} \]
+这便是两个向量的夹角公式.
+
+以上所有讨论只要去除竖坐标$z$，便是平面向量的对应表达，因此不再单独写出来了。
+
+关于共线向量的结果则是
+\begin{theorem}
+  \label{theorem:collinear-vector-codrnation}
+  向量$\bm{\alpha}=(x_1,y_1,z_1)$与向量$\bm{\beta}=(x_2,y_2,z_2)$共线的充分必要条件是$\dfrac{x_1}{x_2}=\dfrac{y_1}{y_2}=\dfrac{z_1}{z_2}$(分母为零时，约定分子也为零，此时也视为等式成立).
+\end{theorem}
+
+\begin{proof}[证明]
+ 若$\bm{\beta}$是零向量，结论显然成立，在$\bm{\beta}$非零时，根据\autoref{theorem:collinear-vector}，两个向量共线的充分必要条件是存在唯一实数$\lambda$，使$\bm{\alpha} = \lambda \bm{\beta}$，于是$x_1=\lambda x_2$,$y_1 = \lambda y_2$,$z_2=\lambda z_2$，所以定理中等式成立。反之，若有定理中等式成立，记比值为$\lambda$，则显然就有$\bm{\alpha}=\lambda \bm{\beta}$，因此充分性也成立。
+\end{proof}
+
+而对于向量共面，坐标形式的结论是
+\begin{theorem}
+  空间中的三个向量$\bm{\alpha}=(x_1,y_1,z_1)$，$\bm{x_2,y_2,z_2}$，$\bm{\gamma}=(x_3,y_3,z_3)$共面的充分必要条件是
+\[
+  \begin{vmatrix}
+    x_1 & x_2 & x_3\\
+    y_1 & y_2 & y_3 \\
+    z_1 & z_2 & z_3 
+  \end{vmatrix}
+  = 0
+\]
+\end{theorem}
+
+\begin{proof}[证明]
+假定$\bm{\alpha}$与$\bm{\beta}$不共线，则$\bm{\gamma}$能与前述两个向量共面的充分必要条件是存在唯一一对实数$\lambda$、$\mu$，使得$\gamma=\lambda \bm{\alpha} + \mu \bm{\beta}$，于是三元一次齐次方程组
+\[
+  \left\{
+    \begin{array}{lll}
+      \lambda x_1 + \mu x_2 - x_3 = 0  \\
+      \lambda y_1 + \mu y_2 - y_3 = 0 \\
+      \lambda z_1 + \mu z_2 - z_3 = 0
+    \end{array}
+    \right.
+\]
+有非零解$(\lambda, \mu, -1)$，因而
+\[
+  \begin{vmatrix}
+    x_1 & x_2 & x_3\\
+    y_1 & y_2 & y_3 \\
+    z_1 & z_2 & z_3 
+  \end{vmatrix}
+  = 0
+\]
+
+反之，由定理中的行列式为零，知方程组
+\[
+  \left\{
+    \begin{array}{lll}
+      \lambda x_1 + \mu x_2 + \nu x_3 = 0  \\
+      \lambda y_1 + \mu y_2 + \nu y_3 = 0 \\
+      \lambda z_1 + \mu z_2 + \nu z_3 = 0
+    \end{array}
+    \right.
+\]
+有非零解$(\lambda, \mu, \nu)$，不妨设$\nu \neq 0$，于是$\bm{\gamma} = -\dfrac{\lambda}{\nu} \bm{\alpha} - \dfrac{\mu}{\nu} \bm{\beta}$，于是三个向量共面。
+\end{proof}
+
+由此可见，向量的共线、共面等特性与线性方程组理论有着千丝万缕的联系，这在线性代数中有更一般性的结论。
+
+\subsection{内积与外积、混合积}
+\label{sec:product-of-vector}
+
+
 
 \subsection{定比分点}
 \label{sec:definition-proportion}
