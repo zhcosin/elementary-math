@@ -2,9 +2,107 @@
 \section{向量}
 \label{sec:vector}
 
-向量是在直线上的有向线段的基础上发展起来的现代化的数学工具，在处理一些几何问题时往往会有事半功倍的功效。
+\subsection{向量概念及运算}
+\label{sec:vector-and-its-operation}
 
-向量的基础概念包含向量的共线，三角形法则和平行四边形法则，向量的分解定理和定比分点，内积与外积等。
+
+物理学上有一类物理量，不但有大小，还有方向，例如力、位移、动量，它们有一些共同的运算法则，在数学上解决一些几何问题时，引入带正负符号的线段，有时更是引入有向线段也会使问题更易于表达，在此基础上抽象出一个数学模型便称为向量。
+
+\begin{definition}
+  既有大小也有方向的量称为 \emph{向量}，也称为 \emph{矢量}，向量的大小也称为它的\emph{模}。
+\end{definition}
+
+向量可以用有向线段来表示，此时有向线段的长度就代表它的大小，它的方向就代表向量的方向，向量用粗体符号$\bm \alpha, \bm \beta, \bm \gamma, \ldots$来表示，手写体可以用带箭头的字母来表示$\vv{a}, \vv{b},\vv{c},\ldots$，在用有向线段表示时，也用它的起点和终点表示成$\vv{AB}$，其中$A$是有向线段的起点，而$B$是有向线段的终点。
+
+向量没有位置的概念，把一个有向线段的起点和终点移动到任何别的地方，只要新的有向线段的长度与原来相等，而方向与原来相同，则两个有向量线段代表的是同一个向量。今后对有向线段和向量不进行严格区分。
+
+向量的模借用绝对值记号，如$|\bm \alpha|,|\vv{a}|,|\vv{AB}|$.
+
+\begin{definition}
+大小为零的向量称为\emph{零向量}，记作$\bm{0}$，零向量的方向没有实际意义，在具体问题中可以作灵活约定。
+\end{definition}
+
+\begin{definition}
+  方向相同或相反的向量称为 \emph{共线向量}，约定零向量与任意向量共线. 如果两个向量的大小相等，方向相同，则称这两个向量相等。大小相同，方向相反的两个向量互为\emph{相反向量}.
+\end{definition}
+
+注意共线向量只是就两个向量的方向而言，并不是说代表两个向量的两个有向线段在同一直线上，当然，同一直线上的两个有向线段代表的两个向量必然共线。
+
+\begin{definition}
+  对于空间中的多个向量，如果通过平移使得它们的起点相同时，起点与所有的终在同一平面内，则称这些向量是\emph{共面向量}。否则便称它们不共面。
+\end{definition}
+
+
+\begin{definition}
+两个向量可以进行相加，通过平移使得第二个向量的起点与第一个向量的终点重合，这时由第一个向量的起点为起点并以第二个向量的终点为终点的向量，便称为这两个向量的和，即$\vv{AB}+\vv{BC}=\vv{AC}$.
+\end{definition}
+
+将这法则用有向线段画出来，便是一个三角形，所以这个定义称为向量加法的三角形法则，向量加法也可以使用平行四边形法则，即让两个向量的起点重合，以这两个有向线段为邻边作平行四边形(若两个向量是共线的，则这是一个压扁退化的平行四边形)，则由共同的起点指向平行四边形另一对角顶点所得向量即代表它俩的和，显然这与三角形法则是等价的。
+
+不难验证，向量加法符合交换律和结合律，即
+\begin{eqnarray*}
+  \bm{\alpha} + \bm{\beta} & = & \bm{\beta}+\bm{\alpha} \\
+  ( \bm{\alpha} + \bm{\beta} ) + \bm{\gamma} & = & \alpha + (\bm{\beta} + \bm{\gamma})
+\end{eqnarray*}
+
+类比于数，将$\bm{\alpha}+\bm{\alpha}$记为$2\bm{\alpha}$，由此引出实数与向量的乘法运算，这运算定义如下
+\begin{definition}
+  实数$\lambda$与向量$\bm{\alpha}$的乘积也是一个向量，记为$\lambda \bm{\alpha}$，它的大小是$|\lambda \bm{\alpha}| = |\lambda| |\bm{\alpha}|$，它的方向在$\lambda>0$的情况下与$\bm{\alpha}$相同，在$\lambda<0$的情况下与$\bm{\alpha}$相反，在$\lambda=0$时，$0\bm{\alpha} = \bm{0}$是零向量。
+\end{definition}
+
+由定义，一个向量$\bm{\alpha}$的相反向量是$(-1)\bm{\alpha}$，简记为$-\bm{\alpha}$，即$\bm{\alpha}+(-\bm{\alpha})=\bm{0}$.
+
+不难得到，数与向量的乘法运算满足两种形式的分配律
+\begin{eqnarray*}
+  (\lambda + \mu) \bm{\alpha} & = & \lambda \bm{\alpha} + \mu \bm{\alpha} \\
+  \lambda (\bm{\alpha} + \bm{\beta}) & = & \lambda \bm{\alpha} + \lambda \bm{\beta}
+\end{eqnarray*}
+
+在此基础上可以定义向量的减法
+\begin{definition}
+  向量$\bm{\alpha}$与向量$\bm{\beta}$的差定义为向量$\bm{\alpha}$与向量$\bm{\beta}$的相反向量相加，即$\bm{\alpha}-\bm{\beta}=\bm{\alpha}+(-\bm{\beta})$.
+\end{definition}
+
+向量减法也有明确的几何意义，因为$\vv{AB}-\vv{AC}=\vv{AB}+(-\vv{AC})=\vv{AB}+\vv{CA}=\vv{CA}+\vv{AB}=\vv{CB}$，因此，只要让两个向量的起点重合，由减向量的终点指向被减向量的终点所得向量即是它们的差，这就是向量减法的三角形法则，显然，任意向量减去它自身，所得差为零向量。
+
+不难看出，对于两个向量构成的平行四边形中，两条对角形所代表的向量，便分别是它们的和与差所代表的向量，后文将由此得出一个平行四边形的性质，显然，两个向量的和向量与差向量，与原来的两个向量共面。
+
+\subsection{向量的分解定理}
+\label{sec:decompose-of-vector}
+
+首先容易得出向量的共线定理
+\begin{theorem}[向量共线定理]
+  \label{theorem:collinear-vector}
+  向量$\bm{\alpha}$与非零向量$\bm{\beta}$共线的充分必要条件是存在唯一实数$\lambda$，使得$\bm{\alpha}=\lambda \bm{\beta}$.
+\end{theorem}
+
+\begin{proof}[证明]
+ 充分性可由实数与向量乘法的定义得到，下证必要性，若向量$\bm{\alpha}$与非零向量$\bm{\beta}$共线，如果$\bm{\alpha}$为零向量，则$\lambda=0$就符合要求，在$\bm{\alpha}$为非零向量的情况下，根据共线的定义，$\bm{\alpha}$与$\bm{\beta}$的方向相同或相反，取实数$\lambda$满足$|\lambda| = \dfrac{|\alpha|}{|\beta|}$，并根据方向相反还是相反来取定其符号，则显然有$\bm{\alpha} = \lambda \bm{\beta}$，又若还存在另一实数$\mu$使得$\bm{\alpha}=\mu \bm{\beta}$，则有$(\lambda - \mu)\bm{\beta}=\bm{0}$，而$\bm{\beta}$是非零向量，根据数与向量的乘法定义，这必须$\lambda=\mu$。
+\end{proof}
+
+对于三个共面向量$\bm{\alpha}$,$\bm{\beta}$,$\bm{\gamma}$，通过平移使它们的起点重合，并记共同起点为$O$以及$\vv{OA}=\bm{\alpha}$,$\vv{OB}=\bm{\beta}$,$\vv{OC}=\bm{\gamma}$，若$\bm{\alpha}$与$\bm{\beta}$不共线，则过$\bm{\gamma}$的终点$C$分别作直线$OB$与$OA$的平行线，分别与直线$OA$及$OB$相交于$M$和$N$，则显然$\vv{OM}$与$\bm{\alpha}$共线，$\vv{ON}$与$\bm{\beta}$共线，于是由\autoref{theorem:collinear-vector}，存在唯一的一对实数$(\lambda,\mu)$，使得$\vv{OM}=\lambda \bm{\alpha}$以及$\vv{ON}=\mu \bm{\beta}$，于是$\bm{\gamma}=\vv{OM}+\vv{ON}=\lambda \bm{\alpha} + \mu \bm{\beta}$，这便得出如下的共面向量分解定理
+\begin{theorem}[共面向量分解定理]
+  \label{theorem:coplanar-vector}
+ 设向量$\bm{\alpha}$与向量$\bm{\beta}$不共线，则对于空间中任一向量$\gamma$，它能与$\bm{\alpha}$、$\bm{\beta}$ 共面的充分必要条件是，存在唯一的一对实数$\lambda$和$\mu$，使得$\bm{\gamma}=\lambda \bm{\alpha} + \mu \bm{\beta}$.
+\end{theorem}
+
+\begin{proof}[证明]
+  对于必要性，其中实数对的存在性已经由上面的推导得出，假若还有另一对实数$u$和$v$使得$\bm{\gamma}=u \bm{\alpha} + v \bm{\beta}$，便有$(\lambda-u)\bm{\alpha}+(\mu-v)\bm{\beta}=\bm{0}$，即$(\lambda-u)\bm{\alpha}=-(\mu-v)\bm{\beta}$，若是$\lambda \neq u$，那么便能得出$\bm{\alpha}$与$\bm{\beta}$共线，定理条件矛盾，因此$\lambda=u$，同时由这等式便有$\mu=v$，因此实数对是唯一的。
+
+  再证充分性，如若$\bm{\gamma}=\lambda \bm{\alpha} + \mu \bm{\beta}$，则显然向量$\lambda \bm{\alpha}$与$\bm{\alpha}$共线，向量$\mu \bm{\beta}$与$\bm{\beta}$共线，于是按平行四边形法则，$\lambda \bm{\alpha}+\mu \bm{\beta}$在$\bm{\alpha}$与$\bm{\beta}$所在平面内。
+\end{proof}
+
+与之相仿的，还有空间向量分解定理
+\begin{theorem}[空间向量分解定理]
+  \label{theorem:space-vector-decompose}
+  设$\bm{\alpha}$、$\bm{\beta}$、$\bm{\gamma}$是空间中三个不共面的向量，则对于空间中任一向量$\bm{\delta}$，存在唯一的实数三元组$(\lambda, \mu, \nu)$，使得$\bm{\delta}=\lambda \bm{\alpha} + \mu \bm{\beta} + \nu \bm{\gamma}$.
+\end{theorem}
+
+\begin{proof}[证明]
+  仍然通过平移使这些向量的起点都是点$O$，记$\bm{\alpha}=\vv{OA}$，$\bm{\beta}=\vv{OB}$，$\bm{\gamma}=\vv{OC}$，$\bm{\delta}=\vv{OD}$，过点$D$作平面$BOC$的平行平面并与直线$OA$相交于$M$，过$D$作平面$COA$的平行平面与$OB$交于$N$，再过$D$作平面$AOB$的平行平面交$OC$于$P$，再以$OM$和$ON$为边作平行四边形$OMQN$，则$\vv{OD}=\vv{OQ}+\vv{QD}$，由\autoref{theorem:coplanar-vector}，存在唯一实数对$\lambda$和$\mu$，使得$\vv{OQ}=\lambda \vv{OA} + \mu \vv{OB}$，而由辅助线作法知新作的三个平面与三个向量两两决定的三个平面决定了一个平行六面体，而$\vv{QD}$与$\vv{OP}$正好是一组对棱，所以$\vv{QD}=\vv{OP}$，而由\autoref{theorem:collinear-vector}，存在唯一实数$\nu$，使得$\vv{OP}=\nu \vv{OC}$，于是$\bm{\delta} = \vv{OD} = \vv{OM}+\vv{ON}+\vv{OD}=\lambda \bm{\alpha} + \mu \bm{\beta} + \nu \bm{\gamma}$，存在性得证。
+
+  若是还存在另一组实数$u$、$v$、$w$使得$\bm{\delta} = u \bm{\alpha} + v \bm{\beta} + w \bm{\gamma}$，则有$(\lambda-u)\bm{\alpha}+(\mu-v)\bm{\beta}+(\nu-w)\bm{\gamma}=0$，若是$\lambda \neq u$，便得出$\bm{\alpha}$与$\bm{\beta}$、$\bm{\gamma}$共面，这与定理条件矛盾，所以$\lambda = u$，进一步类似的方法得出$\mu =v$和$\nu=w$.
+\end{proof}
 
 \subsection{定比分点}
 \label{sec:definition-proportion}
