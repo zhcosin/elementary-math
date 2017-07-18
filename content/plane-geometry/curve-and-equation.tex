@@ -52,17 +52,6 @@
   则称前一方程组是曲线的 \emph{参数方程}，而后一方程组是曲面的 \emph{参数方程}.
 \end{definition}
 
-\subsection{圆和球面的方程}
-\label{sec:equation-of-circle-and-ball}
-
-在平面直角坐标系中，设某圆的圆心坐标坐标是$C(a,b)$，半径为$r$，则对于圆上任一点$P(x,y)$，有$|PC|=r$，即$\sqrt{(x-a)^2+(y-b)^2}=r$，这等价于
-\[ (x-a)^2+(y-b)^2=r^2 \]
-反过来，如果某个点$Q$的坐标满足上述方程，则两边开方就得出$|QC|=r$，即点$Q$必在此圆上，所以这个方程就是以点$(a,b)$为圆心，$r$为半径的圆的方程。
-
-类似的可以得到，空间中以点$C(a,b,c)$为球心，$r$为半径的球面方程是
-\[ (x-a)^2+(y-b)^2+(z-c)^2=r^2 \]
-
-
 \subsection{直线和平面的方程}
 \label{sec:equation-of-line-and-plane}
 
@@ -159,6 +148,43 @@
     \right.
 \]
 这就是平面的 \emph{参数方程}.
+
+\subsection{圆和球面的方程}
+\label{sec:equation-of-circle-and-ball}
+
+在平面直角坐标系中，设某圆的圆心坐标坐标是$C(a,b)$，半径为$r$，则对于圆上任一点$P(x,y)$，有$|PC|=r$，即$\sqrt{(x-a)^2+(y-b)^2}=r$，这等价于
+\[ (x-a)^2+(y-b)^2=r^2 \]
+反过来，如果某个点$Q$的坐标满足上述方程，则两边开方就得出$|QC|=r$，即点$Q$必在此圆上，所以这个方程就是以点$(a,b)$为圆心，$r$为半径的圆的方程。
+
+类似的可以得到，空间中以点$C(a,b,c)$为球心，$r$为半径的球面方程是
+\[ (x-a)^2+(y-b)^2+(z-c)^2=r^2 \]
+
+对于以$C(a,b)$为圆心，$r$为半径的圆，由圆心沿$x$轴正方向所确定的点是$A(a+r,b)$，对圆心上其它任意一点$Q(x,y)$，可以视为由点$A$绕圆心旋转一定的角度$\theta$而得到，于是按三角函数的定义有$\cos{\theta}=\dfrac{x-a}{r},\sin{\theta}=\dfrac{y-b}{r}$，于是得到
+\[ \left\{
+    \begin{array}{lll}
+      x & = & a + r \cos{\theta} \\
+      y & = & b + r \sin{\theta} 
+    \end{array}
+  \right. \]
+这就是圆的 \emph{参数方程}.
+
+再来考虑球面的参数方程，设球心是$C(a,b,c)$，半径为$r$，过球心作$xOy$平面的平行平面$\alpha$，点$A(a+r,b,c)$是该平面与球面交线上的一个点，设$Q(x,y,z)$是球面上任一点，设射线$OQ$与平面$\alpha$的夹角是$\theta$，过点$Q$再作平面$xOy$的平行平面$\beta$，与球面交成一个纬线圈，则点$Q$可由点$A$经过两次旋转而得到，第一次旋转由点$A$出发沿着经线圈旋转一个角度到达点$Q$所在的纬线圈上的点$M$，显然旋转角度就是$\theta$，再由$M$出发沿着该纬线圈旋转一个角度$\varphi$到达点$Q$，于是点$Q$所决定的纬线圈的圆心坐标是$K(a,b,c+r\sin{\theta})$，半径是$r\cos{\theta}$，于是由圆的参数方程有
+\[ \left\{
+    \begin{array}{lll}
+      x_Q & = & x_k + r \cos{\theta}\cos{\varphi}  \\
+      y_Q & = & y_k + r \cos{\theta}\sin{\varphi} \\
+      z_Q & = & z_k
+    \end{array}
+  \right. \]
+于是得出球面的参数方程是
+\[ \left\{
+    \begin{array}{lll}
+      x_Q & = & a + r \cos{\theta}\cos{\varphi}  \\
+      y_Q & = & b + r \cos{\theta}\sin{\varphi} \\
+      z_Q & = & c+r\sin{\theta}
+    \end{array}
+  \right. \]
+
 
 
 %%% Local Variables:
