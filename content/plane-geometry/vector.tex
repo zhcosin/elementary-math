@@ -23,7 +23,7 @@
 \end{definition}
 
 \begin{definition}
-  方向相同或相反的向量称为 \emph{共线向量}，约定零向量与任意向量共线. 如果两个向量的大小相等，方向相同，则称这两个向量相等。大小相同，方向相反的两个向量互为\emph{相反向量}.
+  方向相同或相反的向量称为 \emph{共线向量}，约定零向量与任意向量共线，两个向量$\bm{\alpha}$及$\bm{\beta}$共线记作$\bm{\alpha} \parallel \bm{\beta}$. 如果两个向量的大小相等，方向相同，则称这两个向量相等，记作$\bm{\alpha}=\bm{\beta}$。大小相同，方向相反的两个向量互为\emph{相反向量}.
 \end{definition}
 
 注意共线向量只是就两个向量的方向而言，并不是说代表两个向量的两个有向线段在同一直线上，当然，同一直线上的两个有向线段代表的两个向量必然共线。
@@ -34,7 +34,7 @@
 
 对于两个向量，还可以引入夹角概念:
 \begin{definition}
-  通过平移使得两个向量$\bm{\alpha}$和$\bm{\beta}$起点相同，此时两个向量所在两条射线的夹角便称为这两个向量的 \emph{夹角}，记作$<\bm{\alpha},\bm{\beta}>$，其取值范围是$[0,\dfrac{\pi}{2}]$.
+  通过平移使得两个向量$\bm{\alpha}$和$\bm{\beta}$起点相同，此时两个向量所在两条射线的夹角便称为这两个向量的 \emph{夹角}，记作$<\bm{\alpha},\bm{\beta}>$，其取值范围是$[0,\dfrac{\pi}{2}]$，夹角为直角的两个向量称为互相 \emph{垂直}，记作$\bm{\alpha} \perp \bm{\beta}$.
 \end{definition}
 
 显然，两个共线向量的夹角是0或者$\pi$(不考虑零向量)。
@@ -146,6 +146,7 @@
 
 而对于向量共面，坐标形式的结论是
 \begin{theorem}
+  \label{theorem:coplanear-vector-cordination}
   空间中的三个向量$\bm{\alpha}=(x_1,y_1,z_1)$，$\bm{x_2,y_2,z_2}$，$\bm{\gamma}=(x_3,y_3,z_3)$共面的充分必要条件是
 \[
   \begin{vmatrix}
