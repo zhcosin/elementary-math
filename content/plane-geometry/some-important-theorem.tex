@@ -46,6 +46,22 @@
   两式相加再整理即得定理中等式。
 \end{proof}
 
+\begin{example}[三角形的角平分线长度公式]
+  我们利用张角定理来建立三角形的内角平分线长度与三边的关系，假若在\autoref{fig:spread-angle-theorem}中，$AD$正好平分$\angle BAC$，其长度设为$\omega_a$，并设三个顶点$A$、$B$、$C$所对的边长分别为$a$、$b$、$c$，再设$\angle BAC=2\theta$，那么由张角定理，有
+  \[ \frac{\sin{2\theta}}{\omega_a} = \frac{\sin{\theta}}{b}+\frac{\sin{\theta}}{b} \]
+  于是
+  \[ \frac{2\cos{\theta}}{\omega_a} = \frac{1}{b} + \frac{1}{c} \]
+  而由半角公式和余弦定理，有
+  \begin{eqnarray*}
+    \cos{\theta} & = & \sqrt{\frac{1+\cos{2\theta}}{2}} \\
+                 & = & \sqrt{\frac{1+\frac{b^2+c^2-a^2}{2bc}}{2}} \\
+    & = & \sqrt{\frac{(b+c)^2-a^2}{4bc}}
+  \end{eqnarray*}
+  所以最后
+  \[ \omega_a = \sqrt{bc \left( 1- \left( \frac{a}{b+c} \right)^2 \right)} \]
+  这就是三角形的内角平分线长度公式。
+\end{example}
+
 \subsection{梅涅劳斯(Menelaus)定理}
 \label{sec:menelaus-theorem}
 
