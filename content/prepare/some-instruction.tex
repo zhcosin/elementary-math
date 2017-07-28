@@ -1,0 +1,69 @@
+
+\section{一些说明}
+\label{sec:some-instruction}
+
+\subsection{求和符号与求积符号}
+\label{sec:sum-prod-symbol}
+
+今后会经常遇到类似于$x_1+x_2+\cdots+x_n$这样的求和，每次都写成这样长不免浪费篇幅，也显得累赘，因为这求和中实际上只有两个要素，一是求和通项$x_i$，二是求和的下标范围$1$到$n$，因此把这个求和简记为$\sum\limits_{i=1}^nx_i$，即
+\[ \sum_{i=1}^n x_i = x_1+x_2+\cdots+x_n \]
+求和符号中的$x_i$就是求和的通项，通项中的$i$称为求和指标，而上下标$i=1$和$n$分别给出了求和指标的上下限，即求和范围。
+
+\begin{example}
+  二项式定理利用求和符号就可以写成
+  \[ (a+b)^n = \sum_{i=0}^n C_n^i a^{n-i}b^i \]
+  而等比数列的求和公式则可以写成(公比不为1)
+  \[ \sum_{i=0}^{n-1}q^i = \frac{1-q^n}{1-q} \]
+\end{example}
+
+在有求和符号参与的运算过程中，常常对求和指标进行变换，比如把上式的求和顺序倒过来，写成
+\[ x_n+x_{n-1}+\cdots+x_1+x_0 \]
+这时利用求和符号可以写成$\sum\limits_{i=n}^1x_i$，意义不变，也可以写成$\sum\limits_{i=1}^nx_{n+1-i}$，仍然没有本质上的不同，因为当$i$从1到$n$取值时，$n+1-i$便依次依次取值$n,n-1,\ldots,2,1$。因此，在接触并使用求和符号的初始阶段，将它展开来验证相关等式是有益的，以后熟悉了就可以省去展开操作。
+
+有时会从求和符号中拆分出若干项来，也会将一些项合并到其中去，例如
+\begin{eqnarray*}
+  \sum_{i=0}^nx_i & = & x_0 + \sum_{i=1}^n x_i \\
+  \sum_{i=1}^n x_i + x_{n+1} & = & \sum_{i=1}^{n+1} x_i
+\end{eqnarray*}
+
+在运算时，有时也会变换求和范围，比如对于
+\[ \sum_{i=1}^{n} x_i = x_1 + x_1 + \cdots x_n \]
+可将其变换为$\sum\limits_{i=0}^{n-1}x_{i+1}$，同样也是因为当$i$从$0$到$n-1$遍历取值时，$i+1$便依次取值$1,2,\ldots,n$。在这种变换下，便有如下的运算
+\begin{eqnarray*}
+  & & (1+t)\sum_{i=0}^{n-1}t^i - t \sum_{i=0}^{n-2}t^i \\
+  & = & \sum_{i=0}^{n-1}t^i + t\sum_{i=0}^{n-1}t^i - t\sum_{i=0}^{n-2}t^i \\
+  & = & \sum_{i=0}^{n-1}t^i + \sum_{i=0}^{n-1}t^{i+1} -\sum_{i=0}^{n-2}t^{i+1} \\
+  & = & \sum_{i=0}^{n-1}t^i + \sum_{i=1}^{n}t^i - \sum_{i=1}^{n-1}t^i \\
+  & = & \sum_{i=0}^{n}t^i
+\end{eqnarray*}
+
+在此基础上，还会遇到多重求和，比如对于一个$n$行$m$列的数阵(称为矩阵)的所有元素进行求和，这个数阵的形式为
+\[
+  \begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1m} \\
+    a_{21} & a_{22} & \cdots & a_{2m} \\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{n1} & a _{n2} & \cdots & a_{nm}
+  \end{pmatrix}
+\]
+要对它的所有元素进行求和，可以先把每一行的元素加起来，得到每一行的和，再把每一行的和加起来，便得到所有元素的和。第$i$行元素的和是$\sum_{j=0}^ma_{ij}$，于是所有元素的和便是
+\[ \sum_{i=1}^n \sum_{j=1}^m a_{ij} \]
+同样，也可以先将每一列的元素加起来，再把每一列的和进行相加，显然所得出的结果应与前面一样，所以
+\begin{eqnarray*}
+  \sum_{i=1}^n \sum_{j=1}^m a_{ij} & = & \sum_{i=1}^n(a_{i1}+a_{i2}+\cdots+a_{im}) \\
+                                   & = & (a_{11}+\cdots+a_{1m})+(a_{21}+\cdots+a_{2m})+\cdots+(a_{n1}+\cdots+a_{nm}) \\
+                                   & = & (a_{11}+\cdots+a_{n1})+(a_{12}+\cdots+a_{n2})+\cdots+(a_{1m}+\cdots+a_{nm}) \\
+                                   & = & \sum_{j=1}^m(a_{1j}+a_{2j}+\cdots+a_{nj}) \\
+  & = & \sum_{j=1}^m\sum_{i=1}^na_{ij}
+\end{eqnarray*}
+于是得到二重求和的一个重要性质：可以交换两个求和指标的求和顺序。
+
+类比于求和符号，也可以用连乘积符号$\prod$来表示多个元素的连乘积，例如
+\[ \prod_{i=1}^n \frac{1}{2^i} = \frac{1}{2} \cdot \frac{1}{4} \cdots \frac{1}{2^n} \]
+同样也有多重求积，求积符号与求和符号有着类似的运算性质，不再重复说明了。
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../book"
+%%% End:
