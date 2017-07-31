@@ -245,6 +245,14 @@
   \end{eqnarray*}
   括号中的部分两个系数和为1，而且都是正数，因而在线段$BC$上存在唯一的一个点$D$，使得括号中的部分正是$\vv{PD}$，于是有$\vv{PA}=-\dfrac{\beta+\gamma}{\alpha} \vv{PD}$，因此点$P$在线段$AD$上，因而在三角形内。
 
+  还可以从另一个可能更加直观的观点来看待这一点，把式中的向量全部改写为以$A$为起点的向量，即$\alpha (-\vv{AP})+\beta (\vv{AB}-\vv{AP})+\gamma (\vv{AC}-\vv{AP})=\bm{0}$，即
+  \[ \vv{AP} = \beta \vv{AB} + \gamma \vv{AC} \]
+  易见右端两个系数都为正，但其和小于1，于是将它再改写为
+  \[ \vv{AP} = \frac{\beta}{\beta+\gamma} \left( (\beta+\gamma)\vv{AB} \right) + \frac{\gamma}{\beta+\gamma} \left( (\beta+\gamma) \vv{AC} \right) \]
+  在边$AB$和$AC$上分别取点$E$和$F$，使得$\vv{AE} = (\beta+\gamma)\vv{AB}$以及$\vv{AF}=(\beta+\gamma)\vv{AF}$，则有
+  \[ \vv{AP}=\frac{\beta}{\beta+\gamma} \vv{AE} + \frac{\gamma}{\beta+\gamma} \vv{AF} \]
+  因而点$P$在线段$EF$上，而显然$EF$与$BC$边是平行的，并且除去端点以外都在三角形内。
+
   这结论还可以推广到任意凸多边形的情况，设有凸多边形$A_1A_2\cdots A_n$，由向量$\vv{OP}=\sum_{i=1}^n\alpha_i\vv{OA_i}$其中$\alpha_i\geqslant 0$并且$\sum_{i=1}^n\alpha_i=1$所决定的点$P$位于凸多边形的内部或者边界上，如果有某个$\alpha_i$为1而其余的$\alpha_i$全为零，则它是凸多边形的顶点，如果有两个相邻的$\alpha_i$之和为1而其余$\alpha_i$全为零，则它在凸多边形的边上，其余情况下这点位于凸多边形的内部。
 \end{example}
 
