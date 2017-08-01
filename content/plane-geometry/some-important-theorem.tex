@@ -257,22 +257,19 @@
     t = 1- \frac{1}{(1+\lambda_1)(1+\lambda_3)-\lambda_1}
   \end{equation*}
   所以
-  \begin{equation*}
-    \vv{AP}
-    = \left( 1- \frac{1}{(1+\lambda_1)(1+\lambda_3)-\lambda_1} \right) \cdot \frac{\lambda_1}{1+\lambda_{1}} \vv{AB}+\frac{1}{(1+\lambda_1)(1+\lambda_3)-\lambda_1}\vv{AC}
-  \end{equation*}
+ \[ \vv{AP} = \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{AB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{AC} \]
   另一方面有
   \begin{equation*}
     \vv{AY}=\frac{1}{1+\lambda_2}\vv{AB}+\frac{\lambda_2}{1+\lambda_2}\vv{AC}
   \end{equation*}
-  于是$\vv{AP}$与$\vv{AY}$共线的充分必要条件是两组系数成比例，经简单计算知上面两个式子中的系数比分别为$\lambda_1\lambda_3 : 1$和$1 : \lambda_2$，所以得到$\lambda_1\lambda_2\lambda_3=1$，即得证。
+  于是$\vv{AP}$与$\vv{AY}$共线的充分必要条件是两组系数成比例，而上面两个式子中的系数比分别为$\lambda_1\lambda_3 : 1$和$1 : \lambda_2$，所以得到$\lambda_1\lambda_2\lambda_3=1$，即得证。
 \end{proof}
 
 \begin{example}[梅涅劳斯定理与塞瓦定理的统一]
 根据这证明过程，实际上梅涅劳斯定理和塞瓦定理可以统一起来：假定$X$、$Y$、$Z$是三角形$ABC$三边$AB$、$BC$、$CA$或它们的延长线上的点，有分比$\vv{AX}=\lambda_1\vv{XB}$，$\vv{BY}=\lambda_2\vv{YC}$，$\vv{CZ}=\lambda_3\vv{ZA}$，那么这三点共线的充分必要条件是$\lambda_1\lambda_2\lambda_3=-1$（梅涅劳斯定理），而$AY$、$BZ$、$CX$三线共点的充分必要条件是$\lambda_1\lambda_2\lambda_3=1$（塞瓦定理）。
 \end{example}
 
-\begin{example}[三角形的几个心]
+\begin{example}[三角形的几个心及其向量表达]
  利用塞瓦定理，我们知道三角形的三条中线是交于同一点的，该点称为三角形的 \emph{重心}。
 
  同样，利用塞瓦定理和三角形内角平分线定理，还可以知道三角形的三条内角平分线也是交于同一点的，这点称为三角形的 \emph{内心}，它是三角形内切圆圆心。
@@ -282,6 +279,24 @@
  对于三条高线，假定$BC$边上的高线垂足是$D$，则有$\frac{BD}{CD}=\frac{c \cos{B}}{b \cos{C}}$，仿此有另外两式，三式相乘并根据塞瓦定理即知三条高也相交于同一点，称该点为三角形的 \emph{垂心}。
 
 这四个心再加上三角形的\emph{外心}(三边的中垂线交点)，合称为三角形的五心。 
+
+而且，在塞瓦定理的向量形式的证明过程中已经得出点$P$的向量表达
+ \[ \vv{AP} = \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{AB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{AC} \]
+ 或者将它改写为以平面上任一点$O$为起点的向量方程
+ \[ \vv{OP} = \frac{\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{OA} + \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{OB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{OC} \]
+ 这两个向量方程便是由塞瓦定理确定出的点$P$的向量表达，在此利用它来表达三角形的几个心。
+
+ 首先对于重心$G$，显然$\lambda_1=\lambda_2=\lambda_3=1$，因此
+ \[ \vv{OG} = \frac{1}{3} (\vv{OA} + \vv{OB} + \vv{OC}) \]
+ 而对于内心$I$，$\lambda_1 = b/a$，$\lambda_2=c/b$，$\lambda_3=a/c$，因而
+ \[ \vv{OI} = \frac{a}{a+b+c} \vv{OA} + \frac{b}{a+b+c} \vv{OB} + \frac{c}{a+b+c} \vv{OC} \]
+ 对于$BC$边上的旁心$I_A$，有$\lambda_1=-b/a$，$\lambda_2=c/b$，$\lambda_3=-a/c$，所以
+ \[ \vv{OI_A} = \frac{-a}{-a+b+c} \vv{OA} + \frac{b}{-a+b+c} \vv{OB} + \frac{c}{-a+b+c} \vv{OC} \]
+ 对于垂心$H$，$\lambda_1=b\cos{A}/a\cos{B}$, $\lambda_2=c\cos{B}/b\cos{C}$,$\lambda_3=a\cos{C}/c\cos{A}$，于是
+ \[ \vv{OH} = \frac{a \cos{B}\cos{C} \vv{OA} + b \cos{C}\cos{A} \vv{OB} + c \cos{A}\cos{B} \vv{OC}}{a\cos{B}\cos{C}+b\cos{C}\cos{A}+c\cos{A}\cos{B}} \]
+ 对于外心$O$，$\lambda_1=b\cos{B}/a\cos{A}$,$\lambda_2=c\cos{C}/b\cos{B}$,$\lambda_3=a\cos{A}/c\cos{C}$，所以(这里点$O$是外心，任意点换成了点$M$)
+ \[ \vv{MO} = \frac{a\cos{A}\vv{MA}+b\cos{B}\vv{MB}+c\cos{C}\vv{MC}}{a\cos{A}+b\cos{B}+c\cos{C}} \]
+ 这便是三角形五心的向量表达，进一步，利用向量的坐标，便可以得出五心的坐标公式，此处不再叙述。
 \end{example}
 
 \begin{example}
