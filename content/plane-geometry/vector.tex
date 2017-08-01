@@ -203,6 +203,64 @@
 \subsection{内积与外积、混合积}
 \label{sec:product-of-vector}
 
+在物理学中，力所做的功是这样一个物理量，当物体在力$F$作用下(可能还有其它力)，沿着力的方向发生了一段位移$s$，则力对物体所做的功是$Fs$，这里的位移是沿力的方向所产生的位移，若是位移与力的方向有一定夹角，则将位移投影到力的方向上来，称为在力的方向上的分位移。由此抽象出两个向量的内积概念。
+
+先来讨论下一个向量在另一个向量方向上的投影，设$\bm{a}$和$\bm{b}$是两个非零向量，将它们移动到共同起点$O$，并设终点分别是$A$和$B$，则过$A$向直线$OB$引垂线并设垂直是$A_1$，则向量$\vv{OA_1}$称为向量$\bm{a}$在向量$\bm{b}$的方向上的\emph{投影向量}，设向量$\bm{a}$与向量$\bm{b}$的夹角是$\theta$，那么显然$\vv{OA_1}=\dfrac{|\bm{a}|\cos{\theta}}{|\bm{b}|}\bm{b}$.
+
+由此引入两个向量的内积概念.
+\begin{definition}
+  两个向量的 \emph{内积} 是两个向量$\bm{a}$与向量$\bm{b}$的一种二元运算，记为$\bm{a} \cdot \bm{b}$，或者简记为$\bm{a}\bm{b}$，其结果是一个实数，其值规定为：如果$\bm{a}$与$\bm{b}$共线，则其绝对值为两个向量之长度乘积，其符号则由两个向量的方向来决定，方向相同时为正，方向相反时为负，若两者中有零向量，则内积为零；则$\bm{a}$与$\bm{b}$不共线，则两者之内积为其中之一在另一向量上的投影向量与另一向量之内积。
+\end{definition}
+
+对于向量与自己的内积，借用乘方的符号写成$\bm{a}^2$，但是需要注意$\bm{a}^3$有所不同，它表示$(\bm{a} \cdot \bm{a})\bm{a}$，括号中的内积是一个实数，因而再将其与向量$\bm{a}$作数与向量的乘法，其结果是一个与$\bm{a}$同向的向量。
+
+需要说明几点：1. 两个向量的内积不再是一个向量，而是一个实数，这与外积不同（稍后会讲到，两个向量的外积仍是一个向量）. 2. 在两个向量不共线时，使用哪一个向量的投影无关紧要，换句话说，向量的内积满足交换律，即
+\begin{theorem}
+两个向量$\bm{a}$和$\bm{b}$的内积是实数$|\bm{a}| \cdot |\bm{b}| \cdot \cos{\theta}$，其中$\theta$是两个向量的夹角，即$\bm{a} \cdot \bm{b} = |\bm{a}| \cdot |\bm{b}| \cdot \cos{\theta}$，从而两个向量互相垂直的充分必要条件是它们的内积为零。
+\end{theorem}
+
+\begin{proof}[证明]
+  如果两个向量共线，则等式显然成立，在不共线的情形下，向量$\bm{a}$在向量$\bm{b}$上的投影是$\dfrac{|\bm{a}|\cos{\theta}}{|\bm{b}|} \bm{b}$，于是便得等式成立，由这等式便得向量垂直的充分必要条件。
+\end{proof}
+
+由此定理即知向量内积满足交换律，即
+\[ \bm{a} \cdot \bm{b} = \bm{b} \cdot \bm{a} \]
+
+从\autoref{fig:vector-inner-product-distribution-law}还可以验证，向量内积还满足对加法的分配律，即
+\[ (\bm{a}+\bm{b}) \cdot \bm{c} = \bm{a} \cdot \bm{c} + \bm{b} \cdot \bm{c} \] 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/vector-inner-product-distribution-law.pdf}
+\caption{}
+\label{fig:vector-inner-product-distribution-law}
+\end{figure}
+
+这是因为，向量$\vv{OA}$与向量$\bm{OB}$在向量$\vv{OC}$上的两个投影向量之和，正好便是$\vv{OD}$在向量$\vv{OC}$上的投影向量。
+
+接下来讨论向量内积的坐标表示，设在空间直角坐标系中，两个向量的坐标为$\bm{a} = (x_1,y_1,z_1)$和$\bm{b}=(x_2,y_2,z_2)$，设沿$x$轴、$y$轴、$z$轴正方向的单位向量分别是$\bm{i}$、$\bm{j}$、$\bm{k}$，那么向量的坐标表达等价于
+\begin{eqnarray*}
+  \bm{a} & = & x_1 \bm{i} + y_1 \bm{j} + z_1 \bm{k} \\
+  \bm{b} & = & x_2 \bm{i} + y_2 \bm{j} + z_2 \bm{k}
+\end{eqnarray*}
+
+还容易知道
+\[ (\lambda \bm{a}) \cdot \bm{b} = \lambda (\bm{a} \cdot \bm{b}) \]
+
+利用向量的交换律和对加法的结合律，以及
+\[ \bm{i} \cdot \bm{j} = \bm{j} \cdot \bm{k} = \bm{k} \cdot \bm{i} = 0, \bm{i}^2 = \bm{j}^2 = \bm{k}^2=1 \]
+便得
+\begin{eqnarray*}
+  \bm{a} \cdot \bm{b} & = & (x_1 \bm{i} + y_1 \bm{j} + z_1 \bm{k}) \cdot (x_2 \bm{i} + y_2 \bm{j} + z_2 \bm{k}) \\
+                      & = & x_1x_2 \bm{i}^2 + y_1y_2 \bm{j}^2 + z_1z_2 \bm{k}^2 + (x_1y_2+x_2y_1)(\bm{i} \cdot \bm{j}) + (y_1z_2+z_1y_2)(\bm{j} \cdot \bm{k}) + (z_1x_2 + x_1z_2)(\bm{k} \cdot \bm{i}) \\
+  & = & x_1x_2 + y_1y_2+z_1z_2
+\end{eqnarray*}
+这就是向量内积的坐标表达式，对于平面向量，也有完全类似的结论，只是没有$z$坐标，由此可知
+
+\begin{theorem}
+  空间向量$\bm{a}=(x_1,y_1,z_1)$与$\bm{b} = (x_2,y_2,z_2)$互相垂直的充分必要条件是$x_1x_2+y_1y_2+z_1z_2=0$.
+\end{theorem}
+
 
 
 \subsection{定比分点}
