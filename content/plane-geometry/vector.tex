@@ -439,8 +439,8 @@
     \alpha \vv{PU} - \gamma \vv{PV} & = & \bm{0} \\
     - \alpha \vv{PW} + \beta \vv{PV} & = & \bm{0}
   \end{eqnarray*}
-  因为向量$\vv{PU}$、$\vv{PV}$、$\vv{PW}$共线，所以上述向量方程组可以转化为关于实数的方程组，任取平面$ABC$的单位法向量为$\bm{k}$，记
-  \[ \vv{PU}=u\bm{k}, \  \vv{PV} = v\bm{k}, \  \vv{PW}=w\bm{k} \]
+  因为向量$\vv{PU}$、$\vv{PV}$、$\vv{PW}$共线，所以上述向量方程组可以转化为关于实数的方程组，任取平面$ABC$的单位法向量为$\bm{n}$，记
+  \[ \vv{PU}=u\bm{n}, \  \vv{PV} = v\bm{n}, \  \vv{PW}=w\bm{n} \]
   显然$|u|=|\v{PU}|=|\vv{PA}\times\vv{PB}|$，$|v|=|\vv{PV}|=|\vv{PB}\times\vv{PC}|$，$|w|=|\vv{PW}|=|\vv{PC}\times\vv{PA}|$，并且$u$、$v$、$w$的符号则视这三个外积向量的方向而定，取定一个方向后，凡与之同向的皆为正，否则为负，于是有关于$u$、$v$、$w$的三元一次方程组
   \begin{eqnarray*}
     -\beta u + \gamma w & = & 0 \\
@@ -458,7 +458,7 @@
   \]
   所以它有非零解，并且如果$(u_0,v_0,z_0)$是它的一个解，则对于任意实数$k$，$(ku_0,kv_0,kz_0)$也是它的解，显然上述方程组有一个特解$(\alpha,\beta,\gamma)=(v,w,u)$，于是代回到向量方程便得
   \[ v \vv{PA} + w \vv{PB} + u \vv{PC} = \bm{0} \]
-  其中$\vv{PA}\times\vv{PB}=u\bm{k}$, $\vv{PB}\times\vv{PC}=v\bm{k}$, $\vv{PC}\times\vv{PA}=w\bm{k}$，这里$\bm{k}$是平面$ABC$的单位法向量。这就是最终的结果。
+  其中$\vv{PA}\times\vv{PB}=u\bm{n}$, $\vv{PB}\times\vv{PC}=v\bm{n}$, $\vv{PC}\times\vv{PA}=w\bm{n}$，这里$\bm{n}$是平面$ABC$的单位法向量。这就是最终的结果。
 
   注意到外积$\vv{PA}\times\vv{PB}$与三角形$PAB$面积的关系，这结果还可以写成
   \[ S_{\triangle PBC} \vv{PA} + S_{\triangle PCA} \vv{PB} + S_{\triangle PAB} \vv{PC} = \bm{0} \]
