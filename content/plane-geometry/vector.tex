@@ -244,8 +244,18 @@
   \begin{theorem}
     点$P$位于三角形$ABC$所在平面内的充分必要条件是：存在不全为零的三个实数$\alpha$、$\beta$、$\gamma$使得下式成立，
     \[ \alpha \vv{PA} + \beta \vv{PB} + \gamma \vv{PC} = \bm{0} \]
-    并且当点$P$在此平面内时，这个方程中的三个系数是唯一的。
+    并且当点$P$在此平面内时，这个方程中的三个系数在允许相差一个常数因子的意义下是唯一的。
   \end{theorem}
+  前面已经推证了充分性和必要性，这里只就系数在允许相差一个常数因子的意义下是唯一的加以说明，事实上，将定理等式中所涉及的向量全部改写为以$A$为起点的向量，即
+  \[ \alpha (-\vv{AP}) + \beta (\vv{AB}-\vv{AP}) + \gamma (\vv{AC}-\vv{AP}) = \bm{0} \]
+  即
+  \[ \vv{AP} = \frac{\beta}{\alpha+\beta+\gamma} \vv{AB} + \frac{\gamma}{\alpha+\beta+\gamma} \vv{AC} \]
+  由向量的分解定理，这系数$\dfrac{\beta}{\alpha+\beta+\gamma}$跟$\dfrac{\gamma}{\alpha+\beta+\gamma}$必然是唯一的，不妨设前者为$p$，后者为$q$，而记$t=\alpha+\beta+\gamma$，则
+  \[ \beta=pt, \  \gamma=qt, \  \alpha=(1-p-q)t \]
+  于是$\alpha:\beta:\gamma=p:q:(1-p-q)$，而$t$可以任取，于是这三个系数在允许相差一个常量因子的情况下是唯一的。
+
+以后我们会利用向量的外积给出这三个系数的具体表达，见\autoref{example:outer-product-coefficient-pa-pb-pc}.
+  
 这里需要提的是，如果三个系数都为非负并且$\alpha+\beta+\gamma = 1$，那么点$P$位于三角形的内部或者三条边上，其中位于内部时三个系数都为正而和为1，位于三条边上时有一个系数为零而另外两个相加为1，当有两个系数为零另外一个为1时正好是顶点之一。
 
   只对三个系数都为正的情形加以说明，在这时有
@@ -427,8 +437,12 @@
 
 
 \begin{example}
+  \label{example:outer-product-coefficient-pa-pb-pc}
   在\autoref{example:point-P-and-triangle-ABC}中，已经知道对于三角形$ABC$平面内的任一点$P$，有向量方程
-  \[ \alpha \vv{PA} + \beta \vv{PB} +\gamma \vv{PC} = \bm{0} \]
+  \begin{equation}
+    \label{eq:vector-expr-for-p-coline-abc}
+   \alpha \vv{PA} + \beta \vv{PB} +\gamma \vv{PC} = \bm{0} 
+  \end{equation}
   在这个例子中，我们将利用向量的外积来具体的找出系数$\alpha$、$\beta$、$\gamma$的具体表达式。
 
   首先将上面的向量方程的两端分别与$\vv{PA}$、$\vv{PB}$、$\vv{PC}$作外积，得到向量方程组
@@ -437,23 +451,15 @@
     \alpha (\vv{PA}\times\vv{PB}) + \gamma (\vv{PC}\times\vv{PB}) & = & \bm{0} \\
     \alpha (\vv{PA}\times\vv{PC}) + \beta (\vv{PB}\times\vv{PC}) & = & \bm{0}
   \end{eqnarray*}
-  显然$\vv{PA}\times\vv{PB}$、$\vv{PB}\times\vv{PC}$、$\vv{PC}\times\vv{PA}$这三个向量是共线的，因为都在过点$P$且与平面$ABC$垂直的直线上，令
-  \[ \vv{PU}=\vv{PA}\times\vv{PB}, \  \vv{PV}=\vv{PB}\times\vv{PC}, \  \vv{PW}=\vv{PC}\times\vv{PA} \]
-  则上述向量方程组成为
-  \begin{eqnarray*}
-    -\beta \vv{PU} + \gamma \vv{PW} & = & \bm{0} \\
-    \alpha \vv{PU} - \gamma \vv{PV} & = & \bm{0} \\
-    - \alpha \vv{PW} + \beta \vv{PV} & = & \bm{0}
-  \end{eqnarray*}
-  因为向量$\vv{PU}$、$\vv{PV}$、$\vv{PW}$共线，所以上述向量方程组可以转化为关于实数的方程组，任取平面$ABC$的单位法向量为$\bm{n}$，记
-  \[ \vv{PU}=u\bm{n}, \  \vv{PV} = v\bm{n}, \  \vv{PW}=w\bm{n} \]
-  显然$|u|=|\v{PU}|=|\vv{PA}\times\vv{PB}|$，$|v|=|\vv{PV}|=|\vv{PB}\times\vv{PC}|$，$|w|=|\vv{PW}|=|\vv{PC}\times\vv{PA}|$，并且$u$、$v$、$w$的符号则视这三个外积向量的方向而定，与$\bm{n}$同向的为正，反向的为负，于是有关于$u$、$v$、$w$的三元一次方程组
+  显然$\vv{PA}\times\vv{PB}$、$\vv{PB}\times\vv{PC}$、$\vv{PC}\times\vv{PA}$这三个向量是共线的，因为都在过点$P$且与平面$ABC$垂直的直线上，这意味着上述方程有可能转化为关于实数的方程组，任取平面$ABC$的单位法向量为$\bm{n}$，记
+  \[ \vv{PA}\times\vv{PB}=u\bm{n}, \  \vv{PB}\times\vv{PC} = v\bm{n}, \  \vv{PC}\times\vv{PA}=w\bm{n} \]
+  显然$|u|=|\vv{PA}\times\vv{PB}|$，$|v|=|\vv{PB}\times\vv{PC}|$，$|w|=|\vv{PC}\times\vv{PA}|$，而$u$、$v$、$w$的符号则视这三个外积向量的方向而定，与$\bm{n}$同向的为正，反向的为负，于是上述方程组转化为下面关于$u$、$v$、$w$的方程组。
   \begin{eqnarray*}
     -\beta u + \gamma w & = & 0 \\
     \alpha u - \gamma v & = & 0 \\
     - \alpha w + \beta v & = & 0
   \end{eqnarray*}
-  这是一个关于$\alpha$、$\beta$、$\gamma$的三元一次齐次方程组，只要解出它便可以得到$\alpha$、$\beta$、$\gamma$的表达，但是这个方程组有点特别，它的系数矩阵的行列式为零
+  把它视为关于$\alpha$、$\beta$、$\gamma$的三元一次齐次方程组，我们期望解出它便可以得到$\alpha$、$\beta$、$\gamma$的表达，但是这个方程组有点特别，它的系数矩阵的行列式为零(这意味着方程组中有多余的方程，即能由其它方程推出的方程)
   \[
     \begin{vmatrix}
       -\beta & 0 & \gamma \\
@@ -462,7 +468,7 @@
     \end{vmatrix}
     = 0
   \]
-  所以它有非零解，并且如果$(u_0,v_0,z_0)$是它的一个解，则对于任意实数$k$，$(ku_0,kv_0,kz_0)$也是它的解，显然上述方程组有一个特解$(\alpha,\beta,\gamma)=(v,w,u)$，于是代回到向量方程便得
+  所以它有非零解，并且如果$(u_0,v_0,z_0)$是它的一个解，则对于任意实数$k$，$(ku_0,kv_0,kz_0)$也是它的解，不过我们只关心它的一个特解就够了，因为在\autoref{eq:vector-expr-for-p-coline-abc}两端同乘上一个因子并无多大意义，可以发现上述方程组有一个特解$(\alpha,\beta,\gamma)=(v,w,u)$，于是代回到向量方程便得
   \[ v \vv{PA} + w \vv{PB} + u \vv{PC} = \bm{0} \]
   其中$\vv{PA}\times\vv{PB}=u\bm{n}$, $\vv{PB}\times\vv{PC}=v\bm{n}$, $\vv{PC}\times\vv{PA}=w\bm{n}$，这里$\bm{n}$是平面$ABC$的单位法向量。这就是最终的结果。
 

@@ -284,18 +284,30 @@
  \[ \vv{AP} = \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{AB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{AC} \]
  或者将它改写为以平面上任一点$O$为起点的向量方程
  \[ \vv{OP} = \frac{\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{OA} + \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{OB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{OC} \]
- 这两个向量方程便是由塞瓦定理确定出的点$P$的向量表达，在此利用它来表达三角形的几个心。
+ 还可以将其中向量全部改写为以$P$为起点的向量方程，即
+ \[ \lambda_3 \vv{PA} + \lambda_1 \lambda_3 \vv{PB} + \vv{PC} = bm{0} \]
+ 这三个向量方程都是由塞瓦定理确定出的点$P$的向量表达，其中最后一种较为简洁，在此利用它来表达三角形的五心。
 
  首先对于重心$G$，显然$\lambda_1=\lambda_2=\lambda_3=1$，因此
  \[ \vv{OG} = \frac{1}{3} (\vv{OA} + \vv{OB} + \vv{OC}) \]
+ 或者写成
+ \[ \vv{GA} + \vv{GB} + \vv{GC} = \bm{0} \]
  而对于内心$I$，$\lambda_1 = b/a$，$\lambda_2=c/b$，$\lambda_3=a/c$，因而
  \[ \vv{OI} = \frac{a}{a+b+c} \vv{OA} + \frac{b}{a+b+c} \vv{OB} + \frac{c}{a+b+c} \vv{OC} \]
+ 或者写成
+ \[ a\vv{IA} + b \vv{IB} + c\vv{IC} = \bm{0} \]
  对于$BC$边上的旁心$I_A$，有$\lambda_1=-b/a$，$\lambda_2=c/b$，$\lambda_3=-a/c$，所以
  \[ \vv{OI_A} = \frac{-a}{-a+b+c} \vv{OA} + \frac{b}{-a+b+c} \vv{OB} + \frac{c}{-a+b+c} \vv{OC} \]
+ 同样可以写成
+ \[ -a \vv{I_AA} + b \vv{I_AB} + c\vv{I_AC} = \bm{0} \]
  对于垂心$H$，$\lambda_1=b\cos{A}/a\cos{B}$, $\lambda_2=c\cos{B}/b\cos{C}$,$\lambda_3=a\cos{C}/c\cos{A}$，于是
  \[ \vv{OH} = \frac{a \cos{B}\cos{C} \vv{OA} + b \cos{C}\cos{A} \vv{OB} + c \cos{A}\cos{B} \vv{OC}}{a\cos{B}\cos{C}+b\cos{C}\cos{A}+c\cos{A}\cos{B}} \]
+ 注意到$a \cos{B}\cos{C} : b \cos{C}\cos{A} : c \cos{A}\cos{B} = \tan{A} : \tan{B} : \tan{C}$，于是这式子还可以写为
+ \[ \tan{A} \vv{HA} + \tan{B} \vv{HB} + \tan{C} \vv{HC} = \bm{0} \]
  对于外心$O$，$\lambda_1=b\cos{B}/a\cos{A}$,$\lambda_2=c\cos{C}/b\cos{B}$,$\lambda_3=a\cos{A}/c\cos{C}$，所以(这里点$O$是外心，任意点换成了点$M$)
  \[ \vv{MO} = \frac{a\cos{A}\vv{MA}+b\cos{B}\vv{MB}+c\cos{C}\vv{MC}}{a\cos{A}+b\cos{B}+c\cos{C}} \]
+ 同样注意到$a\cos{A} : b\cos{B} : c\cos{C} = \sin{2A} : \sin{2B} : \sin{2C}$，所以式子可以写为
+ \[ \sin{2A} \vv{OA} + \sin{2B} \vv{OB} + \sin{2C} \vv{OC} = \bm{0} \]
  这便是三角形五心的向量表达，进一步，利用向量的坐标，便可以得出五心的坐标公式，此处不再叙述。
 \end{example}
 
