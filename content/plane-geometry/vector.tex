@@ -165,17 +165,17 @@
 \end{theorem}
 
 \begin{proof}[证明]
-假定$\bm{\alpha}$与$\bm{\beta}$不共线，则$\bm{\gamma}$能与前述两个向量共面的充分必要条件是存在唯一一对实数$\lambda$、$\mu$，使得$\gamma=\lambda \bm{\alpha} + \mu \bm{\beta}$，于是三元一次齐次方程组
+假定$\bm{\alpha}$与$\bm{\beta}$不共线，则$\bm{\gamma}$能与前述两个向量共面的充分必要条件是存在唯一一对实数$\lambda$、$\mu$，使得$\gamma=\lambda \bm{\alpha} + \mu \bm{\beta}$，于是关于$u$、$v$、$2$的三元一次齐次方程组
 \[
   \left\{
     \begin{array}{lll}
-      \lambda x_1 + \mu x_2 - x_3 = 0  \\
-      \lambda y_1 + \mu y_2 - y_3 = 0 \\
-      \lambda z_1 + \mu z_2 - z_3 = 0
+      u x_1 + v x_2 + w x_3 = 0  \\
+      u y_1 + v y_2 + w y_3 = 0 \\
+      u z_1 + v z_2 + w z_3 = 0
     \end{array}
     \right.
 \]
-有非零解$(\lambda, \mu, -1)$，因而
+有非零解$(u,v,w)=(\lambda, \mu, -1)$，因而
 \[
   \begin{vmatrix}
     x_1 & x_2 & x_3\\
@@ -185,7 +185,7 @@
   = 0
 \]
 
-反之，由定理中的行列式为零，知方程组
+反之，由定理中的行列式为零，知关于$\lambda$、$\mu$、$\nu$的方程组
 \[
   \left\{
     \begin{array}{lll}
@@ -195,7 +195,7 @@
     \end{array}
     \right.
 \]
-有非零解$(\lambda, \mu, \nu)$，不妨设$\nu \neq 0$，于是$\bm{\gamma} = -\dfrac{\lambda}{\nu} \bm{\alpha} - \dfrac{\mu}{\nu} \bm{\beta}$，于是三个向量共面。
+有非零解，不妨设$\nu \neq 0$，于是$\bm{\gamma} = -\dfrac{\lambda}{\nu} \bm{\alpha} - \dfrac{\mu}{\nu} \bm{\beta}$，于是三个向量共面。
 \end{proof}
 
 由此可见，向量的共线、共面等特性与线性方程组理论有着千丝万缕的联系，这在线性代数中有更一般性的结论。
@@ -388,6 +388,8 @@
 
 由此定理即知向量内积满足交换律，即
 \[ \bm{a} \cdot \bm{b} = \bm{b} \cdot \bm{a} \]
+显然还有
+\[ (\lambda \bm{a}) \cdot \bm{b} = \lambda (\bm{a} \cdot \bm{b}) \]
 
 从\autoref{fig:vector-inner-product-distribution-law}还可以验证，向量内积还满足对加法的分配律，即
 \[ (\bm{a}+\bm{b}) \cdot \bm{c} = \bm{a} \cdot \bm{c} + \bm{b} \cdot \bm{c} \] 
@@ -406,9 +408,6 @@
   \bm{a} & = & x_1 \bm{i} + y_1 \bm{j} + z_1 \bm{k} \\
   \bm{b} & = & x_2 \bm{i} + y_2 \bm{j} + z_2 \bm{k}
 \end{eqnarray*}
-
-还容易知道
-\[ (\lambda \bm{a}) \cdot \bm{b} = \lambda (\bm{a} \cdot \bm{b}) \]
 
 利用向量的交换律和对加法的结合律，以及
 \[ \bm{i} \cdot \bm{j} = \bm{j} \cdot \bm{k} = \bm{k} \cdot \bm{i} = 0, \bm{i}^2 = \bm{j}^2 = \bm{k}^2=1 \]
