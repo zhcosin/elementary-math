@@ -451,25 +451,38 @@
     \alpha (\vv{PA}\times\vv{PC}) + \beta (\vv{PB}\times\vv{PC}) & = & \bm{0}
   \end{eqnarray*}
   显然$\vv{PA}\times\vv{PB}$、$\vv{PB}\times\vv{PC}$、$\vv{PC}\times\vv{PA}$这三个向量是共线的，因为都在过点$P$且与平面$ABC$垂直的直线上，这意味着上述方程有可能转化为关于实数的方程组，任取平面$ABC$的单位法向量为$\bm{n}$，记
-  \[ \vv{PA}\times\vv{PB}=u\bm{n}, \  \vv{PB}\times\vv{PC} = v\bm{n}, \  \vv{PC}\times\vv{PA}=w\bm{n} \]
-  显然$|u|=|\vv{PA}\times\vv{PB}|$，$|v|=|\vv{PB}\times\vv{PC}|$，$|w|=|\vv{PC}\times\vv{PA}|$，而$u$、$v$、$w$的符号则视这三个外积向量的方向而定，与$\bm{n}$同向的为正，反向的为负，于是上述方程组转化为下面关于$u$、$v$、$w$的方程组。
-  \begin{eqnarray*}
-    -\beta u + \gamma w & = & 0 \\
-    \alpha u - \gamma v & = & 0 \\
-    - \alpha w + \beta v & = & 0
-  \end{eqnarray*}
-  把它视为关于$\alpha$、$\beta$、$\gamma$的三元一次齐次方程组，我们期望解出它便可以得到$\alpha$、$\beta$、$\gamma$的表达，但是这个方程组有点特别，它的系数矩阵的行列式为零(这意味着方程组中有多余的方程，即能由其它方程推出的方程)
+  \[ \vv{PB}\times\vv{PC}=u\bm{n}, \  \vv{PC}\times\vv{PA} = v\bm{n}, \  \vv{PA}\times\vv{PB}=w\bm{n} \]
+  显然$|u|=|\vv{PB}\times\vv{PC}|$，$|v|=|\vv{PC}\times\vv{PA}|$，$|w|=|\vv{PA}\times\vv{PB}|$，而$u$、$v$、$w$的符号则视这三个外积向量的方向而定，与$\bm{n}$同向的为正，反向的为负，于是上述方程组转化为下面关于$u$、$v$、$w$的方程组。
   \[
-    \begin{vmatrix}
-      -\beta & 0 & \gamma \\
-      \alpha & -\gamma & 0 \\
-      0 & \beta & -\alpha
-    \end{vmatrix}
-    = 0
+    \left\{
+  \begin{array}{lll}
+    -\beta w + \gamma v & = & 0 \\
+    \alpha w - \gamma u & = & 0 \\
+    - \alpha v + \beta u & = & 0
+  \end{array}
+  \right.
   \]
-  所以它有非零解，并且如果$(u_0,v_0,z_0)$是它的一个解，则对于任意实数$k$，$(ku_0,kv_0,kz_0)$也是它的解，不过我们只关心它的一个特解就够了，因为在\autoref{eq:vector-expr-for-p-coline-abc}两端同乘上一个因子并无多大意义，可以发现上述方程组有一个特解$(\alpha,\beta,\gamma)=(v,w,u)$，于是代回到向量方程便得
-  \[ v \vv{PA} + w \vv{PB} + u \vv{PC} = \bm{0} \]
-  其中$\vv{PA}\times\vv{PB}=u\bm{n}$, $\vv{PB}\times\vv{PC}=v\bm{n}$, $\vv{PC}\times\vv{PA}=w\bm{n}$，这里$\bm{n}$是平面$ABC$的单位法向量。这就是最终的结果。
+  把它视为关于$\alpha$、$\beta$、$\gamma$的三元一次齐次方程组，容易发现由前两个方程消去$\gamma$即得第三个方程，因此它等价于如下的方程组
+   \[
+    \left\{
+  \begin{array}{lll}
+    -\beta w + \gamma v & = & 0 \\
+    \alpha w - \gamma u & = & 0 
+  \end{array}
+  \right.
+  \]
+  未知数的个数多于方程的个数，因此有自由未知量，解之得($\gamma$是自由未知量)
+   \[
+    \left\{
+  \begin{array}{lll}
+    \alpha & = & \frac{u}{w} \gamma \\
+    \beta & = & \frac{v}{w} \gamma
+  \end{array}
+  \right.
+  \]
+  这便是原方程组的全部解，它有无穷多组解(任意取定$\gamma$便得出一组解)，但这所有的解都满足$\alpha:\beta:\gamma=u:v:w$，而且在\autoref{eq:vector-expr-for-p-coline-abc}两端同乘上一个因子并无多大意义，于是便得
+  \[ u \vv{PA} + v \vv{PB} + w \vv{PC} = \bm{0} \]
+  其中$\vv{PB}\times\vv{PC}=u\bm{n}$, $\vv{PC}\times\vv{PA}=v\bm{n}$, $\vv{PA}\times\vv{PB}=w\bm{n}$，这里$\bm{n}$是平面$ABC$的单位法向量。这就是最终的结果。
 
   注意到外积$\vv{PA}\times\vv{PB}$与三角形$PAB$面积的关系，这结果还可以写成
   \[ S_{\triangle PBC} \vv{PA} + S_{\triangle PCA} \vv{PB} + S_{\triangle PAB} \vv{PC} = \bm{0} \]
