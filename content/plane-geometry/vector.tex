@@ -441,6 +441,47 @@
 \subsection{外积}
 \label{sec:outer-product-of-vectors}
 
+从物理学上的力矩等物理量的概念，可以抽象出两个向量的另一种形式的乘积，即外积，也叫矢量积，叉积，与内积不同，两个向量的外积仍然是一个向量。
+
+\begin{definition}
+  两个向量$\bm{a}$和$\bm{b}$的外积仍然是一个向量，用$\bm{a}\times\bm{b}$表示，它的大小是$|\bm{a}||\bm{b}|\sin{\theta}$，其中$\theta$是两个向量的夹角，而它的方向是这样定义的，如果$\bm{a}$与$\bm{b}$不共线，则$\bm{a}\times\bm{b}$同时垂直于$\bm{a}$和$\bm{b}$，并且按右手定则，握住右手，并让四个小手指沿从$\bm{a}$按两个向量的夹角旋转到$\bm{b}$的方向，此时大姆指所指的方向便是$\bm{a}\times\bm{b}$的方向。当$\bm{a}$与$\bm{b}$共线时，由于$\bm{a}\times\bm{b}$的大小为零，所以此时的外积为零向量。
+\end{definition}
+
+由定义，零向量与任何向量之外积皆为零向量，且若两个向量共线，则它们的外积亦是零向量。而且，对于三角形$ABC$，有$S_{\triangle ABC} = \dfrac{1}{2}|\vv{AB}|\times|\vv{AC}|$，这是向量外积的一个几何意义（仅限于其大小，在许多情况下，通常用它的方向作为有向面积的符号依据）。
+
+向量的外积与原来两个向量同时垂直，这意味着它实际上成为原来两个向量所共平面的法向量。
+
+由定义，可知外积不满足交换律，交换两个向量的位置，所得外积与原来的外积是相反向量，亦即
+\[ \bm{b} \times \bm{a} = - \bm{a} \times \bm{a} \]
+显然也有
+\[ (\lambda \bm{a}) \times (\mu \bm{b}) = \lambda \mu (\bm{a}\times\bm{b}) \]
+仍然从\autoref{fig:vector-inner-product-distribution-law}可以验证向量外积的(左)分配律
+\[ (\bm{a}+\bm{b}) \times \bm{c} = \bm{a} \times \bm{c} + \bm{b} \times \bm{c} \]
+这是因为，对于图中的情形，显然有点$D$到直线$OC$的距离等于$A$、$B$两点到直线$OC$的距离之和，于是$S_{\triangle DOC} = S_{\triangle AOC} + S_{\triangle BOC}$，于是便得上式，这里虽然都是按正的距离和面积来考虑的，实际上如果把距离和面积都看成带符号的代数距离和代数面积，便得出完整的验证。
+
+有了左分配律，便可得出右分配律
+\begin{eqnarray*}
+  \bm{a} \times (\bm{b} + \bm{c}) & = & - (\bm{b} + \bm{c}) \times \bm{a} \\
+                                  & = & - (\bm{b} \times \bm{a} + \bm{c} \times \bm{a}) \\
+                                  & = & (-\bm{b}\times\bm{a}) + (-\bm{c}\times\bm{a}) \\
+  & = & \bm{a}\times\bm{b} + \bm{a}\times\bm{c}
+\end{eqnarray*}
+
+因为两个向量的外积仍然是一个向量，因此所得结果还可以继续参与外积运算，即式子$(\bm{a}\times\bm{b})\times\bm{c}$有意义，我们来讨论一下这个式子，假定三个向量$\bm{a}$、$\bm{b}$、$\bm{c}$不共面(从而其中任何两者也就不共线)，于是$\bm{a}\times\bm{b}$同时垂直于$\bm{a}$和$\bm{b}$，即它成为$\bm{a}$、$\bm{b}$两个向量所共面的法向量。而$(\bm{a}\times\bm{b})\times\bm{c}$显然又垂直于$\bm{a}\times\bm{b}$，于是$(\bm{a}\times\bm{b})\times\bm{c}$又与$\bm{a}$和$\bm{b}$共面！这引起了我们的兴趣，于是多做一些讨论。
+
+既然$(\bm{a}\times\bm{b})\times\bm{c}$与$\bm{a}$和$\bm{b}$共面，按向量分解定理，存在唯一一对实数$\lambda$和$\mu$，使得
+\[ (\bm{a}\times\bm{b})\times\bm{c}=\lambda \bm{a} + \mu \bm{b} \]
+成立，我们来尝试具体求出$\lambda$和$\mu$。
+
+因为$(\bm{a}\times\bm{b})\times\bm{c}$与$\bm{c}$垂直，因此它与$\bm{c}$的内积应为零，即
+\[ \lambda (\bm{a} \cdot \bm{c}) + \mu (\bm{b} \cdot \bm{c}) = 0 \]
+
+\begin{theorem}
+  对于三个向量$\bm{a}$、$\bm{b}$、$\bm{c}$，则向量$(\bm{a}\times\bm{b})\times\bm{c}$与向量$\bm{a}$、$\bm{b}$共面，并且
+  \[ (\bm{a}\times\bm{b})\times\bm{c} = -(\bm{b}\cdot\bm{c})\bm{a}+(\bm{a}\cdot\bm{c})\bm{b} \]
+\end{theorem}
+
+由此定理可知向量外积不满足结合律，因为$(\bm{a}\times\bm{b})\times\bm{c}$与向量$\bm{a}$、$\bm{b}$共面，而向量$\bm{a}\times(\bm{b}\times\bm{c})$与$\bm{b}$、$\bm{c}$共面，一般情况下两者并不相等。
 
 
 \begin{example}
