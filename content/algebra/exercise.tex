@@ -1,6 +1,12 @@
 
 \section{题集}
 \label{sec:number-sequence-exercise}
+
+\subsection{数列}
+\label{sec:exercise-number-series}
+
+
+
 \begin{exercise}
   已知各项都是正实数的数列$x_n$对一切正整数$n$都成立$x_n+\frac{1}{x_{n+1}}<2$，求证该数列所有项都满足$x_n<1$.
 \end{exercise}
@@ -296,8 +302,117 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 由熟知的极限$\lim_{x \rightarrow 0} \frac{\sin{x}}{x}=1$即知$a_n$和$b_n$有共同的极限$1/\pi$.
 \end{proof}
 
+\subsection{不等式}
+\label{sec:exercise-inequality}
+
+
+\begin{exercise}
+  已知三个正实数$a,b,c$满足
+  \begin{equation*}
+    \frac{1}{1+a} + \frac{1}{1+b} + \frac{1}{1+c} = 1
+  \end{equation*}
+  求证
+  \begin{equation*}
+    (a-1)(b-1)(c-1) \leqslant 1
+  \end{equation*}
+\end{exercise}
+
+\begin{proof}[证明]
+  作代换
+  \begin{equation*}
+    \frac{1}{1+a} = \frac{x}{x+y+z}, \  \frac{1}{1+b} = \frac{y}{x+y+z}, \  \frac{1}{1+c} = \frac{z}{x+y+z}
+  \end{equation*}
+  其中$x,y,z$是三个正实数，于是只要证明
+  \begin{equation*}
+    (y+z-x)(z+x-y)(x+y-z) \leqslant xyz
+  \end{equation*}
+  如果左边为负，不等式显然成立，否则可再作代换
+  \begin{equation*}
+    r = y+z-x, \  s = z+x-y, \  t = x+y-z
+  \end{equation*}
+  于是只要证明
+  \begin{equation*}
+    rst \leqslant \frac{s+t}{2} \frac{t+r}{2} \frac{r+s}{2}
+  \end{equation*}
+  由均值，这显然。
+\end{proof}
+
+\begin{exercise}\footnote{2008年IMO试题.}
+  设$a$,$b$,$c$是三个互不相等的实数，求证
+  \[ \left( \frac{a}{a-b} \right)^2 + \left( \frac{b}{b-c} \right)^2 + \left( \frac{c}{c-a} \right)^2 \geqslant 1 \]
+\end{exercise}
+
+\begin{proof}[证明]
+  作代换
+  \[ x=\frac{a}{a-b}, \  y=\frac{b}{b-c} \  z=\frac{c}{c-a} \]
+  则只需证$x^2+y^2+z^2 \geqslant 1$，而在这代换下，易知
+  \[ \left( 1-\frac{1}{x} \right) \left( 1-\frac{1}{y} \right) \left( 1-\frac{1}{z} \right) = 1 \]
+  整理即为
+  \[ x+y+z = (xy+yz+zx)+1 \]
+  记等式左右两边的公共值为$t$，则
+    \[ x^2+y^2+z^2 = (x+y+z)^2-2(xy+yz+zx) = t^2-2(t-1)=(t-1)^2+1 \geqslant 1 \]
+  得证。
+\end{proof}
+
+\begin{exercise}\footnote{2017年德国数学奥林匹克试题.}
+  已知非负实数$x$、$y$、$z$满足$x+y+z=1$，求证:
+  \[ 1 \leqslant \frac{x}{1-yz}+\frac{y}{1-zx}+\frac{z}{1-xy} \leqslant \frac{9}{8} \]
+\end{exercise}
+
+\begin{proof}[证明]
+  左边有最直接的证明，因为每个分母都小于等于1，所以有
+  \[ \frac{x}{1-yz}+\frac{y}{1-zx}+\frac{z}{1-xy} \geqslant x+y+z = 1 \]
+  此外我们还有以下的换元法证明:
+  显见$0 \leqslant x,y,z \leqslant 1$，作代换
+  \[ a=\frac{x}{1-yz}, \  b=\frac{y}{1-zx}, \  c=\frac{z}{1-xy} \]
+  只需证明$1\leqslant a+b+c \leqslant 9/8$，在这代换下有$a,b,c \geqslant 0$，并且
+  \begin{align*}
+    a = {} & x+ayz \\
+    b = {} & y+bzx \\
+    c = {} & z+cxy
+  \end{align*}
+  三式相加并利用$x+y+z=1$得
+  \[ a+b+c=1+ayz+bzx+cxy \]
+  显然右边大于等于1，所以$a+b+c\geqslant 1$，原不等式左边得证。右边待证。
+\end{proof}
+
+\begin{exercise}
+  (Sqing55) 已知实数$a,b,c>0$，且$a+b+c=1$，求证: 当$\lambda \geqslant \frac{1}{5}$时有下面不等式成立:
+  \[ \frac{a+\lambda}{a+bc} + \frac{b+\lambda}{b+ca} + \frac{c+\lambda}{c+ab} \geqslant \frac{9}{4}(1+3\lambda) \]
+  \begin{proof}[证明]
+    (在 Kuing 的提示下完成)，先分离出$\lambda$
+    \[ f(\lambda) = \left( \frac{1}{a+bc}+\frac{1}{b+ca}+\frac{1}{c+ab}-\frac{27}{4} \right) \lambda + \frac{a}{a+bc}+\frac{b}{b+ca}+\frac{c}{c+ab} \geqslant \frac{9}{4} \]
+    我们先证明$\lambda$的系数是非负的，这样就有$f(\lambda)\geqslant f\left( \frac{1}{5} \right)$，从而只要证明$f\left( \frac{1}{5} \right) \geqslant \frac{9}{4}$就可以了。
+
+    因为$a+b+c=1$，所以
+    \[ \frac{1}{a+bc} \geqslant \frac{1}{a+\left( \frac{b+c}{2} \right)^2} =
+    \frac{1}{a+\left( \frac{1-a}{2} \right)^2} = \frac{4}{(a+1)^2} \]
+  由切线法，易证
+  \[ \frac{4}{(a+1)^2} \geqslant \frac{9}{4}-\frac{27}{8}\left( a-\frac{1}{3} \right) \]
+  于是
+  \[ \sum \frac{1}{a+bc} \geqslant \frac{27}{4} \]
+  于是$f(\lambda)$是单调不减的，所以接下来证明$f\left( \frac{1}{5} \right) \geqslant \frac{9}{4}$，以下过程中$\lambda=1/5$，因为
+  \[ \sum \frac{a+\lambda}{a+bc} = \sum \frac{a+\lambda}{(a+b)(a+c)} \]
+  所以只需证明
+  \[ \sum (a+\lambda)(b+c) \geqslant \frac{9}{4}(a+b)(b+c)(c+a) \]
+  为齐次化，左边作处理
+  \[ (a+\lambda)(b+c) = (a+\lambda(a+b+c))(b+c)(a+b+c) \]
+  于是只要证明
+  \[ (a+b+c)\sum (b+c)((1+\lambda)a+b+c) \geqslant \frac{9}{4}(a+b)(b+c)(c+a) \]
+  暴力展开，整理后，即是要证
+  \[ a^3+b^3+c^3 +3abc \geqslant a^2(b+c) + b^2(c+a)+c^2(a+b) \]
+  这等价于熟知的
+  \[ abc \geqslant (b+c-a)(c+a-b)(a+b-c) \]
+  \end{proof}
+\end{exercise}
+
+\begin{exercise}
+  设正实数$a$、$b$、$c$满足$a+b+c=1$，求证
+  \[ \frac{1+a}{1-a} + \frac{1+b}{1-b} + \frac{1+c}{1-c} \leqslant 2 \left( \frac{a}{b} + \frac{b}{c} + \frac{c}{a} \right) \]
+\end{exercise}
 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
 %%% End:
+
