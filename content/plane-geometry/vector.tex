@@ -113,6 +113,30 @@
   若是还存在另一组实数$u$、$v$、$w$使得$\bm{\delta} = u \bm{\alpha} + v \bm{\beta} + w \bm{\gamma}$，则有$(\lambda-u)\bm{\alpha}+(\mu-v)\bm{\beta}+(\nu-w)\bm{\gamma}=0$，若是$\lambda \neq u$，便得出$\bm{\alpha}$与$\bm{\beta}$、$\bm{\gamma}$共面，这与定理条件矛盾，所以$\lambda = u$，进一步类似的方法得出$\mu =v$和$\nu=w$.
 \end{proof}
 
+\begin{example}
+  \label{example:point-p-locate-plane-of-triangle-abc}
+    对于一个三角形$ABC$及其所在平面内的任一点$P$，显然向量$\vv{PA}$、$\vv{PB}$、$\vv{PC}$不可能全部共线，假定$PB$与$PC$不共线，那么存在唯一分解式$\vv{PA}=p\vv{PB}+q\vv{PC}$，或者写成
+  \[ \vv{PA}-p\vv{PB}-q\vv{PC}=\bm{0} \]
+  反之，若存在不全为零的三个实数$\alpha$、$\beta$、$\gamma$使得
+  \[ \alpha \vv{PA} + \beta \vv{PB} + \gamma \vv{PC} = \bm{0} \]
+  因为三个系数不全为零，假定$\alpha$不为零，于是$\vv{PA}$便可以写成
+  \[ \vv{PA} = -\frac{\beta}{\alpha} \vv{PB} - \frac{\gamma}{\alpha} \vv{PC} \]
+  因此，$\vv{PA}$与$\vv{PB}$和$\vv{PC}$共面，因此得到结论：
+  \begin{theorem}
+    点$P$位于三角形$ABC$所在平面内的充分必要条件是：存在不全为零的三个实数$\alpha$、$\beta$、$\gamma$使得下式成立，
+    \[ \alpha \vv{PA} + \beta \vv{PB} + \gamma \vv{PC} = \bm{0} \]
+    并且当点$P$在此平面内时，这个方程中的三个系数在允许相差一个常数因子的意义下是唯一的。
+  \end{theorem}
+  前面已经推证了充分性和必要性，这里只就系数在允许相差一个常数因子的意义下是唯一的加以说明，事实上，将定理等式中所涉及的向量全部改写为以$A$为起点的向量，即
+  \[ \alpha (-\vv{AP}) + \beta (\vv{AB}-\vv{AP}) + \gamma (\vv{AC}-\vv{AP}) = \bm{0} \]
+  即
+  \[ \vv{AP} = \frac{\beta}{\alpha+\beta+\gamma} \vv{AB} + \frac{\gamma}{\alpha+\beta+\gamma} \vv{AC} \]
+  由向量的分解定理，这系数$\dfrac{\beta}{\alpha+\beta+\gamma}$跟$\dfrac{\gamma}{\alpha+\beta+\gamma}$必然是唯一的，不妨设前者为$p$，后者为$q$，而记$t=\alpha+\beta+\gamma$，则
+  \[ \beta=pt, \  \gamma=qt, \  \alpha=(1-p-q)t \]
+  于是$\alpha:\beta:\gamma=p:q:(1-p-q)$，而$t$可以任取，于是这三个系数在允许相差一个常量因子的情况下是唯一的。
+
+以后我们会利用向量的外积给出这三个系数的具体表达，见\autoref{example:outer-product-coefficient-pa-pb-pc}.
+\end{example}
 
 \subsection{坐标表示}
 \label{sec:codrnation-of-vector}
@@ -234,29 +258,17 @@
 
 \begin{example}
   \label{example:point-P-and-triangle-ABC}
-  对于一个三角形$ABC$及其所在平面内的任一点$P$，显然向量$\vv{PA}$、$\vv{PB}$、$\vv{PC}$不可能全部共线，假定$PB$与$PC$不共线，那么存在唯一分解式$\vv{PA}=p\vv{PB}+q\vv{PC}$，或者写成
-  \[ \vv{PA}-p\vv{PB}-q\vv{PC}=\bm{0} \]
-  反之，若存在不全为零的三个实数$\alpha$、$\beta$、$\gamma$使得
+  在\autoref{example:point-p-locate-plane-of-triangle-abc}中已经知道，点$P$位于三角形$ABC$所在平面上的充分必要条件是，存在三个不全为零的实数$\alpha$、$\beta$、$\gamma$使得下式成立
   \[ \alpha \vv{PA} + \beta \vv{PB} + \gamma \vv{PC} = \bm{0} \]
-  因为三个系数不全为零，假定$\alpha$不为零，于是$\vv{PA}$便可以写成
-  \[ \vv{PA} = -\frac{\beta}{\alpha} \vv{PB} - \frac{\gamma}{\alpha} \vv{PC} \]
-  因此，$\vv{PA}$与$\vv{PB}$和$\vv{PC}$共面，因此得到结论：
-  \begin{theorem}
-    点$P$位于三角形$ABC$所在平面内的充分必要条件是：存在不全为零的三个实数$\alpha$、$\beta$、$\gamma$使得下式成立，
-    \[ \alpha \vv{PA} + \beta \vv{PB} + \gamma \vv{PC} = \bm{0} \]
-    并且当点$P$在此平面内时，这个方程中的三个系数在允许相差一个常数因子的意义下是唯一的。
-  \end{theorem}
-  前面已经推证了充分性和必要性，这里只就系数在允许相差一个常数因子的意义下是唯一的加以说明，事实上，将定理等式中所涉及的向量全部改写为以$A$为起点的向量，即
-  \[ \alpha (-\vv{AP}) + \beta (\vv{AB}-\vv{AP}) + \gamma (\vv{AC}-\vv{AP}) = \bm{0} \]
-  即
-  \[ \vv{AP} = \frac{\beta}{\alpha+\beta+\gamma} \vv{AB} + \frac{\gamma}{\alpha+\beta+\gamma} \vv{AC} \]
-  由向量的分解定理，这系数$\dfrac{\beta}{\alpha+\beta+\gamma}$跟$\dfrac{\gamma}{\alpha+\beta+\gamma}$必然是唯一的，不妨设前者为$p$，后者为$q$，而记$t=\alpha+\beta+\gamma$，则
-  \[ \beta=pt, \  \gamma=qt, \  \alpha=(1-p-q)t \]
-  于是$\alpha:\beta:\gamma=p:q:(1-p-q)$，而$t$可以任取，于是这三个系数在允许相差一个常量因子的情况下是唯一的。
-
-以后我们会利用向量的外积给出这三个系数的具体表达，见\autoref{example:outer-product-coefficient-pa-pb-pc}.
-  
-这里需要提的是，如果三个系数都为非负并且$\alpha+\beta+\gamma = 1$，那么点$P$位于三角形的内部或者三条边上，其中位于内部时三个系数都为正而和为1，位于三条边上时有一个系数为零而另外两个相加为1，当有两个系数为零另外一个为1时正好是顶点之一。
+  现在将这式中的向量都用从空间中任取的一点$O$出发的向量来表示，即用$\vv{OA}-\vv{OP}$来替换$\vv{PA}$，其余类推，则上式便变化为
+  \[ \vv{OP} = \frac{\alpha \vv{OA} + \beta \vv{OB} + \gamma \vv{OC}}{\alpha+\beta+\gamma} \]
+  显见右边的三个系数之和为1，于是\autoref{example:point-p-locate-plane-of-triangle-abc}中的结论也可以叙述为，点$P$位于平面$ABC$上的充分必要条件是，存在三个不全为零且满足$\alpha+\beta+\gamma=1$的实数$\alpha$、$\beta$、$\gamma$，使得
+  \[ \vv{OP} = \alpha \vv{OA} + \beta \vv{OB} + \gamma \vv{OC} \]
+  或者写成
+  \[ \alpha \vv{PA} + \beta \vv{PB} + \gamma \vv{PC} = \bm{0} \]
+  这与定比分点的公式非常类似，在某种意义上，它就是定比分点的一种推广，即由两个点变成了三个点，两个点组成的线段推广成了三个点组成的三角形。
+ 
+本例中所主要讨论的结果，如果三个系数都为非负，那么点$P$位于三角形的内部或者三条边上，其中位于内部时三个系数都为正而和为1，位于三条边上时有一个系数为零而另外两个相加为1，当有两个系数为零另外一个为1时正好是顶点之一。
 
   只对三个系数都为正的情形加以说明，在这时有
   \begin{eqnarray*}
@@ -494,7 +506,7 @@
 
 \begin{example}
   \label{example:outer-product-coefficient-pa-pb-pc}
-  在\autoref{example:point-P-and-triangle-ABC}中，已经知道对于三角形$ABC$平面内的任一点$P$，有向量方程
+  在\autoref{example:point-p-locate-plane-of-triangle-abc}中，已经知道对于三角形$ABC$平面内的任一点$P$，有向量方程
   \begin{equation}
     \label{eq:vector-expr-for-p-coline-abc}
    \alpha \vv{PA} + \beta \vv{PB} +\gamma \vv{PC} = \bm{0} 
