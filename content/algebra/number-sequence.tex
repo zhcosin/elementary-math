@@ -85,7 +85,7 @@
 \[ S_n = a_0+a_1+\cdots+a_n = a_0(1+q+\cdots+q^{n}) \]
 这就归结为对$1+q+q^2+\cdots+q^{n}$求值，
 
-由数学归纳法可得出下面的乘法公式，它也是平方差公式和立方差公式的自然推广
+由数学归纳法可得出下面的乘法公式，它也是平方差公式和立方差公式的自然推广(见\autoref{example:a-power-n-b-power-n-factoring})
 \begin{equation}
   \label{eq:a-power-n-substract-b-power-n}
  a^n-b^n = (a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}) 
@@ -96,8 +96,9 @@
 \[ 1+q+\cdots+q^{n} = \frac{1-q^{n+1}}{1-q} \]
 若$n$为负整数，则上式中以$1/q$代$q$，便知上式仍然成立，于是对于等比数列就有
 \begin{theorem}
-  在以$q$为公比的等比数列$\ldots,a_{-2},a_{-1},a_0,a_1,a_2,\ldots$中，对于任意整数$n$都有
+  在以$q(q \neq 1)$为公比的等比数列$\ldots,a_{-2},a_{-1},a_0,a_1,a_2,\ldots$中，对于任意整数$n$都有
   \[ S_n = \sum_{i=0}^na_i = \frac{a_0(1-q^{n+1})}{1-q} \]
+  而在$q=1$时，$S_n=(n+1)a_0$.
 \end{theorem}
 
 还可以以另外一种方式得出这公式，因为
