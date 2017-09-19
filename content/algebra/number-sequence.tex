@@ -64,6 +64,50 @@
 
 上面求$1+2+\cdots+n$的方法称为\emph{倒序相加法}，当然也可以直接把这方法应用到$S_n=a_0+a_1+\cdots+a_n$上，同样可得出上面的结果.
 
+\begin{example}[一类与组合数有关的和式]
+  在本例中，我们来考虑求和 $C(n,m)=\sum\limits_{i=0}^n i^mC_n^i$，其中$m$是一个确定的非负整数。
+
+  在 $m=0$ 的情形，由二项式定理即知这个和是$C(n,0)=2^n$.而在$m=1$的情况下，和式即$\sum\limits_{i=0}^niC_n^i$，此时有两种方法可以求出这个和式，其一是利用倒序相加，我们有
+  \begin{eqnarray*}
+    \sum_{i=0}^n iC_n^i & = & \frac{1}{2} \left( \sum_{i=0}^n iC_n^i + \sum_{i=0}^n iC_n^{n-i} \right) \\
+                        & = & \frac{1}{2} \left( \sum_{i=0}^n iC_n^i + \sum_{i=0}^n (n-i)C_n^i \right) \\
+    & = & \frac{n}{2} \sum_{i=0}^nC_n^i = n 2^{n-1}
+  \end{eqnarray*}
+  即 $C(n,1)=n 2^{n-1}$.
+
+  另一个方法是利用了组合恒等式 $iC_n^i = nC_{n-1}^{i-1}(i>0)$，这很容易验证，利用它我们有
+  \begin{eqnarray*}
+    C(n,1) & = & \sum_{i=0}^n iC_n^i \\
+           & = & n\sum_{i=1}^n C_{n-1}^{i-1} \\
+    & = & n 2^{n-1}
+  \end{eqnarray*}
+  受此启发，对于$m=2$我们也有类似方法，在$n>1$时有
+  \begin{eqnarray*}
+    i^2C_n^i & = & n i C_{n-1}^{i-1} \\
+             & = & n (1+(i-1)) C_{n-1}^{i-1} \\
+             & = & n C_{n-1}^{i-1} + n(i-1)C_{n-1}^{i-1} \\
+    & = & nC_{n-1}^{i-1} + n(n-1)C_{n-2}^{i-2}
+  \end{eqnarray*}
+  因此，
+  \begin{eqnarray*}
+    C(n,2) & = & \sum_{i=0}^n i^2C_n^i \\
+           & = & C_n^1 + n\sum_{i=2}^nC_{n-1}^{i-1} + n(n-1)\sum_{i=2}^nC_{n-2}^{i-2} \\
+           & = & n + n(2^{n-1}-1)+n(n-1)2^{n-2} \\
+    & = & n 2^{n-1} + n(n-1)2^{n-2}
+  \end{eqnarray*}
+
+  在一般情形下，对于$C(n,m)=\sum\limits_{i=0}^ni^mC_n^i$，可以利用$C_{n+1}^i=C_n^i+C_n^{i-1}(1 \leqslant i \leqslant n)$，有
+  \begin{eqnarray*}
+    i^mC_{n+1}^i & = & i^mC_n^i + i^mC_n^{i-1} \\
+                 & = & i^mC_n^i + (1+(i-1))^m C_n^{i-1} \\
+    & = & i^mC_n^i + \sum_{k=0}^m C_m^k(i-1)^kC_n^{i-1}
+  \end{eqnarray*}
+  显然对于上式最后一行的前一项求和(从1到$n$)就是$C(n,m)$，而对后一项从1到$n$求和则是
+  \[ \sum_{i=1}^n \sum_{k=0}^mC_m^k(i-1)^kC_n^{i-1} = \sum_{k=0}^m C_m^k \sum_{i=1}^n (i-1)^kC_n^{i-1}=\sum_{k=0}^m C_m^k (C(n,k)-n^k) \]
+  所以最终
+  \[ C(n+1,m)=(n+1)^m + C(n,m) + \sum_{k=0}^m C_m^k (C(n,k)-n^k) \]
+\end{example}
+
 \begin{definition}
   如果一数列$\ldots,a_{-2},a_{-1},a_0,a_1,a_2,\ldots$中，任意一项与前一项的比值都是同一非零常数，即存在非零常数$q$，使得对于任意整数$n$都有$a_n / a_{n-1} = q$成立，则称此数列是 \emph{等比数列}，而比值常数$q$称为它的 \emph{公比}.
 \end{definition}

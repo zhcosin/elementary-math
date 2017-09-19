@@ -94,26 +94,6 @@
 \subsection{题选}
 \label{sec:exercise-of-solve-equation}
 
-\begin{exercise}
-  (台湾台南吴政哲)已知$a$、$b$、$c$是三次方程$x^3+2x^2+3x+4=0$的三个复根，求表达式$\dfrac{a}{b}+\dfrac{b}{c}+\dfrac{c}{a}$的值.
-\end{exercise}
-
-\begin{proof}[解答]
-  一眼看上去容易想到对称多项式和根与系数的关系，但是
-  \[ \frac{a}{b}+\frac{b}{c}+\frac{c}{a} = \frac{ab^2+bc^2+ca^2}{abc} \]
-  分子并不是对称多项式，仅仅是轮换多项式，记$M=ab^2+bc^2+ca^2$，再记其对偶式$N=a^2b+b^2c+c^2a$，可以验证$M+N$、$MN$都是对称多项式
-  \begin{eqnarray*}
-    M+N & = & (ab^2+bc^2+ca^2) + (a^2b+b^2c+c^2a) \\
-    & = & \frac{1}{3}(a+b+c)^3-\frac{1}{3}(a^3+b^3+c^3)-2abc
-  \end{eqnarray*}
-  \begin{eqnarray*}
-    MN & = &(ab^2+bc^2+ca^2)(a^2b+b^2c+c^2a) \\
-    & = & abc(a^3+b^3+c^3)+(a^3b^3+b^3c^3+c^3a^3)+3a^2b^2c^2
-  \end{eqnarray*}
-  因此，$M+N$和$MN$都可以利用根与系数的关系求出，从而$M$可求出，但结果应该是两个值。
-\end{proof}
-
-
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../../book"
