@@ -1,7 +1,7 @@
 
-MAIN=book
+MAIN=elementary-math-note
 
-TEXMAINDOC=book
+TEXMAINDOC=elementary-math-note
 
 TEMPFILECLASS=\
 *.log \
