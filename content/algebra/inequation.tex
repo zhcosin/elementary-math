@@ -31,6 +31,30 @@
   对于任意$n$个实数$a_i(i=1,2,\ldots,n)$，成立不等式$|a_1+a_2+\cdots+a_n| \leqslant |a_1| + |a_2| + \cdots + |a_n|$。
 \end{inference}
 
+\subsection{伯努利不等式}
+\label{sec:bernoulli-inequality}
+
+\begin{theorem}[伯努利(Bernoulli)不等式]
+  \label{theorem:bernoulli-inequality}
+  设实数$x \geqslant -1$，则对任意正整数$n$成立不等式
+  \begin{equation}
+    \label{eq:bernoulli-inequality}
+   (1+x)^n \geqslant 1+nx 
+ \end{equation}
+ 等号成立的充分必要条件是$x=0$或者$x=-1,n=1$.
+\end{theorem}
+
+\begin{proof}[证明]
+  在$x \geqslant 0$时，左边按二项式定理展开可以看到它是成立的，所以关键是如何证明$x<0$的情形。
+
+  在等式(它可以经由数学归纳法得出，见\autoref{example:a-power-n-b-power-n-factoring})
+  \[ a^n-b^n = (a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1}) \]
+  在式中令$a=1+x$，$b=1$便得
+  \[ (1+x)^n-1=x \left[ (1+x)^{n-1}+(1+x)^{n-2}+\cdots+(1+x)+1 \right] \]
+  如果$x>0$，则右边中括号内的部分显然大于$n$，于是要证的不等式成立，而如果$-1<x<0$，则中括号内的部分小于$n$，再与负数$x$相乘，不等式反向即证出伯努利不等式。
+\end{proof}
+
+
 \subsection{排序不等式}
 
 \begin{theorem}[排序不等式]
