@@ -9,7 +9,7 @@
 \begin{proof}[证明]
 在这直线上任取一点 $T(x_T,y_T)$，有：
 \begin{equation}
-(\frac{x_0^2}{a^2}+\frac{y_0^2}{b^2})+(\frac{x_T^2}{a^2}+\frac{y_T^2}{b^2}) \geqslant 2(\frac{x_0x_T}{a^2}+\frac{y_0y_T}{b^2})=2
+\left(\frac{x_0^2}{a^2}+\frac{y_0^2}{b^2}\right)+\left(\frac{x_T^2}{a^2}+\frac{y_T^2}{b^2}\right) \geqslant 2\left(\frac{x_0x_T}{a^2}+\frac{y_0y_T}{b^2}\right)=2
 \end{equation}
 所以得到:
 \begin{equation}
@@ -23,35 +23,47 @@
 \end{theorem}
 
 \begin{proof}[证明]
-  在直线$\dfrac{x_0x}{a^2}-\dfrac{y_0y}{b^2}=1$上任取一点$Q(x_1,y_1)$，有
+  在直线$\dfrac{x_0x}{a^2}-\dfrac{y_0y}{b^2}=1$上任取一点$Q(x_T,y_T)$，有
   \begin{equation}
     \label{eq:4hdks85hdks018}
-   \frac{x_0^2}{a^2}-\frac{y_0^2}{b^2}=1, \  \frac{x_0x_1}{a^2}+\frac{y_0y_1}{b^2}=1 
+   \frac{x_0^2}{a^2}-\frac{y_0^2}{b^2}=1, \  \frac{x_0x_T}{a^2}+\frac{y_0y_T}{b^2}=1 
   \end{equation}
   我们将证明
   \begin{equation}
     \label{eq:hss8wsk13hcfsud0wurg}
-    \frac{x_1^2}{a^2}-\frac{y_1^2}{b^2} \leqslant 1  
+    \frac{x_T^2}{a^2}-\frac{y_T^2}{b^2} \leqslant 1  
   \end{equation}
-  且等号仅在$y_1=y_0$时成立，这样一来，点$P(x_0,y_0)$就是直线与双曲线的唯一公共点，即为切线。
+  且等号仅在$y_T=y_0$时成立，这样一来，点$P(x_0,y_0)$就是直线与双曲线的唯一公共点，即为切线。
 
   记
   \[ r=\frac{x_0}{a}+\frac{y_0}{b}, \  s=\frac{x_0}{a}-\frac{y_0}{b} \]
   以及
-  \[ u=\frac{x_1}{a}+\frac{y_1}{b}, \  v=\frac{x_1}{a}-\frac{y_1}{b} \]
+  \[ u=\frac{x_T}{a}+\frac{y_T}{b}, \  v=\frac{x_T}{a}-\frac{y_T}{b} \]
   那么\autoref{eq:4hdks85hdks018}即为$rs=1$以及$\dfrac{rv+su}{2}=1$，而要证明的\autoref{eq:hss8wsk13hcfsud0wurg}即是$uv\leqslant 1$.
 
   由$4=(rv+su)^2=r^2v^2+s^2u^2+2rsuv \geqslant 4rsuv= 4uv$即证得$uv \leqslant 1$，定理得证。
 \end{proof}
+
+网友kuing提出，椭圆和双曲线有统一的类似的漂亮写法，因为
+\begin{eqnarray*}
+  (a^2+b^2)(u^2+v^2) & = & (au+bv)^2+(av-bu)^2 \geqslant (au+bv)^2 \\
+  (a^2-b^2)(u^2-v^2) & = & (au+bv)^2-(av+bu)^2 \leqslant (au+bv)^2 
+\end{eqnarray*}
+所以
+\begin{eqnarray*}
+  \left( \frac{x_0^2}{a^2}+\frac{y_0^2}{b^2} \right) \left( \frac{x_T^2}{a^2}+\frac{y_T^2}{b^2} \right) & \geqslant & \left( \frac{x_0x_T}{a^2}+\frac{y_0y_T}{b^2} \right)^2 \\
+  \left( \frac{x_0^2}{a^2}-\frac{y_0^2}{b^2} \right) \left( \frac{x_T^2}{a^2}-\frac{y_T^2}{b^2} \right) & \leqslant & \left( \frac{x_0x_T}{a^2}+\frac{y_0y_T}{b^2} \right)^2 
+\end{eqnarray*}
+如此证法将更为漂亮。
 
 \begin{theorem}
   抛物线$y^2=2px(p>0)$上任一点$P(x_0,y_0)$处的切线方程是$y_0y=p(x+x_0)$.
 \end{theorem}
 
 \begin{proof}[证明]
-  在直线$y_0y=p(x+x_0)$上任取一点$Q(x_1,y_1)$，则
-  \[ y_1^2+y_0^2 \geqslant 2y_1y_0=2p(x_1+x_0) \]
-  而$y_0^2=2px_0$，所以得$y_1^2 \geqslant 2px_1$，且等号仅在$y_1=y_0$时成立，这表明点$P$是该直线与抛物线的唯一公共点，即为切线。
+  在直线$y_0y=p(x+x_0)$上任取一点$Q(x_T,y_T)$，则
+  \[ y_T^2+y_0^2 \geqslant 2y_Ty_0=2p(x_T+x_0) \]
+  而$y_0^2=2px_0$，所以得$y_T^2 \geqslant 2px_T$，且等号仅在$y_T=y_0$时成立，这表明点$P$是该直线与抛物线的唯一公共点，即为切线。
 \end{proof}
 
 %%% Local Variables:
