@@ -19,9 +19,21 @@ draw(theincircle);
 pair I = locate(theincircle.C);
 label("$I$", I, S);
 
-pair D = locate(intersectionpoints(B -- C, theincircle)[0]);
-pair E = locate(intersectionpoints(C -- A, theincircle)[0]);
-pair F = locate(intersectionpoints(A -- B, theincircle)[0]);
+real distant(pair P, pair Q) {
+	return sqrt((P.x-Q.x)^2+(P.y-Q.y)^2);
+}
+
+real dAB = distant(A, B);
+real dBC = distant(B, C);
+real dCA = distant(C, A);
+
+pair D = interp(B, C, (dAB+dBC-dCA)/(2*dBC));
+pair E = interp(C, A, (dBC+dCA-dAB)/(2*dCA));
+pair F = interp(A, B, (dAB+dCA-dBC)/(2*dAB));
+
+//pair D = locate(intersectionpoints(B -- C, theincircle)[0]);
+//pair E = locate(intersectionpoints(C -- A, theincircle)[0]);
+//pair F = locate(intersectionpoints(A -- B, theincircle)[0]);
 
 label("$D$", D, S);
 label("$E$", E, NE);

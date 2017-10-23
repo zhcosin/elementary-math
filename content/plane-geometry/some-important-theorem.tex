@@ -274,7 +274,7 @@
 根据这证明过程，实际上梅涅劳斯定理和塞瓦定理可以统一起来：假定$X$、$Y$、$Z$是三角形$ABC$三边$AB$、$BC$、$CA$或它们的延长线上的点，有分比$\vv{AX}=\lambda_1\vv{XB}$，$\vv{BY}=\lambda_2\vv{YC}$，$\vv{CZ}=\lambda_3\vv{ZA}$，那么这三点共线的充分必要条件是$\lambda_1\lambda_2\lambda_3=-1$（梅涅劳斯定理），而$AY$、$BZ$、$CX$三线共点的充分必要条件是$\lambda_1\lambda_2\lambda_3=1$（塞瓦定理）。
 \end{example}
 
-\begin{example}[三角形的几个心及其向量表达]
+\begin{example}[点关于三角形的向量方程、三角形的几个心及其向量表达]
  利用塞瓦定理，我们知道三角形的三条中线是交于同一点的，该点称为三角形的 \emph{重心}。
 
  同样，利用塞瓦定理和三角形内角平分线定理，还可以知道三角形的三条内角平分线也是交于同一点的，这点称为三角形的 \emph{内心}，它是三角形内切圆圆心。
@@ -286,11 +286,17 @@
 这四个心再加上三角形的\emph{外心}(三边的中垂线交点)，合称为三角形的五心。 
 
 而且，在塞瓦定理的向量形式的证明过程中已经得出点$P$的向量表达
- \[ \vv{AP} = \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{AB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{AC} \]
+\begin{equation}
+  \label{eq:pa-pb-pc-vector-with-lambda-1}
+  \vv{AP} = \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{AB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{AC} 
+\end{equation}
  或者将它改写为以平面上任一点$O$为起点的向量方程
  \[ \vv{OP} = \frac{\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{OA} + \frac{\lambda_1\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \vv{OB} + \frac{1}{1+\lambda_3+\lambda_1\lambda_3} \vv{OC} \]
  还可以将其中向量全部改写为以$P$为起点的向量方程，即
- \[ \lambda_3 \vv{PA} + \lambda_1 \lambda_3 \vv{PB} + \vv{PC} = \bm{0} \]
+ \begin{equation}
+   \label{eq:pa-pb-pc-vector-with-lambda}
+  \lambda_3 \vv{PA} + \lambda_1 \lambda_3 \vv{PB} + \vv{PC} = \bm{0} 
+ \end{equation}
  这三个向量方程都是由塞瓦定理确定出的点$P$的向量表达，其中最后一种较为简洁，在此利用它来表达三角形的五心。
 
  首先对于重心$G$，显然$\lambda_1=\lambda_2=\lambda_3=1$，因此
@@ -314,6 +320,39 @@
  同样注意到$a\cos{A} : b\cos{B} : c\cos{C} = \sin{2A} : \sin{2B} : \sin{2C}$，所以式子可以写为
  \[ \sin{2A} \vv{OA} + \sin{2B} \vv{OB} + \sin{2C} \vv{OC} = \bm{0} \]
  这便是三角形五心的向量表达，进一步，利用向量的坐标，便可以得出五心的坐标公式，此处不再叙述。
+
+ 再回到 \autoref{eq:pa-pb-pc-vector-with-lambda}，我们将证明一个漂亮的结论：
+ \begin{theorem}
+   \label{theorem:vector-equation-for-point-about-triangle}
+   设点$P$是三角形$ABC$所在平面上任一点，则有下式成立
+   \begin{equation}
+     \label{eq:vector-equation-for-point-about-triangle}
+     S_{\triangle PBC}\vv{PA}+S_{\triangle PCA} \vv{PB} + S_{\triangle PAB} \vv{PC}=\bm{0}
+   \end{equation}
+     式中的三个面积均为代数面积，即有正负号，其决定规则如下，设直线$AP$与直线$BC$相交于点$Y$，则$\vv{AY}$与$\vv{PY}$共线，两者方向相同时$S_{\triangle PBC}$为正，两者方向相反时$S_{\triangle PBC}$为负（也可以简单的认为，当$A$与$P$位于直线$BC$同侧时为正，否则为负）。
+ \end{theorem}
+
+ \begin{proof}[证明]
+   充分利用\autoref{eq:pa-pb-pc-vector-with-lambda}，我们只要证明下式成立就可以了
+   \begin{equation}
+     \label{eq:SPBC-SPCA-SPAB-lambda}
+    S_{\triangle PBC} : S_{\triangle PCA} : S_{\triangle PAB} = \lambda_3 : \lambda_1\lambda_3 : 1 
+   \end{equation}
+   为书写方便，定义共线向量的除法运算如下，如果$\bm{r}=\lambda\bm{s}$，则$\dfrac{\bm{r}}{\bm{s}}=\lambda$，在此约定下显然有
+   \[ \frac{S_{\triangle PBC}}{S_{\triangle ABC}} = \frac{\vv{PY}}{\vv{AY}} \]
+   根据\autoref{eq:pa-pb-pc-vector-with-lambda-1} 以及
+   \[ \vv{AY} = \frac{1}{1+\lambda_2}\vv{AB}+\frac{\lambda_2}{1+\lambda_2}\vv{AC} \]
+   得到
+   \[ \vv{PY} = \vv{AY} - \vv{AP} = \frac{\lambda_3}{(1+\lambda_2)(1+\lambda_3+\lambda_1\lambda_3)}\vv{AB} + \frac{\lambda_2\lambda_3}{(1+\lambda_2)(1+\lambda_3+\lambda_1\lambda_3)}\vv{AC} \]
+   于是
+   \[ \frac{\vv{PY}}{\vv{AY}} = \frac{\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \]
+即
+   \[ \frac{S_{\triangle PBC}}{S_{\triangle ABC}} = \frac{\lambda_3}{1+\lambda_3+\lambda_1\lambda_3} \]
+   轮换各字母即下标便可得另外两式
+   \[ \frac{S_{\triangle PCA}}{S_{\triangle ABC}} = \frac{\lambda_1}{1+\lambda_1+\lambda_2\lambda_1}, \  \frac{S_{\triangle PAB}}{S_{\triangle ABC}} = \frac{\lambda_2}{1+\lambda_2+\lambda_3\lambda_2}  \]
+塞瓦定理已经得出$\lambda_1\lambda_2\lambda_3=1$，所以计算可知\autoref{eq:SPBC-SPCA-SPAB-lambda}成立，因此定理得证。
+ \end{proof}
+
 \end{example}
 
 \begin{example}
