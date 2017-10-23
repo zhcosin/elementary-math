@@ -850,6 +850,20 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 于是
 \[ b_1+b_2+\cdots+b_n <  \frac{1}{2} + \frac{5}{16} + \frac{1075}{8192} + \frac{2}{3} \cdot \left( \frac{3225}{16384} \right)^2 \cdot \frac{1}{1-\left( \frac{3225}{16384} \right)^2} < 1 \]
 这里没办法，上了计算器。证毕。
+
+后来忽然发现也可以简单点算，把看起来大坨的分数用简单分数来代替就行，在那里得到$n>3$时
+\[ b_n < \frac{2}{3} \left( \frac{3225}{16384} \right)^{2n-6} \]
+括号里那一坨分数接近但小于$\frac{1}{5}$，所以
+\[ b_n < \frac{2}{3} \left( \frac{1}{5} \right)^{2n-6} \]
+而 $b_3=\frac{1075}{8192} $接近但大于$\frac{1}{8}$，于是稍稍把分母放大一点，有
+\[ b_3=\frac{1075}{8192}<\frac{5}{32}  \]
+所以
+\begin{align*}
+b_1+b_2+\cdots+b_n & < \frac{1}{2}+\frac{5}{16} + \frac{1075}{8192} + \frac{2}{3} \cdot \left( \frac{1}{5} \right)^2 \cdot \frac{1}{1-\left( \frac{1}{5} \right)^2} \\
+& < \frac{1}{2}+\frac{5}{16} + \frac{5}{32} + \frac{1}{36} \\
+& < \frac{1}{2}+\frac{5}{16} + \frac{5}{32} + \frac{1}{32} = 1
+\end{align*}
+注意最后一个小于是把最后一个分式的分母从36缩小到32的。
 \end{proof}
 
 
