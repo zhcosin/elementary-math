@@ -338,6 +338,12 @@
      \label{eq:SPBC-SPCA-SPAB-lambda}
     S_{\triangle PBC} : S_{\triangle PCA} : S_{\triangle PAB} = \lambda_3 : \lambda_1\lambda_3 : 1 
    \end{equation}
+   这式子看起来不大对称，但因为塞瓦定理已经表明$\lambda_1\lambda_2\lambda_3=1$，所以上面这式子可以改写成下面三个式子
+   \[ \frac{S_{\triangle PBC}}{S_{\triangle PCA}} = \frac{1}{\lambda_1}, \  \frac{S_{\triangle PCA}}{S_{\triangle PAB}} = \frac{1}{\lambda_2}, \  \frac{S_{\triangle PAB}}{S_{\triangle PBC}} = \frac{1}{\lambda_3} \]
+   这下是不是漂亮多了?
+
+   这三个对称式子，利用三角形共边定理都是显而易见的，所以定理结论也就得到了证明，但在此仍然给出向量方法的证明如下:
+   
    为书写方便，定义共线向量的除法运算如下，如果$\bm{r}=\lambda\bm{s}$，则$\dfrac{\bm{r}}{\bm{s}}=\lambda$，在此约定下显然有
    \[ \frac{S_{\triangle PBC}}{S_{\triangle ABC}} = \frac{\vv{PY}}{\vv{AY}} \]
    根据\autoref{eq:pa-pb-pc-vector-with-lambda-1} 以及
