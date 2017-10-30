@@ -34,16 +34,37 @@
 \subsection{伯努利不等式}
 \label{sec:bernoulli-inequality}
 
-\begin{theorem}[伯努利(Bernoulli)不等式]
-  \label{theorem:bernoulli-inequality}
+伯努利不等式是几个相关联的不等式的统称。
+
+\begin{theorem}
+  \label{theorem:bernoulli-inequality-multipli-many-number}
+  设$n$个实数$x_i(i=1,2,\ldots,n)$都满足$x_i>-1$并且都具有相同的符号（可以有零），则有不等式
+  \[ (1+x_1)(1+x_2)\cdots(1+x_n) \geqslant 1+x_1+x_2+\cdots+x_n \]
+\end{theorem}
+
+\begin{proof}[证明]
+  按数学归纳法，显然$n=1$时不等式是成立的，假设它对$n$个实数也成立，那么对于$n+1$个实数的情形，有
+  \begin{eqnarray*}
+    && (1+x_1)(1+x_2)\cdots(1+x_n)(1+x_{n+1}) \\
+    &\geqslant & (1+x_1+x_2+\cdots+x_n)(1+x_{n+1}) \\
+    &= & 1+x_1+x_2+\cdots+x_n+x_{n+1} + x_{n+1}(x_1+x_2+\cdots+x_n) \\
+    &\geqslant & 1+x_1+x_2+\cdots+x_n+x_{n+1}
+  \end{eqnarray*}
+  其中最后一个大于等于是因为诸$x_i$同号而得。
+\end{proof}
+
+在上述定理中令诸$x_i$相等，就得下面定理
+\begin{theorem}
+  \label{theorem:bernoulli-inequality-power}
   设实数$x \geqslant -1$，则对任意正整数$n$成立不等式
   \begin{equation}
-    \label{eq:bernoulli-inequality}
+    \label{eq:bernoulli-inequality-power}
    (1+x)^n \geqslant 1+nx 
  \end{equation}
  等号成立的充分必要条件是$x=0$或者$x=-1,n=1$.
 \end{theorem}
 
+在此给出此定理的另外一种证明
 \begin{proof}[证明]
   在$x \geqslant 0$时，左边按二项式定理展开可以看到它是成立的，所以关键是如何证明$x<0$的情形。
 
@@ -54,6 +75,23 @@
   如果$x>0$，则右边中括号内的部分显然大于$n$，于是要证的不等式成立，而如果$-1<x<0$，则中括号内的部分小于$n$，再与负数$x$相乘，不等式反向即证出伯努利不等式。
 \end{proof}
 
+\begin{theorem}
+  \label{theorem:bernoulli-inequality-real}
+  设实数$x>-1$，$\alpha$为一个实数，则当$\alpha>1$或者$\alpha<0$时，有不等式
+  \[ (1+x)^{\alpha} \geqslant 1+\alpha x \]
+  当$0<\alpha<1$时不等式反向成立，无论哪种情况，取等号的条件都是$x=0$.
+\end{theorem}
+
+由于定理中出现了实数指数幂，初等证明仅对有理指数幂有效，所以这里采用导数的方法解决，这在本书中都是极力避免的，但此处却无法躲开。
+\begin{proof}[证明]
+  令
+  \[ f(x)=(1+x)^{\alpha}-(1+\alpha x) \]
+  则$f(0)=0$，求导得
+  \[ f'(x) = \alpha ((1+x)^{\alpha-1}-1) \]
+  易见$f'(0)=0$，再次求导得
+  \[ f''(x) = \alpha(\alpha-1)(1+x)^{\alpha-2} \]
+  作点讨论: 当$\alpha<0$或$\alpha>1$时，显然$f''(x)>0$，于是$f'(x)<0, \forall -1<x<0$并且$f'(x)>0, \forall x>0$，所以此时恒有$f(x) \geqslant 0, \forall x>-1$，当$0<\alpha<1$时，有$f''(x)<0$，于是$f'(x)>0, \forall -1<x<0$并且$f'(x)<0, \forall x>0$，故此时恒成立$f(x) \leqslant 0$.
+\end{proof}
 
 \subsection{排序不等式}
 
