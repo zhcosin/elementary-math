@@ -76,6 +76,27 @@
 
 因为余数总是比除数小，所以有$b > r_0 > r_1 > \cdots > r_n > r_{n+1} \geqslant 0$，所以这个步骤进行有限步之后，必定得出$r_{n+1}=0$，根据刚才所得的定理，就有$(a,b)=(b,r_0)=(r_0,r_1)=\cdots=(r_n, r_{n+1})=(r_n,0)=r_n$，这就是说，这个除法序列进行到余数为零时，最后一个除数便是正整数$a$和$b$的最大公因数，这个反复做除法的方法就叫做辗转相除法，也叫欧几里德除法。
 
+\begin{example}[辗转相除法所需的步数]
+  关于辗转相除法所需的步数，设$a>b$，有一连串等式
+\begin{align*}
+a & =  q_0b+r_1 \\
+r & = q_1 r_1+r_2 \\
+&\cdots \\
+r_{k-1}&=q_k r_k + r_{k+1} \\
+&\cdots \\
+r_{n-2}&=q_{n-1}r_{n-1}+r_n
+\end{align*}
+最后一式中$r_n=0$，易知$r_i$依次递减，且相邻两个$r_i$至少相差1，所以
+\[ r_{k-1}=q_k r_k + r_{k+1} \geqslant r_k + r_{k+1}  \]
+联系到斐波那契数列，令$s_k=r_{n-k}$，则$s_0=r_n=0, s_1=r_{n-1} \geqslant 1,  s_2=r_{n-2} \geqslant 2$，且
+\[ s_{n-k+1} \geqslant s_{n-k}+s_{n-k-1}   \]
+即
+\[ s_{k+1} \geqslant s_{k}+s_{k-1} \]
+于是按照数学归纳法，易知$s_k \geqslant F_k(k \geqslant 1)$，这里$F_k$是第$k$个斐波那契数。
+
+而$s_n=r_0=b$，所以$b \geqslant F_n$，所以得到结论：假如辗转相除法进行了$n$步除法后才得出余数为零，那么$\min\{a,b\} \geqslant F_n$.
+\end{example}
+
 从辗转相除法，我们还得出一个重要结论:
 \begin{theorem}
   设正整数$d$是正整数$a$和$b$的最大公因数，则存在整数$s$和$t$使得$d=sa+tb$.
