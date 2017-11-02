@@ -495,6 +495,11 @@ a_{n+2}-sa_{n+1}=r(a_{n+1}-sa_n)
 \begin{exercise}
   已知各项都是正实数的数列$x_n$对一切正整数$n$都成立$x_n+\frac{1}{x_{n+1}}<2$，求证该数列所有项都满足$x_n<1$.
 \end{exercise}
+
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4129}]
+
+\exerciseSolvedDate[2016-06-20]
+
 \begin{proof}[解答]
   如果用上极限理论，则可以很容易的得出它单调增加并以1为极限，结论不证自明，所以这里主要讨论的是初等证明。
 
@@ -526,7 +531,9 @@ $$
 \frac{1}{y_{m+1}-1}=1+\frac{1}{y_{m}-1}
 $$
 因此数列$\frac{1}{y_m-1}$是等差数列，它的通项为$y_m=1+\frac{1}{m}$\footnote{这是分式型递推数列求通项的不动点解法。}，于是$x_n<y_m$对一切正整数$n$和$m$都成立，所以必定有$x_n\leqslant 1$（用反证法），而$x_n$的单调性则保证了等号是不能取的。
+\end{proof}
 
+\begin{exerciseAdditional}
 下面关于$y_m$再给个不求通项的玩法\footnote{其实这是高数的玩法，就差提到确界二字了。}，$y_m>1$这一点根据数学归纳法是明显成立的。下面证明它可以任意接近1，也就是要证明，对于无论多么小的正实数$\delta$，总存在$y_m$中的某一项$y_M$，使得$y_M<1+\delta$。
 采用反证法，假定存在某个正实数$\delta$，使得$y_m$中的所有项都满足$y_m\geqslant 1+\delta$，则
 $$
@@ -538,7 +545,7 @@ $$
 y_m-1\leqslant \frac{1}{(1+\delta)^m}
 $$
 显然与假设矛盾，故得证。
-\end{proof}
+\end{exerciseAdditional}
 
 \begin{exercise}
   数列$a_n$满足：$a_1=\frac{1}{2}$，$a_{n+1}=\frac{na_n+a_n^2}{n+1}$，
@@ -638,6 +645,10 @@ $$
   \[ \sum_{i=2}^n \frac{a_i^2}{i^2}<\frac{9}{5} \]
 \end{exercise}
 
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4542}]
+
+\exerciseSolvedDate[2017-04-09]
+
 \begin{proof}[证明一]
   由数列归纳法易证$a_n>1$，所以
 \[ a_{n+1}^2=\frac{na_n^2+a_n}{n+1} < \frac{na_n^2+a_n^2}{n+1} = a_n^2 \]
@@ -694,7 +705,7 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 由这不等式，仍同证明一中的放缩，同样可证得题目中的不等式。 
 \end{proof}
 
-\begin{exercise}\footnote{题目来自悠闲数学娱乐论坛.}
+\begin{exercise}
   数列$a_n$满足，$a_1=1$，$na_na_{n+1}=1$，求证: 
   \begin{enumerate}
   \item
@@ -703,6 +714,10 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
     \[ 2(\sqrt{n+1}-1) \leqslant \frac{1}{2a_3}+\frac{1}{3a_4}+\cdots+\frac{1}{(n+1)a_{n+2}} \leqslant n \]
   \end{enumerate}
 \end{exercise}
+
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4554}]
+
+\exerciseSolvedDate[2017-04-21]
 
 \begin{proof}[证明]
   首先在$a_{n+1}a_n=\frac{1}{n}$中将$n$替换为$n+1$得$a_{n+2}a_{n}=\frac{1}{n+1}$，这两式相除即得
@@ -724,7 +739,7 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 说明：这里数归是从$n$到$n+2$而不是$n+1$是因为，试算了前面几项，发现它是一个锯齿数列，也就是偶数项都向1靠近，奇数项都向0靠近，所以就分别考虑两个子列了。
 \end{proof}
 
-\begin{exercise}\footnote{来自kuing的悠闲数学娱乐论坛。}
+\begin{exercise}
   数列$a_n$满足: $a_1=1/3$，递推公式为$a_{n+1}=a_n+\frac{a_n^2}{n^2}$，求证:
   \[ \frac{n}{2n+1} \leqslant a_n \leqslant \frac{2n-1}{2n+1} \]
 \end{exercise}
@@ -743,7 +758,7 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
   求证这两个数列有共同的极限，并求出这个极限。
 \end{exercise}
 
-题目来源: 悠闲数学娱乐论坛，原帖链接: \url{http://kuing.orzweb.net/viewthread.php?tid=4569&extra=page%3D1}，这题目命题人(网友"其妙")给出了它的几何背景，是周长为2的正$2^n$边形的内切圆半径和外接圆半径.
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4569}]
 
 \begin{proof}[证明一]
   (解答于 2017-05-02)
@@ -792,6 +807,10 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
   如果无穷数列$a_1,a_2,a_3,\ldots $对任意不同的两个正整数$i,j(i<j)$ 都有$|a_i-a_j| \geqslant \dfrac{1}{j}$，那么就称其为“难亲数列”，问题是难亲数列是否一定无界？
 \end{exercise}
 
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4853}]
+
+\exerciseSolvedDate[2017-09-07]
+
 \begin{proof}[解答]
   初步想了下，好像是可以的，而且所有点都可以被限制在一个长度为2的闭区间上，当前$n$个点都确定后，$a_{n+1}$就不能落在前$n$个点以每一个点为中心半径为$\dfrac{1}{n+1}$的开邻域内，这些邻域的总长不超过$\dfrac{2n}{n+1}<2$，所以如果前$n$个点都被限制在一个长度为2的闭区间上的话，则这闭区间仍然有空隙可以容得下$a_{n+1}$，因此结论应该是可以的。
 
@@ -819,6 +838,10 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 \begin{exercise}
   数列$\{a_n\}$满足:$a_1=\dfrac{1}{2}$，$a_{n+1}=\dfrac{-a_n^3+3a_n}{2}$，用$S_n$表示它的前$n$项的和，求证: $S_n>n-1$.
 \end{exercise}
+
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4952}]
+
+\exerciseSolvedDate[2017-10-21]
 
 \begin{proof}[证明]
   先证明数列严格增加但永远不会达到1，即对任意正整数$n$总有$0<a_n<a_{n+1}<1$，上归纳法，由
@@ -850,8 +873,10 @@ a_{n+1} &=\sqrt{a_n\cdot \frac{na_n+1}{n+1}} \\
 于是
 \[ b_1+b_2+\cdots+b_n <  \frac{1}{2} + \frac{5}{16} + \frac{1075}{8192} + \frac{2}{3} \cdot \left( \frac{3225}{16384} \right)^2 \cdot \frac{1}{1-\left( \frac{3225}{16384} \right)^2} < 1 \]
 这里没办法，上了计算器。证毕。
+\end{proof}
 
-后来忽然发现也可以简单点算，把看起来大坨的分数用简单分数来代替就行，在那里得到$n>3$时
+\begin{exerciseAdditional}
+1. 后来忽然发现也可以简单点算，把看起来大坨的分数用简单分数来代替就行，在那里得到$n>3$时
 \[ b_n < \frac{2}{3} \left( \frac{3225}{16384} \right)^{2n-6} \]
 括号里那一坨分数接近但小于$\frac{1}{5}$，所以
 \[ b_n < \frac{2}{3} \left( \frac{1}{5} \right)^{2n-6} \]
@@ -864,7 +889,9 @@ b_1+b_2+\cdots+b_n & < \frac{1}{2}+\frac{5}{16} + \frac{1075}{8192} + \frac{2}{3
 & < \frac{1}{2}+\frac{5}{16} + \frac{5}{32} + \frac{1}{32} = 1
 \end{align*}
 注意最后一个小于是把最后一个分式的分母从36缩小到32的。
-\end{proof}
+
+2. 原帖中 kuing 给了一个借助程序得到的等比放缩有点意思，有时间玩玩。
+\end{exerciseAdditional}
 
 
 %%% Local Variables:
