@@ -430,6 +430,66 @@
 \label{sec:nine-point-theorem-of-triangle}
 
 
+\subsection{题选}
+\label{sec:exercise-for-triangle}
+
+\begin{exercise}
+  设在$\triangle{ABC}$中，$A<B<C$，设其外心为$O$，内心为$I$，垂心为$H$，那么内心$I$必位于$\triangle{OBH}$内部。
+\end{exercise}
+
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4973}]
+
+\exerciseSolvedDate[2017-11-03]
+
+\begin{proof}[证明]
+ 因为内心$I$位于$\triangle{OBH}$所在平面内，所以存在三个不全为零的实数$\alpha,\beta,\gamma$使得下式成立
+\[ \alpha \vv{IO} + \beta \vv{IB} + \gamma \vv{IH} = \bm{0} \]
+而内心$I$位于$\triangle{OBH}$内部的充分必要条件是这三个系数同号，下面就来证明这一点。
+
+因为
+\begin{eqnarray*}
+\sin{A} \vv{IA} + \sin{B} \vv{IB} + \sin{C} \vv{IC} & = & \bm{0} \\
+\tan{A} \vv{HA} + \tan{B} \vv{HB} + \tan{C} \vv{HC} & = & \bm{0} \\
+\sin{2A} \vv{OA} + \sin{2B} \vv{OB} + \sin{2C} \vv{OC} & = & \bm{0} 
+\end{eqnarray*}
+所以
+\begin{align*}
+\vv{BI} & = \frac{\sin{A} \vv{BA} +\sin{C} \vv{BC}}{\sin{A}+\sin{B}+\sin{C}} \\
+\vv{BH} & = \frac{\tan{A} \vv{BA} +\tan{C} \vv{BC}}{\tan{A}+\tan{B}+\tan{C}}  \\
+\vv{BO} & = \frac{\sin{2A} \vv{BA} +\sin{2C} \vv{BC}}{\sin{2A}+\sin{2B}+\sin{2C}} 
+\end{align*}
+将$\vv{BI}$的分子部分利用$\vv{BH}$和$\vv{BO}$的分子部分分解出来，可以得到这三个向量的一个线性关系，即
+\begin{eqnarray*}
+& & 2(\cos{A}+\cos{C})(\sin{A}+\sin{B}+\sin{C}) \vv{BI} \\
+&=& (\sin{2A}+\sin{2B}+\sin{2C}) \vv{BO} + 2\cos{A}\cos{C}(\tan{A}+\tan{B}+\tan{C}) \vv{BH}
+\end{eqnarray*}
+利用
+\[ \vv{BI}=-\vv{IB}, \  \vv{BO}=\vv{IO}-\vv{IB}, \  \vv{BH}=\vv{IH}-\vv{IB} \]
+将上式化为关于$\vv{IB},\vv{IO},\vv{IH}$的方程，得
+\begin{eqnarray*}
+&& (\sin{2A}+\sin{2B}+\sin{2C}) \vv{IO} \\
+& + & 2((\cos{A}+\cos{C})(\sin{A}+\sin{B}+\sin{C}) + \cos{A}\cos{C}(\tan{A}+\tan{B}+\tan{C}) ) \vv{IB} \\
+& + & 2 \cos{A}\cos{C}(\tan{A}+\tan{B}+\tan{C}) \vv{IH} \\
+& = & \bm{0}
+\end{eqnarray*}
+现在只要证明这三个系数都是正的就行了，第一个系数
+\[ \sin{2A}+\sin{2B}+\sin{2C} = 2\sin{A}\sin{B}\sin{C} > 0 \]
+第二个系数，分别证明它的两个加数都是正的，先看第一个加数，显然$\sin{A}+\sin{B}+\sin{C}>0$，同时
+\[ \cos{A}+\cos{C}=2\cos{\frac{A+C}{2}}\cos{\frac{A-C}{2}}>0 \]
+所以第一个加数为正，第二个加数与第三个系数相同，在此一并证明它是正的:
+\begin{eqnarray*}
+&& \cos{A}\cos{C}(\tan{A}+\tan{B}+\tan{C})  \\
+&= & \sin{A}\cos{C}+\cos{A}\sin{C}+\tan{B}\cos{A}\cos{C} \\
+&= & \sin{B} + \tan{B}\cos{A}\cos{C} \\
+&= & \frac{\sin{A}\sin{B}\sin{C}}{\cos{B}} \\
+&> & 0
+\end{eqnarray*}
+其中$\cos{B}>0$是因为角$B$不是最大，因而一定是锐角。由此三个系数都是正的，因此点$I$在$\triangle OBH$内部.
+
+从证明过程中可以看出，只要$B$是锐角，这个结论就是成立的，无论角$A$与角$C$是什么情况。
+\end{proof}
+
+
 
 
 %%% Local Variables:
