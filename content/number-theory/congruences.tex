@@ -2,6 +2,78 @@
 \section{同余}
 \label{sec:congruences}
 
+\begin{definition}
+  给定一个正整数$m$，称为\emph{模}，$a$和$b$是两个正整数，如果用$m$去除$a$、$b$所得余数相同，则称$a$、$b$模$m$\emph{同余}，记作$a \equiv b \pmod{m}$，如果余数不同，则称$a$、$b$模$m$不同余，记作$a \not \equiv b \pmod{m}$.
+\end{definition}
+
+容易验证，同余满足以下三条性质:
+\begin{enumerate}
+\item $a \equiv a \pmod{m}$.
+\item 若 $a \equiv b \pmod{m}$，则也有 $b \equiv a \pmod{m}$.
+\item 若$a \equiv b \pmod{m}$且$b \equiv c \pmod{m}$，则$a \equiv c \pmod{m}$.
+\end{enumerate}
+这表明，同余是一种等价关系。
+
+\begin{theorem}
+  整数$a$、$b$对模$m$同余的充分必要条件是$m \mid (a-b)$.
+\end{theorem}
+
+\begin{proof}[证明]
+  如果$a \equiv b \pmod{m}$，则存在两个整数$k_1$和$k_2$和整数$r(0 \leqslant r < m)$，使得$a=k_1m+r$,$b=k_2m+r$，于是$m \mid (a-b)$，反之，若$m \mid (a-b)$，设$a-b=mk$，则显然有$a \equiv b \pmod{m}$.
+\end{proof}
+
+\begin{theorem}
+根据整除理论，同余还有以下性质:
+\begin{enumerate}
+\item 若$a_1 \equiv b_1 \pmod{m}$, $a_2 \equiv b_2 \pmod{m}$，则$(a_1\pm a_2) \equiv (b_1 \pm b_2) \pmod{m}$.
+\item 若$(a+b) \equiv c \pmod{m}$，则$a \equiv (c-b) \pmod{m}$.
+\item 若$a_1 \equiv b_1 \pmod{m}$, $a_2 \equiv b_2 \pmod{m}$，则$a_1a_2 \equiv b_1b_2 \pmod{m}$. 特殊情况是，若$a \equiv b \pmod{m}$，$k$是一个整数，则$ak \equiv bk \pmod{m}$.
+\end{enumerate}
+\end{theorem}
+
+还有更一般的结论:
+\begin{theorem}
+  若$A_{s_1,s_2,\ldots,s_n} \equiv B_{s_1,s_2,\ldots,s_n} \pmod{m}$，且$x_i \equiv y_i \pmod{m}$,$i=1,2,\ldots,n$，则
+  \[ \sum_{s_1,s_2,\ldots,s_n} A_{s_1,s_2,\ldots,s_n} x_1^{s_1}x_2^{s_2} \cdots x_n^{s_n} \equiv =  \sum_{s_1,s_2,\ldots,s_n} B_{s_1,s_2,\ldots,s_n} y_1^{s_1}y_2^{s_2} \cdots y_n^{s_n} \pmod{m} \]
+\end{theorem}
+
+特殊情况是，若$a_i \equiv b_i \pmod{m}$，则
+\[ a_nx^n+a_{n-1}x^{n-1}+\cdots a_1x+a_0 \equiv b_nx^n+b_{n-1}x^{n-1}+\cdots b_1x+b_0 \pmod{m} \]
+
+以上性质和定理都不难证明。
+
+\begin{theorem}
+  同余还具有以下一些性质:
+  \begin{enumerate}
+  \item 若$a \equiv b \pmod{m}$，且$a=a_1d$,$b=b_1d$，$(d,m)=1$，则$a_1 \equiv b_1 \pmod{m}$.
+  \item 若$a \equiv b \pmod{m}$，$k$是一个正整数，则$ak \equiv bk \pmod{mk}$.
+  \item 若$a \equiv b \pmod{m}$，$d$是$a$、$b$及$m$的任一正的公因数，则$\frac{a}{d} \equiv \frac{b}{d} \pmod{\frac{m}{d}}$. 
+  \item 若$a \equiv b (\mod m_i),i=1,2,\ldots,n$，则$a \equiv b \pmod{[m_1,m_2,\ldots,m_n]}$.
+  \item 若$a \equiv b \pmod{m}$，$d$是$m$的一个正的因数，则$a \equiv b \pmod{d}$.
+  \item 若$a \equiv b \pmod{m}$，则$(a,m)=(b,m)$，进而有，若$d$能整除$m$及$a$、$b$其中之一，则也一定能整除另一个。
+  \end{enumerate}
+\end{theorem}
+
+同余可以用来简单的判别一个(较大的)整数是否可被另一整数整除。
+\begin{theorem}
+  十进制整数$a=a_n10^n+a_{n-1}10^{n-1}+\cdots+10a_1+a_0(0 \leqslant a_i \leqslant 9, a_n \neq 0)$能被$3$整除的充分必要条件是$3 \mid \sum_{i=0}^na_i$.
+\end{theorem}
+
+\begin{theorem}
+  十进制整数$a=a_n10^n+a_{n-1}10^{n-1}+\cdots+10a_1+a_0(0 \leqslant a_i \leqslant 9, a_n \neq 0)$能被$7$(或$11$，或$13$)整除的充分必要条件是$7$(或$11$，或$13$)能够整除$\sum_{i=0}^n(-1)^ia_i$.
+\end{theorem}
+
+此外，还有所谓的弃九法，这是用来检查乘法运算的结果是否正确的一种简便方法，但它不能保证完全正确，既是说，通过检查的不一定是正确的，但是通不过检查的一定是错误的。假定有如下的十进制表示
+\[ a = a_n10^n+a_{n-1}10^{n-1}+\cdots+a_0 \]
+以及
+\[ b = b_m10^m+b_{m-1}10^{m-1}+\cdots+b_0 \]
+假定我们计算得出的乘积结果是(待检查的结果)
+\[ P = c_l10^l+c_{l-1}10^{l-1}+\cdots+c_0 \]
+那么如果
+\[ \left( \sum_{i=0}^n a_i \right) \left( \sum_{i=0}^m b_i \right) \not \equiv \sum_{i=0}^l c_i (\mod 9) \]
+那么我们求得的结果$P$一定是错误的，但是如果上式的同余式成立了也不一定是正确的，只是这个机会比较小，假定错误结果对9的余数是均匀随机，那么这种情况发生的概率是1/10，所以方法还是比较有效的.
+
+
 \subsection{同余及其性质}
 \label{sec:congruences-and-its-properties}
 

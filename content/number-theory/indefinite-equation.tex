@@ -29,6 +29,26 @@
   这表明$a_1 \mid b_1(y_1-y_0)$且$b_1 \mid a_1(x_1-x_0)$，但$(a_1,b_1)=1$，所以必有$a_1 \mid (y_1-y_0)$, $b_1 \mid (x_1-x_0)$，记$y_1-y_0=a_1t_1$,$x_1-x_0=b_1t_2$，则由上式得$t_1+t_2=0$，所以记$t=t_2$，则$x_1=x_0+b_1t,y_1=y_0-a_1t$，这就表明定理中的解给出了方程的全部解。
 \end{proof}
 
+于是二元一次不定方程的求解问题，就归结于求出一个特解的问题了，从上面的证明过程可以看出，只要求下面这个特殊的二元一次不定方程的特解就可以了:
+\[ ax+by=1, \  (a,b)=1 \]
+这个也不难，因为我们早就做过这个事情了，就是在证明对任意整数$a$和$b$，都存在一对整数$s$和$t$，使得$sa+tb=(a,b)$的时候，我们就利用辗转相除法给出了一个寻找$s$和$t$的方法的，所以二元一次不定方程的求解问题就算是彻底解决了。
+
+\subsection{多元一次不定方程}
+\label{sec:indefinite-equation-with-many-variable-one-degree}
+
+对于多元一次不定方程
+\[ a_1x_1+a_2x_2+\cdots+a_nx_n=b, \  n \geqslant 2 \]
+有类似的结论:
+\begin{theorem}
+  多元一次不定方程有解的充分必要条件是$(a_1,a_2,\ldots,a_n) \mid b$.
+\end{theorem}
+
+\begin{proof}[证明]
+  必要性是显然的，只证明充分性，因为存在一组整数$s_1,s_2,\ldots,s_n$，使得
+  \[ d = (a_1,a_2,\ldots,a_n) = s_1a_1+s_2a_2+\cdots+s_na_n \]
+  再两边同乘以$\dfrac{b}{d}$，便知$x_i=\dfrac{b}{d}s_i$是方程的一组解。
+\end{proof}
+
 \subsection{勾股方程与费马问题}
 \label{sec:pythagorean-equation-and-fermat-problem}
 
