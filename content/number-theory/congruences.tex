@@ -22,6 +22,8 @@
   如果$a \equiv b \pmod{m}$，则存在两个整数$k_1$和$k_2$和整数$r(0 \leqslant r < m)$，使得$a=k_1m+r$,$b=k_2m+r$，于是$m \mid (a-b)$，反之，若$m \mid (a-b)$，设$a-b=mk$，则显然有$a \equiv b \pmod{m}$.
 \end{proof}
 
+这定理的意义在于，我们可以把同余问题转化为整除问题来解决。
+
 \begin{theorem}
 根据整除理论，同余还有以下性质:
 \begin{enumerate}
@@ -53,6 +55,14 @@
   \item 若$a \equiv b \pmod{m}$，则$(a,m)=(b,m)$，进而有，若$d$能整除$m$及$a$、$b$其中之一，则也一定能整除另一个。
   \end{enumerate}
 \end{theorem}
+
+\begin{proof}[证明]
+  1. 由$a \equiv b \pmod{m}$得$m \mid (a-b)$，即$m \mid d(a_1-b_1)$，而$(m,d)=1$，所以$m \mid (a_1-b_1)$，即$a_1 \equiv b_1 \pmod{m}$.
+
+  2.3.4.5. 这四条都是显然的.
+
+  6. 由$a-b=km$知$a$与$m$的公因数集合，跟$b$与$m$的公因数集合相同，因此结论成立。
+\end{proof}
 
 同余可以用来简单的判别一个(较大的)整数是否可被另一整数整除。
 \begin{theorem}
