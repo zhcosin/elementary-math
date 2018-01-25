@@ -20,8 +20,13 @@
 \subsubsection{单调性}
 \label{sec:monotonicity-of-function}
 
+\begin{definition}
+  设函数$f(x)$在某个非空实数集$E$上有定义，如果对于任意$x_1,x_2 \in E$且$x_1<x_2$都有$f(x_1) \leqslant f(x_2)$，则称函数$f(x)$在$E$上是\emph{单调增加}的，如果不等式中的等号永远不成立，即总有$f(x_1)<f(x_2)$，则称函数$f(x)$在$E$上是\emph{严格增加}的，类似的可以得出在$E$上\emph{单调减少}和\emph{严格减少}的定义。
+\end{definition}
+
 单调性反应了两个变量的变化趋势，如果变化趋势一致，则为增函数，变化趋势相反则为减函数。但函数在某一区间上并不必然有某种单调性，有些函数无论你把区间划分得多么小，都没有单调性，比如狄利克雷函数和黎曼函数。
 
+\begin{example}
 这里讨论下函数$f(x)=x+\frac{a}{x}$的单调性，这里$a$是任何固定的正实数。
 
 因为它是奇函数，奇函数在关于原点对称的区间上单调性情况相同，所以只要讨论$x>0$的情况即可，此时由于
@@ -29,11 +34,42 @@ $$
 f(x)=\left( \sqrt{x}-\frac{\sqrt{a}}{\sqrt{x}} \right)^2+2
 $$
 括号中部分是关于$x$的增函数，但是外面有平方，还得考虑它的符号，在$x=\sqrt{a}$左侧为负右侧为正，所以$f(x)$在$(0,\sqrt{a}]$上单调减少，在$[\sqrt{a},+\infty)$上单调增加，在$x=\sqrt{a}$处有极小值$f(\sqrt{a})=2\sqrt{a}$，在$x$趋近于0和正无穷大时，函数值亦趋向于正无穷大，而且在这两个情形下，它分别与反比例函数$y=\frac{1}{x}$和正比例函数$y=x$无限逼近，因此它的图象如图所示。
+\end{example}
+
+\begin{example}
+  我们已经知道指数为有理数的指数运算的定义，从而可以引申定义域为有理数集$\mathbb{Q}$上的指数函数，显然，如果$a>1$，则函数指数$a^x$在有理数集$\mathbb{Q}$上严格增加，相反，如果$0<a<1$，则是严格减少。
+\end{example}
 
 \subsubsection{对称性}
 \label{sec:symmetric-of-function}
 
+\begin{definition}
+  如果函数$f(x)$的定义域$E$是对称数集（即若包含$x$，则也包含$-x$），且对于任意$x \in E$，有$f(-x)=-f(x)$，则称函数$f(x)$是定义在$E$上的\emph{奇函数}，把这等式换成$f(-x)=f(x)$，则得到\emph{偶函数}的定义。
+\end{definition}
+
 奇偶性是对称性的特殊情况，更一般的情况是，若函数$f(x)$的图象关于直线$x=a$对称，则$f(a+x)=f(a-x)$，若它的图象关于点$(a,b)$中心对称，则$f(a+x)+f(a-x)=2b$。
+
+\begin{theorem}
+  定义在对称数集$E$上的任何一个函数$f(x)$，都能被表为该数集上的一个奇函数与一个偶函数之和。
+\end{theorem}
+
+\begin{proof}[证明]
+  我们先假设$f(x)$能写成$E$上的奇函数$g(x)$与偶函数$h(x)$之和，即
+  \begin{equation}
+    \label{eq:56hjskaaa83}
+   f(x)=g(x)+h(x) 
+  \end{equation}
+  于是有
+  \[ f(-x)=g(-x)+h(-x) \]
+  由于$g(-x)=-g(x)$，$h(-x)=h(x)$，所以
+  \begin{equation}
+    \label{eq:38dheo289}
+   f(-x) = -g(x)+h(x) 
+  \end{equation}
+  把 \autoref{eq:56hjskaaa83}和 \autoref{eq:38dheo289}视为关于$g$和$h$的二元一次方程组，可以求得
+  \[ g(x) = \frac{f(x)-f(-x)}{2}, \  h(x) = \frac{f(x)+f(-x)}{2} \]
+  这样就实际求出了一个这样的表达，当然，这个表达式并非唯一。
+\end{proof}
 
 \subsubsection{周期性}
 \label{sec:periodicity-of-function}
