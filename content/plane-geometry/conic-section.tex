@@ -18,6 +18,23 @@
 这表明直线\ref{eq:tangent}上除点$P$外任何一点都在椭圆外，与椭圆只有$P$一个交点，所以它理所当然就是点$P$处的切线方程。
 \end{proof}
 
+\begin{proof}[证明二]
+  设$P(x_0,y_0)$处对应椭圆离心角$\theta_0$，将椭圆参数方程
+\[ 
+\begin{cases}
+x & = a \cos{\theta} \\
+y & = b \sin{\theta}
+\end{cases}
+\]
+代入直线方程
+\[ \frac{x_0x}{a^2} + \frac{y_0y}{b^2} = 1 \]
+同时用$x_0=a\cos{\theta_0},y_0=b\sin{\theta_0}$替换掉$x_0$和$y_0$得
+\[ \cos{\theta_0}\cos{\theta}+\sin{\theta_0}\sin{\theta}=1 \]
+即
+\[ \cos{(\theta-\theta_0)} = 1 \]
+显然，只有$\theta$与$\theta_0$相差$\pi$的偶数倍，才能成为椭圆与直线的交点，而这些交点实际上都与$P(x_0,y_0)$是同一点，于是即证。
+\end{proof}
+
 \begin{theorem}
   双曲线$\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1(a>0,b>0)$上任一点$P(x_0,y_0)$处的切线方程是$\dfrac{x_0x}{a^2}-\dfrac{y_0y}{b^2}=1$.
 \end{theorem}
