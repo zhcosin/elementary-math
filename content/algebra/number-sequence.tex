@@ -893,6 +893,72 @@ b_1+b_2+\cdots+b_n & < \frac{1}{2}+\frac{5}{16} + \frac{1075}{8192} + \frac{2}{3
 2. 原帖中 kuing 给了一个借助程序得到的等比放缩有点意思，有时间玩玩。
 \end{exerciseAdditional}
 
+\begin{exercise}
+  已知数列$a_n$满足$a_1=1$，以后的项由递推式
+  \[ a_{n+1} = a_n + \frac{1}{a_n^2} \]
+  确定，求证: $30 < a_{9000} < 30.01$.
+\end{exercise}
+
+\begin{proof}[证明]
+  递推式两边三次方
+  \[ a_{n+1}^3 = a_n^3 + 3 + \frac{3}{a_n^3} + \frac{1}{a_n^6} \]
+  显然数列是严格增加的，所以从第二项开始将全部大于1，所以有$a_n >1 (n>1)$，于是
+  \[ a_n^3+3 < a_{n+1}^3 < a_n^3 + 5 \]
+  因此有$3n-2<a_n^3<5n-4(n>1)$将这估计式应用到上式的右边，得
+  \[ a_n^3 + 3 + \frac{3}{5n-4} + \frac{1}{(5n-4)^2} < a_{n+1}^3 < a_n^3 + 3 + \frac{3}{3n-2} + \frac{1}{(3n-2)^2} \]
+  于是得
+  \[ a_1^3 + 3(n-1) + 3\sum_{k=1}^{n-1} \frac{1}{5k-4} + \sum_{k=1}^{n-1} \frac{1}{(5k-4)^2} < a_n^3 < a_1^3 + 3(n-1) + 3\sum_{k=1}^{n-1} \frac{1}{3k-2} + \sum_{k=1}^{n-1} \frac{1}{(3k-2)^2} \]
+  
+  可见我们只需估计两种形式的和:
+  \[ \sum_{k=1}^m \frac{1}{(2a+1)k-b}, \  \sum_{k=1}^m \frac{1}{((2a+1)k-b)^2} \]
+  其中$a$、$b$是正整数，并且假定$2a+1>b$，否则通过调整求和序号$k$，总可使其满足这条件（求和下标的范围有略微变化）。
+
+  先估计分母不带平方的求和，利用反比例函数的下凸性以及不等式
+  \[ \ln{(n+1)} < \sum_{k=1}^n \frac{1}{k} < 1 + \ln{n} \]
+  可得
+  \begin{align*}
+    \sum_{k=1}^m \frac{1}{3k-2} & < 1+ \frac{1}{3} \sum_{k=2}^m \left( \frac{1}{3k-3} + \frac{1}{3k-2} + \frac{1}{3k-1} \right) \\
+                                & = 1 + \frac{1}{3} \sum_{k=3}^{3m-1} \frac{1}{k} \\
+    & < 1 + \frac{1}{3} \left( \ln{(3m-1)-\frac{1}{2}} \right)
+  \end{align*}
+  这是它的上界，类似的可以寻找其下界
+  \begin{align*}
+    \sum_{k=1}^m \frac{1}{3k-2} & > 1 + \frac{1}{3} \sum_{k=2}^m \left( \frac{1}{3k-2} + \frac{1}{3k-1} + \frac{1}{3k} \right) \\
+                                & = 1 + \frac{1}{3} \sum_{k=4}^{3m} \frac{1}{k} \\
+    & > 1 + \frac{1}{3}\left(\ln{(3m+1)}-1-\frac{1}{2}-\frac{1}{3}\right)
+  \end{align*}
+  这就是它的下界。
+
+  再来估计分母中带平方的求和
+  \begin{align*}
+    \sum_{k=1}^m \frac{1}{(3k-2)^2} & < 1 + \sum_{k=2}^m \frac{1}{(3k-3)(3k-2)} \\
+                                    & = 1 + \sum_{k=2}^m \left( \frac{1}{3k-3} - \frac{1}{3k-2} \right) \\
+                                    & = 1 + \frac{1}{3} - \frac{1}{3m-2} \\
+    & < 1 + \frac{1}{3}
+  \end{align*}
+  类似的有
+   \begin{align*}
+    \sum_{k=1}^m \frac{1}{(3k-2)^2} & < 1 + \sum_{k=2}^m \frac{1}{(3k-2)(3k-1)} \\
+                                    & = 1 + \sum_{k=2}^m \left( \frac{1}{3k-2} - \frac{1}{3k-1} \right) \\
+                                    & = 1 + \frac{1}{4} - \frac{1}{3m-1} 
+  \end{align*}
+ 
+  同样的方法，可以得到另外两组估计
+ \[ 1+\frac{1}{5} \left( \ln{(5m+1)}-1-\frac{1}{2}-\frac{1}{3}-\frac{1}{4}-\frac{1}{5} \right) < \sum_{k=1}^m \frac{1}{5k-4} < 1 + \frac{1}{5} \left( \ln{(5m-2)}-\frac{1}{2} - \frac{1}{3} \right) \] 
+ 以及
+ \[ 1 + \frac{1}{6} - \frac{1}{5m-3} < \sum_{k=1}^m \frac{1}{(5k-4)^2} < 1 + \frac{1}{5} - \frac{1}{5m-4} \]
+ 将这些估计式都带到$a_{n}^3$的估计式里，最终得出
+ \begin{align*}
+   a_n^3 & > 3n+\frac{3}{5} \ln{(5n-4)}-\frac{1}{5n-8}+2+\frac{1}{6}-\frac{3}{5} \left( 1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5} \right) \\
+   & > 3n+2+\frac{3}{5} \ln{(5n-4)}-\frac{1}{5n-8}+\frac{1}{6}-\frac{3}{5} \left( 1+\ln{6} \right)
+ \end{align*}
+ 以及
+ \[ a_n^3 < 3n+2+\ln{(3n-4)}-\frac{1}{3n-4}-\frac{1}{4} \]
+ 代入数值得
+ \[ 30.00256 < a_{9000} < 30.00443 \]
+ 得到更加精确的结果.
+ \end{proof}
+
 
 %%% Local Variables:
 %%% mode: latex
