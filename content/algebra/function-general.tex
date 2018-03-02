@@ -1,30 +1,82 @@
 
-\section{函数概要}
-\label{sec:function-general}
+\section{函数}
+\label{sec:function}
 
 
 \subsection{函数概念}
 \label{sec:function-concept}
 
-函数是两个数集之间的一个映射，根据对应法则，数集$A$中每一个数在数集$B$中都有唯一一个数与之对应。函数通常写为$y=f(x)$，但这并不是说，所有函数都能表示成自变量的式子，比如黎曼函数就没有解析式，而隐函数$f(x,y)=0$甚至不能将$y$解成关于$x$的式子。
+函数是根据变量之间的依赖关系而抽象出来的一个数学模型，最常见的是两个变量之间的依赖关系，变量$y$的取值依赖于变量$x$的值，比如说，张三比李四大五岁，那么张三的年龄到底是多少呢，这得取决于李四的年龄是多少，张三的年龄在其上加五即可，这就是两个变量之间的一种依赖关系，而这种依赖关系抽象成数学模型就是自变量与函数，李四的年龄是自变量（即由外部确定），张三的年龄就是李四的年龄的函数，即它依赖于李四的年龄这个自变量。
+
+我们已有映射的基础，而函数，不过是在映射中，把原象集合与象的集合都限制为数集即可。
+\begin{definition}
+  设$A$、$B$是两个非空数集，则从$A$到$B$的映射，称为\emph{函数}。
+\end{definition}
+
+函数是两个数集之间的一个映射，根据对应法则，数集$A$中每一个数在数集$B$中都有唯一一个数与之对应。函数值的唯一性实际上就是确定性，如果有两个值对应，那么这个依赖关系实际就是不确定了。
+
+函数通常写为$y=f(x)$，但这并不是说，所有函数都能表示成自变量的式子，比如狄利克雷函数，它定义在实数集$\mathbb{R}$上，如果自变量是有理数，则函数值为1，否则函数值是0，即它是实数有理性的标志函数，但我们很难找到一个表达式符合这个取值要求，所以它很难有一个明确的表达式。此外，即便我们有明确的把$x$和$y$约束起来的表达式，我们也并不一定能从中把$y$解出来单独放到等号的一边，比如由关系式$y-\varepsilon \sin{y}-x=0$就是这样的例子，在后面讲到隐函数的时候我们专门来讨论它。
 
 在讨论一些函数时，为了方便，将它的对应法则分解成嵌套的多个法则，于是得到复合函数的概念，但它并不是一类新的函数，只是认识函数对应法则的一个视角而已。
 
+根据映射的乘法，有复合函数的定义
+\begin{definition}
+设变量$y$是变量$u$的函数$y=f(u)$，如果变量$u$又是变量$x$的函数$u=g(x)$，那么变量$y$也就构成变量$x$的\emph{复合函数}，写作$y=f(g(x))$.  
+\end{definition}
+
 对于某些函数，由于它的对应法则的逆法则也正好满足函数定义（只要原法则下不存在多对一，则逆法则就不存在一对多，从而符合函数定义），因此自变量也就可以看成因变量的函数，这就是反函数，反函数与其原来函数是同一对应法则的两种表示方法，图象也是完全重合的，只有在互换$x$和$y$后，两者图象关于一三象限角平分线对称。
 
-\subsection{函数的性质}
-\label{sec:property-of-function}
+\begin{definition}
+  设变量$y$是变量$x$的函数$y=f(x)$，如果这映射具有逆映射，那么变量$x$根据这逆映射也就成为变量$y$的函数，称为函数$f$的反函数，记作$x=f^{-1}(y)$.
+\end{definition}
 
-比较通用的性质是单调性，对称性（含奇偶性），周期性，凸凹性等。
+在习惯上，通常用字母$x$来表达自变量，而用$y$来表达函数值，所以对换反函数中的两个字母而写为$y=f^{-1}(x)$，读者需明白，此时的$x$和$y$，已经不是原来的$x$和$y$，而是原来的$y$和$x$了，所以函数$x=f^{-1}(y)$与原来函数的图象是同一个，但对换字母之后的函数$y=f^{-1}(x)$，图象则与原来函数的图象如果放在同一坐标系下则是关于第一三象限角平分线对称了。所以但凡在提反函数时，需根据上下文判断是否对换过字母。
 
-\subsubsection{单调性}
+\subsection{初等函数}
+\label{sec:base-function}
+
+在初等数学范畴内，主要讨论以下几类函数：幂函数、三角函数与反三角函数、指数函数与对数函数，以及由这些函数经四则混合运算或者复合而成的函数，这些函数统称初等函数，在高等数学内，我们还会遇到大量用积分或者级数表达的函数。
+
+1. 幂函数
+
+幂函数为$y=x^p(x>0,p \in \mathbb{R})$，在初等数学范围内尚没有定义无理指数幂。由幂函数经四则混合运算可以形成多项式函数
+\[ f(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0 \]
+以及更一般的有理函数
+\[ f(x) = \frac{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0}{b_mx^m+b_{m-1}x^{m-1}+\cdots+b_1x+b_0} \]
+
+2. 三角函数与反三角函数
+
+正弦函数$y=\sin{x}$，余弦函数$y=\cos{x}$，正切函数$y=\tan{x}$，以及它们在某个区间上对应的反函数$y=\arcsin{x}$、$y=\arccos{x}$、$y=\arctan{x}$.
+
+3. 指数函数与对数函数
+
+指数函数$y=a^x(a>0,a\neq 1)$与对数函数$y=\log_a x(x>0,a>0,a\neq 1)$.初等数学中并没有无理指数幂的定义，所以指数函数的定义是不完整的。
+
+\subsection{复合函数}
+\label{sec:complex-function}
+
+\subsection{反函数}
+\label{sec:reverse-function}
+
+\subsection{单调性}
 \label{sec:monotonicity-of-function}
+
+函数刻画的是两个变量之间的依赖关系，那么当自变量增大或者减少时，函数值也可能有确定的变大变小趋势，这个现象就是函数的单调性。
 
 \begin{definition}
   设函数$f(x)$在某个非空实数集$E$上有定义，如果对于任意$x_1,x_2 \in E$且$x_1<x_2$都有$f(x_1) \leqslant f(x_2)$，则称函数$f(x)$在$E$上是\emph{单调增加}的，如果不等式中的等号永远不成立，即总有$f(x_1)<f(x_2)$，则称函数$f(x)$在$E$上是\emph{严格增加}的，类似的可以得出在$E$上\emph{单调减少}和\emph{严格减少}的定义。
 \end{definition}
 
 单调性反应了两个变量的变化趋势，如果变化趋势一致，则为增函数，变化趋势相反则为减函数。但函数在某一区间上并不必然有某种单调性，有些函数无论你把区间划分得多么小，都没有单调性，比如狄利克雷函数和黎曼函数。
+
+注意这里的定义中，使用的是数集而不是区间的概念，这是因为，单调性可以在区间上加以讨论，也可以在非区间的数集上讨论，比如说我们可以讨论指数函数在有理数集上的单调性，显然，在把自变量限制在有理数集上以后，指数函数在底数大于1的时候仍然是增函数，所以，单调性并非只能在区间上讨论，因为实数是有序的，在任何一个数集上都可以讨论单调性，又比如，反比例函数$y=1/x$在$(-\infty,0)$和$(0,+\infty)$上都是严格减少的，但是在数集$(-\infty,0)\cup(0,+\infty)$上就不能说是严格减少的，因为$f(1)>f(-1)$。
+
+显然有如下定理
+\begin{theorem}
+  函数$f(x)$在数集$E$上单调增加的充分必要条件是$\forall x_1,x_2 \in E$，有$(x_1-x_2)(f(x_1)-f(x_2)) \geqslant 0$，而单调减少的充分必要条件则是不等式反向。
+\end{theorem}
+
+这就是说，单调增加就意味着函数值的增长趋势与自变量的增长趋势相同，我们可以说函数值随着自变量增大而增大，也可以说随自变量减少而减少。
 
 \begin{example}
 这里讨论下函数$f(x)=x+\frac{a}{x}$的单调性，这里$a$是任何固定的正实数。
@@ -40,15 +92,23 @@ $$
   我们已经知道指数为有理数的指数运算的定义，从而可以引申定义域为有理数集$\mathbb{Q}$上的指数函数，显然，如果$a>1$，则函数指数$a^x$在有理数集$\mathbb{Q}$上严格增加，相反，如果$0<a<1$，则是严格减少。
 \end{example}
 
-\subsubsection{对称性}
+\subsection{对称性}
 \label{sec:symmetric-of-function}
 
+有些函数的图象，在几何上呈现出轴对称或者中心对称的特征，这就是函数的对称性。
+
+先讨论对称轴与坐标轴重合、对称中心与原点重合的特殊情况，当然，函数图象的对称轴不可能与横轴重合，否则一个自变量就有两个函数值了，这不符合函数的定义。
+
+如果函数的图象以纵轴为对称轴，则它称为偶函数，如果它以原点为对称中心，则它称为奇函数。
 \begin{definition}
   如果函数$f(x)$的定义域$E$是对称数集（即若包含$x$，则也包含$-x$），且对于任意$x \in E$，有$f(-x)=-f(x)$，则称函数$f(x)$是定义在$E$上的\emph{奇函数}，把这等式换成$f(-x)=f(x)$，则得到\emph{偶函数}的定义。
 \end{definition}
 
+例如，反比例函数$y=\frac{a}{x}$是奇函数，而函数$y=ax^2$则是偶函数，而零函数$f(x)=0$则既是奇函数也是偶函数，并且只有它有此特殊身份，因为同时为奇函数与偶函数则意味着$-f(x)=f(-x)=f(x)$。
+
 奇偶性是对称性的特殊情况，更一般的情况是，若函数$f(x)$的图象关于直线$x=a$对称，则$f(a+x)=f(a-x)$，若它的图象关于点$(a,b)$中心对称，则$f(a+x)+f(a-x)=2b$。
 
+关于奇函数与偶函数，有如下结论
 \begin{theorem}
   定义在对称数集$E$上的任何一个函数$f(x)$，都能被表为该数集上的一个奇函数与一个偶函数之和。
 \end{theorem}
@@ -71,15 +131,387 @@ $$
   这样就实际求出了一个这样的表达，当然，这个表达式并非唯一。
 \end{proof}
 
-\subsubsection{周期性}
+\subsection{周期性}
 \label{sec:periodicity-of-function}
 
-周期性反映了函数值重复取值的规律，三角函数的周期性人尽皆知。此处需要说明的是周期函数并不一定存在最小正周期，除了最为特殊的常量函数以外，狄利克雷函数（在任何有理数处函数值为1，而任何无理数处函数值为零）也可以说明这一点，任何有理数都是它的周期，而最小的正有理数是不存在的。
+有些函数的函数值，自变量每隔一定距离函数值就重复取值，例如三角函数，这种现象就是周期性。
 
-\subsubsection{凸性}
+\begin{definition}
+  如果函数$f(x)$存在一个常数$T \neq 0$，使得对定义域上任意$x$都成立$f(x+T)=f(x)$，那么称函数为\emph{周期函数}，即它具有\emph{周期性}，而$T$称为它的一个周期。显然,$T$的倍数也都是它的周期，如果一个函数的所有周期中有一个最小的正数，则称它是\emph{最小正周期}.
+\end{definition}
+
+周期函数并不一定存在最小正周期，除了最为特殊的常量函数以外，狄利克雷函数（在任何有理数处函数值为1，而任何无理数处函数值为零）也可以说明这一点，任何有理数都是它的周期，而最小的正有理数是不存在的。
+
+关于周期性，有如下结论:
+\begin{theorem}
+  如果函数$f(x)$满足以下条件中任意一条:
+  \begin{enumerate}
+  \item $f(x+K)=-f(x)$
+  \item $f(x+K)=\frac{1}{f(x)}$
+  \item $f(x+K)=-\frac{1}{f(x)}$
+  \item 函数图象有两条间隔为$K$的对称轴$x=a$与$x=a+K$.
+  \end{enumerate}
+  那么函数是周期函数，并且$2K$是它的一个周期.
+\end{theorem}
+
+\subsection{凸性}
 \label{sec:convex-property-of-function}
 
-凸凹性反映了函数图像的拱形特征，这个性质是一大批不等式的本源，比如说，由对数函数的上凸性即得均值不等式，再由琴生（Jensen）不等式可推得多元均值不等式，更为宽泛的加权均值不等式仍然从对数函数的上凸性获得。本章有专门讨论这一性质的小节。
+绝大多数函数的图像都不是一条笔直的直线，它们在某个区间上经常向上凸起或者向下凹陷。现在，我们要用数学语言来给函数的凸性下个定义：
+\begin{definition}
+ 如果定义在区间$D$上的 \emph{连续} 函数$f(x)$满足：对区间$D$上任意两个不相等的实数$a$、$b$都成立
+ \begin{equation}
+   \label{eq:the-definition-of-convexity-function}
+f(\frac{a+b}{2}) \geqslant \frac{f(a)+f(b)}{2}
+ \end{equation}
+则称函数$f(x)$在区间$D$上是上凸的。把这不等式中的不等号反向，则得到下凸函数的定义。如果这不等式中的等号不成立，则称为严格上凸或者严格下凸。
+\end{definition}
+
+\begin{figure}[htbp]
+  \centering
+\includegraphics{content/algebra/pic/definition-of-convexity-function.pdf}
+\caption{}
+\label{fig:definition-of-convexity-function}
+\end{figure}
+
+这定义的几何意义如图\ref{fig:definition-of-convexity-function}，本文主要讨论上凸函数，因为下凸函数只要乘以$-1$，即可变为上凸函数，但本文关于上凸函数的结论都可以类似的得到下凸函数的结论。
+
+需要特别强调的是上述定义中对函数连续性的要求，这并不是说不连续的函数就没有凸性，而是因为这是一个不完善的定义，只有连续函数的上凸才能用上述不等式刻画，对于非连续函数而言，满足上述不等式还不足以得出它的凸性，这从下面这个函数就可以看出:
+\begin{equation*}
+  f(x) =
+  \left\{
+      \begin{array}{ll}
+        0 & x \in Q \\
+        \sqrt{x} &  x \notin Q
+      \end{array}
+  \right.
+\end{equation*}
+可以验证，这个函数满足上述定义中的不等式，然而它显然不是上凸的。关于凸函数完善的定义将在本节后文给出。
+
+下面是一些例子。
+
+\begin{example}
+  讨论下面这些函数的凸性。
+  \begin{enumerate}
+  \item $f(x)=x^n$($n$为正整数, $x>0$)
+  \item $f(x)=\ln{x}$
+  \item $f(x)=\sin{x}, 0 \leqslant x \leqslant \pi$
+  \end{enumerate}
+\end{example}
+
+\begin{proof}[解]
+因为对于整数$k(0 < k < n)$有$(a^n+b^n)-(a^{n-k}b^k+a^kb^{n-k})=(a^{n-k}-b^{n-k})(a^k-b^k)>0$，因此
+\begin{equation}
+  \begin{split}
+\left( \frac{a+b}{2} \right)^n + \left( \frac{b+a}{2} \right)^n & = \frac{1}{2^n} \sum_{k=0}^nC_n^ka^{n-k}b^k + \frac{1}{2^n}\sum_{k=0}^nC_n^kb^{n-k}a^k \\
+& = \frac{1}{2^n} \sum_{k=0}^n C_n^k \left( a^{n-k}b^k+a^kb^{n-k} \right) \\
+& < \frac{1}{2^n} \sum_{k=0}^n C_n^k \left( a^n+b^n \right) \\
+& = a^n+b^n
+\end{split}
+\end{equation}
+所以$\frac{a^n+b^n}{2}>\left( \frac{a+b}{2} \right)^n$，函数$f(x)=x^n$在正实数区间上是下凸函数。
+
+因为$\frac{a+b}{2}-\sqrt{ab}=\frac{1}{2}(\sqrt{a}-\sqrt{b})^2>0$，所以 $\ln{\frac{a+b}{2}}-\frac{\ln{a}+\ln{b}}{2}=\ln{\frac{a+b}{2}}-\ln{\sqrt{ab}}>0$，所以对数函数在正实数区间上是上凸函数。
+
+因为$\frac{1}{2}(\sin{a}+\sin{b})=\sin{\frac{a+b}{2}}\cos{\frac{a-b}{2}} < \sin{\frac{a+b}{2}}$，所以正弦函数在区间$(0,\pi)$上是上凸函数。
+\end{proof}
+
+利用数学归纳法，可以很容易的将定义中的两个数推广到任意个数的情形，这就是著名的\emph{琴生(Jensen)不等式}:
+\begin{theorem}[琴生(Jensen)不等式]
+  \label{theorem:convexity-function-multile}
+如果函数$f(x)$是区间$D$上的上凸函数，则对于此区间上的任意$n$个实数$x_i(i=1,2,\ldots,n)$，成立着不等式:
+\begin{equation}
+  \label{eq:convexity-function-multile}
+  f(\frac{1}{n}\sum_{i=1}^nx_i) \geqslant \frac{1}{n}\sum_{i=1}^nf(x_i)
+\end{equation}
+\end{theorem}
+
+\begin{proof}[证明]
+  事实上，与第一数学归纳法相比，倒推归纳法更容易证明本定理，读者不妨一试，本文仍使用第一数学归纳法。
+
+  由定义知$n=2$的情形成立。现在假定对$n$的情形成立，则对于$n+1$个数的情形，记$X_{n+1}=\frac{1}{n+1}\sum_{i=1}^{n+1}x_i$，则
+\begin{equation}
+  \begin{split}
+f(X_{n+1}) & = f \left( \frac{x_1+x_2+\cdots+x_{n+1}}{n+1} \right) \\
+& = f \left( \frac{(x_1+\cdots+x_n)+(x_{n+1}+(n-1)X_{n+1})}{2n} \right) \\
+& = f \left( \frac{\frac{x_1+\cdots+x_n}{n} + \frac{x_{n+1}+(n-1)X_{n+1}}{n}}{2} \right) \\
+& \geqslant \frac{f \left( \frac{x_1+\cdots+x_n}{n} \right) + f \left( \frac{x_{n+1}+(n-1)X_{n+1}}{n} \right)}{2} \\
+& \geqslant \frac{\frac{f(x_1)+\cdots+f(x_n)}{n} + \frac{f(x_{n+1})+(n-1)f(X_{n+1})}{n}}{2} \\
+  \end{split}
+\end{equation}
+化简即得定理结论。
+\end{proof}
+
+琴生不等式是一个非常重要的不等式，它是一系列不等式的重要来源，例如把它应用到对数函数身上，就得出多元均值不等式：
+\begin{equation*}
+\frac{1}{n}\sum_{i=1}^nx_i \geqslant \sqrt[n]{\prod_{i=1}^nx_i}
+\end{equation*}
+
+另一个例子，因为正弦函数在区间$(0,\pi)$上是上凸函数，所以对于一个三角形的三个内角，由琴生不等式就有：
+\begin{equation*}
+\sin{A}+\sin{B}+\sin{C} \leqslant 3\sin{\frac{A+B+C}{3}} = \frac{3\sqrt{3}}{2}
+\end{equation*}
+
+最后我们来证明：圆的内接凸多边形中，以正多边形的面积为最大。只要记每一条边所对应的圆心角为$\theta_i(i=1,2,\ldots,n)$，凸多边形的面积
+\begin{align*}
+  S &= \frac{1}{2}R^2 \sum_{i=1}^n \sin{\theta_i} \\
+& \leqslant \frac{n}{2}R^2 \sin{\left(\frac{1}{n}\sum_{i=1}^n\theta_i\right)} \\
+    & =  \frac{n}{2}R^2 \sin{\frac{2\pi}{n}}
+\end{align*}
+而等号在$\theta_i=\frac{2\pi}{n}(i=1,2,\ldots,n)$时成立，即为正多边形。
+
+从函数图象的几何意义上看，前面的定义仅仅刻画了区间中点处的函数值与区间两个端点函数值的关系，但从直觉上看，作为上凸函数，它在区间上任意一点的函数值，都大于连接函数曲线段(由区间所截得)两端点连线所代表的一次函数的函数值，换句话说，定义中的$\frac{1}{2}$应该可以推广到0与1之间的任意实数。但是下面的定理表明，仅仅由前面的定义，只能将这个$\frac{1}{2}$推广到0与1之间的有理数，而无理数的情形要依赖于函数的连续性才能得出。也正是由于这个原因，通常把下面定理中这个更强的不等式来作为上凸函数的定义。
+
+\begin{theorem}
+  \label{theorem:convexity-function-with-weight}
+  如果函数$f(x)$是定义在区间$D$上的上凸函数，并且在此区间上连续，则对于区间上任意两个实数$a$、$b$，以及任意两个满足$\alpha + \beta = 1(\alpha \geqslant 0, \beta \geqslant 0)$的实数$\alpha$、$\beta$，都成立不等式\footnote{也有的书上是用这个定理来作为凸函数定义的。}
+  \begin{equation}
+    \label{eq:convexity-function-with-weight}
+    f(\alpha a + \beta b) \geqslant \alpha f(a) + \beta f(b) 
+  \end{equation}
+\end{theorem}
+
+\begin{proof}[证明]\footnote{这个证明来自于参考文献\cite{the-secret-of-inequality}.}
+  先证明$\alpha$是有理数的情形($\beta$也就同时为有理数)，对于满足$\alpha+\beta=1$的非负有理数$\alpha$和$\beta$，必定存在不同时为零的非负整数$m$和$n$，使得
+  \begin{equation*}
+    \alpha = \frac{m}{m+n}, \beta = \frac{n}{m+n}
+  \end{equation*}
+因此，在下面中将 $ma+nb$视为$m$个$a$与$n$个$b$分别相加之后求和，再利用琴生不等式，得到
+\begin{equation*}
+  \begin{split}
+    f(\alpha a + \beta b) & = f \left( \frac{ma+nb}{m+n} \right) \\
+& \geqslant \frac{mf(a)+nf(b)}{m+n} \\
+& = \alpha f(a) + \beta f(b)
+  \end{split}
+\end{equation*}
+因此有理数的情形得证。
+
+对于$\alpha$为无理数的情形，存在有理数的序列$\alpha_n$和$\beta_n$，使得$\lim_{n\to\infty}\alpha_n=\alpha$和$\lim_{n\to\infty}\beta_n=\beta$，由
+\begin{equation*}
+    f(\alpha_n a + \beta_n b) \geqslant \alpha_n f(a) + \beta_n f(b) 
+\end{equation*}
+不等式两端令$n\to\infty$，并利用函数$f$ 的连续性即得无理数时不等式仍成立。
+\end{proof}
+
+现在来看一些例子，前面已经证明过对数函数在其定义域上是上凸函数，因此套用刚证明过的定理，就得到，对于任意正实数$a,b$以及满足$\alpha+\beta=1(\alpha>0,\beta>0)$的正实数$\alpha,\beta$，都成立不等式
+\begin{equation}
+  \label{eq:binary-neq-for-mean-with-weight}
+\alpha a + \beta b \geqslant a^{\alpha}b^{\beta}
+\end{equation}
+这称为加权均值不等式（二元），而通常情况下的均值不等式$\frac{a+b}{2}\geqslant \sqrt{ab}$，则不过是其中$\alpha=\beta=\frac{1}{2}$的特殊情况而已。
+
+这里再为这个重要定理提供另外一个证明，它不使用琴生不等式，而是直接从定义出发，不过，篇幅稍长些。
+
+先提出如下两个引理:
+\begin{lemma}
+  \label{lemma:add-linear-fun-to-convexity-funtion}
+  区间上的凸函数，加上或者减去同一区间上的一次函数，不改变凸性。
+\end{lemma}
+这个结论是明显的，因为对于一次函数，式\ref{eq:the-definition-of-convexity-function}中的等号总是成立的，因此在一个凸函数的式\ref{eq:the-definition-of-convexity-function}两端同时减去一次函数的该式两端，不等式仍然成立。
+
+\begin{lemma}
+  \label{lemma:recombination-convexity-func-with-linear-fun}
+如果函数$f(x)$是区间$I$上的上凸函数，$a$和$b$是区间$I$上两个不相等的固定实数，则函数$h(t)=f((1-t)a+tb)$是关于$t$的定义在区间$[0,1]$上的上凸函数。
+\end{lemma}
+\begin{proof}[证明]
+ 记$g(t)=(1-t)a+tb$，则$h(t)=f(g(t))$,而$g(t)$作为一次函数，显然对于任意$t_1$和$t_2$成立着不等式:
+\[ g \left( \frac{t_1+t_2}{2} \right)=\frac{g(t_1)+g(t_2)}{2} \] 
+因此有
+\begin{align*}
+  h \left( \frac{t_1+t_2}{2} \right) &= f \left( g\left( \frac{t_1+t_2}{2} \right) \right) \\
+& = f \left( \frac{g(t_1)+g(t_2)}{2} \right) \\
+& \geqslant \frac{f(g(t_1))+f(g(t_2))}{2} \\
+& = \frac{h(t_1)+h(t_2)}{2}
+\end{align*}
+即得证。
+\end{proof}
+
+从这证明过程可以看出，实际上我们可以得到更为通用的关于复合函数凸性的结论：
+\begin{theorem}
+  若函数$g(x)$是区间$I$上的上凸函数，并且在该区间上的值域为$D$，而函数$f(t)$是区间$D$上的单调增加的上凸函数，则复合函数$h(x)=f(g(x))$是区间$I$上的上凸函数，其它条件组合也有类似的结论。
+\end{theorem}
+它的证明仿照\autoref{lemma:recombination-convexity-func-with-linear-fun}即可，这里从略。
+
+现在来证明\autoref{theorem:convexity-function-with-weight}
+\begin{proof}[证明]
+将不等式左边减去右边的差记为$g(\alpha)$，则只要证明$g(\alpha) \geqslant 0$对于一切$0 \leqslant \alpha \leqslant 1$恒成立即可。
+
+  由于完整的证明需要用到高等数学中连续性的定义，所以这里仅就$\alpha$是有理数的情形进行证明(当然$\beta$也就同时为有理数，而且函数连续的条件也就用不上)。
+
+现在我们证明：对于任意正整数$n$，不等式$g(\frac{i}{n}) \geqslant 0 (i=0,1,\ldots,n)$都成立。
+
+首先$g(0)=g(1)=0$，并且利用上面两个引理可以得知$g(\alpha)$仍是一个关于$\alpha$的上凸函数 ，因此
+\begin{equation*}
+  g(\frac{i}{n}) \geqslant \frac{1}{2} \left( g(\frac{i-1}{n}) + g(\frac{i+1}{n}) \right)
+\end{equation*}
+也即是
+\begin{equation*}
+  g(\frac{i+1}{n}) - g(\frac{i}{n}) \leqslant g(\frac{i}{n}) - g(\frac{i-1}{n})
+\end{equation*}
+令$\lambda_i = g(\frac{i+1}{n}) - g(\frac{i}{n})$，则有$\lambda_i \leqslant \lambda_{i-1}(i=1,2,\ldots,n-1)$，而
+\begin{equation*}
+ 0 = g(1) - g(0) = \sum_{i=0}^{n-1} \left( g(\frac{i+1}{n}) - g(\frac{i}{n}) \right) 
+\end{equation*}
+即是$\sum_{i=0}^{n-1}\lambda_i=0$，因此存在正整数$k(0<k<n)$，使得
+\begin{equation*}
+\lambda_0 \geqslant \dots \geqslant \lambda_{k-1} \geqslant 0 \geqslant \lambda_k \geqslant \ldots \geqslant \lambda_{n-1}
+\end{equation*}
+也即是
+\begin{equation*}
+  0 = g(0) \leqslant g(\frac{1}{n}) \ldots \leqslant g(\frac{k}{n}) \geqslant \ldots \geqslant g(\frac{n-1}{n}) \geqslant g(1) = 0
+\end{equation*}
+因此，$g(\frac{i}{n})\geqslant 0(i=0,1,\ldots,n)$成立，有理数的情形得证。而无理数的情形仍同前面的证明。
+\end{proof}
+
+同样的，我们还可以把定理\ref{theorem:convexity-function-with-weight}从两个数的情况推广到多个数的情形:
+\begin{theorem}
+ 设函数$f(x)$在区间$D$上是上凸函数，那么对于该区间上任意$n$个实数$x_i(i=1,2,\ldots,n)$以及相应的权重$\alpha_i(\sum_{i=1}^n\alpha_i=1,\alpha_i \geqslant 0)$，有下面的不等式成立:
+ \begin{equation}
+   \label{eq:convexity-function-with-weight-multiple}
+   f \left( \sum_{i=1}^n\alpha_i x_i \right) \geqslant \sum_{i=1}^n\alpha_i f(x_i)
+ \end{equation}
+\end{theorem}
+其证明与定理\ref{theorem:convexity-function-multile}类似，此处从略。
+
+我们还是把这定理套用到对数函数身上，得到如下的加权均值不等式：对于一组实数$x_i(i=1,2,\ldots,n)$及一组权值$\alpha_i>0(i=1,2,\ldots,n),\sum_{i=1}^n\alpha_i=1$，成立着不等式:
+\begin{equation}
+  \label{eq:poly-neq-for-mean-with-weight}
+ \sum_{i=1}^n\alpha_i x_i \geqslant \prod_{i=1}^nx_i^{\alpha_i} 
+\end{equation}
+等号成立的条件是$x_i$全部都相等。它也可被视为均值不等式的推广。
+
+\subsection{隐函数}
+\label{sec:hided-function}
+
+
+\subsection{函数方程}
+\label{sec:function-equation}
+
+
+函数方程，顾名思义是关于函数的方程，它是以函数为未知量的方程，例如方程$f(x+y)=f(x)+f(y)$，这个方程中的未知量是函数$f(x)$. 如果某个函数能够满足某一函数方程，则称它是这函数方程的一个解，例如任意奇函数都是函数方程$f(x)+f(-x)=0$的解，求出函数方程的全部解的过程称为解函数方程。
+
+在解函数方程时，有时我们会加上连续性的假设，也就是考虑函数方程的连续解，因为非连续解往往没有通式，而且讨论的意义也不大。
+
+柯西研究过的一个函数方程:定义在实数集$R$上的$f(x)$对于任意两个实数$x$和$y$（可以相等）都成立$f(x+y)=f(x)+f(y)$，我们要讨论的问题不外乎几点：这样的函数存在吗？如果存在，是否唯一？函数表达式是否有通式？能否求出？
+
+显然任意正比例函数$f(x)=ax$都满足这函数方程，所以问题是还有没有其它形式的解。
+
+首先取$x=y=0$得出$f(0)=0$，于是$0=f(0)=f(x+(-x))=f(x)+f(-x)$，所以$f(x)$是奇函数。
+
+再令$x=y$得$f(2x)=2f(x)$，不难根据数学归纳法得到，对任意正整数$n$和任意实数$x$，有$f(nx)=nf(x)$，再由$f(x)$是奇函数，知这等式对于负整数也同样成立。
+
+在等式$f(nx)=nf(x)$中取$x=1$，便知对于任意整数$n$，有$f(n)=nf(1)$，也就是说，整个整数集上的函数值，全由$x=1$处的函数值决定。
+
+接着转而讨论有理数的情形，对于整数$p$，有
+\[ f(1)=f \left( p\cdot \frac{1}{p} \right) = p f \left( \frac{1}{p} \right) \]
+所以
+\[ f \left( \frac{1}{p} \right) = \frac{1}{p} f(1) \]
+进一步，对于任意有理数$\dfrac{q}{p}$，有
+\[ f \left( \frac{q}{p} \right) = f \left( q \cdot \frac{1}{p} \right) = q f \left( \frac{1}{p} \right) = \frac{q}{p} f(1) \]
+所以，对于一切有理数$x$，都有
+\[ f(x) = x f(1) \]
+于是全体有理数集上的函数值，都由$f(1)$所唯一确定。
+
+到目前为止，事情都很顺利，但是当讨论到无理数时，情况就不同了。因为前面之所以顺利，是因为由0和1，经过有限次加减，可得出全体整数，再经过乘除，可以得出全体有理数，但是无理数，却不能这么简单的得出，讨论的函数方程对于开方都无能为力，更不用说对于圆周率$\pi$这样的无理数了。
+
+任意待定一个无理数$\pi$（为了突出它的无理性，选用了圆周率符号，但并不表示圆周率），定义集合$Q_{\pi}={x|x=a+b\pi,a,b\in Q}$，称为由无理数$\pi$生成的无理数集，显然如果$x_1,x_2 \in Q_{\pi}$，则$x_1+x_2$以及$\lambda x_1 (\lambda \in Q)$也都属于这集合，设$x=a+b\pi \in Q_{\pi}$，称$a$为它的有理部分，$b$为它的无理部分（的系数）。
+
+在此定义下，我们将看到，原来的函数方程对于有理数上的取值和无理数上的取值是互相独立的，比如说规定当$x \in Q_{pi}$时，它的函数值等于它的有理部分的函数值，即$f(a+b\pi)=f(a)$，现在来验证，这样定义的函数符合原来的函数方程，这只要验证$x$和$y$中有无理数就行了。
+
+设$x$为有理数，而$y=a+b\pi$为无理数，则$f(x+y)=f((x+a)+b\pi)=f(x+a)=f(x)+f(a)$，而$f(x)+f(y)=f(x)+f(a)$，因此$f(x+y)=f(x)+f(y)$.由交换律，$x$为无理数而$y$为有理数的情形也是成立的。
+
+再设$x_1=a_1+b_1\pi$，$x_2=a_2+b_2\pi$，则$f(x_1+x_2)=f((a_1+a_2)+(b_1+b_2)\pi)=f(a_1+a_2)=f(x_1)+f(x_2)$，这就证明了当$x_1$与$x_2$都是无理数且都从属于同一个$Q_{\pi}$时，函数方程是成立的。
+
+如果$x_1$与$x_2$分属于不同的$Q_{\pi}$.
+
+指数方程是由指数函数所抽象出的方程: $f(x+y)=f(x)f(y)$，显然零函数和任意指数函数都是它的解，现在讨论的一般解。
+
+直观上来看，如果函数能恒保持正号，则可以在方程两端取对数得
+\[ \ln{f(x+y)} = \ln{f(x)} + \ln{f(y)} \]
+再令$g(x)=\ln{f(x)}$就有$g(x+y)=g(x)+g(y)$，从而转化为已经研究过的柯西方程，如果$f(x)$又是连续的，那么$g(x)$也是连续的，于是就有$g(x)=mx(m=g(1))$，从而$f(x)=e^{mx}$，令$a=e^m=e^{g(1)}=e^{\ln{f(1)}}=f(1)$，则$f(x)=a^x$.
+
+但这个过程要求函数恒为正，现在从这函数方程出发讨论一下它的符号。令$x=y=0$得$f(0)=f^2(0)$，因此$f(0)=0$或$f(0)=1$，如果$f(0)=0$，则对任意实数$x$都有$f(x)=f(x+0)=f(x)f(0)=0$，即为零函数。在$f(0)=1$的情况下，对于任意实数$x$，有
+\[ f(x) = f\left( \frac{x}{2} + \frac{x}{2} \right) = f^2 \left( \frac{x}{2} \right) \geqslant 0 \]
+但是我们将指出，上式只能取正，若不然，假定存在某个$x_0$使得$f(x_0)=0$，则对任意实数$x$有$f(x)=f(x_0+(x-x_0))=f(x_0)f(x-x_0)=0$，于是也有$f(0)=0$，与刚才假定的$f(0)=1$矛盾，所以若$f(0)=1$，则函数就恒保持为正。
+
+所以最终的结论是，指数方程的连续解为零函数和全体指数函数。
+
+与指数方程类型，对数方程是由对数函数所抽象出来的函数方程: $f(xy)=f(x)+f(y)$.
+
+还是先考虑一下$f(0)$，虽然对数函数的定义域是正实数集，但单从这个函数方程来说，还是可以考虑一下的。命$x=y=0$即得$f(0)=0$，再取$x$为任意实数而$y=0$，则$f(0)=f(x)+f(0)$对一切实数成立，从而$f(x)$只能为零函数。这就是说，如果要考虑此方程的非零解，则必须将$x=0$从定义域排除掉。
+
+现在假定$f(x)$是连续函数，先考虑函数在正实数上的情形，令$g(x)=f(e^x)$，则$g(x)$也是连续函数，并且$g(x+y)=g(x)+g(y)$，于是$g(x)$是柯西方程的解，$g(x)=g(1)x$，从而$f(x)=g(\ln{x})=\log_a{x}(a=f(e))$.
+
+最后来考虑负数的情形，取$x=y=1$可得$f(1)=0$，于是再取$x=y=-1$则有$f(1)=2f(-1)$，从而$f(-1)=0$，进一步对任意实数$x$就有$f(-x)=f(-1)f(x)=0$，所以一旦考虑到负数区间上，就只能得出零函数的结果。
+
+所以最终的结论是，该函数方程在$R$上的连续解只有零函数，在限定定义域为正实数集上时，对数函数也是它的解。
+
+三角方程是根据三角函数所满足的关系式所提出来的，根据正余函数和余弦函数的和角公式，有
+\begin{eqnarray*}
+  \cos{(x+y)} & = & \cos{x}\cos{y} - \sin{x}\sin{y} \\
+  \sin{(x+y)} & = & \sin{x}\cos{y} + \cos{x}\sin{y}
+\end{eqnarray*}
+
+所以很自然的提出如下函数方程：两个函数$C(x)$和$S(x)$，对于任何两个实数$x$和$y$都成立
+\begin{eqnarray*}
+  C{(x+y)} & = & C(x)C(y) - S(x)S(y) \\
+  S{(x+y)} & = & S(x)C(y) + C(x)S(y)
+\end{eqnarray*}
+显然正弦函数和余弦函数是其一解，所以问题是，是否是唯一解。
+
+
+\subsection{题选}
+\label{sec:exercise-for-function-equation}
+
+\begin{exercise}
+  设连续的单调函数$f$:$(-1,+\infty) \to (-1,+\infty)$，满足$f(0)=0$，且$f(x+f(y)+xf(y)) \geqslant y+f(x)+yf(x)$，$\forall x,y \in (-1,+\infty)$，求函数$f(x)$的解析式.
+\end{exercise}
+
+\exerciseFrom[\url{http://kuing.orzweb.net/viewthread.php?tid=4817}]
+
+\exerciseSolvedDate[2017-09-06]
+
+\begin{proof}[解答]
+这题不好搞，在题目不等式中取$x=0$得到下式恒成立
+\[ f(f(y)) \geqslant y \]
+如果函数$f(x)$是增函数的话，就必有$f(x) \geqslant x$，因为如果有某个$x_0$使得$f(x_0)<x_0$，那由单调增就有$f(f(x_0))<f(x_0)<x_0$与上式矛盾，所以在增函数的条件下一定有$f(x) \geqslant x$.但对于减函数的情形似乎难以得到类似的结论。
+
+题目之所以难是因为条件中是不等式，那先降低难度，考虑一下如果是等式会怎样，也就是
+\[ f(x+f(y)+xf(y)) = y+f(x)+yf(x) \]
+因为$f(x)$单调，所以必有反函数，再假设$f(x)$为满射（似乎题意也要求如此），于是在上式中将$y$替换为$f^{-1}(y)$，就成为
+\[ f(x+y+xy)=f(x)+f^{-1}(y)+f(x)f^{-1}(y) \]
+互换$x$和$y$，又得
+\[ f(x+y+xy)=f^{-1}(x)+f(y)+f^{-1}(x)f(y) \]
+于是
+\[ f(x)+f^{-1}(y)+f(x)f^{-1}(y) = f^{-1}(x)+f(y)+f^{-1}(x)f(y) \]
+整理即得
+\[ \frac{f(x)-f^{-1}(x)}{1+f(x)}=\frac{f(y)-f^{-1}(y)}{1+f(y)} \] 
+因为$x$和$y$是任意的，所以上式意味着
+\[  \frac{f(x)-f^{-1}(x)}{1+f(x)}=C \]
+右端$C$是常数，但$f(0)=f^{-1}(0)=0$，所以$C=0$，于是得
+\[ f(x)=f^{-1}(x) \]
+这表明函数$f(x)$的图象是关于直线$y=x$对称的. 将它代回前面的等式就得到
+\[ f(x+y+xy)=f(x)+f(y)+f(x)f(y) \]
+这个方程很漂亮，可是，似乎也难以转化为柯西方程，到这又没戏了。。。。。
+
+既然还是难，那就进一步加条件，假设函数$f(x)$不但连续，还是一阶可导的，那么有
+\[ \frac{f(x+y+xy)-f(x)}{y+xy} = \frac{1+f(x)}{(1+x)} \cdot \frac{f(y)}{y} \]
+两边令$y \to 0$，就有
+\[ f'(x) =  \frac{1+f(x)}{(1+x)}  \cdot f'(0) \]
+这是一个微分方程，至于其中的常数$f'(0)$，因为$f(x)=f^{-1}(x)$，所以必然有$f'(0)=1$或者$f'(0)=-1$，方程变形为
+\[ \frac{y'}{1+y} = C \cdot \frac{1}{1+x} \]
+其中$C=1$或者$C=-1$，两边积分得
+\[ \ln{(1+y)} = C \ln{(1+x)}+C' \]
+这里$C'$是积分常数，所以得到
+\[ y= e^{C'} \cdot (1+x)^C - 1 \]
+由$f(0)=0$得$C'=0$，所以
+\[ f(x)=(1+x)^C-1 \]
+其中$C=1$或者$C=-1$，分别对应着$f(x)=x$与$f(x)=-\dfrac{x}{1+x}$，但是要注意，这是在加强了条件（不等式改等式并且要求函数一阶可导）得出的结果.
+\end{proof}
+
+
+
+
 
 %%% Local Variables:
 %%% mode: latex

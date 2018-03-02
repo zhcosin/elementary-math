@@ -403,6 +403,143 @@
 \subsection{插值多项式}
 \label{sec:interpolation-polynome}
 
+
+\subsection{切比雪夫多项式}
+\label{sec:chebyshev-polynome}
+
+我们知道余弦的二倍角公式和三倍角公式
+\begin{eqnarray*}
+  \cos{2\theta} & = & 2\cos^2{\theta}-1 \\
+  \cos{3\theta} & = & 4\cos^3{\theta}-3\cos{\theta}
+\end{eqnarray*}
+于是$\cos{3\theta}$和$\cos{4\theta}$分别表成了$\cos{\theta}$的二次多项式和三次多项式，那么对于一般形式的$\cos{n\theta}$，情况又如何呢?
+
+由和差化积公式可得
+\[ \cos{(n+1)\theta}+\cos{(n-1)\theta}=2\cos{n\theta}\cos{\theta} \]
+所以
+\[ \cos{(n+1)\theta}=2\cos{n\theta}\cos{\theta}-\cos{(n-1)\theta} \]
+假如$\cos{n\theta}$和$\cos{(n-1)\theta}$分别是$\cos{\theta}$的$n$次多项式和$n-1$次多项式，那么$\cos{(n+1)\theta}$显然也是$\cos{\theta}$的一个次数不超过$n+1$的多项式，而易见最高次系数$a_n$满足递归关系$a_{n+1}=2a_n$，而$a_2=2,a_3=4$，所以$a_n=2^{n-1}$，最高次项系数恒正，从而$\cos{(n+1)\theta}$表成了$\cos{\theta}$的$n+1$次多项式。这结果就是如下的定理:
+
+\begin{theorem}
+  对于任意正整数$n$，$\cos{n\theta}$可表为$\cos{\theta}$的$n$次多项式，这多项式的最高次项系数是$2^{n-1}$，这多项式称为\emph{第一类切比雪夫(Chebyshev)多项式}。
+\end{theorem}
+
+第一类切比雪零头多项式以$T_n(x)$标记，按定义有$\cos{n\theta}=T_n(\cos{\theta})$。
+
+容易得$T_0(x)=1,T_1(x)=x$并有如下递推式
+\begin{equation}
+  \label{eq:first-chebyshev-polynome-recursion}
+  T_{n+1}(x)=2xT_n(x)-T_{n-1}(x)
+\end{equation}
+当然也可以用这个递归式来定义第一类切比雪夫多项式，只是少了三角函数的背景，成了为了定义而定义了。
+
+前几个多项式是如下的表:
+\begin{eqnarray*}
+  T_0(x) & = & 1 \\
+  T_1(x) & = & x \\
+  T_2(x) & = & 2x^2-1 \\
+  T_3(x) & = & 4x^3-3x \\
+  T_4(x) & = & 8x^4-4x^2+1 \\
+  T_5(x) & = & 16x^5-20x^3+5x \\
+  T_6(x) & = & 32x^6-48x^4+18x^2-1
+\end{eqnarray*}
+
+在讨论这些多项式的性质之前，我们再从另外一个角度来引导出第一类切比雪夫多项式。由复数的乘幂公式，复数$z=r(\cos{\theta}+i\sin{\theta})$的乘方是
+\begin{equation*}
+  z^n=[r(\cos{\theta}+i\sin{\theta})]^n = r^n(\cos{n\theta}+i\sin{n\theta})
+\end{equation*}
+在上式中将$\theta$换成$-\theta$得
+\begin{equation*}
+  [r(\cos{\theta}-i\sin{\theta})]^n = r^n(\cos{n\theta}-i\sin{n\theta})
+\end{equation*}
+两式相加，并按二项式定理将左边展开，所有求和指标为奇数的项都被消去，得
+\begin{eqnarray*}
+  \cos{n\theta} & = & \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^i\cos^{n-2i}{\theta}\sin^{2i}{\theta} \\
+  & = & \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^i\cos^{n-2i}{\theta}(1-\cos^2{\theta})^i \\
+\end{eqnarray*}
+上式中右边每一项都是$\cos{\theta}$的$n$次多项式，所有最高次项的系数和是$C_n^0+C_n^2+C_n^4+\cdots$，这是对上标为偶数的二次项系数求和，由组合数性质，这个和是$2^{n-1}$，于是$\cos{n\theta}$就是$\cos{\theta}$的$n$次多项式，最高次项系数是$2^{n-1}$，这样也引出了第一类的切比雪夫多项式，还得出了它的具体表达式:
+\begin{equation*}
+  T_n(x) = \sum_{0 \leqslant i \leqslant n/2}C_n^{2i}(-1)^ix^{n-2i}(1-x^2)^{i}
+\end{equation*}
+
+以下我们来推证这些多项式的一些性质，我们先由公式$\cos{n\theta}=T_n(\cos{\theta})$得出结论，再尝试利用递推关系来加以证明。
+
+\begin{property}
+  对于任意满足$|x|\leqslant 1$的实数$x$，都有$|T_n(x)| \leqslant 1$.
+\end{property}
+
+第一类切比雪夫多项式刻画的是$\cos{n\theta}$展开为$\cos{\theta}$的多项式，那么正弦的情况又如何呢，还是先观察一下二倍角公式和三倍角公式
+\begin{eqnarray*}
+  \sin{2\theta} & = & 2\sin{\theta}\cos{\theta} \\
+  \sin{3\theta} & = & 3\sin{\theta}-4\sin^3{\theta}
+\end{eqnarray*}
+不难发现，$\sin{n\theta}$无法表示为$\sin{\theta}$的多项式，但是$\sin{n\theta}$似乎可以表达为$\sin{\theta}$与一个关于$\cos{\theta}$的多项式的乘积，也就是说，$\sin{n\theta}/\sin{\theta}$可表为$\cos{\theta}$的多项式。那么对于一般情况，仍然由和差化积
+\begin{equation*}
+  \sin{(n+1)\theta}=2\sin{n\theta}\cos{\theta}-\sin{(n-1)\theta}
+\end{equation*}
+可见，$\sin{(n+1)\theta}$也能表为$\sin{\theta}$与一个关于$\cos{\theta}$的$n$次多项式之积，于是得到
+\begin{theorem}
+  对于任意正整数$n$，$\sin{(n+1)\theta}/\sin{\theta}$可表为一个关于$\cos{\theta}$的$n$次多项式，其最高次项系数是$2^n$，这多项式称为\emph{第二类切比雪夫多项式}。
+\end{theorem}
+
+仍然有递推公式$U_0(x)=1, U_1(x)=2x$和
+\begin{equation*}
+  U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)
+\end{equation*}
+可以发现，两类切比雪夫多项的递推公式是相同的，不同的是两个初始值。
+
+第二类切比雪夫多项式以$U_n(x)$标记，有
+\begin{equation*}
+  \frac{\sin{(n+1)\theta}}{\sin{\theta}} = U_n(\cos{\theta})
+\end{equation*}
+
+同样利用复数的乘方公式，可以得到第二类切比雪夫多项式的具体表达:
+\begin{equation*}
+  U_n(x) = \sum_{0 \leqslant 2i+1 \leqslant n+1}(-1)^iC_{n+1}^{2i+1}x^{n-2i}(1-x^2)^{i}
+\end{equation*}
+其最高次项系数是$C_{n+1}^1+C_{n+1}^3+C_{n+1}^5+\cdots=2^n$。
+
+前几个多项式是
+\begin{eqnarray*}
+  U_0(x) & = & 1 \\
+  U_1(x) & = & 2x \\
+  U_2(x) & = & 4x^2-1 \\
+  U_3(x) & = & 8x^3-4x \\
+  U_4(x) & = & 16x^4-12x^2+1 \\
+  U_5(x) & = & 32x^5-32x^3+6x \\
+  U_6(x) & = & 64x^6-80x^4+24x^2-1
+\end{eqnarray*}
+
+由三角关系，不难推得两类切比雪夫多项式的一些关系式
+\begin{property}
+  两类切比雪夫多项式间满足如下一些关系式:
+  \begin{eqnarray*}
+    T_n^2(x)+(1-x^2)U_{n-1}^2(x) & = & 1 \\
+    T_n(x)+\sqrt{x^2-1}U_{n-1}(x) & = & (x+\sqrt{x^2-1})^n
+  \end{eqnarray*}
+\end{property}
+
+两类多项式还有以下的双重递归:
+\begin{eqnarray*}
+  T_{n+1}(x) & = & xT_n(x)-(1-x^2)U_{n-1}(x) \\
+  U_n(x) & = & xU_{n-1}(x)+T_n(x)
+\end{eqnarray*}
+初始值$T_0(x)=1, U_{-1}(x)=1$，这由余弦和正弦的和角公式便可得出。
+
+在高等数学中，切比雪夫多项是一类正交多项，可以利用它们来逼近函数和曲线，如同泰勒多项式中$1,x,x^2\cdots$的地位一样，不过这不在本书讨论范围。
+
+下面来讨论切比雪夫多项式的根，对于第一类，因为$T_n(\cos{\theta})=\cos{n\theta}$，所以$T_n(x)$的全部根是
+\begin{equation*}
+  x_i=\cos{\frac{2i-1}{2n}\pi}, \  i=1,2,\ldots,n
+\end{equation*}
+同样，$U_n(x)$的全部根是
+\begin{equation*}
+  x_i=\cos{\frac{i}{n+1}\pi}, \  i=1,2,\ldots,n
+\end{equation*}
+显然这些根全部都在区间$[-1,1]$上。
+
+
+
 \subsection{题选}
 \label{sec:exercises-for-polynome}
 
