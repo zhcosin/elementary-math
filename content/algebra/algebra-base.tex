@@ -16,7 +16,7 @@
 如果元素$x$是集合$A$中的元素，称为$x$属于集合$A$，记作$x \in A$，否则称$x$不属于集合$A$，记作$x \not in A$.
 
 集合中的元素是不区分顺序的，如果两个集合$A$与$B$中的元素个数相同且对应相等，那么这两个集合称为相等，用符合语言就是:
-\[ A = B \Leftrightarrow (x \in A \Rightarrow x \in B) \wedge (x in B \Rightarrow x in A) \]
+\[ A = B \Leftrightarrow (x \in A \Rightarrow x \in B) \wedge (x \in B \Rightarrow x \in A) \]
 上式中上尖括号$\wedge$表示逻辑上的与。
  规定所有的空集都是相等的。 
 
@@ -80,9 +80,12 @@
 
 函数就是从数集到数集的映射。
 
-映射是可以进行运算的。
+映射是可以进行相乘的，假设有两个映射$f: A \maptos B$与$g: B \maptos C$，那么以$B$作为桥梁，我们建立起从$A$到$C$的一个映射，这就是映射的乘积:
+
 \begin{definition}
-设$A$、$B$、$C$是三个非空集合，而$f$是从$A$到$B$的一个映射$f_{A \times B} = \{ \}$
+  设$A$、$B$、$C$是三个非空集合，而$U$是从$A$到$B$的一个映射，$V$是从$B$到$C$的一个映射，那么，集合
+  \[ W = \{ \pair{a}{c} | a \in A, c \in C, \exists b \in B \Rightarrow (\pair{a}{b} \in U) \land (\pair{b}{c} \in V) \} \]
+  是从$A$到$C$的一个映射$h$，称它是映射$f$与$g$的\emph{乘积},记作$h=gf$.
 \end{definition}
 
 \subsection{运算与关系}
