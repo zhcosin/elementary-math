@@ -2,8 +2,88 @@
 \section{代数学基础}
 \label{sec:algebra-base}
 
-\subsection{集合与映射、映射的乘法}
-\label{sec:set-and-map}
+\subsection{集合}
+\label{sec:set}
+
+集合是数学中不加定义的一个基本概念，一些确定的对象构成的整体即称为集合，构成集合的个体称为集合的元素，不包含任何元素的集合称为空集，记作$\emptyset$。
+
+例如，平面上的所有直线构成一个集合，三维空间中的所有点构成一个集合。
+
+所有的整数构成整数集$\mathbb{Z}$，全体有理数构成有理数集$\mathbb{Q}$，全体实数构成实数集$\mathbb{R}$，全体复数构成复数集$\mathbb{C}$.
+
+如果集合中的全体元素都满足某个条件，并且满足此条件的元素都属于这集合，那么通常就用这条件来刻画这个集合，例如$A=\{ x | x \in \mathbb{Z}, x>0 \}$就表示正整数集合.
+
+如果元素$x$是集合$A$中的元素，称为$x$属于集合$A$，记作$x \in A$，否则称$x$不属于集合$A$，记作$x \not in A$.
+
+集合中的元素是不区分顺序的，如果两个集合$A$与$B$中的元素个数相同且对应相等，那么这两个集合称为相等，用符合语言就是:
+\[ A = B \Leftrightarrow (x \in A \Rightarrow x \in B) \wedge (x in B \Rightarrow x in A) \]
+上式中上尖括号$\wedge$表示逻辑上的与。
+ 规定所有的空集都是相等的。 
+
+ 相等是集合间的一种关系，除此之外，还有包含与被包含关系:
+ \begin{definition}
+   如果一个集合$B$中的任何元素都是集合$A$中的元素，则称$B$是$A$的\emph{子集}，记作$B \subset B$，或者称$A$包含$B$并记作$A \supset B$，这两个称呼与符号是等价的.规定空集是任何集合(包括空集本身)的子集.
+ \end{definition}
+
+ 显然, 相等是包含关系的特例，并且$A=B \Leftrightarrow (A \subset B) \wedge (B \subset A)$.
+
+ 如果$A$是$B$的子集且两者并不相等，则称$A$是$B$的\emph{真子集}，显然，$A$是$B$的真子集的充分必要条件是，$A$是$B$的子集且$B$中至少包含一个不属于$A$的元素.
+ 
+集合与集合之间可以进行一些运算，例如交、并、差等。
+\begin{definition}
+  设$A$与$B$是两个集合，由所有同时属于两者的元素所组成的集合称为它们的\emph{交集}，记作$A \cap B$，即$A \cap B = \{ x | (x \in A) \wedge (x \in B) \}$.
+\end{definition}
+
+\begin{definition}
+  设$A$与$B$是两个集合，由所有属于$A$或者属于$B$的元素所组成的集合称为它们的\emph{并集}，记作$A \cup B$，即$A \cup B = \{x | (x \in A) \lor (x in B) \}$.
+\end{definition}
+
+交集与并集的混合运算满足德摩根律.
+\begin{theorem}
+  设$A$、$B$、$C$是三个集合，则
+  \begin{align*}
+    A \cap (B \cup C) & = (A \cap B) \cup (A \cap C) \\
+    A \cup (B \cap C) & = (A \cup B) \cap (A \cup C) 
+  \end{align*}
+\end{theorem}
+
+\begin{definition}
+  设$A$与$B$是两个集合，由所有属于$A$但是不属于$B$的元素所组成集合称为$A$与$B$的\emph{差集}，记作$A-B$，即$A-B = \{x | (x in A) \land (x \notin B) \}$.
+\end{definition}
+
+显然: $A-B = A - (A \cap B)$.
+
+下面介绍集合间的一种重要的运算：笛卡尔积.
+\begin{definition}
+  设$A$、$B$是两个集合，则序偶$\langle a,b \rangle$的集合$\{ \pair{a}{b} | a \in A, b \in B \}$称为$A$与$B$的\emph{笛卡尔积}，记作$A \times B$.
+\end{definition}
+
+注意，笛卡尔的元素是序偶，该序偶的第一个元素来自于集合$A$，而第二个元素来自于集合$B$.
+
+显然，$A \times B$与$B \times A$是两个不同的集合。
+
+\subsection{映射}
+\label{sec:map}
+
+\begin{definition}
+  设$A$、$B$是两个非空集合，集合$C$是$A$与$B$的笛卡尔积$A \times B$的一个子集，如果集合$C$满足:
+  \begin{enumerate}
+  \item $\forall a \in A, \exists  b \in B \Rightarrow \pair{a}{b} \in C$.
+  \item $ \pair{a}{b_1} \in C, \pair{a}{b_2} \in C \Rightarrow b_1=b_2$.
+  \end{enumerate}
+  则称集合$C$是$A$到$B$的一个\emph{映射}，记作$f:A \mapsto B$.
+\end{definition}
+
+用通俗的语言说，从$A$到$B$的映射是一个对应关系，它使得$A$中任何元素(称为原象)都能对应到$B$中的某一个元素(称为象)，并且不存在一对多的现象，但是多对一是允许的，并且$B$中可以有一些没有原象的元素。
+
+定义中是映射的严格的符号化定义，可以看出，映射实际上是笛卡尔积的一个满足特定条件的一个子集.
+
+函数就是从数集到数集的映射。
+
+映射是可以进行运算的。
+\begin{definition}
+设$A$、$B$、$C$是三个非空集合，而$f$是从$A$到$B$的一个映射$f_{A \times B} = \{ \}$
+\end{definition}
 
 \subsection{运算与关系}
 \label{sec:relation}
