@@ -55,15 +55,15 @@
 
 下面介绍集合间的一种重要的运算：笛卡尔积.
 \begin{definition}
-  设$A$、$B$是两个集合，则序偶$\langle a,b \rangle$的集合$\{ \pair{a}{b} | a \in A, b \in B \}$称为$A$与$B$的\emph{笛卡尔积}，记作$A \times B$.
+  设$A$、$B$是两个集合，则序偶$\pair{a}{b}$的集合$\{ \pair{a}{b} | a \in A, b \in B \}$称为$A$与$B$的\emph{笛卡尔积}，记作$A \times B$.
 \end{definition}
 
 注意，笛卡尔的元素是序偶，该序偶的第一个元素来自于集合$A$，而第二个元素来自于集合$B$.
 
-显然，$A \times B$与$B \times A$是两个不同的集合。
+显然，$A \times B$与$B \times A$是两个不同的集合，将实数集$\mathbb{R}$与自身作笛卡尔积，则得到平面上的坐标集合。
 
-\subsection{映射}
-\label{sec:map}
+\subsection{映射与变换}
+\label{sec:map-and-translation}
 
 \begin{definition}
   设$A$、$B$是两个非空集合，集合$C$是$A$与$B$的笛卡尔积$A \times B$的一个子集，如果集合$C$满足:
@@ -78,21 +78,82 @@
 
 定义中是映射的严格的符号化定义，可以看出，映射实际上是笛卡尔积的一个满足特定条件的一个子集.
 
+设$f: A \mapsto B$是从$A$到$B$的一个映射，而$a \in A$，$a$在$B$中的象是$b$，记作$b=f(a)$.
+
 函数就是从数集到数集的映射。
 
-映射是可以进行相乘的，假设有两个映射$f: A \maptos B$与$g: B \maptos C$，那么以$B$作为桥梁，我们建立起从$A$到$C$的一个映射，这就是映射的乘积:
+\begin{definition}
+  设$f$是从集合$A$到集合$B$的一个映射，如果$A$中不同元素在$B$中的象也不同，则称该映射是一个\emph{单射}，即$\forall a_1,a_2 \in A，a_1 \neq a_2 \Rightarrow f(a_1) \neq f(a_2)$，而如果$B$中每一个元素，都能在$A$中找到它的原象，则称该映射是一个\emph{满射}，即$\forall b \in B, \exists a \in A, b=f(a)$. 如果一个映射，既是单射又是满射，那么称其为\emph{双射}或者\emph{一一映射}.
+\end{definition}
+
+显然，两个集合间能够建立起双射的充分必要条件是它们的元素个数相同。
+
+\begin{definition}
+  集合$A$到自身的映射称为集合$A$上的\emph{变换}，如果这映射又是双射，则称为\emph{一一变换}.
+\end{definition}
+
+有限集$\{a_1,a_2,\ldots,a_n\}$到自身的一个一一变换称为一个\emph{重排}.
+
+映射是可以进行相乘的，假设有两个映射$f: A \mapsto B$与$g: B \mapsto C$，那么以$B$作为桥梁，我们建立起从$A$到$C$的一个映射，这就是映射的乘积:
 
 \begin{definition}
   设$A$、$B$、$C$是三个非空集合，而$U$是从$A$到$B$的一个映射，$V$是从$B$到$C$的一个映射，那么，集合
   \[ W = \{ \pair{a}{c} | a \in A, c \in C, \exists b \in B \Rightarrow (\pair{a}{b} \in U) \land (\pair{b}{c} \in V) \} \]
-  是从$A$到$C$的一个映射$h$，称它是映射$f$与$g$的\emph{乘积},记作$h=gf$.
+  是从$A$到$C$的一个映射$h$，称它是映射$f$与$g$的\emph{乘积},记作$h=gf$，即
+  \[ h(a) = (gf)(a) = g(f(a)) \]
 \end{definition}
 
-\subsection{运算与关系}
+类似的，可以利用映射的乘积定义变换的乘积。
+
+\subsection{运算}
+\label{sec:operation}
+
+\begin{definition}
+  设$A$、$B$、$C$是三个非空集合，则由$A \times B$到$C$的一个映射，称为从$A$、$B$到$C$的一个\emph{二元运算}，关于运算，通常讨论从$A \times A$到$B$的二元运算，即参与运算的两个元素来自同一个集合。
+\end{definition}
+
+\subsection{关系}
 \label{sec:relation}
 
+集合的元素间，通常会有这样那样的关系，实数集之上，有大小关系，有相等关系等。这一小节就来讨论它。
 
+\begin{definition}
+  设$A$是一个非空集合，则它与自身的笛卡尔积$A\times A$的一个子集$R$称为$A$上的一个\emph{关系}，任意$a,b \in A$，如果$\pair{a}{b} \in R$，则称$a$与$b$之间满足$R$关系，形式化的写作$aRb$，否则称$a$与$b$不满足$R$关系.
+\end{definition}
 
+例如，实数间的相等关系，则是由$\mathbb{R} \times \mathbb{R}$的子集$\{\pair{x}{x} | x in \mathbb{R}\}$确定的。
+
+\begin{definition}
+  如果集合$A$上的一个关系$R$满足:
+  \begin{enumerate}
+  \item $\forall a in A, aRa$ (自反性)
+  \item 如果$aRb$，则也有$bRa$ (对称性)
+  \item 如果$aRb$且$bRc$，则必有$aRc$ (传递性)
+  \end{enumerate}
+  则称关系$R$是一个\emph{等价关系}.
+\end{definition}
+
+\begin{definition}
+  如果集合$A$上的一个关系$R$满足:
+  \begin{enumerate}
+  \item 任意$a,b \in A,a\neq b$，$aRb$与$bRa$两个中必有一个成立.
+  \item 如果$aRb$且$bRa$，则必有$a=b$. (反对称性)
+  \item 如果$aRb$且$bRc$，则必有$aRc$ （传递性）
+  \end{enumerate}
+  则称关系$R$是一个\emph{全序关系}.
+\end{definition}
+全序关系意味着，集合中的任意两个元素间，都可以比较，或者$\pair{a}{b}$满足关系，或者$\pair{b}{a}$满足关系。
+
+\begin{definition}
+  如果集合$A$上的一个关系$R$满足:
+  \begin{enumerate}
+  \item $\forall a \in A, aRa$. (自反性)
+  \item 如果$aRb$且$bRa$，则必有$a=b$. (反对称性)
+  \item 如果$aRb$且$bRc$，则必有$aRc$ （传递性）
+  \end{enumerate}
+  则称$R$是一个\emph{偏序关系}.
+\end{definition}
+偏序关系，就不一定能在集合中的任意两个元素间进行比较了，例如正整数集上的整除关系。
 
 %%% Local Variables:
 %%% mode: latex
