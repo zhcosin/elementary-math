@@ -563,6 +563,28 @@
 \subsection{题选}
 \label{sec:题选}
 
+\begin{exercise}
+  点$A$关于直线$OB$的对称点为$C$，试以$\vv{OA}$与$\vv{OB}$为基底，对$\vv{OC}$进行分解.
+\end{exercise}
+
+\exerciseFrom{数学解题之路QQ群(60519007)，陕西李世杰}
+
+\exerciseSolvedDate{2018-03-13}
+
+\begin{proof}[解答]
+  题目虽然简单，但要用纯向量方法才好玩。
+设$\vv{OA}=\vv{a},\vv{OB}=\vv{b},\vv{OC}=\vv{c}$，那么由条件可知
+\[ |\vv{a}|=|\vv{c}|, \  (\vv{a}-\vv{c}) \cdot \vv{b}=0 \]
+而且存在唯一实数$\lambda$，使得
+\[ \vv{a}+\vv{c}=\lambda \vv{b} \]
+显然，只要确定出$\lambda$，就得到了$\vv{c}$的分解式，为此将上式两边与$\vv{b}$作内积得
+\[ \vv{b} \cdot (\vv{a}+\vv{c})=\lambda \vv{b}^2 \]
+而前面已经知道$\vv{a} \cdot \vv{b}=\vv{c} \cdot \vv{b}$，因此由上式知
+\[ \lambda = \frac{2(\vv{a} \cdot \vv{b})}{\vv{b}^2} \]
+于是得
+\[ \vv{c} = \frac{2(\vv{a} \cdot \vv{b})}{\vv{b}^2} \vv{b} - \vv{a} \]
+\end{proof}
+
 %%% Local Variables:
 %%% TeX-master: "../../elementary-math-note"
 %%% End:
