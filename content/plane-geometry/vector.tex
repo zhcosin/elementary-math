@@ -224,6 +224,112 @@
 
 由此可见，向量的共线、共面等特性与线性方程组理论有着千丝万缕的联系，这在线性代数中有更一般性的结论。
 
+\subsection{坐标变换}
+\label{sec:coordination-translation-of-vector}
+
+根据前面的向量分解定理，在平面上任意取定两个不共线的向量$\bm{\alpha}$和$\bm{\beta}$，则该平面上的任意向量$\bm{\gamma}$均可以唯一表达成$\bm{\gamma}=x\bm{\alpha}+y\bm{\gamma}$的形式，此时称这两个不共线的向量$\bm{\alpha}$和$\bm{\beta}$为一组\emph{基底向量}，简称\emph{基底}或\emph{基}，并称向量$\bm{\gamma}$在这组基下的\emph{坐标}是$(x,y)$. 同样的概念也可以应用到空间向量身上，此时基底由三个不共面的向量构成，而坐标也就成为三元有序实数组了。
+
+注意这里的基底向量并没有互相垂直的要求，并且也没有限定基底向量必须是单位向量，所以这里的基与坐标的概念是一般化的。
+
+现在我们来推导，对于一个确定的向量而言，其坐标是如何随基的选择不同而不同的。
+
+设向量$\bm{\gamma}$在基$\bm{\alpha}$和$\bm{\beta}$下的坐标是$(x,y)$，而在另一组底$\bm{i}$和$\bm{j}$下的坐标是$(x',y')$，换言之，有
+\[ \bm{\gamma}=x\bm{\alpha}+y\bm{\beta}=x'\bm{i}+y'\bm{j} \]
+设两组基之间的关系是
+\[
+  \begin{cases}
+    \bm{\alpha}=a_{11}\bm{i}+a_{12}\bm{j} \\
+    \bm{\beta}=a_{21}\bm{i}+a_{22}\bm{j}
+    \end{cases}
+\]
+那么有
+\begin{align*}
+  \bm{\gamma} & = x\bm{\alpha}+y\bm{\beta} \\
+              & = x(a_{11}\bm{i}+a_{12}\bm{j})+y(a_{21}\bm{i}+a_{22}\bm{j})  \\
+  & = (xa_{11}+ya_{21})\bm{i}+(xa_{12}+ya_{22})\bm{j}
+\end{align*}
+由分解的唯一性即得
+\[
+  \begin{cases}
+    x' = xa_{11}+ya_{21} \\
+    y' = xa_{12}+ya_{22}
+  \end{cases}
+  \]
+  这公式写成矩阵形式更加直观:
+  \[
+    \begin{pmatrix}
+      x' \\
+      y'
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      a_{11} & a_{12} \\
+      a_{21} & a_{22}
+    \end{pmatrix}
+    \begin{pmatrix}
+      x \\
+      y
+    \end{pmatrix}
+  \]
+  上式就是一个向量在两组不同的基下的坐标过渡公式，或者说坐标变换公式，中间的矩阵就称为两组基的过渡矩阵，显然，向量在不同的基下的坐标之间的关系，完全由这两组不同的基的过渡矩阵决定。
+
+    \begin{example}
+      根据向量的坐标变换，可以得到平面上点在坐标系下的变换公式，这坐标系除了需要两个不共线的向量之外，还需要一个称为坐标原点的基准点$O$，于是平面上一个坐标系由三个要素构成：坐标原点和一组基向量，简单记为$C(O,\bm{\alpha},\bm{\beta})$。
+
+      设平面上有两个坐标系$C_1(O,\bm{\alpha},\bm{\beta})$及$C_2(O',\bm{i},\bm{j})$，而平面上某一点$P$在两个坐标系下的坐标分别是$(x,y)$和$(x',y')$，那么显然有
+      \[ \vv{OP}=x\bm{\alpha}+y\bm{\beta},\  \vv{O'P}=x'\bm{i}+y'\bm{j} \]
+      设两组基之间的过渡矩阵是
+      \[
+    \begin{pmatrix}
+      a_{11} & a_{12} \\
+      a_{21} & a_{22}
+    \end{pmatrix}
+        \]
+     换言之，有
+\[
+  \begin{cases}
+    \bm{\alpha}=a_{11}\bm{i}+a_{12}\bm{j} \\
+    \bm{\beta}=a_{21}\bm{i}+a_{22}\bm{j}
+    \end{cases}
+\]
+那么根据前面的结论，向量$\vv{OP}$在基$\bm{i}$和$\bm{j}$下的坐标是
+\[ \vv{OP} = (xa_{11}+ya_{21})\bm{i} + (xa_{12}+ya_{22})\bm{j} \]
+但是点$P$在坐标系$C_2$下的坐标自然应该是$\vv{O'P}$的坐标，而不是$\vv{OP}$的坐标，所以还需要转换一下，自然有
+\[ \vv{O'P}=\vv{O'O}+\vv{OP} \]
+向量$\vv{O'O}$是由两个坐标系的固有属性，设
+\[ \vv{O'O} = r \bm{i}+s\bm{j} \]
+就有
+\[ \vv{O'P} = (xa_{11}+ya_{21}+r)\bm{i} + (xa_{12}+ya_{22}+s)\bm{j} \]
+于是
+\[
+  \begin{cases}
+    x' = xa_{11}+ya_{21}+r \\
+    y' = xa_{12}+ya_{22}+s
+  \end{cases}
+\]
+写成矩阵形式就是
+\[
+  \begin{pmatrix}
+    x' \\
+    y'
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+  \end{pmatrix}
+  \begin{pmatrix}
+    x \\
+    y
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    r \\
+    s
+  \end{pmatrix}
+  \]
+  这就是两个坐标系之间的坐标变换公式，与向量的相比，多了一个加项，这是因为点的坐标与原点的位置有关，两个坐标系的原点如果不在同一点，坐标就会有一个偏移量，而向量没有这个问题。
+    \end{example}
 
 
 \subsection{定比分点}
