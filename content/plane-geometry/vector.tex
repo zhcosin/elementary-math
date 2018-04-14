@@ -691,6 +691,346 @@
 \[ \vv{c} = \frac{2(\vv{a} \cdot \vv{b})}{\vv{b}^2} \vv{b} - \vv{a} \]
 \end{proof}
 
+\subsection{从代数角度重建向量理论}
+\label{sec:algebra-vector}
+
+经常有人问起向量与有向线段的关系，说有题目中有选项说向量就是有向线段，我一向对于这种没什么意义的题目没什么好感，这个问题如果不深究则罢，要深究起来还是有一大堆道理可讲的。
+
+向量与有向线段到底什么关系，其实就是模型与实例的关系，向量是从物理上的力、位移、速度等物理量中抽象出来的一个数学模型，力、位移、速度都是这个模型的实例，而有向线段，则是向量模型在数学上的一个实例。
+
+为什么会有人问向量是不是就是有向线段，而没有人问向量是否就是速度呢？
+向量这个模型是从一些具体实例中把共同属性抽象出来得到的，在力、位移、速度、有向线段这些实例中，把共同属性大小和方向给抽象出来了，除了这些共同属性以外，每个实例还有一些自身的独有属性，这些属性不是所有向量都有的，例如力有重力弹力摩擦力之分，速度有瞬时速度与平均速度的概念，所以一般也没人把向量跟速度等同起来。那么有向线段呢，有向线段是最纯的向量，纯到什么程度呢，它除了向量属性以外就剩下个几何图形了，所以它是向量的实例中，独有属性最少的，因而用它表示向量最合适不过了，而且中学教材中讲向量，几乎从头到尾就是在拿有向线段在比划，这更让人觉得向量跟有向线段是一回事。
+
+所以总结一下，向量是个数学模型，而有向线段跟力、位移、速度一样，是它的实例，不过有向线段本身也是另一种数学模型，三角函数线就是有向线段这种模型的一个实例，同样，力也是一个物理模型，重力、弹力、摩擦力都是它的实例，所以一个事物到底是模型还是实例，是有相对性，得看在什么场合下说。
+
+向量跟有向线段的区别说清楚了，那么问题就来了，向量是否必须借助于有向线段才能讲清楚，不借助有向线段这种几何工具能否重新建立向量理论，这就是本文接下来的任务：从代数角度重建向量理论。
+
+\begin{definition}
+  称 $n$ 元有序数组 $(a_1, a_2, \ldots, a_n)$ 是一个 $n$
+  维向量，其中 $a_i \in \mathbb{R}$，称 $a_i$ 是这向量的第 $i$
+  个分量. 称向量 $(0, 0, \ldots, 0)$ 为 $n$ 维零向量，记作
+  $\bm{0}$.
+\end{definition}
+
+向量用粗体字母表示，如 $\bm{a}$, $\bm{b}$,
+$\bm{c}$, 等.
+
+本文只讨论有限维向量，至于无限维向量 $(a_1, a_2, \ldots)$
+也是可以研究的，但是它的一些性质超出中学数学范围，例如内积就是一个无穷级数
+$\sum_{i = 1}^{\infty} a_i b_i$，所以本文不加以讨论.
+
+\begin{definition}
+  设向量 $\bm{a}= (a_1, a_2, \ldots, a_n)$，称量 $\sqrt{\sum_{i =
+  1}^n a_i^2}$ 为这向量的模，记作 $| \bm{a}
+  |$.模长为1的向量称为单位向量.
+\end{definition}
+
+\begin{definition}
+  如果两个 $n$ 维向量 $\bm{a}= (a_1, a_2 , \ldots, a_n)$
+  与 $\bm{b}= (b_1, b_2, \ldots, b_n)$ 满足 $a_i = b_i (i = 1, 2,
+  \ldots, n)$，则称这两个向量相等，记作
+  $\bm{a}=\bm{b}$.
+\end{definition}
+
+\begin{definition}
+  设有两个 $n$ 维向量 $\bm{a}= (a_1, a_2 , \ldots, a_n)$
+  与 $\bm{b}= (b_1, b_2, \ldots, b_n)$，称向量 $\bm{c}= (a_1
+  + b_1, a_2 + b_2, \cdots, a_n + b_n)$
+  是这两个向量的和向量，记作
+  $\bm{a}+\bm{b}$，这就是向量的加法.
+\end{definition}
+
+由定义可知，向量加法满足交换律、结合律，并且可以很自然的推广到多个向量相加.
+
+\begin{definition}
+  设有 $n$ 维向量 $\bm{a}= (a_1, a_2 , \ldots,
+  a_n)$，$\lambda$ 是一个实数，称向量 $(\lambda a_1, \lambda a_2,
+  \ldots, \lambda a_n)$ 是实数 $\lambda$ 与向量 $\bm{a}$
+  的乘积，记作 $\lambda \bm{a}$.并称 $(- 1) \bm{a}$ 是
+  $\bm{a}$ 的相反向量，并简记为 $-\bm{a}$.
+\end{definition}
+
+可以验证，数乘向量与向量的加法满足以下运算律:
+\begin{eqnarray*}
+  \lambda (\bm{a}+\bm{b}) & = & \lambda \bm{a}+ \lambda
+  \bm{b}\\
+  (\lambda + \mu) \bm{a} & = & \lambda \bm{a}+ \mu \bm{a}\\
+  (\lambda \mu) \bm{a} & = & \lambda (\mu \bm{a})
+\end{eqnarray*}
+\begin{definition}
+  向量的减法定义为 $\bm{a}-\bm{b}=\bm{a}+
+  (-\bm{b})$.
+\end{definition}
+
+显然，若 $\bm{a}= (a_1, a_2 , \ldots, a_n)$， $\bm{b}= (b_1, b_2, \cdots, b_n)$，则 $\bm{a}-\bm{b}= (a_1 - b_1, a_2 - b_2, \cdots, a_n - b_n)$.
+
+向量的模满足三角不等式
+
+\begin{theorem}
+  $| \bm{a}+\bm{b} | \leqslant | \bm{a} | + | \bm{b}|$
+\end{theorem}
+
+\begin{proof}
+  设 $\bm{a}= (a_1, a_2 , \ldots, a_n)$，$\bm{b}= (b_1,
+  b_2, \cdots, b_n)$，则只需证(闵可夫斯基不等式)
+  \[ \sqrt{\sum_{i = 1}^n (a_i + b_i)^2} \leqslant \sqrt{\sum_{i = 1}^n a_i^2}
+     + \sqrt{\sum_{i = 1}^n b_i^2} \]
+  我们使用数学归纳法. $n = 1$
+  时不等式显然是成立的，假定不等式对于小于等于 $n$
+  的情形都成立，那么在 $n + 1$ 的情形，就有
+  \begin{eqnarray*}
+    \sum_{i = 1}^{n + 1} (a_i + b_i)^2 & \leqslant & (a_{n + 1} + b_{n + 1})^2
+    + \left( \sqrt{\sum_{i = 1}^n a_i^2} + \sqrt{\sum_{i = 1}^n b_i^2}
+    \right)^2\\
+    & = & \sum_{i = 1}^{n + 1} a_i^2 + \sum_{i = 1}^{n + 1} b_i^2 + 2 a_{n +
+    1} b_{n + 1} + 2 \sqrt{\sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2}\\
+    & \leqslant & \sum_{i = 1}^{n + 1} a_i^2 + \sum_{i = 1}^{n + 1} b_i^2 + 2
+    \sqrt{\sum_{i = 1}^{n + 1} a_i^2 \cdot \sum_{i = 1}^{n + 1} b_i^2}\\
+    & = & \left( \sqrt{\sum_{i = 1}^{n + 1} a_i^2} + \sqrt{\sum_{i = 1}^{n +
+    1} b_i^2} \right)^2
+  \end{eqnarray*}
+  其中第二行到第三行是利用了不等式 $(a x + b y) \leqslant
+  \sqrt{(a^2 + b^2) (x^2 + y^2)}$.这样不等式就对于 $n + 1$
+  的情形也成立，所以得证.
+\end{proof}
+
+\
+
+\begin{definition}
+  设有两个 $n$ 维向量 $\bm{a}= (a_1, a_2 , \ldots, a_n)$
+  与 $\bm{b}= (b_1, b_2, \cdots, b_n)$，称数 $\sum_{i = 1}^n a_i
+  b_i$ 是这两个向量的内积，也称数量积，记作 $\bm{a}
+  \cdot \bm{b}$ 或者 $\bm{a}\bm{b}$. 
+\end{definition}
+
+注意两个向量的数量积不再是向量，而是一个数，所以被称为数量积.
+
+可以验证有以下运算律
+\begin{eqnarray*}
+  \bm{a} \cdot \bm{b} & = & \bm{b} \cdot \bm{a}\\
+  (\bm{a}+\bm{b}) \cdot \bm{c} & = & \bm{a} \cdot
+  \bm{c}+\bm{b} \cdot \bm{c}\\
+  (\lambda \bm{a}) \cdot \bm{b} & = & \lambda (\bm{a} \cdot
+  \bm{b})
+\end{eqnarray*}
+显然有 $\bm{a} \cdot \bm{a}= | \bm{a} |^2$，把
+$\bm{a} \cdot \bm{a}$ 简记为 $\bm{a}^2$，于是有 $|
+\bm{a} | = \sqrt{\bm{a}^2}$.
+
+向量的内积与模满足如下定理
+
+\begin{theorem}
+  $| \bm{a} \cdot \bm{b} | \leqslant | \bm{a} | \cdot |
+  \bm{b} |$
+\end{theorem}
+
+\begin{proof}
+  只需证明不等式（柯西不等式）
+  \[ \left( \sum_{i = 1}^n a_i b_i \right)^2 \leqslant \left( \sum_{i = 1}^n
+     a_i^2 \right) \left( \sum_{i = 1}^n b_i^2 \right) \]
+  就可以了，这由恒等式
+  \[ \left( \sum_{i = 1}^n a_i^2 \right) \left( \sum_{i = 1}^n b_i^2 \right) -
+     \left( \sum_{i = 1}^n a_i b_i \right)^2 = \sum_{1 \leqslant i, j
+     \leqslant n} (a_i b_j - a_j b_i)^2 \]
+  立得.
+\end{proof}
+
+有了这个定理，我们就可以引入向量的夹角概念.
+
+\begin{definition}
+  称量 $\theta = \arccos \frac{\bm{a} \cdot \bm{b}}{|
+  \bm{a} | \cdot | \bm{b} |}$ 为向量 $\bm{a}$ 与
+  $\bm{b}$ 的夹角，它的范围是 $[0,
+  \pi]$.如果两个向量的夹角是
+  $\frac{\pi}{2}$，则称这两个向量正交，如果夹角为0，则称两个向量同向，夹角为
+  $\pi$，称两个向量反向，同向与反向都统称两个向量共线，规定零向量与任意向量共线.
+\end{definition}
+
+显然，两个非零向量正交的充分必要条件是 $\bm{a} \cdot
+\bm{b}= \sum_{i = 1}^n a_i b_i = 0$.
+
+\begin{theorem}
+  两个 $n$
+  维非零向量共线的充分必要条件是，存在一个实数
+  $\lambda$，使得 $\bm{a}= \lambda \bm{b}$ 成立.
+\end{theorem}
+
+\begin{proof}
+  共线就意味着夹角为0或者 $\pi$，即 $| \bm{a} \cdot
+  \bm{b} | = | \bm{a} | \cdot | \bm{b}
+  |$，即在柯西不等式中取了等号，从前面的证明过程中可以看到，取等号的充分必要条件是两个向量的分量对应成比例，即存在实数
+  $\lambda$，使得 $a_i = \lambda b_i (i = 1, 2, \ldots, n)$ 成立，即
+  $\bm{a}= \lambda \bm{b}$.
+\end{proof}
+
+\begin{definition}
+  如果一个向量组中的任意两个向量都正交，则称这个向量组为正交向量组.
+\end{definition}
+
+\begin{definition}
+  设有向量 $\bm{a}$ 与一组向量 $\bm{b}_i (i = 1, 2,
+  \ldots, n)$，如果有一组实数 $\lambda_i (u = 1, 2, \ldots, n)$ 使得
+  $\bm{a}= \sum_{i = 1}^n \lambda_i \bm{b}_i$
+  成立，则称向量 $\bm{a}$ 可以经由向量组 $\bm{b}_1,
+  \bm{b}_2, \ldots, \bm{b}_n$ 线性表出，也称向量
+  $\bm{a}$ 是向量组 $\bm{b}_1, \bm{b}_2, \ldots,
+  \bm{b}_n$ 的一个线性组合.
+\end{definition}
+
+\begin{definition}
+  设有 $n$ 个向量 $\bm{a}_i (i = 1, 2, \ldots,
+  n)$，如果存在一组不全为零的实数 $\lambda_i (i = 1, 2, \ldots,
+  n)$，使得 $\sum_{i = 1}^n \lambda_i \bm{a}_i = 0$，则称这 $n$
+  个向量是线性相关的，反之，如果不存在这样的一组实数使得那等式成立，则称这
+  $n$
+  个向量是线性无关的，这时也称这组向量是个线性无关向量组.
+\end{definition}
+
+显然，若干个向量线性相关的充分必要条件是，其中存在某个向量可以经由其它向量线性表出.而且，如果一组向量是线性相关的，再把新的向量加入其中，构成的新向量组仍然是线性相关的，只要把新向量的系数取为零就可以了。
+
+由定义，设 $\bm{a}_i (i = 1, 2, \ldots, n)$
+是一个线性无关向量组，如果有一组实数 $\lambda_i (i = 1, 2,
+\ldots, n)$ 使得 $\sum_{i = 1}^n \lambda_i \bm{a}_i = 0$，则必有
+$\lambda_i = 0 (i = 1, 2, \ldots,
+n)$.而且容易证明，线性无关向量组的子向量组也是线性无关的，这与线性相关向量组引入新向量后仍然是线性相关是道理相同的。
+
+\begin{example}
+  对于 $n$ 维向量来说，显然任意一个 $n$
+  维向量都可以经由向量组 $\bm{a}_1 = (1, 0, \ldots, 0)$,
+  $\bm{a}_2 = (0, 1, \ldots, 0)$,...,$\bm{a}_n = (0, 0, \ldots,
+  1)$ 线性表出，实际上，设向量 $\bm{a}= (a_1, a_2, \ldots,
+  a_n)$，则 $\bm{a}= \sum_{i = 1}^n a_i
+  \bm{a}_i$.而且向量组 $\bm{a}_i (i = 1, 2, \ldots, n)$
+  是一个线性无关向量组.
+\end{example}
+
+线性相关这个概念，是从向量的共线与共面等概念中抽象出来的。
+
+\begin{definition}
+  由数域 $P$ 上的全体 $n$
+  维向量所组合的集合，以及这集合上定义的向量运算一起构成数域
+  $P$ 上的 $n$ 维向量空间.
+\end{definition}
+
+向量空间就是一种代数结构，所谓代数结构，简单的说就是集合加上元素间的运算。
+
+\begin{theorem}
+  $n$ 维向量空间中，线性无关向量组的最大向量个数是
+  $n$.或者说，$n$ 维向量空间中的任意 $n + 1$
+  个向量，一定是线性相关的.
+\end{theorem}
+
+\begin{proof}
+  设 $\bm{a}_1, \bm{a}_2, \ldots, \bm{a}_n, \bm{a}_{n
+  + 1}$ 是 $n$ 维向量空间中的一个向量组，考虑方程
+  \[ \sum_{i = 1}^{n + 1} \lambda_i \bm{a}_i =\bm{0} \]
+  设 $\bm{a}_i = (a_{i 1}, a_{i 2}, \ldots, a_{i
+  n})$，上式即线性方程组
+  \[ \left\{ \begin{array}{l}
+       \lambda_1 a_{11} + \lambda_2 a_{21} + \cdots \lambda_n a_{n, 1} +
+       \lambda_{n + 1} a_{n + 1, 1} = 0\\
+       \lambda_1 a_{12} + \lambda_2 a_{22} + \cdots \lambda_n a_{n, 2} +
+       \lambda_{n + 1} a_{n + 1, 2} = 0\\
+       \ldots \ldots\\
+       \lambda_1 a_{1 n} + \lambda_2 a_{2 n} + \cdots \lambda_n a_{n, n} +
+       \lambda_{n + 1} a_{n + 1, n} = 0
+     \end{array} \right. \]
+  未知数个数多于方程的个数，因此方程一定有非零解，所以得证.
+\end{proof}
+
+由这定理立即可得
+
+\begin{theorem}
+  设 $\bm{a}_1, \bm{a}_2, \ldots, \bm{a}_n$ 是 $n$
+  维向量空间中的一个线性无关向量组，那么该空间中的任一向量都可以经由这个向量组线性表出.
+\end{theorem}
+
+
+现在我们就可以引入基和坐标的概念了.这其实是线性空间的概念，不过在向量的加法与数量乘法定义下，向量空间就成为线性空间的一个实例了。
+
+\begin{definition}
+  称 $n$ 维向量空间中的一个包含 $n$ 个向量的线性无关组
+  $\bm{e}_1, \bm{e}_2, \ldots, \bm{e}_n$
+  为该空间的一组基底向量组，简称基.对于空间中任一向量
+  $\bm{a}$，若它经由这组基的分解式为 $\bm{a}= x_1
+  \bm{e}_1 + x_2 \bm{e}_2 + \cdots + x_n \bm{e}_n$，则称
+  $(x_1, x_2, \ldots, x_n)$ 是 $\bm{a}$ 在这组基下的坐标.
+\end{definition}
+
+\begin{definition}
+  设 $\bm{e}_1, \bm{e}_2, \ldots, \bm{e}_n$ 是 $n$
+  维向量空间的一组基，如果它们两两正交，则称它是正交基.
+\end{definition}
+
+\begin{definition}
+  如果一组正交基的每个向量都是单位向量，则称它是标准正交基.
+\end{definition}
+
+显然，向量 $\bm{a}= (a_1, a_2, \ldots, a_n)$ 本身就是它在基
+$\bm{\varepsilon}_1 = (1, 0, \ldots, 0)$, $\bm{\varepsilon}_2 =
+(0, 1, \ldots, n)$,...,$\bm{\varepsilon}_n = (0, 0, \ldots, 1)$
+下的坐标.平面直角坐标系和空间直角坐标系的基就是标准正交基，而斜坐标系不是正交基.
+
+设 $\bm{\varepsilon}_1, \bm{\varepsilon}_2, \ldots,
+\bm{\varepsilon}_n$ 是 $n$
+维向量空间的一组标准正交基，则显然有
+\[ \bm{\varepsilon}_i^2 = 1 (i = 1, 2, \ldots, n), \hspace{1em}
+   \bm{\varepsilon}_i \bm{\varepsilon}_j = 0 (i \neq j) \]
+再设向量 $\bm{a}$ 在这个标准正交基下的坐标是 $(x_1,
+x_2, \ldots, x_n)$，即 $\bm{a}= \sum_{i = 1}^n x_i
+\bm{\varepsilon}_i$，则有
+\[ \bm{a} \cdot \bm{\varepsilon}_j =\bm{\varepsilon}_j \cdot
+   \left( \sum_{i = 1}^n x_i \bm{\varepsilon}_i \right) = \sum_{i = 1}^n
+   x_i (\bm{\varepsilon}_i \bm{\varepsilon}_j) = x_j
+   (\bm{\varepsilon}_j \bm{\varepsilon}_j) = x_j \]
+因而有如下公式
+\[ \bm{a}= \sum_{i = 1}^n (\bm{a} \cdot \bm{\varepsilon}_i)
+   \bm{\varepsilon}_i \]
+需要注意的是这公式的前提是在标准正交基下.
+
+
+设 $\bm{e}_1, \bm{e}_2, \ldots, \bm{e}_n$ 和
+$\bm{\varepsilon}_1, \bm{\varepsilon}_2, \ldots,
+\bm{\varepsilon}_n$ 是 $n$
+维向量空间的两组基，并且前一组基在后一组基下的坐标是
+\[ \left\{ \begin{array}{l}
+     \bm{e}_1 = x_{11} \bm{\varepsilon}_1 + x_{12}
+     \bm{\varepsilon}_2 + \cdots + x_{1 n} \bm{\varepsilon}_n\\
+     \bm{e}_2 = x_{21} \bm{\varepsilon}_1 + x_{22}
+     \bm{\varepsilon}_2 + \cdots + x_{2 n} \bm{\varepsilon}_n\\
+     \ldots \ldots \ldots\\
+     \bm{e}_n = x_{n 1} \bm{\varepsilon}_1 + x_{n 2}
+     \bm{\varepsilon}_2 + \cdots + x_{n n} \bm{\varepsilon}_n
+   \end{array} \right. \]
+那么如果向量 $\bm{a}$ 在基 $\bm{e}_1, \bm{e}_2,
+\ldots, \bm{e}_n$ 下的坐标是 $(a_1, a_2, \ldots,
+a_n)$，则它在基 $\bm{\varepsilon}_1, \bm{\varepsilon}_2,
+\ldots, \bm{\varepsilon}_n$ 下的坐标显然是
+\[ \bm{a}= \sum_{i = 1}^n a_i \bm{e}_i = \sum_{i = 1}^n \sum_{j =
+   1}^n a_i x_{i j} \bm{\varepsilon}_j = \sum_{j = 1}^n \left( \sum_{i =
+   1}^n a_i x_{i j} \right) \bm{\varepsilon}_j \]
+用 $(a_1', a_2', \ldots, a_n')$ 表示向量 $\bm{a}$ 在基
+$\bm{\varepsilon}_1, \bm{\varepsilon}_2, \ldots,
+\bm{\varepsilon}_n$ 下的新坐标，那么上式即是
+\[ (a_1', a_2', \ldots, a_n') = (a_1, a_2, \ldots, a_n)
+   \left(\begin{array}{cccc}
+     x_{11} & x_{12} & \cdots & x_{1 n}\\
+     x_{21} & x_{22} & \cdots & x_{2 n}\\
+     \vdots & \vdots &  & \vdots\\
+     x_{n 1} & x_{n 2} & \cdots & x_{n n}
+   \end{array}\right) \]
+还记得转轴公式吗，就是这里的特例.
+
+\begin{definition}
+  在上述情况下，称矩阵 $(x_{i j})_{n \times n}$ 为由基
+  $\bm{e}_1, \bm{e}_2, \ldots, \bm{e}_n$ 到另一组基
+  $\bm{\varepsilon}_1, \bm{\varepsilon}_2, \ldots,
+  \bm{\varepsilon}_n$
+  的过渡矩阵.向量的坐标在不同的基下的坐标，按照上述转换公式进行变换，就称为坐标变换.
+\end{definition}
+
+
+
 %%% Local Variables:
 %%% TeX-master: "../../elementary-math-note"
 %%% End:
