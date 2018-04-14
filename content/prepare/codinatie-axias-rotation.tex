@@ -92,37 +92,44 @@
     \end{array}
   \right)
 \end{equation*}
-或者写成这样:
-\begin{equation*}
-  \label{eq:formulas-rotation-axias-matrix}
-  \left(
-    \begin{array}{c}
-      x' \\
-      y' \\
-      1
-    \end{array}
-  \right)
-    =
-    \left(
-      \begin{array}{ccc}
-        \cos{\theta} & -\sin{\theta} & 0 \\
-        \sin{\theta} & \cos{\theta} & 0 \\
-        0 & 0 & 1
-      \end{array}
-    \right)
-  \left(
-    \begin{array}{c}
-      x \\
-      y \\
-      1
-    \end{array}
-  \right)
-\end{equation*}
 
 我们把这个旋转变换记作$R(\theta)$。
 
 \begin{example}
   反比例函数$xy=1$的图象位于一三象限并且关于这两个象限的角平分线对称，我们尝试把它的图象绕原点顺时针旋转45度，看看新的曲线方程的模样。为此目的，记反比例曲线为$C$，顺时针旋转45度后得到的新曲线记为$C'$，我们反过来把$C$看成是由$C'$绕原点逆时针旋转45度得到的，就有关系式$x=\frac{\sqrt{2}}{2}(x'-y'), y=\frac{\sqrt{2}}{2}(x'+y')$，因此新曲线$C'$上的点$P(x',y')$都满足方程$\frac{\sqrt{2}}{2}(x'-y') \cdot \frac{\sqrt{2}}{2}(x'+y')=1$，即$x'^2-y'^2=2$，这是一个离心率为$\sqrt{2}$的双曲线，所以反比例函数的图象是双曲线。
+\end{example}
+
+\begin{example}
+  在上例的基础上，我们来证明：函数 $y=ax+\frac{b}{x}(a \neq 0, b \neq 0)$的图象也是双曲线，为此同样期望通过旋转变换，把它变换成为双曲线的标准方程。
+
+  首先把函数的解析式改写为以下的曲线方程
+  \[ x(y-ax)=b \]
+  为了方便应用前面的公式，我们设想这函数的图象是旋转后的图象，那么在旋转前的曲线的方程则是
+  \[ (x\cos{\theta}-y\sin{\theta})[(x\cos{\theta}+y\cos{\theta})-a(x\cos{\theta}-y\sin{\theta})]=b \]
+  把上式整理为关于 $x$ 和 $y$的二元二次方程
+  \begin{equation*}
+    \begin{split}
+      & \cos{\theta}(\sin{\theta}-a\cos{\theta})x^2 \\
+      - & \sin{\theta}(\cos{\theta}+a\sin{\theta})y^2 \\
+      + & [\cos{\theta}(\cos{\theta}+a\sin{\theta})-\sin{\theta}(\sin{\theta}-a\cos{\theta})]xy \\
+      = & b
+    \end{split}
+  \end{equation*}
+  为了让它成为双曲线的标准方程，令 $xy$ 项的系数为零，即
+  \[ \cos{\theta}(\cos{\theta}+a\sin{\theta})-\sin{\theta}(\sin{\theta}-a\cos{\theta}) = 0 \]
+  整理得
+  \[ \cos{2\theta}+a\sin{2\theta}=0 \]
+  于是可取
+  \[ \cos{2\theta} = \frac{a}{\sqrt{1+a^2}}, \  \sin{2\theta}=-\frac{1}{\sqrt{1+a^2}} \]
+  双曲线的标准方程中除了没有 $xy$项之外，还要求$x^2$与$y^2$的系数符号相反，现在来检验一下，$x^2$项的系数是
+  \[ \cos{\theta}(\sin{\theta}-a\cos{\theta})=\frac{1}{2}\sin{2\theta}-\frac{a}{2}(1+\cos{2\theta}) = -\frac{\sqrt{1+a^2}+a}{2}<0 \]
+  而$y^2$的系数是
+  \[ -\sin{\theta}(\cos{\theta}+a\sin{\theta})=-\frac{1}{2}\sin{2\theta}-\frac{a}{2}(1-\cos{2\theta})=\frac{\sqrt{1+a^2}-a}{2}>0 \]
+  因此如果设
+  \[\frac{\sqrt{1+a^2}-a}{2}=r^2, \  \frac{\sqrt{1+a^2}-a}{2}=s^2 \]
+  则方程化为
+  \[ -r^2x^2+s^2y^2=b^2 \]
+  这正是双曲线的标准方程.
 \end{example}
 
 \subsection{伸缩}
