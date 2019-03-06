@@ -24,23 +24,21 @@
   \left(
     \begin{array}{c}
       x' \\
-      y' \\
-      1
+      y' 
     \end{array}
   \right)
   =
   \left(
-    \begin{array}{ccc}
-      1 & 0 & a \\
-      0 & 1 & b \\
-      0 & 0 & 1
-    \end{array}
-  \right)
-  \left(
     \begin{array}{c}
       x \\
-      y \\
-      1
+      y
+    \end{array}
+  \right)
+  +
+  \left(
+    \begin{array}{c}
+      a \\
+      b 
     \end{array}
   \right)
 \end{equation}
@@ -166,33 +164,6 @@
     \end{array}
   \right)
 \end{equation*}
-或者写成这样:
-\begin{equation*}
-  \label{eq:scale-translation-coordinate-formula-matrix}
-  \left(
-    \begin{array}{c}
-      x' \\
-      y' \\
-      1
-    \end{array}
-  \right)
-    =
-    \left(
-      \begin{array}{ccc}
-        \lambda & 0 & 0 \\
-        0 & \mu & 0 \\
-        0 & 0 & 1
-      \end{array}
-    \right)
-  \left(
-    \begin{array}{c}
-      x \\
-      y \\
-      1
-    \end{array}
-  \right)
-\end{equation*}
-
 如果两个方向上的伸缩因子相等，则称它为以原点为中心的 \emph{位似变换}.
 
 我们把伸缩因子分别为$\lambda$和$\mu$的伸缩变换记作$L(\lambda, \mu)$。
@@ -246,6 +217,219 @@
 \end{example}
 
 还有一种变换称为 \emph{反射变换}，也称为对称变换，即把平面上所有的点关于某一直线作对称，如果该对称轴与坐标轴成倾斜角度，可以先做旋转变换，使得对称轴与坐标轴平行或者垂直，再通过平移使对称轴与坐标轴重合，这时只需要关于坐标轴作对称之后再反平移和反旋转，即可实现一般的反射变换，所以只要讨论关于坐标轴的反射变换就可以了，然而这一点如果允许伸缩变换中的伸缩因子为负就可以得到，所以反射变换本质上是平移、旋转和伸缩的叠加，就不单独讨论了。
+
+\subsection{错切变换}
+\label{sec:shear-translation}
+
+错切变换是一种倾斜变换，把一个矩形变换成一个平行四边形，想象一下，矩形的四个顶点分别是$(0,0),(2,0),(2,1),(0,1)$，然后在横轴上的长边不动，让在直线$y=1$上的长边在该直线上左右移动一段距离$d$，那么得到一个平行四边形，其四个顶点是$(0,0),(2,0),(2,1+d),(0,1+d)$，这实际是把矩形经过了拉扯得出来的，矩形原来的两条宽，本来是与$x$轴垂直的，但变换之后，成了两条与$x$轴成一定角度的倾斜线段。
+
+那么，考虑在这样的变换下，平面上任意一点的新旧坐标关系，首先纵坐标是没有变化的，变化的是横坐标，横坐标在原来的基础上做了一个偏移，但是这个偏移量，是跟纵坐标成比例的，设比例因子为$u$，那么得到坐标变换公式
+\begin{equation}
+  \label{eq:scale-translation-coordinate-formula}
+  \left\{
+    \begin{array}{ccc}
+      x' & = &  x + uy \\
+      y' & = &  y
+    \end{array}
+  \right.
+\end{equation}
+矩阵形式为
+\begin{equation*}
+  \left(
+    \begin{array}{c}
+      x' \\
+      y'
+    \end{array}
+  \right)
+    =
+    \left(
+      \begin{array}{cc}
+        1 & u \\
+        0 & 1
+      \end{array}
+    \right)
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+\end{equation*}
+
+这是对横坐标做比例偏移的结果，那么同样我们也可以对纵坐标做比例，相当于上面矩形的宽边保持不动，但把两条长边变成倾斜线段，也就是做纵向的拉扯，设对应的比例因子为$v$，那么同样可以得到变换公式
+\begin{equation}
+  \label{eq:scale-translation-coordinate-formula}
+  \left\{
+    \begin{array}{ccc}
+      x' & = &  x \\
+      y' & = &  vx+y
+    \end{array}
+  \right.
+\end{equation}
+矩阵形式为
+\begin{equation*}
+  \left(
+    \begin{array}{c}
+      x' \\
+      y'
+    \end{array}
+  \right)
+    =
+    \left(
+      \begin{array}{cc}
+        1 & 0 \\
+        v & 1
+      \end{array}
+    \right)
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+\end{equation*}
+这就是在两个方向分别做比例偏移的错切变换的坐标变换公式，如果我们把这两个方向上的变换综合起来，在横方向上作比例因子为$u$的变换，在纵方向上作比例因子为$v$的变换，那么，新的变换矩阵实际上只要把两个变换矩形相乘即可，如果是先作横向变换，再作纵向变换，那么变换公式是
+\begin{equation*}
+  \left(
+    \begin{array}{c}
+      x' \\
+      y'
+    \end{array}
+  \right)
+    = 
+    \left(
+      \begin{array}{cc}
+        1 & 0 \\
+        v & 1
+      \end{array}
+    \right)
+\cdot
+    \left(
+      \begin{array}{cc}
+        1 & u \\
+        0 & 1
+      \end{array}
+    \right)
+ \cdot
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+  \\
+   = 
+     \left(
+      \begin{array}{cc}
+        1 & u \\
+        v & uv+1
+      \end{array}
+    \right)
+ \cdot
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+\end{equation*}
+但如果是先作纵向变换，再作横变换，则变换公式是
+\begin{equation*}
+  \left(
+    \begin{array}{c}
+      x' \\
+      y'
+    \end{array}
+  \right)
+    = 
+    \left(
+      \begin{array}{cc}
+        1 & u \\
+        0 & 1
+      \end{array}
+    \right)
+\cdot
+    \left(
+      \begin{array}{cc}
+        1 & 0 \\
+        v & 1
+      \end{array}
+    \right)
+ \cdot
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+  \\
+   = 
+     \left(
+      \begin{array}{cc}
+        1+uv & u \\
+        v & 1
+      \end{array}
+    \right)
+ \cdot
+  \left(
+    \begin{array}{c}
+      x \\
+      y
+    \end{array}
+  \right)
+\end{equation*}
+可见，如果这两次变换顺序会影响最终的结果。
+
+
+\subsection{一般线性变换}
+\label{sec:two-dimension-linear-translation}
+
+前面讨论了几种形式的变换，它们都是最基本的几种\emph{线性变换}，而一般的线性变换是
+\begin{equation*}
+  \left\{
+    \begin{array}{ccc}
+      x' & = &  a_{11}x+a_{12}y+b_1 \\
+      y' & = &  a_{21}x+a_{22}y+b_2
+    \end{array}
+    \right.
+  \end{equation*}
+  记矩阵
+  \[ \bm{A} =
+     \left(
+      \begin{array}{cc}
+        a_{11} & a_{12} \\
+        a_{21} & a_{22}
+      \end{array}
+    \right),
+    \bm{b}=
+    \left(
+      \begin{array}{c}
+        b_1 \\
+        b_2
+      \end{array}
+      \right)
+  \]
+  那么这坐标变换的矩阵形式就是
+  \[ \bm{x'} = \bm{A}\bm{x}+\bm{b}  \]
+  其中
+  \[ \bm{x'}=
+    \left(
+      \begin{array}{c}
+        x' \\
+        y'
+      \end{array}
+    \right),
+    \bm{x} =
+    \left(
+      \begin{array}{c}
+        x \\
+        y
+      \end{array}
+    \right)
+  \]
+矩阵形式的变换式简洁，其形式体现出了\emph{线性}的真正含义，就是原坐标与常量的线性组合。
+
+接下来要讨论的问题是，对于一个一般形式的线性变换，要将其分解为几个基本变换的复合。
 
 
 
