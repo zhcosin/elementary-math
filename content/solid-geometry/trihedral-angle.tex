@@ -2,8 +2,48 @@
 \section{三面角的余弦公式}
 \label{sec:trihedral-angle}
 
+在空间中，从一点引出三条射线组成了一个有趣的模型，它包含了三个角，以及三个平面区域，还有三个二面角，现在我们感兴趣的是，这三条射线的两两夹角，与三个面形成的三个二面角之间的关系。
 
-例: 根据经纬度计算地球上两点的(球面)距离
+为研究这个关系，我们提炼出下面这样的一个简化模型:
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{content/solid-geometry/pic/cosin-of-three-side-angle.pdf}
+\caption{三面角余弦定理}
+\label{fig:cosin-of-three-side-angle}
+\end{figure}
+
+如图 \autoref{fig:cosin-of-three-side-angle} 所示, 从一个二面角的棱上某点 $O$ 分别向两个半平面内各引一条射线，如果我们固定住这两条射线与棱之间的夹角，而让二面角的大小可以自由变化，那么显然这两条射线的夹角就只跟这个二面角的大小有关了。
+
+在棱上取异于 $O$ 的一点 $H$，过点$H$分别在两个半平面内作棱的垂线，分别与两条射线相交于 $A$ 和 $B$，记 $\angle AOH = \alpha$, $\angle BOH=\beta$，二面角 $AHB=\theta$，我们来求 两条射线的夹角 $\gamma = \angle AOB$.
+
+约定 $OH = 1$，有
+\[ AO = \frac{1}{\cos{\alpha}}, BO = \frac{1}{\cos{\beta}}, AH = \tan{\alpha}, BH = \tan{\beta} \]
+由余弦定理可得 $AB$长度为
+\[ AB^{2} = AH^2+BH^2-2 \cdot AH \cdot BH \cdot \cos{\theta} \]
+代入各式可得
+\[ AB^2 = \tan^2{\alpha} + \tan^2{\beta} - 2 \tan{\alpha} \tan{\beta} \cos{\theta} \]
+再由余弦定理可得
+\[ \cos{\gamma} = \frac{AO^2+BO^2-AB^2}{2 \cdot AO \cdot BO} \]
+代入各式最终得
+\[ \cos{\gamma} = \cos{\alpha}\cos{\beta}+\sin{\alpha}\sin{\beta}\cos{\theta} \]
+这便是最终结果.
+
+在这结果中分别取 $\theta = \pi$ 和 $\theta = 0$，我们就分别得到余弦的和角公式和差公式:
+\begin{eqnarray*}
+  \cos{(\alpha+\beta)} & = & \cos{\alpha}\cos{\beta} - \sin{\alpha}\sin{\beta} \\
+  \cos{(\alpha-\beta)} & = & \cos{\alpha}\cos{\beta} + \sin{\alpha}\sin{\beta} 
+\end{eqnarray*}
+另外一个特殊的情况是，当二面角为直二面角时，有
+\[ \cos{\gamma} = \cos{\alpha}\cos{\beta} \]
+
+有了这个结果，对于前述空间中一点引出三条射线的模型，三条射线的夹角，与三个二面角之间的关系就清楚了。
+
+\begin{example}[根据经纬度计算地球上两点间的(球面)距离]
+  在这个例子中，我们要研究的是，已知地球上两点的经纬度坐标，如果计算出这两点间的球面距离。
+\end{example}
+
 
 %%% Local Variables:
 %%% mode: latex
