@@ -95,29 +95,29 @@
   \end{equation*}
   利用此引理知，$AT:TS$仅与角$\alpha$有关，因此在原题中立刻便有$\frac{AS}{SP}=\frac{AT}{TQ}$，因此两线平行，而这个引理的证明也很简单，记点$P$在边$AB$上的投影为$R$，并假定正方形边长为1，并记$PB=a, PA=b$，根据正弦定理可得 
   \begin{equation*}
-    \frac{a}{\sin{\alpha}}=\frac{1}{\sin{\alpha+\beta}}=\frac{b}{\sin{\beta}}
+    \frac{a}{\sin{\alpha}}=\frac{1}{\sin{(\alpha+\beta)}}=\frac{b}{\sin{\beta}}
   \end{equation*}
   于是
   \begin{equation*}
-    a=\frac{\sin{\alpha}}{\sin{\alpha+\beta}}, b=\frac{\sin{\beta}}{\sin{\alpha+\beta}}
+    a=\frac{\sin{\alpha}}{\sin{(\alpha+\beta)}}, b=\frac{\sin{\beta}}{\sin{(\alpha+\beta)}}
   \end{equation*}
   根据几何关系有
   \begin{equation*}
-    AR=b\cos{\alpha}=\frac{\cos{\alpha}\sin{\beta}}{\sin{\alpha+\beta}}, PR=b\sin{\alpha}=\frac{\sin{\beta}}{\sin{\alpha+\beta}}
+    AR=b\cos{\alpha}=\frac{\cos{\alpha}\sin{\beta}}{\sin{(\alpha+\beta)}}, PR=b\sin{\alpha}=\frac{\sin{\beta}}{\sin{(\alpha+\beta)}}
   \end{equation*}
   而由$\frac{TR}{AT}=\frac{PR}{AD}$得
   \begin{eqnarray*}
     AT &=& \frac{AT}{AT+TR}AR=\frac{1}{1+\frac{TR}{AT}}AR 
-    = \frac{1}{1+\frac{\sin{\alpha}\sin{\beta}}{\sin{\alpha+\beta}}} \cdot \frac{\cos{\alpha}\sin{\beta}}{\sin{\alpha+\beta}} \\
-    &=& \frac{\cos{\alpha}\sin{\beta}}{\sin{\alpha}\sin{\beta}+\sin{\alpha+\beta}}
+    = \frac{1}{1+\frac{\sin{\alpha}\sin{\beta}}{\sin{(\alpha+\beta)}}} \cdot \frac{\cos{\alpha}\sin{\beta}}{\sin{(\alpha+\beta)}} \\
+    &=& \frac{\cos{\alpha}\sin{\beta}}{\sin{\alpha}\sin{\beta}+\sin{(\alpha+\beta)}}
   \end{eqnarray*}
   根据对称性，互换$\alpha$和$\beta$可得
   \begin{equation*}
-    BS = \frac{\sin{\alpha}\cos{\beta}}{\sin{\alpha}\sin{\beta}+\sin{\alpha+\beta}}
+    BS = \frac{\sin{\alpha}\cos{\beta}}{\sin{\alpha}\sin{\beta}+\sin{(\alpha+\beta)}}
   \end{equation*}
   于是
   \begin{equation*}
-    TS = \frac{\sin{\alpha}\sin{\beta}}{\sin{\alpha}\sin{\beta}+\sin{\alpha+\beta}}
+    TS = \frac{\sin{\alpha}\sin{\beta}}{\sin{\alpha}\sin{\beta}+\sin{(\alpha+\beta)}}
   \end{equation*}
   于是引理得证。
 \end{proof}
