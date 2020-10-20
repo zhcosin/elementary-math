@@ -2,7 +2,8 @@
 \section{三面角与四面体}
 \label{sec:trihedral-angle}
 
-在空间中，从一点引出三条射线组成了一个有趣的模型，它包含了三个角，以及三个扇形平面区域，还有三个二面角，如果在三条射线上各取一个点并互相连接起来，就得到一个四面体，三面角与四面体在空间几何中，与三角形在平面几何中类似，简单的图形却具有丰富的内容.
+在空间中，从一点引出三条射线组成了一个有趣的模型，它包含了三个角，以及三个扇形平面区域，还有三个二面角，这个图形我们称为 \emph{三面角}. 三面角的三条射线两两所成角称为它的 \emph{面角}. 容易知道，它的三个面角之间存在着类似于三角形三边的和差关系：任意两个面角之和不小于第三角，任意两个面角之差不大于第三个面角.
+
 
 \subsection{三面角的余弦公式}
 \label{sec:cosin-of-three-side-angle}
@@ -50,6 +51,29 @@
 \begin{example}[根据经纬度计算地球上两点间的(球面)距离]
   在这个例子中，我们要研究的是，已知地球上两点的经纬度坐标，如果计算出这两点间的球面距离。
 \end{example}
+
+\subsection{三面角的正弦定理}
+\label{sec:sine-thoream-of-trihedral-angle}
+
+三面角的三个面角之间有类似于三角形的三边之间的大小关系，那咱们类比一下，三面角的三个面角相当于三角形的三条边，而它的三个二面角相当于三角形的三个内角，那么，在这种类比下，三角形的正弦定理是否可以照搬到三面角中呢，也就是下面的式子是否成立:
+\[ \frac{\sin{\angle BOC}}{\sin{\angle OA}} = \frac{\sin{\angle COA}}{\sin{\angle OB}} = \frac{\sin{\angle AOB}}{\sin{\angle OC}} \]
+这里的 $\angle OA$、$\angle OB$、$\angle OC$分别指代三条射线处的二面角。
+
+在上一小节我们已经用余弦公式刻画了三面角的二面角是如何由它的三个面角决定的，利用它可以直接写出(注意为了方便，颠倒了一下分子分母)
+
+\begin{eqnarray*}
+  \frac{\sin^{2}{\theta}}{\sin^2{\gamma}} & = & \frac{1}{\sin^2{\gamma}} \cdot \left( 1-\frac{\cos{\gamma}-\cos{\alpha}\cos{\beta}}{\sin{\alpha}\sin{\beta}} \right) \\
+  & = & \frac{\sin^2{\alpha}\sin^2{\beta}-\cos^2{\gamma}-\cos^2{\alpha}\cos^2{\beta}+2\cos{\alpha}\cos{\beta}\cos{\gamma}}{\sin^2{\alpha}\sin^2{\beta}\sin^2{\gamma}} 
+\end{eqnarray*}
+
+到了这里，可以想见，分母以及分子的后半部分已经成为轮换对称式，如果分子的前半部分也能写成关于 $\alpha$、$\beta$、$\gamma$ 的轮换对称式，那么大功就告成了，事实也确实如此:
+\begin{eqnarray*}
+  && \sin^2{\alpha}\sin^2{\beta}-\cos^2{\gamma}-\cos^2{\alpha}\cos^2{\beta} \\
+  & = & (1-\cos^2{\alpha})(1-\cos^2{\beta})-\cos^2{\gamma}-\cos^2{\alpha}\cos^2{\beta} \\
+   & = & 1-\cos^2{\alpha}-\cos^2{\beta}-\cos^2{\gamma}
+\end{eqnarray*}
+
+这就证实了前面的正弦连等式是成立的，仿照三角形，那式子我们就称为三面角的 \emph{正弦定理}.
 
 
 %%% Local Variables:
