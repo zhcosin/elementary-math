@@ -56,7 +56,7 @@
 \label{sec:sine-thoream-of-trihedral-angle}
 
 三面角的三个面角之间有类似于三角形的三边之间的大小关系，那咱们类比一下，三面角的三个面角相当于三角形的三条边，而它的三个二面角相当于三角形的三个内角，那么，在这种类比下，三角形的正弦定理是否可以照搬到三面角中呢，也就是下面的式子是否成立:
-\[ \frac{\sin{\angle BOC}}{\sin{\angle OA}} = \frac{\sin{\angle COA}}{\sin{\angle OB}} = \frac{\sin{\angle AOB}}{\sin{\angle OC}} \]
+\[ \frac{\sin{\alpha}}{\sin{\angle OA}} = \frac{\sin{\beta}}{\sin{\angle OB}} = \frac{\sin{\gamma}}{\sin{\angle OC}} \]
 这里的 $\angle OA$、$\angle OB$、$\angle OC$分别指代三条射线处的二面角。
 
 在上一小节我们已经用余弦公式刻画了三面角的二面角是如何由它的三个面角决定的，利用它可以直接写出(注意为了方便，颠倒了一下分子分母)
@@ -73,8 +73,12 @@
    & = & 1-\cos^2{\alpha}-\cos^2{\beta}-\cos^2{\gamma}
 \end{eqnarray*}
 
-这就证实了前面的正弦连等式是成立的，仿照三角形，那式子我们就称为三面角的 \emph{正弦定理}.
+这就证实了前面的正弦连等式是成立的，仿照三角形，那式子我们就称为三面角的 \emph{正弦定理}，而且还知道了连等式的值:
 
+\begin{eqnarray*}
+  && \frac{\sin{\alpha}}{\sin{\angle OA}} = \frac{\sin{\beta}}{\sin{\angle OB}} = \frac{\sin{\gamma}}{\sin{\angle OC}} \\
+  & = & \frac{\sin{\alpha}\sin{\beta}\sin{\gamma}}{\sqrt{1-\cos^2{\alpha}-\cos^2{\beta}-\cos^2{\gamma}+2\cos{\alpha}\cos{\beta}\cos{\gamma}}}
+\end{eqnarray*}
 
 %%% Local Variables:
 %%% mode: latex
