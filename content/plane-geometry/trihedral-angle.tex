@@ -48,6 +48,24 @@
 
 有了这个结果，对于前述空间中一点引出三条射线的模型，三条射线的夹角，与三个二面角之间的关系就清楚了。
 
+这里再给出一个这公式的一个向量证明:
+\begin{proof}[证明]
+  取射线$OA$、$OB$、$OC$三个方向上的单位向量$\bm a$、$\bm b$、$\bm c$，则有
+  \[ \bm a\cdot \bm b=\cos{\gamma}, \bm b \cdot \bm c = \cos{\alpha}, \bm c \cdot \bm a = \cos{\beta} \]
+  以及
+  \[ (\bm b\times \bm c)(\bm c \times \bm a) = \sin{\alpha}\sin{\beta}\cos{\theta} \]
+  而根据向量混合积与外积的运算性质，有
+  \begin{eqnarray*}
+    && (\bm b\times \bm c)(\bm c \times \bm a) \\
+    & = & (\bm c \times (\bm c \times \bm a)) \cdot \bm b \\
+    & = & ((\bm c \cdot \bm a) \bm c - ( \bm c \cdot \bm c) \bm a) \cdot \bm b \\
+    & = & (\cos{\beta} \bm c - \bm a) \cdot \bm b \\
+    & = & \cos{\alpha}\cos{\beta}-\cos{\gamma}
+  \end{eqnarray*}
+  于是便得
+  \[ \cos{\alpha}\cos{\beta}-\cos{\gamma} = \sin{\alpha}\sin{\beta}\cos{\theta} \]
+\end{proof}
+
 \begin{example}[根据经纬度计算地球上两点间的(球面)距离]
   在这个例子中，我们要研究的是，已知地球上两点的经纬度坐标，如果计算出这两点间的球面距离。
 \end{example}
