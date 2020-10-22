@@ -21,7 +21,7 @@
 \label{fig:cosin-of-three-side-angle}
 \end{figure}
 
-如图 \autoref{fig:cosin-of-three-side-angle} 所示, 从一个二面角的棱上某点 $O$ 分别向两个半平面内各引一条射线，如果我们固定住这两条射线与棱之间的夹角，而让二面角的大小可以自由变化，那么显然这两条射线的夹角就只跟这个二面角的大小有关了。
+如 \autoref{fig:cosin-of-three-side-angle} 所示, 从一个二面角的棱上某点 $O$ 分别向两个半平面内各引一条射线，如果我们固定住这两条射线与棱之间的夹角，而让二面角的大小可以自由变化，那么显然这两条射线的夹角就只跟这个二面角的大小有关了。
 
 在棱上取异于 $O$ 的一点 $H$，过点$H$分别在两个半平面内作棱的垂线，分别与两条射线相交于 $A$ 和 $B$，记 $\angle AOH = \alpha$, $\angle BOH=\beta$，二面角 $AHB=\theta$，我们来求 两条射线的夹角 $\gamma = \angle AOB$.
 
@@ -66,8 +66,38 @@
   \[ \cos{\alpha}\cos{\beta}-\cos{\gamma} = \sin{\alpha}\sin{\beta}\cos{\theta} \]
 \end{proof}
 
+\begin{example}
+  根据所证余弦公式，可以知道三面角的三个面角$\alpha$、$\beta$、$\gamma$满足下式
+  \[ \left| \frac{\cos{\gamma}-\cos{\alpha}\cos{\beta}}{\sin{\alpha}\sin{\beta}} \right| \leqslant 1 \]
+  如何不通过二面角余弦值范围来得到这个结论?
+
+  在本节开始时我们便叙述了三面角的三个面角有两两之和大于第三者的结论，但是考虑一下，如果其中两个面角$\alpha$、$\beta$之和超过了$\pi$，那么考虑第三个面角$\gamma$的最大能达到多少，容易知道，它的最大值不是$\alpha+\beta$，而是$2\pi-(\alpha+\beta)$，也就是
+  \[ |\alpha-\beta| \leqslant \gamma \leqslant \min\{\alpha+\beta,2\pi-(\alpha+\beta)\} \]
+  此不等式的两端都受限于$[0,\pi]$，所以
+  \[ \cos{(\alpha-\beta)} \geqslant \cos{\gamma} \geqslant \cos{(\alpha+\beta)} \]
+即
+\[ |\cos{\gamma}-\cos{\alpha}\cos{\beta}| \leqslant |\sin{\alpha}\sin{\beta}| \]
+于是结论成立.
+\end{example}
+
 \begin{example}[根据经纬度计算地球上两点间的(球面)距离]
   在这个例子中，我们要研究的是，已知地球上两点的经纬度坐标，如果计算出这两点间的球面距离。
+
+  \begin{figure}[htbp]
+\centering
+\includegraphics{content/plane-geometry/pic/distance-on-ball-accord-longitude-latitude.pdf}
+\caption{地球上两点间的球面距离}
+\label{fig:distance-on-ball-accord-longitude-latitude}
+\end{figure}
+
+如 \autoref{fig:distance-on-ball-accord-longitude-latitude}，球面上有两点 $A(u_1, v_1)$ 和 $B(u_2,v_2)$，$u$和$v$分别表示经度和纬度，现在想知道如何根据这两点的经纬度以及地球半径$R$计算两点间的球面距离.
+
+根据弧长公式，这只需要计算出这两点对地心的张角便可。作出通过$A$和$B$两点的经线和通过$B$的纬线，再取北极点$N$，那么由射线$OA$、$OB$、$ON$便构成一个三面角，$A$、$B$两点对地心的张角$\angle AOB$正是这三面角的面角之一，而面角$\angle AON$和$\angle BON$正好是$A$、$B$两点纬度角的余角，即
+\[ \angle AON = \frac{\pi}{2}-v_1, \angle BON = \frac{\pi}{2}-v_2 \]
+根据三面角余弦公式，只要再知道二面角$A-ON-B$，就能得出$\angle AOB$，而二面角$A-ON-B$正好是$A、B$两点的经度差，于是
+\[ \cos{AOB} = \cos{\left(\frac{\pi}{2}-v_1\right)}\cos{\left(\frac{\pi}{2}-v_2\right)}+\sin{\left( \frac{\pi}{2}-v_1 \right)}\sin{\left(\frac{\pi}{2}-v_2\right)}\cos{u_1-u_2} \]
+所以最终$A$、$B$两点间的球面距离是
+\[ d_{AB} = R\arccos(\sin{v_1}\sin{v_2}+\cos{v_1}\cos{v_2}\cos{(u_1-u_2)}) \]
 \end{example}
 
 \subsection{三面角的正弦定理}
