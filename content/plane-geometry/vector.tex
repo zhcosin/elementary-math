@@ -551,6 +551,19 @@
 \[ (x_1x_2+y_1y_2+z_1z_2)^2 \leqslant (x_1^2+y_1^2+z_1^2)(x_2^2+y_2^2+z_2^2) \]
 这两个不等式分别就是柯西不等式的二元情形和三元情形，柯西不等式的详细介绍见\autoref{sec:cauchy-schwarz-inequation}.
 
+\begin{example}[用内积表达向量分解系数]
+  前面已经讲过，若 $\bm \alpha$、$\bm \beta$ 为不共线之二向量，则任意与它们共面的向量 $\bm \gamma $ 有唯一分解式 $\bm \gamma = \lambda \bm \alpha + \mu \bm \beta$，在这里我们用内积来表达这两个系数$\lambda$和$\mu$.
+
+  分别将等式 $\bm \gamma = \lambda \bm \alpha + \mu \bm \beta$ 两边与 $\bm \alpha$ 、$\bm \beta$ 作内积就得到关于 $\lambda$ 和$\mu$的方程组
+\begin{eqnarray*}
+  \bm \alpha \bm \gamma  & = & \lambda \bm \alpha^2 + \mu \bm \alpha \bm \beta \\
+  \bm \beta \bm \gamma  & = & \lambda \bm \alpha \bm \beta + \mu \bm \beta^2 
+\end{eqnarray*}
+于是
+\[ \lambda = \frac{(\bm \alpha \bm \gamma)\bm\beta^{2}-(\bm \alpha \bm \beta)(\bm \beta \bm \gamma)}{\bm \alpha^2 \bm \beta^2-(\bm \alpha \bm \beta)^2},
+  \mu = \frac{(\bm \beta \bm \gamma)\bm \alpha^2-(\bm \alpha \bm \beta)(\bm \alpha \bm \gamma)}{\bm \alpha^2 \bm \beta^2-(\bm \alpha \bm \beta)^2} \]
+\end{example}
+
 \begin{example}[平行四边形的一个性质、三角形中线长公式]
   根据向量内积的交换律和分配律，可知有如下恒等式
   \[ (\bm{a}+\bm{b})^2 + (\bm{a}-\bm{b})^2 = 2(\bm{a}^2+\bm{b}^2) \]
