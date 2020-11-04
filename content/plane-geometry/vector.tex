@@ -634,6 +634,47 @@
   \[ (\bm a \times \bm b) \times \bm c + (\bm b \times \bm c) \times \bm a + (\bm c \times \bm a) \times \bm b = \bm 0 \]
 \end{theorem}
 
+现在来讨论外积的坐标表达，三维空间标准坐标系三个坐标轴方向上的单位向量分别记为$\bm i$、$\bm j$、$\bm k$，，则有
+\[ \bm i \times \bm i = \bm j \times \bm j = \bm k \times \bm k = \bm 0  \]
+以及
+\[ \bm i \times \bm j = \bm k, \bm j \times \bm k = \bm i, \bm k \times \bm i = \bm j \]
+设
+\[ \bm a = x_1 \bm i + y_1 \bm j + z_1 \bm k, \bm b = x_2 \bm i + y_2 \bm j + z_2 \bm k \]
+利用分配律可得
+\begin{eqnarray*}
+  \bm a \times \bm b & = & (x_1 \bm i + y_1 \bm j + z_1 \bm k) \times (x_2 \bm i + y_2 \bm j + z_2 \bm k) \\
+  & = & (y_1z_2-y_2z_1) \bm i + (z_1x_2-z_2x_1) \bm j + (x_1y_2-x_2y_1) \bm k
+\end{eqnarray*}
+
+利用行列式符号，可以写成
+\[ \bm a \times \bm b =
+  \begin{vmatrix}
+    y_1 & z_1 \\
+    y_2 & z_2
+  \end{vmatrix}
+  \bm i +
+  \begin{vmatrix}
+    z_1 & x_1 \\
+    z_2 & x_2
+  \end{vmatrix}
+  \bm j +
+  \begin{vmatrix}
+    x_1 & y_1 \\
+    x_2 & y_2
+  \end{vmatrix}
+  \bm k
+\]
+
+或者在形式上写成
+\[ \bm a \times \bm b =
+  \begin{vmatrix}
+    \bm i & \bm j & \bm k \\
+    x_1 & y_1 & z_1 \\
+    x_2 & y_2 & z_2
+  \end{vmatrix}
+\]
+此即所要的结果.
+
 
 \begin{example}
   \label{example:outer-product-coefficient-pa-pb-pc}
