@@ -588,7 +588,7 @@
   两个向量$\bm{a}$和$\bm{b}$的外积仍然是一个向量，用$\bm{a}\times\bm{b}$表示，它的大小是$|\bm{a}||\bm{b}|\sin{\theta}$，其中$\theta$是两个向量的夹角，而它的方向是这样定义的，如果$\bm{a}$与$\bm{b}$不共线，则$\bm{a}\times\bm{b}$同时垂直于$\bm{a}$和$\bm{b}$，并且按右手定则，握住右手，并让四个小手指沿从$\bm{a}$按两个向量的夹角旋转到$\bm{b}$的方向，此时大姆指所指的方向便是$\bm{a}\times\bm{b}$的方向。当$\bm{a}$与$\bm{b}$共线时，由于$\bm{a}\times\bm{b}$的大小为零，所以此时的外积为零向量。
 \end{definition}
 
-由定义，零向量与任何向量之外积皆为零向量，且若两个向量共线，则它们的外积亦是零向量。而且，对于三角形$ABC$，有$S_{\triangle ABC} = \dfrac{1}{2}|\vv{AB}|\times|\vv{AC}|$，这是向量外积的一个几何意义（仅限于其大小，在许多情况下，通常用它的方向作为有向面积的符号依据）。
+由定义，零向量与任何向量之外积皆为零向量，且若两个向量共线，则它们的外积亦是零向量。向量外积的几何意义是以两个向量为边的平行四边形的面积（仅限于其大小，在许多情况下，通常用它的方向作为有向面积方向或者代数面积的符号）。
 
 向量的外积与原来两个向量同时垂直，这意味着它实际上成为原来两个向量所共平面的法向量。
 
@@ -623,6 +623,13 @@
 \end{theorem}
 
 由此定理可知向量外积不满足结合律，因为$(\bm{a}\times\bm{b})\times\bm{c}$与向量$\bm{a}$、$\bm{b}$共面，而向量$\bm{a}\times(\bm{b}\times\bm{c})$与$\bm{b}$、$\bm{c}$共面，一般情况下两者并不相等。
+
+由此立即可得
+\begin{theorem}
+  \label{theorem:rotation-sum-of-three-vector-outer-product}
+  对于任意三个向量 $\bm a$、$\bm b$、$\bm c$，有
+  \[ (\bm a \times \bm b) \times \bm c + (\bm b \times \bm c) \times \bm a + (\bm c \times \bm a) \times \bm b = \bm 0 \]
+\end{theorem}
 
 
 \begin{example}
@@ -678,6 +685,11 @@
   \[ S_{\triangle PBC} \vv{PA} + S_{\triangle PCA} \vv{PB} + S_{\triangle PAB} \vv{PC} = \bm{0} \]
   但式中的$S$均是代数面积，即其绝对值是对应三角形的面积，但其符号由外积向量的方向决定，特别情况是，当点$P$位于三角形$ABC$内时，这三个外积向量同向，于是这里的三个面积就是同号的，从而可以都取为正值。
 \end{example}
+
+\subsection{混合积}
+\label{sec:mixture-product-of-vector}
+
+
 
 \subsection{题选}
 \label{sec:题选}
