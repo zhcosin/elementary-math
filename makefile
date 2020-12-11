@@ -11,6 +11,7 @@ TEMPFILECLASS=\
 *.lof \
 *.toc \
 *.lot \
+*.out \
 
 LATEXCMD=xelatex
 
