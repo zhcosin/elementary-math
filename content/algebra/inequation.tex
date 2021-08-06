@@ -119,7 +119,7 @@
 
 \begin{example}[Nesbitt不等式\footnote{来自于参考文献\cite{the-secret-of-inequality}。}]
   \label{example:nesbitt-inequality-proof-by-sorted-inequality}
-  对于任意三个非负实数$a,b,c$，有下面不等式成立
+  对于任意三个正实数$a,b,c$，有下面不等式成立
   \begin{equation}
     \label{eq:nesbitt-inequality}
     \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \geqslant \frac{3}{2}
@@ -208,11 +208,22 @@
 
 \begin{example}
   \label{example:nesbitt-inequality-proof-by-am-gm-inequality}
-  我们在\autoref{example:nesbitt-inequality-proof-by-sorted-inequality}中已经证过Nesbitt不等式，那时利用的是排序不等式，现在我们用均值不等式加以证明，由AM-GM不等式得
+  我们在\autoref{example:nesbitt-inequality-proof-by-sorted-inequality}中已经证过Nesbitt不等式，那时利用的是排序不等式，现在我们用均值不等式加以证明，再叙述一下 Nesbitt 不等式: 设 $a$、$b$、$c$ 均为正数，证明有以下不等式成立:
+  \[ \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \geqslant \frac{3}{2} \]
+  由AM-GM不等式得
   \[ \frac{a+b}{b+c}+\frac{b+c}{c+a}+\frac{c+a}{a+b} \geqslant 3 \]
 以及
 \[ \frac{a+c}{b+c}+\frac{b+a}{c+a}+\frac{c+b}{a+b} \geqslant 3 \]
 两式相加即得证。
+
+此处再提供一个证明方法，作代换 $x=a+b$, $y=b+c$, $z=c+a$， 有
+\begin{eqnarray*}
+  & & \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \\
+  & = & \frac{z+x-y}{2y} + \frac{x+y-z}{2z} + \frac{y+z-x}{2x} \\
+  & = & \frac{z+x}{2y} + \frac{x+y}{2z} + \frac{y+z}{2x} - \frac{3}{2} \\
+  & \geqslant & \frac{\sqrt{zx}}{y} + \frac{\sqrt{xy}}{z} + \frac{\sqrt{yz}}{x} - \frac{3}{2} \\
+  & \geqslant & 3-\frac{3}{2} = \frac{3}{2}
+\end{eqnarray*}
 \end{example}
 
 \begin{example}
