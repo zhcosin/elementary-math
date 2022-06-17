@@ -1,6 +1,6 @@
 #+TITLE: 初等数学学习笔记
 
-这个文档工程是我学习初等数学的笔记，全文使用 =LaTeX= 进行排版， =PDF= 文档可前往 [[https://coding.net/u/zhcosin/p/math-notes-publish/git/blob/master/elementary-math-note.pdf]] 下载，并且会在这个页面不定期更新(落后于本工程中的源文件更新)。
+这个文档工程是我学习初等数学的笔记，全文使用 =LaTeX= 进行排版， =PDF= 文档可前往 [[https://gitee.com/zhcosin/math-notes-publish/blob/master/elementary-math-note.pdf]] 下载，并且会在这个页面不定期更新(落后于本工程中的源文件更新)。
 
 这份笔记包含了代数、几何、数论等方面内容，并按章节划分为初等数论、函数与方程、数列、不等式、组合与概率、平面几何、解析几何、立体几何等，笔记中所使用的材料绝大部分来自于参考文献中所列出的那些书籍，它们也是我最近几年所读过的书籍（没有哪一本是读完过的）。
 
